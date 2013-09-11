@@ -2,27 +2,45 @@
 <!doctype html>
 <head>
   <meta charset="utf-8">
-  <title>Ross Chapman. Since 1982. Ditka.</title>
-  <meta name="description" content="">
+  <title>The website of Ross Chapman</title>
+  <meta name="description" content="Web Developer seeking employment in the San Francisco Bay Area">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="all" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+	
+
 </head>
 
 <body>
-  <div id="container">
-    <header>
-      <h1>Ross Chapman is a front-end developer & designer living in San Francisco & currently looking for a great place to work.</h1>
-    </header>
-      <article id="next">
-        <iframe width="383" height="315" src="http://www.youtube.com/embed/h-LbvFckptY" frameborder="0" allowfullscreen></iframe>
-        <p>This site is 100% responsive.  I'm currently redoing this site, but for the last 3 years I've been writing code for <a href="http://www.zendesk.com">www.zendesk.com</a>.  Otherwise please contact me at the inter-places below.</p>
-      </article>
-    <footer>
-      <a href="//twitter.com/rossdotbiz">twitter</a> <a href="//facebook.com/rossupinyourface">facebook</a> <a href="https://gist.github.com/rosschapman">github</a> <a href="//dribbble.com/ohshitrossishere">dribbble</a>
-    </footer>
-  </div> <!--! end of #container -->
-
+  <div class="container">
+		<div class="header">
+			<img class="gravatar" src="" width="70" height="70"/>
+			<h1>It's Ross!</h1>
+		</div>
+		
+		<div class="content">
+			<p class="first">Big news everyone. I'm currently job seeking.  For the past 4 years I've been  webmaster, designer, developer, and marketer at <a href="http://www.zendesk.com">Zendesk</a> supporting their corporate website, but now it's on to the next one.</p>  
+			<p>I've got web development skills on the front end: <strong>JavaScript</strong>, <strong>SASS</strong>, and <strong>WordPress</strong> theme development.</p>
+			<p>And back end: <strong>PHP</strong>, <strong>Node.js</strong>, <strong>WordPress</strong> plugin development.</p>  
+			<p>I've interfaced with different business-critical APIs: <strong>Zendesk</strong>, <strong>Marketo</strong>, <strong>Pardot</strong>, and <strong>Google Data</strong>.</p>
+			<p>There's so much more I want to show and tell but while I gather my laurels you can check me out at other popular internet destinations:</p>
+			<a href="//twitter.com/internetross">twitter</a> 
+			<a href="https://gist.github.com/rosschapman">github</a> 
+			<a href="//dribbble.com/internetross">dribbble</a>
+		</div> <!--! end of .content -->
+	</div> <!--! end of .container -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<script src="jquery.md5.js"></script>
+	<script>
+		
+		var img = $('.gravatar');
+		var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+		var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
+		
+		img.attr('src',gravatar);
+		
+	</script>
 </body>
 </html>

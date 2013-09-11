@@ -1,0 +1,74 @@
+/**
+* Hey homes.  Not too much special going on here.  Still working on the site and hope to show off my skills in a
+* multitude of ways soon.  Oh, if you haven't seen this twerk fail video, you must.  Please don't blame me for lost 
+* productivity: http://www.youtube.com/watch?v=CddMD3QqTFs
+*
+* Contact me: rosschapman@gmail.com or @internetross
+*/
+
+
+body {
+	background: #fefefe;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container {
+	width: 75%;
+	max-width: 700px;
+	margin: 5% auto;
+}
+
+.header {
+	overflow:hidden;
+	margin-bottom:40px;
+}
+
+.gravatar {
+	border-radius: 50px;
+	position:absolute;
+}
+
+@media (max-width: 480px) {
+	.gravatar {
+		position:inherit;
+	}
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 49px;
+	max-width: 690px;
+	margin: 0;
+	line-height: 1;
+	margin-left: 85px;
+	margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+	h1 {
+		margin-top:20px;
+		font-size: 35px;
+	}
+}
+
+.content {
+	clear:both;
+}
+
+p {
+	line-height: 31px;
+	font-weight: 300;
+	font-size: 20px;
+	margin: 0 0 15px 0;
+}
+
+p.first {
+	margin-top:0;
+}
+
+@media (max-width: 480px) {
+	p {
+		font-size: 18px;
+		line-height: 25px;
+	}
+}
