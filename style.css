@@ -42,6 +42,7 @@ body {
 	float:left;
 	width: 200px;
 	margin-bottom:30px;
+	margin-right:35px;
 }
 
 @media (max-width: 568px) { 
@@ -92,7 +93,6 @@ p.header-copy {
 .content {
 	float:left;
 	max-width: 64%;
-	margin-left:35px;
 }
 
 @media (max-width: 568px) {
