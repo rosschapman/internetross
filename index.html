@@ -13,6 +13,7 @@
 </head>
 
 <body>
+	<div class="jay-z"></div>
   <div class="container">
 		<div class="header">
 			<img class="gravatar" src="" width="70" height="70"/>
@@ -35,16 +36,34 @@
 			</p>
 		</div> <!--! end of .content -->
 	</div> <!--! end of .container -->
+	<div class="photo"></div>
+	<div class="js-jay-z">jay-z mode</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 	<script src="jquery.md5.js"></script>
 	<script>
 		
+		/** It's easy to get your gravatar! **/
 		var img = $('.gravatar');
 		var hash = $.md5('rosschapman@gmail.com').toLowerCase();
 		var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
 		
 		img.attr('src',gravatar);
+		
+		/** Reasonable Doubt **/
+		
+		var jay = $('.jay-z');
+		$('.js-jay-z').click(function(){
+			console.log(jay.css('opacity') == '1');
+			if ( jay.css('opacity') == '1' ) {
+				jay.css('opacity','0');
+				$(this).text('jay-z mode');
+			} else {
+				$(this).text('ross mode');
+				jay.css('opacity','1')
+			}
+		});
+		
 		
 	</script>
 	<script>
