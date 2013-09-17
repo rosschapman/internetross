@@ -17,31 +17,19 @@
   <div class="container">
 		<div class="header">
 			<img class="gravatar" src="" width="70" height="70"/>
-			<p class="header-copy">I'm <strong>Ross Chapman</strong>. A web developer and designer based in San Francisco's Mission district.</p> 
+			<p class="header-copy">I'm <strong>Ross Chapman</strong>. A web developer and UX designer based in San Francisco's Mission district.</p> 
 			<p class="header-copy">Over the last 5 years I've helped companies grow their business online with clean code and a deep understanding of web technology and design.  Get in touch to learn more about how I can help you: <strong>rosschapman@gmail.com</strong> </p>
 		</div>
 		
-		<div class="content">
-			<p class="meta">Notes: 07.11.13</p>
-			<p class="first">Big news everyone. I'm currently job seeking.  For the past 3.6 years I've been  webmaster (literally my original job title), designer, developer, and marketer at <a href="http://www.zendesk.com">Zendesk</a> supporting their corporate website, but now it's on to the next one.</p>  
-			<p>I've got web development skills on the front end: <strong>JavaScript</strong>, <strong>SASS</strong>, <strong>Responsive</strong>, and <strong>WordPress</strong> theme development.</p>
-			<p>And back end: <strong>PHP</strong>, <strong>Node.js</strong>, and <strong>WordPress</strong> plugin development.</p>  
-			<p>I've written code that talks to business-cool APIs: <strong>Zendesk</strong>, <strong>Marketo</strong>, <strong>Pardot</strong>, and <strong>Google Data</strong>.</p>
-			<p>I've worked on funnel optimization using <strong>A/B</strong> tests and dynamically-served content.</strong></p>
-			<p>There's so much more I want to show and tell but while I gather my laurels you can check me out at other popular internet destinations:</p>
-			<p>
-				<a href="http://www.linkedin.com/in/rosschapman">LinkedIn</a>,
-				<a href="//twitter.com/internetross">Twitter</a>, 
-				<a href="https://gist.github.com/rosschapman">Github</a>, 
-				<a href="//dribbble.com/internetross">Dribbble</a>
-			</p>
+		<div class="posts">
 		</div> <!--! end of .content -->
 	</div> <!--! end of .container -->
 	<div class="photo"></div>
-	<div class="js-jay-z">jay-z mode</div>
+	<div class="js-jay-z btn btn-default btn-sm">jay-z mode</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 	<script src="jquery.md5.js"></script>
+	<script src="jquery.timeago.js"></script>
 	<script>
 		
 		/** It's easy to get your gravatar! **/
@@ -63,6 +51,51 @@
 				$(this).text('ross mode');
 				jay.css('opacity','1')
 			}
+		});
+		
+		// Dom ready
+		$(function(){
+			
+			$.ajax({
+				type: "GET",
+				url: "http://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/posts",
+				dataType: "jsonp"
+			})
+			  .done(function( res ) {
+			    
+				console.log(res);
+			
+				$.each(res.posts, function(){
+					
+					var url = res.posts[0].URL;
+					var title = res.posts[0].title;
+					var content = res.posts[0].content;
+					var image = res.posts[0].featured_image;
+					var date = res.posts[0].date;
+					
+					date = $.timeago(date);
+					var wordCount = $(content).text().length;
+					
+					var html = 	'<div class="post" style="display:none;">' + 
+								'<ol class="post-meta list-group glyphicon glyphicon-barcode">' +
+									'<li class="list-group-item">Since <strong>'+ date +'</strong></li>' +
+									'<li class="list-group-item"><strong>'+ wordCount +'</strong> words</li>' +
+								'</ol>' +
+								'<h1 class="post-title">'+ title +'</h1>' +
+								'<img class="post-image img-responsive" src="'+ image +'" height="300"/>' +
+								'<div class="post-content">'+ content +'</div>' +
+								'</div>'
+						;
+					// Append post
+					$('.posts').append(html);
+					
+					// Fade-in post every so gracefully
+					$('.post:first').fadeIn(500);
+				})
+				
+				
+			  });
+			
 		});
 		
 		
