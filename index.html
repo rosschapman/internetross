@@ -112,6 +112,15 @@
 									var image = res.featured_image;
 									var date = res.date;
 									var tags = res.tags;
+									
+									var find1 = 'w=';
+									var re1 = new RegExp(find1, 'g');
+									
+									var find2 = 'h=';
+									var re2 = new RegExp(find2, 'g');
+									
+									content = content.replace(re1, '');
+									content = content.replace(re2, '');
 
 									var tagsArr = [];
 
