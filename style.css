@@ -201,3 +201,6 @@ pre {
 		font-size: 12px;
 	}
 }
+.post-content code {
+	font-size: 70%;
+}
