@@ -108,6 +108,12 @@ body {
 		padding: 10%;
 	}
 }
+.post-list-item {
+	font-size: 30px;
+	font-weight:300;
+	color:#888;
+}
+	
 .post {
 	padding-bottom: 20px;
 	margin-bottom: 40px;
@@ -152,6 +158,9 @@ p.first {
 	font-weight: normal;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	margin-bottom: 10px;
+}
+.post-content img {
+	margin: 20px 0;
 }
 
 @media (max-width: 568px) {
