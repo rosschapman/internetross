@@ -1,0 +1,120 @@
+<html>
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>The website of Ross Chapman</title>
+	<meta name="description" content="Web Developer seeking employment in the San Francisco Bay Area">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+	<style>
+		
+		/** 
+		* Custom stylz for Ripple 
+		* 
+		* Quickly cobbled together from other parts of this site
+
+               ,,                                                               
+             :;;;;:                                             ,++'            
+            :;;;;;;;              ;++                           ,++;            
+            ;;;;;;;;              +++                           ,++;            
+           .;;;;;;;;:             ;++                           ,++;            
+           ,;;;;;;;;:                                           ,++;            
+            ;;;;;;;;.     ``` :'. ```  ```  :':     ``` .;;.    ,++;     :':    
+   ;;;;     ;;;;;;;;     .++'+++; +++  +++++++++;   +++++++++`  ,++;   +++++++  
+  ;;;;;;.   .:;;;;;      .++++++; +++  ++++++++++;  ++++++++++  ,++;  ++++++++' 
+ ;;;;;;;;   :::;;.       .++++.`: +++  ++++:  ++++  ++++. .++++ ,++; '++;   +++ 
+ ;;;;;;;;;::::`          .+++     +++  +++:    +++. +++     +++ ,++; +++````:++,
+.;;;;;;;;;;;::           .+++     +++  +++     ;++: +++     +++ ,++; ++++++++++;
+`;;;;;;;;;;;;;.          .+++     +++  +++     '++: +++     +++ ,++; ++++++++++;
+ ;;;;;;;;`  ;;;;;,       .+++     +++  +++'    +++` +++`   `+++ ,++; +++        
+ `;;;;;;:   `;;;;;;`     .+++     +++  +++++.:++++  ++++;.;+++' ,++; :+++  `++, 
+   ;;;;,    ;;;;;;;;     .+++     +++  ++++++++++.  ++++++++++  ,++;  +++++++++ 
+            ;;;;;;;;:    .+++     +++  +++,+++++.   +++++++++   ,++;   ;+++++'  
+            ;;;;;;;;;                  +++  `.`     +++  ..     ````     `.`    
+            ;;;;;;;;;                  +++          +++                         
+            ;;;;;;;;.                  +++          +++                         
+            .;;;;;;;                   +++          +++                         
+             ,;;;;;                    +++          +++                         
+               .,`                                                              
+		*/
+
+
+		.imgs {
+			float:right;
+			margin-left: 40px;
+			font-size: 80%;
+		}
+		.post-image {
+			margin:0;
+			padding:0;
+		}
+		.post-image:last-child{
+			margin-bottom:5px;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		h3 {
+			display:block;
+			margin-top: 40px;
+		}
+		.link {
+			display:block;
+			margin-bottom:10px;
+		}
+		li {
+			list-style:none;
+			margin:0;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="imgs">
+			<img class="post-image img-responsive" src="/ripple/meandzendesk4.jpg" height="300" width="300" />
+			<img class="post-image img-responsive" src="/ripple/meandzendesk3.jpg" height="300" width="300" />
+			<img class="post-image img-responsive" src="/ripple/meandzendesk2.jpg" height="300" width="300" />
+			<img class="post-image img-responsive" src="/ripple/meandzendesk.jpg" height="300" width="300" />
+			<img class="post-image img-responsive" src="/ripple/meandzendesk5.jpg" height="300" width="300" />
+			<img class="post-image img-responsive" src="/ripple/meandzendesk6.jpg" height="300" width="300" />
+			( Zendesk and me.  2010 - 2013. )
+		</div>
+
+		<h1>Hi Ripple. Here's some example work from my time at Zendesk.</h1>
+
+		<h3>Benchmark Page</h3>
+		<a class="link" href="http://www.zendesk.com/benchmark-your-support">zendesk.com/benchmark-your-support</a>
+		<p>After being handed a flat file from Creative, I spruced up the live page with an onload animation to "rev-up" the user, as well as Vegas-ify the Benchmark data table with a slot-machine effect.  The data from this page is retrieved by an AJAX call using the Google Data API which fetches data from a Google Spreadsheet - not the best data-store but a solution at the time because that's where the Product data team put it.  Also, it's subtle, but the Global Benchmark numbers are dynamic data so the numerals are actually loaded from a sprite. </p>
+
+		<h3>Internationalization</h3>
+		<li><a href="http://ja.zendesk.com/">ja.zendesk.com</a></li>
+		<li><a href="http://de.zendesk.com/">de.zendesk.com</a></li>
+		<li><a class="link" href="http://fr.zendesk.com">fr.zendesk.com</a></li>
+		<p>You'll notice design/UI parity on most landing pages across our English site and localized sites.  This is made possible by leveraging native WordPress frameworks and APIs like multi-site network, child themes, and the GNU gettext utilities baked into WordPress core. By abstracting our translation files form our templates we were able to roll out new landing pages to our localized sites rapidly and even train less technical team members to make translation edits.</p>
+
+		<h3>Sitewide Search</h3>
+		<a class="link" href="http://www.zendesk.com">zendesk.com</a>
+		<p>In an effor to provide the user with a simpler way to get information quickly about our product, I redesigned and developed our sitewide search to be unobtrusively accessible from the top navigation.  It can also be toggled by typing the "s" key.  I added autocomplete which does regex matching with a jQuery plugin from a common index of terms researched from historical searches reported in Google Analytics.  Results are retrieved from an AJAX call to the Google Search Engine API on submit.</p>
+
+		<h3>Apps</h3>
+		<a href="zendesk.com/apps">zendesk.com/apps</a>
+		<p>Creative was swamped so I designed the entire UI for the single app pages - click "Learn More" on any tile to view.  Underneath the hood there is actually a custom template routing plugin I wrote in PHP that dynamically builds the page based on the URI request - these pages are not stored in the MySQL database because the data comes from the Zendesk product!  Data is actually stored in a JSON file that we update periodically with a Grunt.js task during development.</p>
+
+		<h3>BONUS: CSS/JS Minification and Cache Busting (under the hood)</h3>
+		<p>In the source code you'll notice hashes and a ".min" suffix on our externally-loaded CSS and JavaScript files.  I implemented a set of Grunt.js tasks to minify and hash files, and then make replacements throughout our WordPress templates.</p>
+		<div class="btn btn-primary btn-sm">back to top</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>
+
+
+
+		$('.btn').click(function(){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+		});
+	</script>
+</body>
+</html>
