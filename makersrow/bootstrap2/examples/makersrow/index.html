@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Note there is no responsive meta tag here -->
+
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Maker's Row Example UI Patterns</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../docs-assets/js/html5shiv.js"></script>
+      <script src="../../docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    	body {
+    		background: #efefef;
+    	}
+    	
+    	.page-header {
+    		position:relative;
+    	}
+    	.group {
+    		float:left;
+    		margin-right: 40px;
+    	}
+        .input-group-btn:last-child > .btn {
+            margin-left: -1px;
+            padding: 8px 24px 10px 10px;
+            margin-top: -2px;
+        }
+      .checkbox {
+        margin-left: 10px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+ 	
+
+    <div class="container">
+
+      <div class="page-header">
+      	<h2>Search over 5000 domestic factories</h2>
+      	 <div class="input-group">
+      <input type="text" class="form-control" value="What do you want to make?">
+      <span class="input-group-btn">
+        <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+      </span>
+    </div><!-- /input-group -->
+      </div>
+
+      <div class="group">
+
+      <h4>Industry</h4>
+      <button type="button" class="btn btn-primary btn-lg">Apparel / Accessories</button>
+      <button type="button" class="btn btn-primary btn-lg disabled">Furniture</button>
+
+  		</div>
+
+  	<div class="group">
+      <h4>Industry</h4>
+     <div class="btn-group">
+	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	    Choose <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Apparel / Accessories</a></li>
+        <li><a href="#">Furnishing <span class="badge">new</span></a></li>
+	  </ul>
+	</div>
+    </div>
+
+    <div class="group">
+    <h4>Sort by</h4>
+     <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      Choose <span class="caret"></span>
+    </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Relevancy
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Most Viewed
+          </label>
+        </div>
+          
+        </ul>
+    </div>
+   
+</div>
+</div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../docs-assets/js/jquery.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../js/dropdown.js"></script>
+
+    <script>
+        $('.dropdown-toggle').dropdown();
+    </script>
+  </body>
+</html>
