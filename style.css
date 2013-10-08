@@ -5009,21 +5009,26 @@ body {
       height: auto; } }
   .menu img {
     margin-left: 20px; }
-  .menu li {
+  .menu div {
+    padding: 20px 0 5px 20px;
+    color: #4d4d4d; }
+  .menu ul {
+    margin: 0;
+    padding: 0; }
+  .menu .menu-item {
     list-style: none;
     padding: 0;
     margin: 0; }
-    .menu li a, .menu li a:focus {
+    .menu .menu-item a, .menu .menu-item a:focus {
       display: block;
-      padding: 20px;
+      padding: 15px 20px;
       color: #eee;
       font-size: 17px;
       font-weight: 300;
       width: 100%;
-      border-bottom: 1px solid #3A3A3A;
       outline: none;
       text-decoration: none; }
-      .menu li a:hover, .menu li a:focus:hover {
+      .menu .menu-item a:hover, .menu .menu-item a:focus:hover {
         text-decoration: none;
         background: #1f1f1f; }
 

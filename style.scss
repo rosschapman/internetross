@@ -92,20 +92,28 @@ body {
 	img {
 		margin-left:20px;
 	}
-	
-	li {
+
+	div {
+		padding: 20px 0 5px 20px;
+		color: rgb(77, 77, 77);
+	}
+	ul {
+		margin:0;
+		padding:0;
+	}
+	.menu-item {
 		list-style:none;
 		padding:0;
 		margin: 0;
 
 		a, a:focus {
 			display:block;
-			padding: 20px;
+			padding: 15px 20px;
 			color: #eee;
 			font-size: 17px;
 			font-weight: 300;
 			width: 100%;
-			border-bottom: 1px solid #3A3A3A;
+			//border-bottom: 1px solid #3A3A3A;
 			outline:none;
 			text-decoration: none;
 			
@@ -114,6 +122,9 @@ body {
 				background: rgb(31, 31, 31);
 			}
 		}
+	}
+	.menu-item:first-child {
+		//border-top: 1px solid #3a3a3a;
 	}
 }
 

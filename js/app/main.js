@@ -143,7 +143,6 @@ ohShit.PostView = Backbone.View.extend({
 
     initialize: function(options){
         this.render();
-
     },
     render: function() {
         this.$el.html( this.template( this.model.toJSON() ) );
@@ -154,16 +153,12 @@ ohShit.PostView = Backbone.View.extend({
 });
 
 ohShit.PostsMenuView = Backbone.View.extend({
-    el: '.menu',
+    el: '.menu-list',
     tagName: 'li',
-    className: 'menu-item',
     template: _.template( $( '#postsMenuTemplate' ).html() ),
 
     initialize: function(){
-        //console.log('blast off');
-
         this.render();
-
     },
     render: function() {
 
@@ -171,23 +166,18 @@ ohShit.PostsMenuView = Backbone.View.extend({
         
         var self = this;
 
-        //this.$el.find('.gravatar').addClass('loading');
         posts.fetch({ 
             reset: true,
             success: function(posts) {
-                
+                $( '#postsMenuTemplate' ).remove();
                 posts.each(function( item ) {
-                    self.renderItem( item );
+                    self.$el.append( self.template( item.toJSON() ) );
                 });
             } 
         });
 
         return this;
 
-    },
-    renderItem: function( item ){
-
-        this.$el.append( this.template( item.toJSON() ) );
     }
 });
 

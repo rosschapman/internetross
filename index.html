@@ -14,25 +14,28 @@
 
 <body>
   <div class="container">
-		<div class="menu">
-			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
-			<ul>
-				<script id="postsMenuTemplate" type="text/template">
+  		<div class="menu">
+  			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
+  			<div>From the annals:</div>
+  			<ul class="menu-list">
+				<script id="postsMenuTemplate" type="text/template">	
 					<li class="menu-item"><a href="#blog/<%= slug %>"><%= title %></a></li>
-	        	</script>
+				</script>
 			</ul>
 		</div>
+		
+		
 		<div class="main">
 			<script id="indexTemplate" type="text/template">
-					<div class="index">
-						<div class="index-content"><%= content %></div>
-						 <% _.each( icons, function( icon ){
-						 		_.each( icon, function( url, company ){ %>
-						 				<a class="<%= company %>" href="<%= url %>"><%= company %></a>
-						 		<% });
-						 	}); 
-						 %>
-					</div>
+				<div class="index">
+					<div class="index-content"><%= content %></div>
+					 <% _.each( icons, function( icon ){
+					 		_.each( icon, function( url, company ){ %>
+					 				<a class="<%= company %>" href="<%= url %>"><%= company %></a>
+					 		<% });
+					 	}); 
+					 %>
+				</div>
 			</script>
 			<script id="postTemplate" type="text/template">
 					<div id="post-<%= ID %>" class="post">
