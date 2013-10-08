@@ -14,26 +14,53 @@
 
 <body>
   <div class="container">
-		<div class="header">
+		<div class="menu">
 			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
-			<p class="header-copy">I'm <strong>Ross Chapman</strong>. A web developer and UX designer based in San Francisco's Mission district.</p> 
-			<p class="header-copy">Over the last 5 years I've helped companies grow their business online with clean code and a deep understanding of web technology and design.  Get in touch to learn more about how I can help you: <strong>rosschapman@gmail.com</strong> </p>
-			<p class="my-social header-copy">
-				<a href="http://www.linkedin.com/in/rosschapman">LinkedIn</a>, <a href="http://twitter.com/internetross">Twitter</a>, <a href="https://gist.github.com/rosschapman">Github</a>, <a href="http://dribbble.com/internetross">Dribbble</a>
-			</p>
-			<p class="header-copy">This website is a new work in progress fully designed in-browser. Please wear a helmet.</p>
+			<ul>
+				<script id="postsMenuTemplate" type="text/template">
+					<li class="menu-item"><a href="#blog/<%= slug %>"><%= title %></a></li>
+	        	</script>
+			</ul>
 		</div>
-		
-		<div class="posts">
+		<div class="main">
+			<script id="indexTemplate" type="text/template">
+					<div class="index">
+						<div class="index-content"><%= content %></div>
+						 <% _.each( icons, function( icon ){
+						 		_.each( icon, function( url, company ){ %>
+						 				<a class="<%= company %>" href="<%= url %>"><%= company %></a>
+						 		<% });
+						 	}); 
+						 %>
+					</div>
+			</script>
+			<script id="postTemplate" type="text/template">
+					<div id="post-<%= ID %>" class="post">
+						<div class="post-image img-responsive" style="background-image: url(<%= featured_image %>);"></div>
+						<div class="post-padding">
+							<h1 class="post-title"><a><%= title %></a></h1>
+							<div class="post-meta">Published <%= date %>. <%= wordCount %> words.</div>
+							<div class="post-content"><%= content %></div>
+							<div class="post-meta post-meta-end"><%= tags %></div>
+						</div>
+					</div>
+	        </script>
 		</div> <!--! end of .content -->
 	</div> <!--! end of .container -->
 
 	<div class="js-jay-z btn btn-default btn-sm">jay-z mode</div>
 	<div class="jay-z"></div>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-	<script src="jquery.md5.js"></script>
-	<script src="jquery.timeago.js"></script>
+  	
+  	<!-- JAVASCRIPT -->
+  	<script src="js/app/libs/jquery/jquery-min.js"></script>
+  	<script src="js/app/libs/underscore/underscore-min.js"></script>
+	<script src="js/app/libs/backbone/backbone-min.js"></script>
+
+	<script src="js/libs/jquery.md5.js"></script>
+	<script src="js/libs/jquery.timeago.js"></script>
+
+	<script src="js/app/main.js"></script>
+
 	<script>
 		
 		/** It's easy to get your gravatar! **/
@@ -56,102 +83,7 @@
 				jay.removeClass('off').addClass('on').css('opacity','1')
 			}
 		});
-		
-		// Dom ready
-		$(function(){
-			
-				// 
-				var params = {
-					order: "ASC"
-				}
-				
-				$.ajax({
-					type: "GET",
-					url: "http://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/posts",
-					data: params, 
-					dataType: "jsonp"
-				})
-				  .done(function( res ) {
 
-					console.log(res);
-					
-					var html;
-					
-					$.each(res.posts, function(i){
-						var ID = res.posts[i].ID;
-						var title = res.posts[i].title;
-						
-						// Markup
-						html =  '<h1 class="post-title" style="display:none"><a href="#" data-id="'+ ID +'">'+ title +'</a></h1>';
-						// Append post
-						$('.posts').prepend(html);
-						$('.post-title').fadeIn(300);
-						
-					});	// end each
-					$('.post-title a').click( function(){
-							
-							
-							var ID = $(this).attr('data-id');
-							
-							console.log(ID);
-							
-							if ( $('.posts').find('#pid-' + ID).length > 0 ) {
-								console.log('nope');
-							} else {
-
-								$.ajax({
-									type: "GET",
-									url: "https://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/posts/"+ ID +"",
-									dataType: "jsonp"
-								})
-								  .done(function( res ) {
-									//console.log(res);
-									var ID = res.ID;
-									var content = res.content;
-									var title = res.title;
-									var image = res.featured_image;
-									var date = res.date;
-									var tags = res.tags;
-									
-									var find1 = 'w=';
-									var re1 = new RegExp(find1, 'g');
-									
-									var find2 = 'h=';
-									var re2 = new RegExp(find2, 'g');
-									
-									content = content.replace(re1, '');
-									content = content.replace(re2, '');
-
-									var tagsArr = [];
-
-									$.each(tags, function(i, el){
-										tagsArr.push('#' + el.name);
-									});
-
-									tagsArr = tagsArr.join(", ");
-
-									date = $.timeago(date);
-									var wordCount = $(content).text().length;
-
-									html = '<div id="pid-'+ ID +'" class="post" style="display:none">' + 
-												'<img class="post-image img-responsive" src="'+ image +'" height="300"/>' +
-												'<h1 class="post-title"><a>'+ title +'</a></h1>' +
-												'<div class="post-meta">Published '+ date + '. ' + wordCount +' words.</div>' +
-												'<div class="post-content">'+ content +'</div>' +
-												'<div class="post-meta post-meta-end">'+ tagsArr +'</div>'
-											'</div>'
-											;
-
-									$('.posts').prepend(html);
-									$('.post').fadeIn(300);
-
-								});
-							}
-					});
-				  }); // end done
-				}); // end dom ready
-		
-		
 	</script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
