@@ -329,15 +329,16 @@ pre {
   		margin: 0 30px 0 0;
   		font-size: 45px;
   		font-weight: 600;
-		color: rgb(255, 0, 173);
+		color: white;
+		text-shadow: -1px 0 #ff00ad, 0 1px #ff00ad, 1px 0 #ff00ad, 0 -1px #ff00ad;
+		letter-spacing:2px;
 
   		@include respond-to(handhelds) {
   			font-size: 20px;
   		}
 
   		&:hover {
-  			color: white;
-  			
+  			color: rgb(255, 0, 173);
   			text-shadow:none;
   			text-decoration:none;
   		}

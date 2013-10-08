@@ -5204,12 +5204,14 @@ pre {
     margin: 0 30px 0 0;
     font-size: 45px;
     font-weight: 600;
-    color: #ff00ad; }
+    color: white;
+    text-shadow: -1px 0 #ff00ad, 0 1px #ff00ad, 1px 0 #ff00ad, 0 -1px #ff00ad;
+    letter-spacing: 2px; }
     @media only screen and (max-width: 568px) {
       .index a {
         font-size: 20px; } }
     .index a:hover {
-      color: white;
+      color: #ff00ad;
       text-shadow: none;
       text-decoration: none; }
 
