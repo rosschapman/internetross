@@ -97,9 +97,10 @@ body {
 		padding: 20px 0 5px 20px;
 		color: rgb(77, 77, 77);
 	}
-	ul {
+	.menu-list {
 		margin:0;
-		padding:0;
+		padding:0 0 20px;
+
 	}
 	.menu-item {
 		list-style:none;
@@ -116,6 +117,10 @@ body {
 			//border-bottom: 1px solid #3A3A3A;
 			outline:none;
 			text-decoration: none;
+
+			@include respond-to(handhelds) {
+				padding: 5px 5% 8px;
+		   	}
 			
 			&:hover {
 				text-decoration: none;
@@ -166,6 +171,11 @@ body {
 .post-padding {
 	padding: 20px 0 0 50px;
 	max-width: 75%;
+
+	@include respond-to(handhelds) {
+		padding: 0 10%;
+		max-width: 100%;
+   	}
 }
 .post-image {
 	height: 450px;
@@ -194,31 +204,43 @@ body {
 }
 .post-title a {
 	margin: 0;
-	font: 300 35px/1.15 'Source Sans Pro', sans-serif;
-	color: #888;
+	font: 300 35px/1.2 'Source Sans Pro', sans-serif;
+	color: #484848;
 	cursor:pointer;
+
+	@include respond-to(handhelds) {
+		font-weight: 400;
+		font-size: 25px;
+		line-height:30px;
+   	}
 }
 .post-title a:hover {
 	color: #484848;
 	text-decoration:none;
-}
-@media (max-width: 568px) {
-	.post-title a {
-		font-size: 20px;
-		line-height:25px;
-	}
 }
 p {
 	line-height: 1.55em;
 	font-weight: 300;
 	font-size: 20px;
 	margin: 0 0 20px 0;
+
+	@include respond-to(handhelds) {
+		font-size:18px;
+		line-height:1em;
+   	}
 }
 
 p.first {
 	margin-top:0;
 }
 
+.post-content {
+	h3 {
+		@include respond-to(handhelds) {
+			font-size: 18px;
+   		}
+	}
+}
 .post-content ol, .post-content ul {
 	padding-left: 20px;
 	margin-bottom:30px;

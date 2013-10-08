@@ -5012,9 +5012,9 @@ body {
   .menu div {
     padding: 20px 0 5px 20px;
     color: #4d4d4d; }
-  .menu ul {
+  .menu .menu-list {
     margin: 0;
-    padding: 0; }
+    padding: 0 0 20px; }
   .menu .menu-item {
     list-style: none;
     padding: 0;
@@ -5028,6 +5028,9 @@ body {
       width: 100%;
       outline: none;
       text-decoration: none; }
+      @media only screen and (max-width: 568px) {
+        .menu .menu-item a, .menu .menu-item a:focus {
+          padding: 5px 5% 8px; } }
       .menu .menu-item a:hover, .menu .menu-item a:focus:hover {
         text-decoration: none;
         background: #1f1f1f; }
@@ -5065,6 +5068,10 @@ body {
 .post-padding {
   padding: 20px 0 0 50px;
   max-width: 75%; }
+  @media only screen and (max-width: 568px) {
+    .post-padding {
+      padding: 0 10%;
+      max-width: 100%; } }
 
 .post-image {
   height: 450px;
@@ -5088,26 +5095,35 @@ body {
 
 .post-title a {
   margin: 0;
-  font: 300 35px/1.15 'Source Sans Pro', sans-serif;
-  color: #888;
+  font: 300 35px/1.2 'Source Sans Pro', sans-serif;
+  color: #484848;
   cursor: pointer; }
+  @media only screen and (max-width: 568px) {
+    .post-title a {
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 30px; } }
 
 .post-title a:hover {
   color: #484848;
   text-decoration: none; }
 
-@media (max-width: 568px) {
-  .post-title a {
-    font-size: 20px;
-    line-height: 25px; } }
 p {
   line-height: 1.55em;
   font-weight: 300;
   font-size: 20px;
   margin: 0 0 20px 0; }
+  @media only screen and (max-width: 568px) {
+    p {
+      font-size: 18px;
+      line-height: 1em; } }
 
 p.first {
   margin-top: 0; }
+
+@media only screen and (max-width: 568px) {
+  .post-content h3 {
+    font-size: 18px; } }
 
 .post-content ol, .post-content ul {
   padding-left: 20px;

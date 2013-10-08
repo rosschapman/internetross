@@ -142,6 +142,7 @@ ohShit.PostView = Backbone.View.extend({
     template: _.template( $( '#postTemplate' ).html() ),
 
     initialize: function(options){
+        $('.main').animate({ scrollTop: 0 }, 0);
         this.render();
     },
     render: function() {
