@@ -5174,7 +5174,7 @@ pre {
   height: 100%; }
   @media only screen and (max-width: 568px) {
     .index {
-      margin: 0;
+      margin: 5% 0 0 0;
       padding: 0 5%; } }
   .index .index-content p {
     width: 76%;
@@ -5185,6 +5185,10 @@ pre {
     .index .index-content p:first-child {
       font-size: 29px;
       line-height: 40px; }
+      @media only screen and (max-width: 568px) {
+        .index .index-content p:first-child {
+          font-size: 20px;
+          line-height: 25px; } }
     @media only screen and (max-width: 568px) {
       .index .index-content p {
         width: 100%;
