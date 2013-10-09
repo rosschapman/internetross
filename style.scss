@@ -91,10 +91,12 @@ body {
 
 	img {
 		margin-left:20px;
+		margin-bottom: 30px;
 	}
 
-	div {
-		padding: 20px 0 5px 20px;
+	.menu-header {
+		text-transform: uppercase;
+		padding: 20px 0 10px 20px;
 		color: rgb(77, 77, 77);
 	}
 	.menu-list {
@@ -109,7 +111,7 @@ body {
 
 		a, a:focus {
 			display:block;
-			padding: 15px 20px;
+			padding: 0 20px 15px 20px;
 			color: #eee;
 			font-size: 17px;
 			font-weight: 300;
@@ -126,6 +128,12 @@ body {
 				text-decoration: none;
 				background: rgb(31, 31, 31);
 			}
+		}
+
+		.menu-item-date {
+			padding-top: 10px;
+			font-size: 12px;
+			color: #4d4d4d;
 		}
 	}
 	.menu-item:first-child {

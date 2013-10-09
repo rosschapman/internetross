@@ -16,10 +16,10 @@
   <div class="container">
   		<div class="menu">
   			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
-  			<div>From the annals:</div>
+  			<div class="menu-header">It's the blog:</div>
   			<ul class="menu-list">
 				<script id="postsMenuTemplate" type="text/template">	
-					<li class="menu-item"><a href="#blog/<%= slug %>"><%= title %></a></li>
+					<li class="menu-item"><a href="#blog/<%= slug %>"><div class="menu-item-date"><%= date %></div><%= title %></a></li>
 				</script>
 			</ul>
 		</div>
@@ -42,7 +42,7 @@
 						<div class="post-image img-responsive" style="background-image: url(<%= featured_image %>);"></div>
 						<div class="post-padding">
 							<h1 class="post-title"><a><%= title %></a></h1>
-							<div class="post-meta">Published <%= date %>. <%= wordCount %> words.</div>
+							<div class="post-meta">First printed <%= date %>. <%= wordCount %> words.</div>
 							<div class="post-content"><%= content %></div>
 							<div class="post-meta post-meta-end"><%= tags %></div>
 						</div>

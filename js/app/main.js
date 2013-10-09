@@ -7,12 +7,12 @@
  * variables, Object Literals often also take into account tests for the existence of a variable 
  * by the same name, which helps reduce the chances of collision.
  */
-var ohShit = ohShit || {};
+var myApp = myApp || {};
 
 /**
  * There's only one setting config'd now, but just you wait!!
  */
-ohShit.Settings = {
+myApp.Settings = {
     endpoint: 'http://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/'
 };
 
@@ -20,7 +20,7 @@ ohShit.Settings = {
  * Index experience model. Currently two data sets: my interwebs links and a welcome message.  I'm * considering pulling that welcome message from somewhere dynamically. Like a "Ross Welcome 
  * Boilerplate."
  */
-ohShit.Index = Backbone.Model.extend({
+myApp.Index = Backbone.Model.extend({
     defaults: {
         icons: [
             { 'LI': 'http://linkedin.com/in/rosschapman', },
@@ -35,7 +35,7 @@ ohShit.Index = Backbone.Model.extend({
 /**
  * The Index experience view.  Nothing really interesting here.  Using underscore like a BOSS.
  */
-ohShit.IndexView = Backbone.View.extend({
+myApp.IndexView = Backbone.View.extend({
     el: '.main',
     template: _.template( $( '#indexTemplate' ).html() ),
     initialize: function(){
@@ -50,9 +50,9 @@ ohShit.IndexView = Backbone.View.extend({
     }
 });
 
-ohShit.Post = Backbone.Model.extend({
+myApp.Post = Backbone.Model.extend({
     initialize: function(){
-        console.log('init');
+        //console.log('init');
         
     },
     defaults: {
@@ -69,16 +69,16 @@ ohShit.Post = Backbone.Model.extend({
     url: function(){
         // Retrieve slug from model
         var slug = this.attributes.slug;
-        return ohShit.Settings.endpoint + 'posts/slug:'+ slug + '?callback=?';
+        return myApp.Settings.endpoint + 'posts/slug:'+ slug + '?callback=?';
     },
     parse: function( response ) {
         return response;
     },
     parseContent: function(){
-        console.log("in parsecontent");
+        //console.log("in parsecontent");
         var content = this.attributes;
 
-        console.log(content);
+        //console.log(content);
 
         var find1 = 'w=';
         var re1 = new RegExp(find1, 'g');
@@ -120,16 +120,17 @@ ohShit.Post = Backbone.Model.extend({
     }
 });
 
-ohShit.PostMenuItem = Backbone.Model.extend({
+myApp.PostMenuItem = Backbone.Model.extend({
     defaults: {
         title: '',
+        date: ''
 
     }
 });
 
-ohShit.PostsCollection = Backbone.Collection.extend({
+myApp.PostsCollection = Backbone.Collection.extend({
     url: function(){
-        return ohShit.Settings.endpoint + 'posts?callback=?';
+        return myApp.Settings.endpoint + 'posts?callback=?';
     },
     parse: function( response ) {
         //console.log('inside');
@@ -137,7 +138,7 @@ ohShit.PostsCollection = Backbone.Collection.extend({
     }
 });
 
-ohShit.PostView = Backbone.View.extend({
+myApp.PostView = Backbone.View.extend({
     el: '.main',
     template: _.template( $( '#postTemplate' ).html() ),
 
@@ -153,7 +154,7 @@ ohShit.PostView = Backbone.View.extend({
 
 });
 
-ohShit.PostsMenuView = Backbone.View.extend({
+myApp.PostsMenuView = Backbone.View.extend({
     el: '.menu-list',
     tagName: 'li',
     template: _.template( $( '#postsMenuTemplate' ).html() ),
@@ -163,7 +164,7 @@ ohShit.PostsMenuView = Backbone.View.extend({
     },
     render: function() {
 
-        var posts = new ohShit.PostsCollection();
+        var posts = new myApp.PostsCollection();
         
         var self = this;
 
@@ -171,7 +172,12 @@ ohShit.PostsMenuView = Backbone.View.extend({
             reset: true,
             success: function(posts) {
                 $( '#postsMenuTemplate' ).remove();
+
                 posts.each(function( item ) {
+
+                    var fixedDate = $.timeago(item.attributes.date);
+                    item.attributes.date = fixedDate;
+                    console.log(item.attributes.date);
                     self.$el.append( self.template( item.toJSON() ) );
                 });
             } 
@@ -182,7 +188,7 @@ ohShit.PostsMenuView = Backbone.View.extend({
     }
 });
 
-ohShit.Router = Backbone.Router.extend({
+myApp.Router = Backbone.Router.extend({
     initialize: function(){
 
     },
@@ -191,15 +197,15 @@ ohShit.Router = Backbone.Router.extend({
         'blog/:slug' : 'getPost',
     },
     index: function() {
-        new ohShit.IndexView({model: new ohShit.Index});
+        new myApp.IndexView({model: new myApp.Index});
     },
     getPost: function( slug ) {
 
-        var posty = new ohShit.Post({ slug: slug });
+        var posty = new myApp.Post({ slug: slug });
         posty.fetch({
             reset: true,
             success: function(post) {
-                console.log(post);
+                //console.log(post);
                 var content = post.attributes.content,
                     date    = post.attributes.date,
                     tags    = post.attributes.tags
@@ -211,18 +217,18 @@ ohShit.Router = Backbone.Router.extend({
 
                     wordCount = wordCountArr.length;
 
-                post.set({ content: ohShit.Utilities.parseContent( content ) });
-                post.set({ date: ohShit.Utilities.parseDate( date ) });
-                post.set({ tags: ohShit.Utilities.parseTags( tags ) });
+                post.set({ content: myApp.Utilities.parseContent( content ) });
+                post.set({ date: myApp.Utilities.parseDate( date ) });
+                post.set({ tags: myApp.Utilities.parseTags( tags ) });
                 post.set({ wordCount: wordCount });
 
-                new ohShit.PostView({ model: post });
+                new myApp.PostView({ model: post });
             }
         });
     }
   });
 
-ohShit.Utilities = {
+myApp.Utilities = {
     parseContent: function(content){
         var find1 = 'w=';
         var re1 = new RegExp(find1, 'g');
@@ -253,6 +259,6 @@ ohShit.Utilities = {
     }
 }
 
-var getPostMenu = new ohShit.PostsMenuView();
-var doRouting = new ohShit.Router();
+var getPostMenu = new myApp.PostsMenuView();
+var doRouting = new myApp.Router();
 Backbone.history.start();
