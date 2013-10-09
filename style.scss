@@ -176,21 +176,37 @@ body {
 		overflow:visible;
    	}
 }
-.post-padding {
-	padding: 20px 0 0 50px;
-	max-width: 75%;
+.post-wrap {
+	margin-top: 450px;
+	background-color: white;
 
 	@include respond-to(handhelds) {
 		padding: 0 10%;
-		max-width: 100%;
+		margin:0;
+   	}
+
+   	.post-inner {
+   		padding: 20px 0 0 50px;
+   		width: 75%;
+		
+		@include respond-to(handhelds) {
+			width: 100%;
+			padding:0;
+	   	}
+
    	}
 }
 .post-image {
+	position:fixed;
+	width: 83%; // must declare
 	height: 450px;
+	top:0;
+	z-index: -1;
 	background-size: cover;
 
 	@include respond-to(handhelds) {
-
+		position:relative;
+		width: 100%;
 	}
 }
 .post-list-item {
@@ -321,14 +337,14 @@ pre {
 /* Scoping Index Styles */
 
 .index {
-	padding-top: 50px;
+	padding: 50px;
 	padding-left: 50px;
 	background-size: cover;
 	height: 100%;
 
 	@include respond-to(handhelds) {
 		margin:5% 0 0 0;
-		padding: 0 5%;
+		padding: 2% 5% 5%;
    	}
 
 	.index-content p {

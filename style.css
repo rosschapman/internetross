@@ -5071,17 +5071,32 @@ body {
       height: auto;
       overflow: visible; } }
 
-.post-padding {
-  padding: 20px 0 0 50px;
-  max-width: 75%; }
+.post-wrap {
+  margin-top: 450px;
+  background-color: white; }
   @media only screen and (max-width: 568px) {
-    .post-padding {
+    .post-wrap {
       padding: 0 10%;
-      max-width: 100%; } }
+      margin: 0; } }
+  .post-wrap .post-inner {
+    padding: 20px 0 0 50px;
+    width: 75%; }
+    @media only screen and (max-width: 568px) {
+      .post-wrap .post-inner {
+        width: 100%;
+        padding: 0; } }
 
 .post-image {
+  position: fixed;
+  width: 83%;
   height: 450px;
+  top: 0;
+  z-index: -1;
   background-size: cover; }
+  @media only screen and (max-width: 568px) {
+    .post-image {
+      position: relative;
+      width: 100%; } }
 
 .post-list-item {
   font-size: 30px;
@@ -5195,14 +5210,14 @@ pre {
 
 /* Scoping Index Styles */
 .index {
-  padding-top: 50px;
+  padding: 50px;
   padding-left: 50px;
   background-size: cover;
   height: 100%; }
   @media only screen and (max-width: 568px) {
     .index {
       margin: 5% 0 0 0;
-      padding: 0 5%; } }
+      padding: 2% 5% 5%; } }
   .index .index-content p {
     width: 76%;
     font-size: 25px;
