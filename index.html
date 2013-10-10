@@ -15,12 +15,15 @@
 <body>
   <div class="container">
   		<div class="menu">
-  			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
-  			<ul class="menu-list">
-				<script id="postsMenuTemplate" type="text/template">	
-					<li class="menu-item"><a href="#blog/<%= slug %>"><div class="menu-item-date"><%= date %></div><%= title %></a></li>
-				</script>
-			</ul>
+  			<div class="menu-inner">
+	  			<a href="http://internetross.me"><img class="gravatar" src="" width="70" height="70"/></a>
+	  			<ul class="menu-list">
+					<script id="postsMenuTemplate" type="text/template">	
+						<li class="menu-item"><a href="#blog/<%= slug %>"><div class="menu-item-date"><%= date %></div><%= title %></a></li>
+					</script>
+				</ul>
+				<div class="menu-colophon">This site is a work-in-progress designed in-browser.  Please wear a helmet.</div>
+			</div>
 		</div>
 		
 		
