@@ -1,5 +1,5 @@
 /** 
- * oh. shit. object literal scopting start...
+ * object literal scopting start...
  *
  * Object Literals have the advantage of not polluting the global namespace but assist in 
  * organizing code and parameters logically. They’re beneficial if you wish to create easily 
