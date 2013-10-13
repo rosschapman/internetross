@@ -177,7 +177,7 @@ myApp.PostsMenuView = Backbone.View.extend({
 
                     var fixedDate = $.timeago(item.attributes.date);
                     item.attributes.date = fixedDate;
-                    console.log(item.attributes.date);
+                    
                     self.$el.append( self.template( item.toJSON() ) );
                 });
             } 
@@ -191,10 +191,17 @@ myApp.PostsMenuView = Backbone.View.extend({
 myApp.Router = Backbone.Router.extend({
     initialize: function(){
 
+        return this.bind('all', this._trackPageview);
+
     },
     routes:{
         '' : 'index',
         'blog/:slug' : 'getPost',
+    },
+    _trackPageview: function(){
+        url = Backbone.history.getFragment();
+
+        ga('send', 'pageview', '/#' + url);
     },
     index: function() {
         new myApp.IndexView({model: new myApp.Index});
