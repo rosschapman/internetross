@@ -1,5 +1,5 @@
 /** 
- * object literal scopting start...
+ * object literal scoping start...
  *
  * Object Literals have the advantage of not polluting the global namespace but assist in 
  * organizing code and parameters logically. They’re beneficial if you wish to create easily 
@@ -52,8 +52,7 @@ myApp.IndexView = Backbone.View.extend({
 
 myApp.Post = Backbone.Model.extend({
     initialize: function(){
-        //console.log('init');
-        
+        //console.log('init');   
     },
     defaults: {
         ID: '[post ID]',
@@ -219,7 +218,7 @@ myApp.Router = Backbone.Router.extend({
                 ;
                 var wordCountStr = content;
                     wordCountStrNoPunc = wordCountStr.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-                        // Create array of words
+                    // Create array of words
                     wordCountArr = wordCountStrNoPunc.split(" ");
 
                     wordCount = wordCountArr.length;
@@ -247,22 +246,25 @@ myApp.Utilities = {
 
         return content;
     },
+
     parseDate: function(date){
         // Fix our UNIX timestamp with sexy timeago jQuery plugin
         newDate = $.timeago(date);
 
         return newDate;
     },
+
     parseTags: function(tags){
-    // Create empty array
-    var tagsNew = [];
-    // Loop through tags and push 
-    $.each(tags, function(i, el){
-            tagsNew.push('#' + el.name);
-        });
+        // Create empty array
+        var tagsNew = [];
+        
+        // Loop through tags and push 
+        $.each(tags, function(i, el){
+                tagsNew.push('#' + el.name);
+            });
 
         // Set post attribute tags to newly minted tags array
-      return tagsNew;
+        return tagsNew;
     }
 }
 
