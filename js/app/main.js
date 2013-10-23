@@ -262,6 +262,7 @@ myApp.Router = Backbone.Router.extend({
         // 
         if ( $('.icon-at').length ) {
             $('.index').fadeIn();
+            $('.image-loader').fadeOut(50);
         } else {
             new myApp.IndexView({model: new myApp.Index});
         }
