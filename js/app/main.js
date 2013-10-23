@@ -62,9 +62,6 @@ myApp.IndexView = Backbone.View.extend({
     initialize: function(){
         
         this.render();
-
-        $('.image-loader').fadeOut(50);
-
         return this;
     },
     render: function() {
@@ -79,6 +76,7 @@ myApp.IndexView = Backbone.View.extend({
             // FadeIn model
             .fadeIn('fast')
             ;
+        $('.image-loader').fadeOut(50);
     }
 });
 
@@ -156,8 +154,6 @@ myApp.PostView = Backbone.View.extend({
     template: _.template( $( '#postTemplate' ).html() ),
 
     initialize: function(options){
-        // Show loader
-        $('.image-loader').show();
         // Render view
         this.render();
     },
