@@ -1,36 +1,26 @@
 * {
-	margin:0;
-	padding:0;
-	font-family: 'Source Sans Pro', sans-serif;
-}
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif; }
 
-div[class*='ross-the-artist'] {
-	width: 100%;
-	height: 600px;
-	-webkit-filter: saturate(0);
-	opacity: .5;
-	background-size: cover;
-    -webkit-transition: all 1.0s ease;
-     -webkit-backface-visibility: hidden;
-}
-div[class*='ross-the-artist']:hover {
-	-webkit-filter: saturate(1);
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
-	opacity: 1;
-}
-div[class*='ross-the-artist'] h1 {
-	position:relative;
-	top: 280px;
-	color: white;
-	font-weight: 200;
-	font-size: 50px;
-	text-align:center;
-	opacity:.8;
+.cs-overview {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  background: #eee;
+  border-radius: 5px;
+  max-width: 250px;
+  padding: 30px; }
 
-}
-.ross-the-artist-1 {
-	background-image: url('img/peter_blume_the_rock.jpg');
-}
-.ross-the-artist-2 {
-	background-image: url('img/archibald_motley_junior_blues.jpg');
-}
+.cs-content {
+  padding: 30px;
+  max-width: 740px; }
+  .cs-content h1 {
+    margin-bottom: 10px; }
+  .cs-content p {
+    margin-bottom: 30px; }
