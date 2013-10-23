@@ -161,7 +161,7 @@ myApp.PostView = Backbone.View.extend({
         
         var loader = $('.image-loader');
         // Fade out posts menu list
-        $('.posts-menu').empty().fadeOut('fast');
+        $('.posts-menu').fadeOut(100);
 
         this.$el.html( this.template( this.model.toJSON() ) );
 
