@@ -196,6 +196,7 @@ myApp.PostsMenuView = Backbone.View.extend({
 
         if ( $('.posts-menu li').length ) {
             $('.posts-menu').fadeIn();
+            $('.image-loader').fadeOut(50);
         } else {
             this.render();
         }
