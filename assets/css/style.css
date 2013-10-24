@@ -5261,7 +5261,7 @@ body {
   width: 100%;
   overflow: hidden; }
   .header .header-inner {
-    margin-left: 47px; }
+    margin-left: 50px; }
     .header .header-inner * {
       float: left; }
   .header .header-title {
@@ -5509,7 +5509,7 @@ p.first {
   position: fixed;
   z-index: 200;
   bottom: 15px;
-  left: 20px;
+  left: 50px;
   cursor: pointer;
   border: 1px solid rgba(224, 224, 224, 0.88);
   border-radius: 3px;
