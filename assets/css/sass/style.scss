@@ -567,7 +567,7 @@ pre {
 }
 
 #post-70 .post-image {
-	background-position-y: -200px;
+	background-position: 0 -200px;
 
 	@include respond-to(handhelds) { 
 		background-position: 0 0;

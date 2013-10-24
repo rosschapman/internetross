@@ -5614,7 +5614,7 @@ pre {
   background-position: center; }
 
 #post-70 .post-image {
-  background-position-y: -200px; }
+  background-position: 0 -200px; }
   @media only screen and (max-width: 568px) {
     #post-70 .post-image {
       background-position: 0 0; } }
