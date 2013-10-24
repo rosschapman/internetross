@@ -1,14 +1,16 @@
-var windowWidth = window.outerWidth;
+/**
+* "Anyone who has lost track of time when using a computer knows the propensity to dream, the urge * to make dreams come true and the tendency to miss lunch." - Tim Berners Lee
+*
+* Welcome to the dreamers who gaze upon the source! Below is a super simple 
+* Backbone.js/Underscore.js client app to serve my ego datas on the information superhighway. Know * how I can make it better? Hit me up @internetross.  
+*/
 
-/** 
- * object literal scoping start...
- *
- * Object Literals have the advantage of not polluting the global namespace but assist in 
- * organizing code and parameters logically. They’re beneficial if you wish to create easily 
- * readable structures that can be expanded to support deep nesting. Unlike simple global 
- * variables, Object Literals often also take into account tests for the existence of a variable 
- * by the same name, which helps reduce the chances of collision.
- */
+// Global vars
+var windowWidth = window.outerWidth,
+    loader = $('.loader'),
+    headerMenuItem = $('.header-menu-item a')
+ 
+// Object literal scope start...
 var myApp = myApp || {};
 
 /**
@@ -18,16 +20,24 @@ myApp.Settings = {
     endpoint: 'http://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/'
 };
 
+/***************************************
+           *=> COLLECTIONS <=*
+***************************************/
+
 myApp.PostsCollection = Backbone.Collection.extend({
     url: function(){
+        // Return posts, using jsonp datatype
         return myApp.Settings.endpoint + 'posts?callback=?';
     },
     parse: function( response ) {
-        //console.log('inside');
+        // Return posts without metadata
         return response.posts;
     }
 });
 
+/***************************************
+            *=> MODELS <=*
+***************************************/
 myApp.PostMenuItem = Backbone.Model.extend({
     defaults: {
         title: '',
@@ -37,7 +47,7 @@ myApp.PostMenuItem = Backbone.Model.extend({
     }
 });
 /**
- * Index experience model. Currently two data sets: my interwebs links and a welcome message.  I'm * considering pulling that welcome message from somewhere dynamically. Like a "Ross Welcome 
+ * Homepage model. Currently two data sets: my interwebs links and a welcome message.  I'm * considering pulling that welcome message from somewhere dynamically. Like a "Ross Welcome 
  * Boilerplate."
  */
 myApp.Index = Backbone.Model.extend({
@@ -53,40 +63,13 @@ myApp.Index = Backbone.Model.extend({
     }
 });
 
-/**
- * The Index experience view.  Nothing really interesting here.  Using underscore like a BOSS.
- */
-myApp.IndexView = Backbone.View.extend({
-    el: '.index',
-    template: _.template( $( '#indexTemplate' ).html() ),
-    initialize: function(){
-        
-        this.render();
-        return this;
-    },
-    render: function() {
-
-        $('.posts-menu').hide();
-        //console.log(this.model);
-        this.$el
-            // Hide model
-            .css('display', 'none')
-            // Add model
-            .html( this.template( this.model.toJSON() ) )
-            // FadeIn model
-            .fadeIn('fast')
-            ;
-        $('.image-loader').fadeOut(50);
-    }
-});
-
 myApp.Post = Backbone.Model.extend({
     initialize: function(){
-        //console.log('init');   
+        // No real need to do anything here  
     },
     defaults: {
         ID: '[post ID]',
-        featured_image: 'img/placeholder.png', // normally would use camelCase but WordPress sets attribute this way
+        featured_image: 'img/placeholder.png', // WP doesn't use camelCase :/
         title: 'Ross didn\'t add a title, so..."Hello World!"',
         slug: 'slug',
         date: 'This post has no date? Wha????',
@@ -98,6 +81,7 @@ myApp.Post = Backbone.Model.extend({
     url: function(){
         // Retrieve slug from model
         var slug = this.attributes.slug;
+        // Construct endpoint for post api call
         return myApp.Settings.endpoint + 'posts/slug:'+ slug + '?callback=?';
     },
     parse: function( response ) {
@@ -128,6 +112,7 @@ myApp.Post = Backbone.Model.extend({
         // Set model date
         this.set({ date: newDate });
     },
+    // This func helps us fetch and format tags to display somewhere
     parseTags: function(){
     // Fetch tags from Post item
     var tags = this.attributes.tags;
@@ -137,7 +122,6 @@ myApp.Post = Backbone.Model.extend({
     $.each(tags, function(i, el){
             tagsNew.push('#' + el.name);
         });
-
         // Set post attribute tags to newly minted tags array
       this.set({ tags: tagsNew });
     },
@@ -145,7 +129,35 @@ myApp.Post = Backbone.Model.extend({
 
         var wordCount = $(this.attributes.content).text().length;
 
-        this.set({ wordCount: wordCount })
+        this.set({ wordCount: wordCount });
+    }
+});
+
+/***************************************
+            *=> VIEWS <=*
+***************************************/
+
+myApp.IndexView = Backbone.View.extend({
+    el: '.index',
+    template: _.template( $( '#indexTemplate' ).html() ),
+    initialize: function(){
+        
+        this.render();
+        return this;
+    },
+    render: function() {
+
+        $('.posts-menu').hide();
+        //console.log(this.model);
+        this.$el
+            // Hide model
+            .css('display', 'none')
+            // Add model
+            .html( this.template( this.model.toJSON() ) )
+            // FadeIn model
+            .fadeIn('fast')
+            ;
+        loader.fadeOut(50);
     }
 });
 
@@ -154,12 +166,11 @@ myApp.PostView = Backbone.View.extend({
     template: _.template( $( '#postTemplate' ).html() ),
 
     initialize: function(options){
-        // Render view
         this.render();
+        return this;
     },
     render: function() {
-        
-        var loader = $('.image-loader');
+
         // Fade out posts menu list
         $('.posts-menu').fadeOut(100);
 
@@ -190,15 +201,16 @@ myApp.PostsMenuView = Backbone.View.extend({
         // Scroll to top
         $(document).scrollTop(0);
         // Show loader
-        $('.image-loader').show();
+        loader.show();
     },
     initialize: function(){
-
+        // Check if the posts menu has already been rendered
         if ( $('.posts-menu li').length ) {
             $('.posts-menu').fadeIn();
-            $('.image-loader').fadeOut(50);
+            loader.fadeOut(50);
         } else {
             this.render();
+            return this;
         }
         
     },
@@ -227,7 +239,7 @@ myApp.PostsMenuView = Backbone.View.extend({
                     item.set({ tags: myApp.Utilities.parseTags( tags ) });
                     
                     self.$el.append( self.template( item.toJSON() ) );
-                    $('.image-loader').fadeOut(50);
+                    loader.fadeOut(50);
 
                 });
             }
@@ -240,30 +252,35 @@ myApp.PostsMenuView = Backbone.View.extend({
     }
 });
 
-var menuActive;
+/***************************************
+        *=> CONTROLLER/ROUTER <=*
+***************************************/
 
 myApp.Router = Backbone.Router.extend({
     initialize: function(){
-
+        // Bind Google Analytics to all routers
         return this.bind('all', this._trackPageview);
 
     },
     routes:{
+        // Homepage route
         '' : 'index',
+        // Blog route
         'literature' : 'getPostList',
+        // Post route
         'blog/:slug' : 'getPost'
 
     },
     index: function() {
         // Show loader
-        $('.image-loader').show();
+        loader.show();
         // Empty post
         $('.posts-menu').hide();
         $('.post-container').empty();
         // 
         if ( $('.icon-at').length ) {
             $('.index').fadeIn();
-            $('.image-loader').fadeOut(50);
+            loader.fadeOut(50);
         } else {
             new myApp.IndexView({model: new myApp.Index});
         }
@@ -271,7 +288,7 @@ myApp.Router = Backbone.Router.extend({
     },
     getPostList: function() {
         $('.index').hide();
-        $('.image-loader').show();
+        loader.show();
         // Get latest post (hardcoded for now)
         // Maybe we can fetch another collection of the latest post
         var getPostList = new myApp.PostsMenuView({});
@@ -279,7 +296,7 @@ myApp.Router = Backbone.Router.extend({
     },
     getPost: function( slug ) {
 
-        $('.image-loader').show();
+        loader.show();
         var posty = new myApp.Post({ slug: slug });
 
         posty.fetch({
@@ -349,13 +366,14 @@ myApp.Utilities = {
     }
 }
 
-// First load router/controller
+/**
+* Ok, lets start our engines!
+*/
 var doRouting = new myApp.Router();
-// Then append posts menu
 Backbone.history.start();
 
 /**
-* Interactions after app loaded and document is ready
+* Interactions after app loaded and document is ready. AKA jQuery funtimes. 
 */
 (function($){
 
@@ -364,15 +382,5 @@ Backbone.history.start();
             $('.post-image').addClass('fixed');
         });
     }
-
-    $('.header-menu-item a').hover(function(){
-        $(this).animate({
-            backgroundColor:'#303030'
-        }, 200);
-    }, function(){
-        $(this).animate({ 
-            backgroundColor: 'black'
-        },100);
-    });
 
 }(jQuery));
