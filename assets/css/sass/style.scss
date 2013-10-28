@@ -57,7 +57,7 @@ a:focus {
 .mobile-wrap {
 	
 	@include respond-to(handhelds) {
-		padding: 5px 8% 0;
+		padding: 5px 5% 0;
    	}
 }
 

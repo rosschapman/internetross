@@ -5211,7 +5211,7 @@ a:focus {
 
 @media only screen and (max-width: 568px) {
   .mobile-wrap {
-    padding: 5px 8% 0; } }
+    padding: 5px 5% 0; } }
 
 strong {
   font-weight: 600; }
