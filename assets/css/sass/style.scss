@@ -195,9 +195,13 @@ body {
 	.posts-menu-header {
 		margin: 0 0 40px 0;
 		color: rgb(77, 77, 77);
-		font-weight: $bold;
+		font-weight: 400;
 		border-bottom: 1px solid #eee;
 		padding-bottom: 20px;
+
+		@include respond-to(handhelds) {
+			margin-bottom:20px;
+		}
 
 	}
 	.posts-menu-list {
@@ -221,7 +225,7 @@ body {
 			@include respond-to(handhelds) {
 				font-size: 19px;
 				line-height: 25px;
-				font-weight: 400;
+				font-weight: 600;
 				padding: 0 0 0;
 		   	}
 			
