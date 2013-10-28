@@ -5458,8 +5458,7 @@ body {
     line-height: 32px;
     font-weight: 400;
     font-size: 19px;
-    margin: 0 0 20px 0;
-    color: #616161; }
+    margin: 0 0 20px 0; }
     @media only screen and (max-width: 568px) {
       .post p {
         font-size: 16px;
