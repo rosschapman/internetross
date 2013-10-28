@@ -164,6 +164,7 @@ rossApp.PostView = Backbone.View.extend({
     template: _.template( $( '#postTemplate' ).html() ),
 
     initialize: function(options){
+
         this.render();
         return this;
     },
@@ -203,10 +204,14 @@ rossApp.PostsMenuView = Backbone.View.extend({
     },
     initialize: function(){
 
-        $('.post-container').children().empty();
+        // Scroll to top
+        $(document).scrollTop(0);
+
+        $('.post-container').empty();
         // Check if the posts menu has already been rendered
         if ( $('.posts-menu li').length ) {
             $('.posts-menu').fadeIn();
+            $('.posts-menu-header').fadeIn();
             loader.fadeOut(50);
         } else {
             this.render();
@@ -242,6 +247,7 @@ rossApp.PostsMenuView = Backbone.View.extend({
                     loader.fadeOut(50);
 
                 });
+                $('.posts-menu-header').fadeIn();
             }
         });
 
