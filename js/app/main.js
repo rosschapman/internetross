@@ -11,12 +11,10 @@ var windowWidth = window.outerWidth,
     headerMenuItem = $('.header-menu-item a')
  
 // Object literal scope start...
-var myApp = myApp || {};
+var rossApp = rossApp || {};
 
-/**
- * There's only one setting config'd now, but just you wait!!
- */
-myApp.Settings = {
+// There's only one setting config'd now, but just you wait!!
+rossApp.Settings = {
     endpoint: 'http://public-api.wordpress.com/rest/v1/sites/internetross.wordpress.com/'
 };
 
@@ -24,10 +22,10 @@ myApp.Settings = {
            *=> COLLECTIONS <=*
 ***************************************/
 
-myApp.PostsCollection = Backbone.Collection.extend({
+rossApp.PostsCollection = Backbone.Collection.extend({
     url: function(){
         // Return posts, using jsonp datatype
-        return myApp.Settings.endpoint + 'posts?callback=?';
+        return rossApp.Settings.endpoint + 'posts?callback=?';
     },
     parse: function( response ) {
         // Return posts without metadata
@@ -38,7 +36,7 @@ myApp.PostsCollection = Backbone.Collection.extend({
 /***************************************
             *=> MODELS <=*
 ***************************************/
-myApp.PostMenuItem = Backbone.Model.extend({
+rossApp.PostMenuItem = Backbone.Model.extend({
     defaults: {
         title: '',
         date: '',
@@ -46,11 +44,11 @@ myApp.PostMenuItem = Backbone.Model.extend({
 
     }
 });
-/**
- * Homepage model. Currently two data sets: my interwebs links and a welcome message.  I'm * considering pulling that welcome message from somewhere dynamically. Like a "Ross Welcome 
- * Boilerplate."
- */
-myApp.Index = Backbone.Model.extend({
+
+// Homepage model. Currently two data sets: my interwebs links and a welcome message.  I'm 
+// considering pulling that welcome message from somewhere dynamically. Like a "Ross Welcome 
+// Boilerplate."
+rossApp.Index = Backbone.Model.extend({
     defaults: {
         icons: [
             { 'icon-at': 'mailto:rosschapman@gmail.com', },
@@ -63,7 +61,7 @@ myApp.Index = Backbone.Model.extend({
     }
 });
 
-myApp.Post = Backbone.Model.extend({
+rossApp.Post = Backbone.Model.extend({
     initialize: function(){
         // No real need to do anything here  
     },
@@ -82,7 +80,7 @@ myApp.Post = Backbone.Model.extend({
         // Retrieve slug from model
         var slug = this.attributes.slug;
         // Construct endpoint for post api call
-        return myApp.Settings.endpoint + 'posts/slug:'+ slug + '?callback=?';
+        return rossApp.Settings.endpoint + 'posts/slug:'+ slug + '?callback=?';
     },
     parse: function( response ) {
         return response;
@@ -137,7 +135,7 @@ myApp.Post = Backbone.Model.extend({
             *=> VIEWS <=*
 ***************************************/
 
-myApp.IndexView = Backbone.View.extend({
+rossApp.IndexView = Backbone.View.extend({
     el: '.index',
     template: _.template( $( '#indexTemplate' ).html() ),
     initialize: function(){
@@ -161,7 +159,7 @@ myApp.IndexView = Backbone.View.extend({
     }
 });
 
-myApp.PostView = Backbone.View.extend({
+rossApp.PostView = Backbone.View.extend({
     el: '.post-container',
     template: _.template( $( '#postTemplate' ).html() ),
 
@@ -190,7 +188,7 @@ myApp.PostView = Backbone.View.extend({
 
 });
 
-myApp.PostsMenuView = Backbone.View.extend({
+rossApp.PostsMenuView = Backbone.View.extend({
     el: '.posts-menu',
     tagName: 'li',
     template: _.template( $( '#postsMenuTemplate' ).html() ),
@@ -204,6 +202,8 @@ myApp.PostsMenuView = Backbone.View.extend({
         loader.show();
     },
     initialize: function(){
+
+        $('.post-container').children().empty();
         // Check if the posts menu has already been rendered
         if ( $('.posts-menu li').length ) {
             $('.posts-menu').fadeIn();
@@ -218,7 +218,7 @@ myApp.PostsMenuView = Backbone.View.extend({
         
         $('.post-container').empty();
 
-        var posts = new myApp.PostsCollection();
+        var posts = new rossApp.PostsCollection();
 
         //console.log(posts);
         // Assign "this" so we can safely reuse within our fetch call without confusion with the // "this" belonging to the fetch response
@@ -236,7 +236,7 @@ myApp.PostsMenuView = Backbone.View.extend({
                     item.attributes.date = fixedDate;
                     console.log(item.attributes);
                     var tags = item.attributes.tags;
-                    item.set({ tags: myApp.Utilities.parseTags( tags ) });
+                    item.set({ tags: rossApp.Utilities.parseTags( tags ) });
                     
                     self.$el.append( self.template( item.toJSON() ) );
                     loader.fadeOut(50);
@@ -256,7 +256,7 @@ myApp.PostsMenuView = Backbone.View.extend({
         *=> CONTROLLER/ROUTER <=*
 ***************************************/
 
-myApp.Router = Backbone.Router.extend({
+rossApp.Router = Backbone.Router.extend({
     initialize: function(){
         // Bind Google Analytics to all routers
         return this.bind('all', this._trackPageview);
@@ -282,7 +282,7 @@ myApp.Router = Backbone.Router.extend({
             $('.index').fadeIn();
             loader.fadeOut(50);
         } else {
-            new myApp.IndexView({model: new myApp.Index});
+            new rossApp.IndexView({model: new rossApp.Index});
         }
         
     },
@@ -291,13 +291,13 @@ myApp.Router = Backbone.Router.extend({
         loader.show();
         // Get latest post (hardcoded for now)
         // Maybe we can fetch another collection of the latest post
-        var getPostList = new myApp.PostsMenuView({});
+        var getPostList = new rossApp.PostsMenuView({});
 
     },
     getPost: function( slug ) {
 
         loader.show();
-        var posty = new myApp.Post({ slug: slug });
+        var posty = new rossApp.Post({ slug: slug });
 
         posty.fetch({
             reset: true,
@@ -317,12 +317,12 @@ myApp.Router = Backbone.Router.extend({
 
                     wordCount = wordCountArr.length;
 
-                post.set({ content: myApp.Utilities.parseContent( content ) });
-                post.set({ date: myApp.Utilities.parseDate( date ) });
-                post.set({ tags: myApp.Utilities.parseTags( tags ) });
+                post.set({ content: rossApp.Utilities.parseContent( content ) });
+                post.set({ date: rossApp.Utilities.parseDate( date ) });
+                post.set({ tags: rossApp.Utilities.parseTags( tags ) });
                 post.set({ wordCount: wordCount });
 
-                new myApp.PostView({ model: post });
+                new rossApp.PostView({ model: post });
             }
         });
     },
@@ -333,7 +333,7 @@ myApp.Router = Backbone.Router.extend({
     }
   });
 
-myApp.Utilities = {
+rossApp.Utilities = {
     parseContent: function(content){
         var find1 = 'w=';
         var re1 = new RegExp(find1, 'g');
@@ -369,7 +369,7 @@ myApp.Utilities = {
 /**
 * Ok, lets start our engines!
 */
-var doRouting = new myApp.Router();
+var doRouting = new rossApp.Router();
 Backbone.history.start();
 
 /**

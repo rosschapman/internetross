@@ -330,7 +330,7 @@ body {
 	background:black;
 	position:absolute;
 	width: 100%; // must declare
-	height: 450px;
+	height: 100%;
 	top:60px;
 	z-index: 1;
 	background-size: cover;
@@ -364,7 +364,7 @@ body {
 
 	p {
 		line-height: 32px;
-		font-weight: 300;
+		font-weight: 400;
 		font-size: 19px;
 		margin: 0 0 20px 0;
 		color: #616161;
@@ -474,9 +474,6 @@ pre {
 		font-size: 12px;
 	}
 }
-.post-content code {
-	font-size: 70%;
-}
 
 // Utilities
 .loading {
@@ -568,6 +565,14 @@ pre {
 
 #post-70 .post-image {
 	background-position: 0 -200px;
+
+	@include respond-to(handhelds) { 
+		background-position: 0 0;
+	}
+}
+
+#post-198 .post-image {
+	background-position: 0 -135px;
 
 	@include respond-to(handhelds) { 
 		background-position: 0 0;
