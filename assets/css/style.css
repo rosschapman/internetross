@@ -5262,6 +5262,9 @@ body {
   overflow: hidden; }
   .header .header-inner {
     margin-left: 50px; }
+    @media only screen and (max-width: 568px) {
+      .header .header-inner {
+        margin-left: 20px; } }
     .header .header-inner * {
       float: left; }
   .header .header-title {
@@ -5306,6 +5309,9 @@ body {
 .posts-menu {
   padding: 40px 50px;
   height: 100%; }
+  @media only screen and (max-width: 568px) {
+    .posts-menu {
+      padding: 4%; } }
   .posts-menu .posts-menu-header {
     margin: 0 0 40px 0;
     color: #4d4d4d;
@@ -5559,6 +5565,9 @@ pre {
   padding: 40px 50px;
   background-size: cover;
   height: 100%; }
+  @media only screen and (max-width: 568px) {
+    .index {
+      padding: 4%; } }
   .index .index-content p {
     max-width: 700px;
     font-size: 25px;
@@ -5579,7 +5588,7 @@ pre {
         line-height: 25px;
         margin-bottom: 5%; } }
   .index a {
-    margin: 0 25px 0 -10px;
+    margin: 0 25px 0 0;
     font-size: 45px;
     font-weight: 600;
     color: #ff00ad;

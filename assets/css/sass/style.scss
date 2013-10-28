@@ -121,6 +121,10 @@ body {
 	.header-inner {
 		margin-left: 50px;
 
+		@include respond-to(handhelds) {
+			margin-left: 20px;
+		}
+
 		* {
 			float:left;
 		}
@@ -182,6 +186,11 @@ body {
 .posts-menu {
 	padding: 40px 50px;
 	height: 100%;
+	
+	@include respond-to(handhelds) {
+		padding: 4%;
+	}
+
 
 	.posts-menu-header {
 		margin: 0 0 40px 0;
@@ -497,6 +506,7 @@ pre {
 	height: 100%;
 
 	@include respond-to(handhelds) {
+		padding: 4%;
    	}
 
 	.index-content p {
@@ -524,7 +534,7 @@ pre {
    		}
 	}
   	a {
-  		margin: 0 25px 0 -10px;
+  		margin: 0 25px 0 0;
   		font-size: 45px;
   		font-weight: 600;
 		color: rgb(255, 0, 173);

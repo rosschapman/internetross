@@ -43,13 +43,14 @@
 			</div>
 			<div class="index align-left mobile-wrap">
 				<script id="indexTemplate" type="text/template">
-					<div class="index-content"><%= content %></div>
+					<div class="index-content"><%= content %>
 					 <% _.each( icons, function( icon ){
 					 		_.each( icon, function( url, className ){ %>
 					 				<a class="<%= className %>" href="<%= url %>"></a>
 					 		<% });
 					 	}); 
 					 %>
+					 </div>
 				</script>
 			</div>
 			<div class="post-container">
