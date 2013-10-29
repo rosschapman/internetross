@@ -174,6 +174,11 @@ rossApp.PostView = Backbone.View.extend({
         $('.posts-menu').fadeOut(100);
 
         this.$el.html( this.template( this.model.toJSON() ) );
+        
+        // Scan DOM and run syntax highlighter 
+        // See http://prismjs.com/extending.html#api
+        console.log(Prism);
+        Prism.highlightAll();
 
         if ( window.outerWidth > 568 ) {    
             $('.post-wrap').animate({ marginTop : 400}, 300, "easeOutCirc", function(){
@@ -245,9 +250,9 @@ rossApp.PostsMenuView = Backbone.View.extend({
                     
                     self.$el.append( self.template( item.toJSON() ) );
                     loader.fadeOut(50);
-
                 });
                 $('.posts-menu-header').fadeIn();
+
             }
         });
 

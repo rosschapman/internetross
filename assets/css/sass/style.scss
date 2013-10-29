@@ -328,7 +328,6 @@ body {
 		max-width: 700px;
 		margin: 0 auto;
 		padding: 20px 0;
-		border-bottom: 1px solid #D6D6D6;
 		
 		@include respond-to(handhelds) {
 			width: 100%;

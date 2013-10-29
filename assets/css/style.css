@@ -5413,8 +5413,7 @@ body {
   .post-wrap .post-inner {
     max-width: 700px;
     margin: 0 auto;
-    padding: 20px 0;
-    border-bottom: 1px solid #D6D6D6; }
+    padding: 20px 0; }
     @media only screen and (max-width: 568px) {
       .post-wrap .post-inner {
         width: 100%;
