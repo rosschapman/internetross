@@ -219,14 +219,17 @@ body {
 		a, a:focus {
 			display: block;
 			outline: none;
-			font-size: 27px;
-			font-weight: 300;
+			font-size: 40px;
+			font-weight: 800;
+			color: #484848;
+			width: 700px;
+			line-height: 1.15;
 
 			@include respond-to(handhelds) {
 				font-size: 19px;
 				line-height: 25px;
-				font-weight: 600;
 				padding: 0 0 0;
+				width: 100%;
 		   	}
 			
 			&:hover {
@@ -389,7 +392,7 @@ body {
 }
 .post-title a {
 	margin: 0;
-	font: 300 35px/1.2 'Open Sans', sans-serif;
+	font: 800 44px/1.15 'Open Sans', sans-serif;
 	color: #484848;
 	cursor:pointer;
 
@@ -409,7 +412,15 @@ p.first {
 }
 
 .post-content {
+
+	p + h3 {
+		margin-top: 50px;
+	}
+
 	h3 {
+		font-weight: 600;
+		font-size: 25px;
+		color: #484848;
 		@include respond-to(handhelds) {
 			font-size: 18px;
    		}

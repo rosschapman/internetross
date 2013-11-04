@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * Hey homes.  Not too much special going on here.  Still working on the site and hope to show off my skills in a
 * multitude of ways soon.  Oh, if you haven't seen this twerk fail video, you must.  Please don't blame me for lost 
@@ -5333,14 +5334,17 @@ body {
     .posts-menu .posts-menu-item a, .posts-menu .posts-menu-item a:focus {
       display: block;
       outline: none;
-      font-size: 27px;
-      font-weight: 300; }
+      font-size: 40px;
+      font-weight: 800;
+      color: #484848;
+      width: 700px;
+      line-height: 1.15; }
       @media only screen and (max-width: 568px) {
         .posts-menu .posts-menu-item a, .posts-menu .posts-menu-item a:focus {
           font-size: 19px;
           line-height: 25px;
-          font-weight: 600;
-          padding: 0 0 0; } }
+          padding: 0 0 0;
+          width: 100%; } }
       .posts-menu .posts-menu-item a:hover, .posts-menu .posts-menu-item a:focus:hover {
         text-decoration: none; }
     .posts-menu .posts-menu-item .posts-menu-item-date,
@@ -5466,7 +5470,7 @@ body {
 
 .post-title a {
   margin: 0;
-  font: 300 35px/1.2 'Open Sans', sans-serif;
+  font: 800 44px/1.15 'Open Sans', sans-serif;
   color: #484848;
   cursor: pointer; }
   @media only screen and (max-width: 568px) {
@@ -5482,9 +5486,15 @@ body {
 p.first {
   margin-top: 0; }
 
-@media only screen and (max-width: 568px) {
-  .post-content h3 {
-    font-size: 18px; } }
+.post-content p + h3 {
+  margin-top: 50px; }
+.post-content h3 {
+  font-weight: 600;
+  font-size: 25px;
+  color: #484848; }
+  @media only screen and (max-width: 568px) {
+    .post-content h3 {
+      font-size: 18px; } }
 
 .post-content ol, .post-content ul {
   padding-left: 20px;
