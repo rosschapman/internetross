@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>That Time I Shortcut jQuery</title>
+        <title>That Time I Shortcut jQuery Deferred</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -21,50 +21,53 @@
             <a class="extra" href="/">home</a>
           </div>
 
-          <h2>That Time I Shortcut jQuery</h2>
+          <h2>That Time I Shortcut jQuery Deferred</h2>
 <p class="meta">22 Dec 2013</p>
 
 <div class="post">
-<h1>TLDR;</h1>
+<p>Recently I had one of those moments where I tried to do something fancy with jQuery for a web form file uploader, to which IE8 merely laughed in defiance, turned up Blame It, and started sobbing again about Michael Jackson.  Ultimately I found an ass-backwards compatible solution that was functional and readable, and used a simple counter rather than jQuery&#39;s Deferred Object. </p>
 
-<p>Recently I had one of those moments writing jQuery when IE8 was being an asshat I was writing some code recently for Science Exchange to replace our nodejs web form file uploader - which was broken for IE 8 users - with a third-party utility, Ink&#39;s Filepicker.  In the process I attempted to take advantage of jQuery&#39;s deferred object methods to handle streaming the files to S3.  But I had some trouble.  But I found a workaround that I think was sorta cool so I wanted to share it.</p>
+<p>The file uploader I was designing enabled the user to upload multiple files. Now, a normal UI/code flow for this is fairly straightforward: </p>
 
-<p>After first reading up on handling promises in jQuery, I came up with a basic thesis for handling the S3 streaming:</p>
+<ul>
+<li>User uploads file(s)</li>
+<li>User clicks submit</li>
+<li>Code streams files wherever</li>
+<li>Code executes callback in the response to submit the form</li>
+</ul>
 
-<p>When the user submitted the form I would
-1) cache a separate API call for each file to send through Filepicker&#39;s S3 streaming method <code>filepicker.store</code> and then
-2) execute the calls by passing them as an array to jQuery&#39;s $.when() method, doing something like:</p>
+<p>Right, so normally you could post all the file data inside one request.  But in this case I was using a third-party vendor&#39;s API to help us stream these files to S3.  And unfortunately, this API only allowed one stream request at a time.  (It&#39;s a young product).  So rather than hashing the file data in one simple ajax request, I would need some code that could wait for an indeterminate amount of async ajax calls to complete before submitting the form.</p>
+
+<p>jQuery has a nifty method to execute callbacks based on Deferred objects for async events.  So my initial idea, having been reading a lot about JavaScript Promises lately, was to create an array of these calls and then pass them to <code>$.when</code> like so:</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">promises</span><span class="p">);</span>
 </code></pre></div>
 
-<p>.  This worked really well, except in IE8.</p>
+<p>But IE8 simply didn&#39;t want to play.  My suspicion is that the vendor-specific API methods in my ajax calls were causing some trouble because <code>$.when</code> <em>did</em> work when I tested a simple ajax request.  I didn&#39;t have time for a full investigation with the vendor so I went ahead to find a different solution.  And came up with such:</p>
 
-<p>with Ink&#39;s Filepicker utility.  Filepicker is probably the best managed asset solution I&#39;ve seen of this kind because it can accept files from many popular media management services. It also has a straightforward, well-documented API.</p>
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Loop of ajax calls</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arrOfFiles</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">file</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">vendorAPI</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">res</span> <span class="p">){</span>
+    <span class="c1">// Count down</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="c1">// If our count is 0, our steam calls are done, let&#39;s submit the form</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Unhook dead submit binding and resubmit form</span>
+        <span class="nx">form</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span> 
+</code></pre></div>
 
-<p>Filepicker will host files for you, but our app was designed to serve assets from S3.  Now, the Filepicker API does provide a method for S3 streaming called <code>filepicker.store</code>, but it falls slightly short because you can only pass the method one file at a time.</p>
-
-<p>[^1]: Previously, users were restricted to uploading one file at a time, and if they made a mistake they had to reload the page.</p>
+<p>There&#39;s no error catching/reporting but you you get the gist.</p>
 
 </div>
 
 
           <div class="footer">
             <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
+              <a href="http://twitter.com/internetross">@internetross</a>
             </div>
           </div>
         </div>
-
     </body>
 </html>
