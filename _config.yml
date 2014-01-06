@@ -1,4 +1,6 @@
-name: Your New Jekyll Site
+name: Ross' Website
 markdown: redcarpet
 pygments: true
-exclude: [Gemfile, Gemfile.lock, Guardfile]
+exclude: [Gemfile, Gemfile.lock, Guardfile, sass]
+permalink: :title
+gems: [slug-maker]

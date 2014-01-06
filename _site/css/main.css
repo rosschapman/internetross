@@ -23,9 +23,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
 h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
+p { margin: 0 0 1em; }
 
-a         { color: #00a; }
+a         {
+  text-decoration: none;
+  color: #00a;
+}
 a:hover   { color: #000; }
 a:visited { color: #a0a; }
 
@@ -81,19 +84,14 @@ a:visited { color: #a0a; }
   color: #000;
 }
 
-.header a.extra {
+.header a.nav-link {
   color: #aaa;
   margin-left: 1em;
 }
 
-.header a.extra:hover {
+.header a.nav-link:hover {
   color: #000;
 }
-
-.meta {
-  color: #aaa;
-}
-
 .footer {
   font-size: 80%;
   color: #666;
@@ -127,15 +125,39 @@ a:visited { color: #a0a; }
 /*
 /*****************************************************************************/
 
-/* standard */
+.post blockquote {
+  margin-left: 20px;
+  font-size: 90%;
+  color: gray;
+}
+.post-splash {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.post-title {
+  float: left;
+}
+.post-meta {
+  float: right;
+  color: #aaa;
+  font-size: 80%;
+}
+.post h2 {
+  font: bold 70% Helvetica;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
 .post pre {
+  overflow: scroll;
   border: 1px solid #ddd;
   background-color: #eef;
-  padding: 0 .4em;
+  padding: .4em 1em;
+  margin-bottom: 1em;
 }
 
 .post ul, .post ol {
   margin-left: 1.35em;
+  margin-bottom: 1em;
 }
 
 .post code {
@@ -157,4 +179,12 @@ a:visited { color: #a0a; }
 
 .post pre.terminal code {
   background-color: #333;
+}
+
+/* GLOSSARY */
+
+.term-name,
+.term-name:visited {
+  font-style: oblique;
+  color: black;
 }

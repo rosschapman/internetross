@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>TILTW: Dec 30-Jan3</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Ross' Website</a></h1>
+            <a class="nav-link" href="/">Blog</a>
+            <a class="nav-link" href="/glossary">Glossary</a>
+          </div>
+
+          <h1 class="post-title">TILTW: Dec 30-Jan3</h1>
+<p class="post-meta">06 Jan 2014</p>
+
+<div class="post">
+<img class="post-splash" src="" />
+<h1>RoR</h1>
+
+<h2>Forms</h2>
+
+<p>I&#39;m staring at this form button...then I click it and the text changes from &quot;Save&quot; to &quot;Please wait...&quot;  With some digging I discover that Rails does some special stuff with attributes declared on form tags:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="o">&lt;%=</span> <span class="n">form</span><span class="o">.</span><span class="n">submit</span> <span class="s1">&#39;Save&#39;</span><span class="p">,</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s1">&#39;Please wait...&#39;</span><span class="p">,</span> <span class="ss">disabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">&#39;button&#39;</span> <span class="o">%&gt;</span>
+</code></pre></div>
+
+<p>Some of these attributes, such as `disabled: true&#39;, hook to an <a href="http://github.com/rails/jquery-ujs/">“unobtrusive scripting adapter for jQuery”</a>. that provides some nifty ways of handling form UI as well as easy scripting of the form methods and ajax.  Neato gang!</p>
+
+<h2>When do I have to restart this server?</h2>
+
+<p>Coming from WordPress, it will 
+http://stackoverflow.com/questions/17729345/when-do-i-need-to-restart-server-in-rails/17729618#17729618</p>
+
+<h1>jQuery</h1>
+
+<h2>prop vs attr</h2>
+
+<p>I honestly think I&#39;ve never used jQuery&#39;s .prop() method before.  Not sure why, just haven&#39;t.  But this week I was messing with form buttons in an <a href="http://www.scienceexchange.com">app</a> and I discovered a couple of RoR&#39;s template form tag helpers: <code>disable_with: &#39;Please wait...&#39;, disabled: true,</code>.  And I continued reading the magical scroll...</p>
+
+<p>These helpers are hooked to Rails&#39; &quot;unobtrusive javascript adapter&quot;, <a href="http://github.com/rails/jquery-ujs">jquery-ujs</a>, which automatically change the button text on click. So opinionated!</p>
+
+<p>Right, so what if I didn&#39;t want to do buttons the rails way but, say, my own javascripty way.  In that moment I had some daydream about a jQuery method for disabling attributes.  So I googled for it, of course to be familiarly greeted instead in the results by .attr() (duh), but also .prop().</p>
+
+<p>That&#39;s when I realized I wasn&#39;t totally clear about the difference between a DOM property vs an attribute, and which of these methods a coder would use to mess with the...aspects?..of button states.  jQuery is partially to blame, since up until v1.6 was released in May of 2011 - basically around the time I started writing more production jQuizzle - .attr() was the only method available to access properties or attributes.</p>
+
+<p>One thing that helped clarify the difference was learning that:</p>
+
+<blockquote>
+<p>&quot;When a DOM node is created for a given HTML element, a corresponding property is created for each attribute in the HTML source code.&quot; <a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html">*</a></p>
+</blockquote>
+
+<p>Which explains why:</p>
+
+<blockquote>
+<p>&quot;Where both a property and an attribute with the same name exists, usually updating one will update the other, but this is not the case for certain attributes of inputs, such as value and checked: for these attributes, the property always represents the current state while the attribute (except in old versions of IE) corresponds to the default value/checkedness of the input (reflected in the defaultValue / defaultChecked property).&quot; <a href="http://stackoverflow.com/questions/5874652/prop-vs-attr">*</a></p>
+</blockquote>
+
+<p>According to the above definitions, .prop() is better for checking the value of certain attribute whose value we expect to change after DOM load.  Certain attributes, like <code>value</code>, <code>checked</code>, and <code>disabled</code>, will retain their serialized HTML attribute!  Also, properties might be easier to work with because we don&#39;t necessarily have to anticipate different types. For example, an attribute value could be a boolean (disabled), an object (style), or an integer (size).</p>
+
+<p>Admittedly, this is all a bit difficult to grasp because the words themselves are so similar in meaning outside the context of discussing HTML and the DOM.  &quot;Attribute&quot;, &quot;property&quot;, and &quot;value&quot; are practically interchangeable in English vernacular.</p>
+
+</div>
+
+
+          <div class="footer"></div>
+        </div>
+    </body>
+</html>
