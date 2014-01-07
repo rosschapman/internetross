@@ -37,7 +37,7 @@
 <li>Code executes callback in the response to submit the form</li>
 </ul>
 
-<p>Right, so normally you could post the entire upload data packet inside one request.  But in this case I was using a third-party vendor&#39;s API to help us stream these files to S3.  And unfortunately, this API only allowed one stream request at a time.  (It&#39;s a young product).  So rather than sending the file data in one simple ajax request, I would need some code that could wait for an indeterminate amount of async ajax calls to complete before submitting the form.</p>
+<p>Right, so normally you could post the entire upload data packet inside one request.  But in this case I was using a third-party vendor&#39;s API to help us stream these files to S3.  And unfortunately, this API only allowed one stream request at a time.  (It&#39;s a young product).  So rather than sending the file data in one ajax request, I would need some code that could wait for an indeterminate amount of async calls to complete before going ahead and submitting the form.</p>
 
 <p>jQuery has a nifty method to execute callbacks based on Deferred objects for async events.  So my initial idea, having been reading a lot about JavaScript Promises lately, was to create an array of these calls and then pass them to <a href="http://api.jquery.com/jquery.when/"><code>$.when</code></a> like so:</p>
 
@@ -46,12 +46,12 @@
 <span class="p">});</span>
 </code></pre></div>
 
-<p>But IE8 simply didn&#39;t want to play.  My suspicion is that the vendor-specific API methods in my ajax calls were causing some trouble because <code>$.when</code> <em>did</em> work when I tested a simple ajax request.  I didn&#39;t have time for a full investigation with the vendor so I went ahead to find a different solution.  And came up with this, simplified for exemplification:</p>
+<p>But IE8 simply didn&#39;t want to play.  My suspicion is that the vendor-specific API methods in my ajax calls were causing some trouble because <code>$.when</code> <em>did</em> work when I tested a simple ajax request.  I didn&#39;t have time for a full investigation with the vendor so I went ahead to find a different solution.  And came up with the following (simplified for exemplification):</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// Loop of ajax calls</span>
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Loop through each file and call stream method</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arrOfFiles</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">file</span> <span class="p">)</span> <span class="p">{</span>
     <span class="nx">vendorAPI</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">res</span> <span class="p">){</span>
-    <span class="c1">// Count down each time we make an ajax call</span>
+    <span class="c1">// Count down each time we make a call</span>
     <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
     <span class="c1">// Once the count is 0, our ajax calls are done so let&#39;s submit the form</span>
     <span class="k">if</span> <span class="p">(</span> <span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
@@ -61,7 +61,7 @@
 <span class="p">});</span>
 </code></pre></div>
 
-<p>Curious to hear what you think.  Like, does this code suck and you have a better a idea?  <a href="http://twitter.com/internetross">Tweet at a playa</a>.</p>
+<p>No major moral here.  Just a little fun thinking through problems. <a href="http://twitter.com/internetross">Together</a>.</p>
 
 </div>
 
