@@ -30,12 +30,12 @@
 
 <h2>Forms</h2>
 
-<p>I&#39;m staring at this form button...then I click it and the text changes from &quot;Save&quot; to &quot;Please wait...&quot;  With some digging I discover that Rails does some special stuff with attributes declared on form tags:</p>
+<p>I&#39;m staring at this form button...then I click it and the text changes from &quot;Save&quot; to &quot;Please wait...&quot;  With some digging I discover that Rails offers an easy way to add scripted UI interactions to your forms by adding attributes in form tags.  Like so:</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="o">&lt;%=</span> <span class="n">form</span><span class="o">.</span><span class="n">submit</span> <span class="s1">&#39;Save&#39;</span><span class="p">,</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s1">&#39;Please wait...&#39;</span><span class="p">,</span> <span class="ss">disabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">&#39;button&#39;</span> <span class="o">%&gt;</span>
 </code></pre></div>
 
-<p>Some of these attributes, such as `disabled: true&#39;, hook to an <a href="http://github.com/rails/jquery-ujs/">“unobtrusive scripting adapter for jQuery”</a>.  These adapters are a small library of jQuery scripts that handle various form UI, like a disabled state, and even data transportation methods.  You can specify transport method (POST, GET, DELETE, etc...) by simply adding a form tag in your html. Some call it magic.</p>
+<p>Some of these attributes, such as `disabled: true&#39;, hook to a Rails Bread <a href="http://github.com/rails/jquery-ujs/">“unobtrusive scripting adapter for jQuery”</a>.  These adapters are a small library of jQuery scripts that handle various form UI, like a disabled state, and even data transportation methods.  You can specify transport method (POST, GET, DELETE, etc...) by simply adding a form tag in your html. Some call it magic.</p>
 
 <h1>jQuery</h1>
 

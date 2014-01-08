@@ -6,13 +6,13 @@ categories: tiltw ror jquery
 
 # RoR
 ## Forms 
-I'm staring at this form button...then I click it and the text changes from "Save" to "Please wait..."  With some digging I discover that Rails does some special stuff with attributes declared on form tags:
+I'm staring at this form button...then I click it and the text changes from "Save" to "Please wait..."  With some digging I discover that Rails offers an easy way to add scripted UI interactions to your forms by adding attributes in form tags.  Like so:
 
 {% highlight ruby %}
 <%= form.submit 'Save', disable_with: 'Please wait...', disabled: true, class: 'button' %>
 {% endhighlight %}
 
-Some of these attributes, such as `disabled: true', hook to an [“unobtrusive scripting adapter for jQuery”](http://github.com/rails/jquery-ujs/).  These adapters are a small library of jQuery scripts that handle various form UI, like a disabled state, and even data transportation methods.  You can specify transport method (POST, GET, DELETE, etc...) by simply adding a form tag in your html. Some call it magic.
+Some of these attributes, such as `disabled: true', hook to a Rails Bread [“unobtrusive scripting adapter for jQuery”](http://github.com/rails/jquery-ujs/).  These adapters are a small library of jQuery scripts that handle various form UI, like a disabled state, and even data transportation methods.  You can specify transport method (POST, GET, DELETE, etc...) by simply adding a form tag in your html. Some call it magic.
 
 # jQuery
 
