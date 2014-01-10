@@ -4,15 +4,28 @@ title:  "Jekyll sunk your Backbone ship"
 categories: [backbonejs, jekyll]
 ---
 
-If you're one of the five web developers or recruiters who have looked at my website in the past couple months, you're undoubtedly noticing the look and feel of this thing is different.
+If you're one of the five web developers or recruiters who have looked at my website in the past couple months, you're undoubtedly noticing a new look and feel.
 
-That's because I just totally migrated my website from WordPress and Backbone.js to Jekyll.  The design, which some colleagues told me was "pretty good", was sacrificed - for now - while I get the architecture figured out and actually do some writing. 
+That's because I just migrated my website to Jekyll, a static-site generator built on ruby.  In the short term, the old site design, which some colleagues told me was "pretty good", was sacrificed.  In the meantime, my beautiful prose will have to dazzle you.
+
+So how did we get here?
 
 ## v1.0.0: Bone of Back
-After leaving Zendesk behind in September, I also decided to leave behind a 5-year history of WordPress consulting and development and learn new stuff.  Most companies needing front-enders wanted experience with JavaScript MV-style/-patterned frameworks like Backbone.js, AngularJS, or Ember - JavaScript is really soaring wowwey! - so I decided to learn one of those.
+After leaving Zendesk behind in September, I found most companies hiring front-enders were looking for experience with JavaScript MV-style/-patterned frameworks like Backbone.js, AngularJS, or Ember. So I decided to learn some of that new hot shit, and built a website.  Since my own website languished neglected for a few years, I would rebuild my own website.
 
-The week before an interview I spirited through [@addyosmani's](http://twitter.com/addyosmani) [book](http://addyosmani.github.io/backbone-fundamentals/) and rebuilt my website using what might be called an "API first" approach, leveraging Backbone.js to fetch my blog datas from WordPress.com's [JSON API](http://developer.wordpress.com/docs/api/), and then old friends HTML and CSS to help browsers render the payload.  Having jumped in the deep end, I'm not sure I had even digested the concept of MV* entirely before launching the redesign - partly because, as one will find, Backbone.js itself [defies](http://lostechies.com/derickbailey/2011/12/23/backbone-js-is-not-an-mvc-framework/) easy classification into an MV-family. But it was an invaluable exercise to practice a build that relied solely on the emerging stars of web tech (HTML/CSS/JavaScript) with a  framework designed to communicate with JSON APIs.  AND, of course, the greatest benefit of all of a site with no sides of server, I could deploy my site easily to Github pages - which is cool because people can look at your code.  
+The week before an interview with a hot, new, venture-backed startup out of a high-rise in downtown SF, I spirited through [@addyosmani's](http://twitter.com/addyosmani) Backbone.js [book](http://addyosmani.github.io/backbone-fundamentals/) and rebuilt my website using what might be called an "API first" approach: a mini-JavaScript app leveraged Backbone.js to fetch my blog datas from WordPress.com's [JSON API](http://developer.wordpress.com/docs/api/), and then old friends HTML and CSS helped browsers rendered the payload.  
 
-While this experiment was successful, I wasn't really interested in dazzling my "users" with a single page app. The "sans-reload" UI was nice, but at the most I needed a website that could display some text and images in a weblog - like a Typepad thingy. Also, SEO is completely sacrificed with a JavaScript framework (I know, I know, there are ways around it).  But I wouldn't want to deprive my 5 or so fans - well, my mom at least - from discovering me on the web while searching for my name or "random front-end developers who blog about shit everyone knows already."
+Talk about dazzling.  In about 3 days I had a modern ajax-y single page app for a portfolio site - complete with a loading gif and picture of myself [touching my face] inside a circle. Web 2.0 certified.  
+
+Having been building WordPress sites for like five years it was really refreshing to work with HTML decoupled from server logic.  Refreshing, in large part, because I didn't have to context-switch between PHP and JavaScript any longer, which is a bitch for remembering the right string methods.  And above all, because the site logic was completely client-side, I could easily deploy my site using Github Pages.  I love Github Pages.  Even having worked for a web host  
+
+While this experiment was successful, I wasn't really interested in dazzling my "users" with a single page app. The sans-reload UI was silky, but at the most I needed a website that could display some text and images in a simple weblog. Backbone was a bit overkill. Also, SEO is completely sacrificed with a JavaScript framework (I know, I know, there are ways around it).  But I wouldn't want to deprive my 5 or so fans - well, my mom at least - from discovering me on the web while searching my name or "random front-end developers who blog about shit everyone knows already."
 
 ## v2.0.0:
+Enter Jekyll.
+
+Jekyll was an obvious choice for a couple reasons.  First, Github Pages uses Jekyll [already](https://help.github.com/articles/using-jekyll-with-pages), so they understand how to server static sites that Jekyll compiles. Second, its built with ruby, and I am learning that.
+
+As a side note, it's been a pleasure writing in Markdown. It's no wonder that projects like [Ghost](https://ghost.org/) are making an big splash. Even WordPress.com just [released](http://en.blog.wordpress.com/2013/11/19/markdown/) native Markdown support.  
+
+
