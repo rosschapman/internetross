@@ -145,7 +145,6 @@ img {
   margin-bottom: 1em;
 }
 .post-title {
-  float: left;
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 0;
@@ -199,8 +198,18 @@ img {
 
 /* GLOSSARY */
 
+.glossary ul {
+  list-style: none;
+  clear: both;
+  margin-top: 50px;
+}
+.glossary li {
+  margin-bottom: 20px;
+}
 .term-name,
 .term-name:visited {
-  font-style: oblique;
+  display: block;
+  font-weight: 900;
   color: black;
+  line-height: 1.3rem;
 }
