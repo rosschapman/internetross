@@ -4,8 +4,11 @@ title:  "TILTW: Dec 30-Jan3"
 categories: tiltw ror jquery
 ---
 
-# RoR
-## Forms 
+Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
+<a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=Ross, I like you but..." target="_blank">
+disagree</a>.
+
+## Ruby on Rails Forms 
 I'm staring at this form button...then I click it and the text changes from "Save" to "Please wait..."  With some digging I discover that Rails offers an easy way to add scripted UI interactions to your forms by adding attributes in form tags.  Like so:
 
 {% highlight ruby %}
@@ -14,9 +17,7 @@ I'm staring at this form button...then I click it and the text changes from "Sav
 
 Some of these attributes, such as `disabled: true', hook to a Rails Bread [“unobtrusive scripting adapter for jQuery”](http://github.com/rails/jquery-ujs/).  These adapters are a small library of jQuery scripts that handle various form UI, like a disabled state, and even data transportation methods.  You can specify transport method (POST, GET, DELETE, etc...) by simply adding a form tag in your html. Some call it magic.
 
-# jQuery
-
-## prop vs attr
+## jQuery's prop() & attr()
 I honestly think I've never used jQuery's .prop() method before.  Not sure why, just haven't.  But this week I was messing with form buttons in this cool [app](http://www.scienceexchange.com) and I found these form tag helpers which are kinda neat.  Right,  what I was describing above.
 
 While jquery-ujs is handy, I wondered about how I would approach the problem.  In that moment I had some daydream about a jQuery method for disabling attributes.  So I googled for it, of course to be familiarly greeted in the top results by .attr() (duh), but also .prop().
@@ -37,4 +38,5 @@ Secondly, properties can be easier to work with because we don't necessarily hav
 
 Admittedly, this is all a bit difficult to grasp (considering the words themselves are so similar in meaning: "attribute", "property", and "value" are practically interchangeable in English vernacular). But it's so important - and more and more I find it to be true - that a jQuery dev understand how far the $ obfuscates a pure view of HTML and the DOM.
 
-I'm pretty new to technical writing. Would love to hear your [feedback](http://twitter.com/internetross)!
+I'm pretty new to technical writing. Would love to hear your <a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=Ross, here's some feedback..." target="_blank">
+feedback</a>!

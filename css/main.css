@@ -14,9 +14,9 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px "Georgia Pro", georgia, serif;
+  font: 13.34px "Lato", georgia, serif;
   font-size: small;
-  text-align: center;
+  color: #19272d;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,12 +25,18 @@ h1, h2, h3, h4, h5, h6 {
 h1 { margin-bottom: 1em; }
 p { margin: 0 0 1em; }
 
-a         {
+a {
   text-decoration: none;
-  color: #00a;
+  font-weight: bold;
+  color: #19272d;
 }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+a:hover {
+  border-bottom: 1px solid #444444;
+}
+
+img {
+  width: 100%;
+}
 
 /*****************************************************************************/
 /*
@@ -59,26 +65,30 @@ a:visited { color: #a0a; }
 /*****************************************************************************/
 
 .site {
-  font-size: 135%;
-  text-align: justify;
-  max-width: 42em;
-  margin: 3em auto 2em;
-  padding: 2em;
-  line-height: 1.5em;
+  font-size: 1.09rem;
+  font-weight: 400;
+  max-width: 35rem;
+  margin: 3em 0 2em;
+  padding: 2em 3em;
+  line-height: 1.8em;
+  letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
 }
 
 .header a {
   font-weight: bold;
   text-decoration: none;
 }
+.header a:hover {
+  border: none;
+}
 
 .title {
   display: inline-block;
-  margin-bottom: 2em;
 }
 
 .title a {
-  color: #a00;
+  color: #ff00c0;
 }
 
 .title a:hover {
@@ -128,7 +138,6 @@ a:visited { color: #a0a; }
 
 .post blockquote {
   margin-left: 20px;
-  font-size: 90%;
   color: gray;
 }
 .post-splash {
@@ -137,16 +146,22 @@ a:visited { color: #a0a; }
 }
 .post-title {
   float: left;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 0;
 }
 .post-meta {
-  float: right;
+  float: left;
+  clear: both;
+  margin-top: 5px;
   color: #aaa;
   font-size: 80%;
 }
 .post h2 {
-  font: bold 70% Helvetica;
-  text-transform: uppercase;
+  font-size: 1.35rem;
+  font-weight: 900;
   margin-bottom: 10px;
+  margin-top: 50px;
 }
 .post pre {
   overflow: scroll;

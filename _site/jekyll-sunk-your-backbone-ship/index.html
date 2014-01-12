@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Jekyll sunk your Backbone ship</title>
         <meta name="viewport" content="width=device-width">
+        <meta name="description" content="front-end developer who blogs about shit everyone knows already">
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
@@ -12,50 +13,60 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
 
+        <!-- Custom Font -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
     </head>
     <body>
         <div class="site">
           <div class="header">
-            <h1 class="title"><a href="/">Ross' Website</a></h1>
-            <a class="nav-link" href="/">Blog</a>
+            <h1 class="title"><a href="/">Ross' Weblog</a></h1>
             <a class="nav-link" href="/glossary">Glossary</a>
           </div>
 
           <h1 class="post-title">Jekyll sunk your Backbone ship</h1>
-<p class="post-meta">10 Jan 2014</p>
+<p class="post-meta">11 Jan 2014</p>
 
 <div class="post">
 <img class="post-splash" src="" />
 <p>If you&#39;re one of the five web developers or recruiters who have looked at my website in the past couple months, you&#39;re undoubtedly noticing a new look and feel.</p>
 
-<p>That&#39;s because I just migrated my website to Jekyll, a static-site generator built on ruby.  In the short term, the old site design, which some colleagues told me was &quot;pretty good&quot;, was sacrificed.  In the meantime, my beautiful prose will have to dazzle you.</p>
+<p>That&#39;s because I just migrated my website to <a href="http://jekyllrb.com/">Jekyll</a>, a static-site generator built on ruby.  In the short term, the old site design, which some colleagues told me was &quot;pretty good&quot;, was sacrificed.  In the meantime, my beautiful prose will have to dazzle you.</p>
 
 <p>So how did we get here?</p>
 
-<h2>v1.0.0: Bone of Back</h2>
+<h2>Bone of Back</h2>
 
-<p>After leaving Zendesk behind in September, I found most companies hiring front-enders were looking for experience with JavaScript MV-style/-patterned frameworks like Backbone.js, AngularJS, or Ember. So I decided to learn some of that new hot shit, and built a website.  Since my own website languished neglected for a few years, I would rebuild my own website.</p>
+<p>After leaving Zendesk behind in September, I found most companies hiring front-enders were looking for experience with JavaScript MV-patterned frameworks like <a href="http://backbonejs.org">Backbone.js</a>, <a href="http://angularjs.org">AngularJS</a>, or <a href="http://emberjs.com">Ember</a>. So I decided to learn some of that new cool by building a website, on it.  Since my own website was languishing in obscurity and neglect for the past few years, I would rebuild my own website, on it.</p>
 
-<p>The week before an interview with a hot, new, venture-backed startup out of a high-rise in downtown SF, I spirited through <a href="http://twitter.com/addyosmani">@addyosmani&#39;s</a> Backbone.js <a href="http://addyosmani.github.io/backbone-fundamentals/">book</a> and rebuilt my website using what might be called an &quot;API first&quot; approach: a mini-JavaScript app leveraged Backbone.js to fetch my blog datas from WordPress.com&#39;s <a href="http://developer.wordpress.com/docs/api/">JSON API</a>, and then old friends HTML and CSS helped browsers rendered the payload.  </p>
+<p>The week before an interview with a venture-backed startup equally as hot and <a href="/glossary#surgepricey">surgepricey</a> as JavaScript, I spirited through <a href="http://twitter.com/addyosmani">@addyosmani&#39;s</a> Backbone.js <a href="http://addyosmani.github.io/backbone-fundamentals/">book</a> and rebuilt my website using what some are calling an &quot;API first&quot; approach: my blog datas were fetched, parsed, and rendered in the DOM entirely by a database-unawares mini Backbone app that talked to WordPress.com&#39;s <a href="http://developer.wordpress.com/docs/api/">JSON API</a>.</p>
 
-<p>Talk about dazzling.  In about 3 days I had a modern ajax-y single page app for a portfolio site - complete with a loading gif and picture of myself [touching my face] inside a circle. Web 2.0 certified.  </p>
+<p>Talk about dazzling.  In about 3 days I had a modern ajax-y single page app for a portfolio site - complete with a loading gif and picture of myself <a href="http://dttf.tumblr.com/">touching my face</a> inside a circle. Silicon-valley certified. You can actually see it in cryo-stasis <a href="/backbone-it-up/">here</a>.</p>
 
-<p>Having been building WordPress sites for like five years it was really refreshing to work with HTML decoupled from server logic.  Refreshing, in large part, because I didn&#39;t have to context-switch between PHP and JavaScript any longer, which is a bitch for remembering the right string methods.  And above all, because the site logic was completely client-side, I could easily deploy my site using Github Pages.  I love Github Pages.  Even having worked for a web host  </p>
+<p>Having been building WordPress sites for like five years, it was refreshing to be free of context-switching between PHP and JavaScript. Which is a particular bitch when remembering string methods.  But the real Mentos freshness was having all the site logic <strong>completely</strong> client-side, so I could deploy the thing on <a href="http://pages.github.com/">Github Pages</a>.</p>
 
-<p>While this experiment was successful, I wasn&#39;t really interested in dazzling my &quot;users&quot; with a single page app. The sans-reload UI was silky, but at the most I needed a website that could display some text and images in a simple weblog. Backbone was a bit overkill. Also, SEO is completely sacrificed with a JavaScript framework (I know, I know, there are ways around it).  But I wouldn&#39;t want to deprive my 5 or so fans - well, my mom at least - from discovering me on the web while searching my name or &quot;random front-end developers who blog about shit everyone knows already.&quot;</p>
+<p>I love Github Pages. It is THE best web host I&#39;ve ever used and the easiest way to publish a static website I can think of. My most recent &quot;oh that&#39;d be cool&quot; moment was when I realized marketers could be abusing the crap out of Github Pages for landing page testing. Seriously, nerd cred to non-devs who publish a web page on Github. </p>
 
-<h2>v2.0.0:</h2>
+<p>Anywho, while my Backbone experiment was successful, the architecture was a bit overkill for my needs. The <a href="/glossary#spa">SPA</a> sans-reload UI was silky, but I didn&#39;t really need a framework with models and routing to handle some basic strings and markup. Also, SEO is completely sacrificed with a front-end JavaScript framework (I know, I know, there are hacky-crawly ways around it).  But I wouldn&#39;t want to deprive my next five fans from discovering me on the web searching for &quot;random front-end developers who blog about shit everyone knows already&quot; - do you get the joke (hint: meta)? And, well, what if mom couldn&#39;t find my website when she googled my name?  Fool me once, shame on you.  Fool me, you can&#39;t get fooled again.</p>
 
-<p>Enter Jekyll.</p>
+<h2>Enter Jekyll</h2>
 
-<p>Jekyll was an obvious choice for a couple reasons.  First, Github Pages uses Jekyll <a href="https://help.github.com/articles/using-jekyll-with-pages">already</a>, so they understand how to server static sites that Jekyll compiles. Second, its built with ruby, and I am learning that.</p>
+<p>Jekyll was an obvious choice for a couple reasons.  First, Github Pages uses Jekyll <a href="https://help.github.com/articles/using-jekyll-with-pages">already</a>, so they understand how to serve static pages that Jekyll compiles, and I wouldn&#39;t have to consider another hosting solution. Second, its built with ruby, and I am learning <a href="http://www.codecademy.com/users/pyRockstar96979/achievements">that</a>.</p>
 
-<p>As a side note, it&#39;s been a pleasure writing in Markdown. It&#39;s no wonder that projects like <a href="https://ghost.org/">Ghost</a> are making an big splash. Even WordPress.com just <a href="http://en.blog.wordpress.com/2013/11/19/markdown/">released</a> native Markdown support.  </p>
+<p>Switching to Jekyll also forces you to write Markdown.  Oh, Marcus Aurelius de mi corazon. Why did I ever fear your gentle brace? Markdown is really easy to pick up - there&#39;s like four syntax things to know and its entirely <tag> free.  It&#39;s perfect for internet writing - you can hyperlink and create typographic hierarchy with braces and pounds. It&#39;s really no wonder WordPress.com just <a href="http://en.blog.wordpress.com/2013/11/19/markdown/">released</a> native Markdown support and other web authoring tools like <a href="http://ghost.org">Ghost</a> are going full Markdown from the get-go.</p>
+
+<p>Speaking of Ghost, I near-copied the interface on my desktop by putting iA Writer and Chrome side by side:</p>
+
+<p><img src="/assets/images/kinda-like-ghost.png" alt="Ghost.org lookalike">
+<img src="http://cdn.arstechnica.net/wp-content/uploads/2013/10/Screenshot-3.jpg" alt="Ghost.org screenshot"></p>
+
+<p>With the combo-punch of the <a href="https://github.com/guard/guard">Guard</a> and <a href="https://github.com/guard/guard-livereload">Guard-Livereload</a> gems I get instant refreshes in Chrome on save. I call it &quot;OSX Mavericks CMS&quot;. </p>
+
+<p>There&#39;s not a ton more to say about this website for now.  I&#39;ll be boosting readability and general delight in the near future, which probably won&#39;t even deserve <a href="http://dribbble.com/internetross">Dribbbling</a>.  Quarterly report on delight metrics forthcoming. Synergy.  Generally, I hope - I want! - your eyeballs and mind grapes to find less corn syrup and more protein on these pages.  It&#39;s going to continue being/becoming honest, humble ruminations on code and UX and being a web professional for startups - which really just means young companies? - in Silicon Valley/Alley and the search for lost personhood in the matrix.  K, talk soon.</p>
 
 </div>
 
 
-          <div class="footer"></div>
         </div>
     </body>
 </html>

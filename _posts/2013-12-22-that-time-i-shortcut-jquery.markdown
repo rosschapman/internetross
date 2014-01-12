@@ -6,7 +6,7 @@ date:   2013-12-22 14:51:38
 categories: jekyll update
 ---
 
-Recently I had one of those moments where I tried to do something fancy with jQuery for a file uploader, to which IE8 sneered in defiance, turned up [Blame It](http://www.youtube.com/watch?v=rfjtpp90lu8), and started sobbing again about Michael Jackson.  Ultimately I found an acceptable <a class="term-name" href="/glossary#back-compat">back-compat</a> solution that was functional and readable, and used a simple counter rather than jQuery's Deferred Object.
+Recently I had one of those moments where I tried to do something fancy with jQuery while working on a file uploader, to which IE8 sneered in defiance, turned up [Blame It](http://www.youtube.com/watch?v=rfjtpp90lu8), and started sobbing again about Michael Jackson.  Ultimately I found an acceptable backwards compatible solution that was functional and readable, and used a simple counter rather than jQuery's Deferred Object.
 
 The file uploader I was designing allowed users to upload multiple files. Now, a normal UI/code flow for this is fairly straightforward:
 
@@ -41,4 +41,4 @@ $.each(arrOfFiles, function( index, file ) {
 });
 {% endhighlight %}
 
-No major moral here.  Just a little fun thinking through problems. [Together](http://twitter.com/internetross).
+No major moral here.  Just a little fun thinking with problems. Maybe [together](http://twitter.com/internetross)?
