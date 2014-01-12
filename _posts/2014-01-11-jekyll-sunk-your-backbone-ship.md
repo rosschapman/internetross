@@ -17,7 +17,7 @@ The week before an interview with a venture-backed startup equally as hot and [s
 
 Talk about dazzling.  In about 3 days I had a modern ajax-y single page app for a portfolio site - complete with a loading gif and picture of myself [touching my face](http://dttf.tumblr.com/) inside a circle. Silicon-valley certified. You can actually see it in cryo-stasis [here](/backbone-it-up/).
 
-Having been building WordPress sites for like five years, it was refreshing to be free of context-switching between PHP and JavaScript. Which is a particular bitch when remembering string methods.  But the real Mentos freshness was having all the site logic **completely** client-side, so I could deploy the thing on [Github Pages](http://pages.github.com/).
+Having built WordPress sites for like five years - and the occasional Drupal or Joomla site (yeah, throwback) - it was refreshing to be free of context-switching between PHP and JavaScript. Which is a particular bitch when remembering string methods.  But the real Mentos freshness was having all the site logic **completely** client-side, so I could deploy the thing on [Github Pages](http://pages.github.com/).
 
 I love Github Pages. It is THE best web host I've ever used and the easiest way to publish a static website I can think of. My most recent "oh that'd be cool" moment was when I realized marketers could be abusing the crap out of Github Pages for landing page testing. Seriously, nerd cred to non-devs who publish a web page on Github. 
 
