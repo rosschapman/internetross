@@ -206,8 +206,9 @@ img {
 .glossary li {
   margin-bottom: 20px;
 }
-.term-name,
-.term-name:visited {
+
+.glossary .term-name,
+.glossary .term-name:visited {
   display: block;
   font-weight: 900;
   color: black;
