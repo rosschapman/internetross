@@ -22,7 +22,7 @@ I honestly think I've never used jQuery's .prop() method before.  Not sure why, 
 
 While I was impressed with Rails' opinionated (obscured, magic) tactic of form button state handling, I began thinking about alternative interaction paradigms for a button after click.  In that moment I had some daydream about a jQuery method for disabling attributes, like `.disabled()` or something.  So I googled for it, of course to be familiarly greeted in the top results by `.attr()` (duh), but also `.prop()`.
 
-That's when I realized I wasn't totally clear about the difference between a DOM property vs an attribute, and which of the aforementioned extant jQuery methods a coder would choose to manipulate the behavior of button states.
+These two methods are really similar, but as I read the docs on both I realized I wasn't totally clear about the difference between a DOM property vs an attribute, and how to decide which of these methods to use for handling button states.
 
 jQuery is partially to blame. Up until v1.6 was released in May of 2011 - basically around the time I started writing more  <a class="term-name" href="/glossary#production">production</a> jQuizzle - `.attr()` was the only method available to access properties or attributes.  v1.6 introduced `.prop()` because, as the jQuery docs maintain, "the .attr() method sometimes took property values into account when retrieving some attributes, which could cause inconsistent behavior."  `.prop()` explicitly separated retrieval of property values and attributes.
 
