@@ -31,16 +31,16 @@
 <img class="post-splash" src="" />
 <p>Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
 <a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=Ross, I like you but..." target="_blank">
-disagree</a>. </p>
+disagree</a>.</p>
 
-<h2>Ruby on Rails Forms Tags</h2>
+<h2>Ruby on Rails Form Tags</h2>
 
-<p>I&#39;m staring at this form button...then I click it and the text changes from &quot;Save&quot; to &quot;Please wait...&quot;  With some digging I discover that Rails offers an easy way to add scripted UI interactions to your forms by with attributes in form tags.  Take this example:</p>
+<p>I&#39;m staring at this form button...then I click it and the text changes from &quot;Save&quot; to &quot;Please wait...&quot;  With some digging I discover that Rails offers an easy way to add scripted UI interactions to your forms with attributes in form tags.  Take this example:</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="o">&lt;%=</span> <span class="n">form</span><span class="o">.</span><span class="n">submit</span> <span class="s1">&#39;Save&#39;</span><span class="p">,</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s1">&#39;Please wait...&#39;</span><span class="p">,</span> <span class="ss">disabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">&#39;button&#39;</span> <span class="o">%&gt;</span>
 </code></pre></div>
 
-<p>Some of these attributes, such as `disabled: true&#39;, hook to a small library of jQuery scripts, <em>jquery-ujs</em>, that handle various form UI, like a disabled state, and even data transportation methods. Rails calls these scripts <a href="http://github.com/rails/jquery-ujs/">“unobtrusive scripting adapter for jQuery”</a>.  Some call it magic. </p>
+<p>Some of these attributes, such as `disabled: true&#39;, hook to a small library of jQuery scripts, <em>jquery-ujs</em>, that handle various form UI as well as data transportation methods. Rails calls these scripts <a href="http://github.com/rails/jquery-ujs/">“unobtrusive scripting adapters for jQuery”</a>.  Some call it magic.</p>
 
 <h2>jQuery&#39;s prop() &amp; attr()</h2>
 
@@ -48,7 +48,7 @@ disagree</a>. </p>
 
 <p>While I was impressed with Rails&#39; opinionated (obscured, magic) tactic of form button state handling, I began thinking about alternative interaction paradigms for a button after click.  In that moment I had some daydream about a jQuery method for disabling attributes, like <code>.disabled()</code> or something.  So I googled for it, of course to be familiarly greeted in the top results by <code>.attr()</code> (duh), but also <code>.prop()</code>.</p>
 
-<p>That&#39;s when I realized I wasn&#39;t totally clear about the difference between a DOM property vs an attribute, and which of the aforementioned extant jQuery methods a coder would choose to manipulate the behavior of button states.  </p>
+<p>That&#39;s when I realized I wasn&#39;t totally clear about the difference between a DOM property vs an attribute, and which of the aforementioned extant jQuery methods a coder would choose to manipulate the behavior of button states.</p>
 
 <p>jQuery is partially to blame. Up until v1.6 was released in May of 2011 - basically around the time I started writing more  <a class="term-name" href="/glossary#production">production</a> jQuizzle - <code>.attr()</code> was the only method available to access properties or attributes.  v1.6 introduced <code>.prop()</code> because, as the jQuery docs maintain, &quot;the .attr() method sometimes took property values into account when retrieving some attributes, which could cause inconsistent behavior.&quot;  <code>.prop()</code> explicitly separated retrieval of property values and attributes.</p>
 
@@ -66,11 +66,11 @@ disagree</a>. </p>
 <p>&quot;Where both a property and an attribute with the same name exists, usually updating one will update the other, but this is not the case for certain attributes of inputs, such as value and checked: for these attributes, the property always represents the current state while the attribute (except in old versions of IE) corresponds to the default value/checkedness of the input (reflected in the defaultValue / defaultChecked property).&quot; <a href="http://stackoverflow.com/questions/5874652/prop-vs-attr">*</a></p>
 </blockquote>
 
-<p>According to the above definition, <code>.prop()</code> is better suited for checking the value of attributes whose values we expect to change after DOM load.  For example, <code>value</code>, <code>checked</code>, and <code>disabled</code> will actually retain their serialized HTML attribute (value) after DOM load so if we were to alter these properties with javascript, retrieving their current value, after manipulation, would not be guaranteed by attr().  </p>
+<p>According to the above definition, <code>.prop()</code> is better suited for checking the value of attributes whose values we expect to change after DOM load.  For example, <code>value</code>, <code>checked</code>, and <code>disabled</code> will actually retain their serialized HTML attribute (value) after DOM load so if we were to alter these properties with javascript, retrieving their current value, after manipulation, would not be guaranteed by attr().</p>
 
 <p>Admittedly, this is all a little bit difficult to grasp at first considering the words themselves are so similar in meaning: &quot;attribute&quot;, &quot;property&quot;, and &quot;value&quot; are practically interchangeable in English vernacular. But it&#39;s so important - and more and more I find it myself to be true - that a jQuery dev understand how far the $ obfuscates a pure view of HTML and the DOM. It&#39;s totally possible to eff up your code if you were to mistakenly use <code>.attr()</code> at the wrong time! Sheesher.</p>
 
-<p>Ok. First <a href="/glossary#tiltw">TILTW</a> episode complete.  Happy new year and talk soon!  </p>
+<p>Ok. First <a href="/glossary#tiltw">TILTW</a> episode complete.  Happy new year and talk soon!</p>
 
 <p>Also, I&#39;m pretty new to technical writing. Would love to hear your <a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=Ross, here's some feedback..." target="_blank">
 feedback</a>!</p>
