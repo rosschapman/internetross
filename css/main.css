@@ -31,11 +31,15 @@ a {
   color: #19272d;
 }
 a:hover {
-  border-bottom: 1px solid #444444;
+  color: gray;
+}
+a:active {
+  color: #19272d;
 }
 
 img {
   width: 100%;
+  margin-top: 20px;
 }
 
 /*****************************************************************************/
@@ -167,7 +171,8 @@ img {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: .4em 1em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  font-size: .9rem;
 }
 
 .post ul, .post ol {
@@ -196,6 +201,14 @@ img {
   background-color: #333;
 }
 
+.post a:after {
+  font-family: FontAwesome;
+  content: " \f08e";
+  font-size: 12px;
+  position: relative;
+  top: -4px;
+}
+
 /* GLOSSARY */
 
 .glossary ul {
@@ -205,6 +218,10 @@ img {
 }
 .glossary li {
   margin-bottom: 20px;
+}
+
+.glossary li div {
+  height: auto !important;
 }
 
 .glossary .term-name,
