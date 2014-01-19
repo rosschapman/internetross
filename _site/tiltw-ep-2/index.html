@@ -38,7 +38,9 @@ disagree</a>.</p>
 
 <h2>Wait, Sass has Placeholders?!  Wait, what are Placeholders?!</h2>
 
-<p>Up until this week I was using Sass mixins anywhere I needed to recycle a special block of rule declarations and values, whether they received arguments or not.  Apparently, as I know now, this is about a 1.5 years outdated approach. (awkward laughter)  Now, mixins are <em>extremely</em> powerful to help DRY your Sass input - primarily because you can pass arguments. Here&#39;s an example of a mixin we use at at <a href="http://scienceexchange.com">Science Exchange</a> to help with cross-browser transparent backgrounds:</p>
+<p>Up until this week I was using Sass mixins anywhere I needed to recycle a special block of rule declarations and values, whether they received arguments or not.  Apparently, as I know now, this is about a 1.5 years outdated approach. (awkward laughter)  </p>
+
+<p>Generally, mixins are <em>extremely</em> powerful to help DRY your Sass input - primarily because you can pass arguments. Here&#39;s an example of a mixin we use at at <a href="http://scienceexchange.com">Science Exchange</a> to help with cross-browser transparent backgrounds:</p>
 
 <div class="highlight"><pre><code class="css"><span class="o">=</span><span class="nt">transparent</span><span class="o">(</span><span class="err">$</span><span class="nt">color</span><span class="o">,</span> <span class="err">$</span><span class="nt">alpha</span><span class="o">)</span>
   <span class="err">$</span><span class="nt">rgba</span><span class="o">:</span> <span class="nt">rgba</span><span class="o">(</span><span class="err">$</span><span class="nt">color</span><span class="o">,</span> <span class="err">$</span><span class="nt">alpha</span><span class="o">)</span>
@@ -49,7 +51,7 @@ disagree</a>.</p>
   <span class="nt">zoom</span><span class="o">:</span> <span class="nt">1</span>
 </code></pre></div>
 
-<p>The problem with mixins is that the CSS output can become a bit over loquacious. Take the following example:</p>
+<p>The annoyance with mixins is that the CSS output can become a bit over-loquacious. Now, most of the time this extra code won&#39;t matter for load times - especially if our designs are lean to begin with.  But in the same way we should understand how jQuery obfuscates and translates plain javascript, we should be concerned with how preprocessors like Sass do the same for CSS.  Take the following example:</p>
 <div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="k">@mixin</span> <span class="nt">media</span>
   <span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span>
   <span class="o">&amp;</span><span class="nd">:first-child</span>
