@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TILTW: Episode 1"
+title:  "TILTW: Rails form tags, & jQuery prop()"
 categories: tiltw ror jquery
 ---
 

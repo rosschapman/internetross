@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TILTW: Episode 2"
+title:  "TILTW: Sass Placeholders & inline-block"
 categories: tiltw ror jquery
 ---
 
@@ -9,7 +9,7 @@ Each week I learn something new.  At the end of the week, I pick a couple of thi
 disagree</a>.
 
 ## Wait, Sass has Placeholders?!  Wait, what are Placeholders?!
-Up until this week I was using Sass mixins anywhere I needed to recycle a special block of rule declarations and values, whether they received arguments or not.  Apparently, as I know now, this is about a 1.5 years outdated approach. (awkward laughter)  
+Up until this week I was using Sass mixins anywhere I needed to recycle a special block of rule declarations and values, whether they received arguments or not.  Apparently, as I know now, this is about a 1.5 years outdated approach. (awkward laughter)
 
 Generally, mixins are *extremely* powerful to help DRY your Sass input - primarily because you can pass arguments. Here's an example of a mixin we use at at [Science Exchange](http://scienceexchange.com) to help with cross-browser transparent backgrounds:
 

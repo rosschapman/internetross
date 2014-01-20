@@ -204,9 +204,10 @@ img {
 .post a:after {
   font-family: FontAwesome;
   content: " \f08e";
-  font-size: 12px;
+  font-size: 10px;
   position: relative;
-  top: -4px;
+  top: -8px;
+  left: -2px;
 }
 
 /* GLOSSARY */
