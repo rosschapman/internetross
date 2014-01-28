@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>TILTW: Psuedo-elements and jQuery, the idiosyncrasies of Rails engines, and the Sass parent selector</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- Custom Font -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+        <!-- Font Awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Ross' Weblog</a></h1>
+            <a class="nav-link" href="/glossary">Glossary</a>
+          </div>
+
+          <h1 class="post-title">TILTW: Psuedo-elements and jQuery, the idiosyncrasies of Rails engines, and the Sass parent selector</h1>
+<p class="post-meta">28 Jan 2014</p>
+
+<div class="post">
+<img class="post-splash" src="" />
+<p>Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
+<a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=@internetross, I like you, but..." target="_blank">
+disagree</a>.</p>
+
+<h2>Getting psuedo-element properties with the realest jQueriest</h2>
+
+<p>Because you&#39;re a sexy modern web developer, you&#39;re likely a frequent user of the <code>:before</code> and <code>:after</code> pseudo-elements to make wondrous things with CSS. Create shapes, add icons from symbol sets, fades for modals, and <a href="http://css-tricks.com/pseudo-element-roundup/">other non-standard exploits</a>.  It&#39;s also likely, then, that you&#39;ve encountered the difficulty manipulating pseudo-elements with jQuery.</p>
+
+<p>This week I was messing with setting the <code>content</code> property on <code>:before</code> elements of list items, and considering ways to animate a character change - e.g, fade from a dot to an &quot;x&quot; to signify a &quot;remove&quot; action for the user.  My first exploration some jQuery that looked like:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element:before&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>But fail.  So I wondered why and my research led me to <a href="http://stackoverflow.com/questions/5041494/manipulating-css-pseudo-elements-using-jquery-e-g-before-and-after">Stack Overflow</a> again, and to an answer.  Stack Overflow really is like the App store of code problems.  &quot;There&#39;s an <em>answer</em> for that.&quot;     </p>
+
+<p>Unfortunately, while pseudo-elements are recognized and parsed by browsers in stylesheets, they are not part of the DOM and therefore are inappropriate as part of jQuery selectors.  The w3 <a href="http://www.w3.org/TR/selectors-api/#grammar">spec</a> reinforces the same: </p>
+
+<blockquote>
+<p>Authors are advised that while the use of pseudo-elements in selectors is permitted, they will not match any elements in the document, and thus would not result in any elements being returned. Therefore, authors are advised to avoid the use of pseudo-elements in selectors that are passed to the methods defined in this specification.</p>
+</blockquote>
+
+<p>However.  If you are in dire need to access pseudo-element properties programmatically with JavaScript you can take advantage of <code>getComputedStyle()</code> and do something like this:    </p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">// Get the content value of .element:before</span>
+<span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">),</span> <span class="s1">&#39;:before&#39;</span>
+<span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Hat tip to the estimable <a href="http://davidwalsh.name/ways-css-javascript-interact">David Walsh</a> for the example.  The only gotcha, per usual, is that <code>getComputedStyle</code> is supported IE9+.  Sigh.</p>
+
+<h2>Under the hood</h2>
+
+<p>At <a href="http://www.scienceexchange.com">Science Exchange</a> we&#39;ve begun breaking apart our monolithic Rails app into smaller engines to help separate various concerns and modularize code.  We&#39;ve been inspired in part by Spree, which is a great <a href="https://github.com/spree/spree">example</a> of a modular app framework - you&#39;ll notice a quite logical partition of concerns across api, backend, frontend, etc...</p>
+
+<p>Engines.  Man.  Rails constantly wears an impish grin and I shake my fist.  It&#39;s amazing how many times I&#39;ve failed to get something working by omitting or mis-using the smallest of lines of code.  In building the frontend engine for SciEx, I wrestled with two mysterious problems with simple, totally obscure, solutions.  </p>
+
+<p>First.  Use underscores for engine names.  If you don&#39;t, you&#39;re engine&#39;s routing is completely effed.  Rails expects underscores.  After staring at the screen for a good while, a work homie suggested running <code>rake routes</code> - which exposed that Rails was searching for my_engine/path/to/greatness not my-engine/path/to/death.  The `rakes routes&#39; command is definitely a new besty.</p>
+
+<p>Ok, second gotcha.  Adding gem dependencies to your engine&#39;s gemspec file will not add the assets to the asset pipeline.  You&#39;d think it would, because this is how you&#39;d expect dependency inclusions to work from your main app - just add to the Gemfile and voilà!  Against all reason, one more step is actually necessary.  </p>
+
+<p>You&#39;ve got to add the following <code>require</code> line to your engine&#39;s <code>engine.rb</code>:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">MyRailsEngine</span>
+  <span class="k">class</span> <span class="nc">Engine</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Engine</span>
+    <span class="nb">require</span> <span class="s1">&#39;that_dependency&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Reboot and you&#39;re assets will be processed into the asset pipeline and available to load in application.css || application.js etc...</p>
+
+<h2>Sassy Parental Units</h2>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="o">//</span> <span class="nt">Meh</span>
+<span class="nc">.l-two-up-lt</span> <span class="nc">.l-main</span>
+    <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+<span class="nc">.l-two-up-lt</span> <span class="nc">.l-main</span>
+    <span class="nt">float</span><span class="o">:</span> <span class="nt">right</span>
+<span class="nc">.l-main</span>
+    <span class="nt">width</span><span class="o">:</span> <span class="nt">715px</span>
+
+<span class="o">//</span> <span class="nt">OMFG</span> <span class="nt">YEEEESSSSSS</span>
+<span class="nc">.l-main</span>
+    <span class="nt">width</span><span class="o">:</span> <span class="nt">715px</span>
+    <span class="nc">.l-two-up-lt</span> <span class="o">&amp;</span>
+        <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+    <span class="nc">.l-two-up-rt</span> <span class="o">&amp;</span>
+        <span class="nt">float</span><span class="o">:</span> <span class="nt">right</span>
+</code></pre></div>
+<h2>Bonus: Backwards lookup fix for Google Analytics regexes</h2>
+
+<h2>Rails</h2>
+
+<ul>
+<li>Gotcha: </li>
+<li>Semi-isolated engines inheriting from main application controller: http://bibwild.wordpress.com/2012/05/10/the-semi-isolated-rails-engine/</li>
+</ul>
+
+</div>
+
+
+        </div>
+          <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-43971638-1');
+            ga('send', 'pageview');
+          </script>
+    </body>
+</html>

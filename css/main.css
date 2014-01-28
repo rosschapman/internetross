@@ -149,9 +149,10 @@ img {
   margin-bottom: 1em;
 }
 .post-title {
-  font-size: 2rem;
-  font-weight: 900;
   margin-bottom: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 900;
 }
 .post-meta {
   float: left;
