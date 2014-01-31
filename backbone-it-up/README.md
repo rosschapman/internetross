@@ -1,0 +1,1 @@
+For a short time my site was running on Backbone.js. It was my first formal adventure into MVC - though Backbone is really more MV*-style.  I wrote a little bit about it [here](http://internetross.me/jekyll-sunk-your-backbone-ship/) if you're interested.
