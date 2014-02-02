@@ -1,0 +1,10 @@
+/* line 2, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+ul, li {
+  list-style: none;
+}
+
+/* line 5, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+.nav-pills a {
+  color: gray;
+  background-color: white;
+}
