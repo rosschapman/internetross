@@ -79,14 +79,13 @@ feedback</a>!</p>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script>
       $(function(){
+
         // Select and cache target image
         var target = $('body').find('.art');
         // Get current background position properties at page load.  Strip of 'px' so you just have integer
         var currentX = parseInt(target.css('background-position-x').replace('px',''), 10);
 
-        var lastPosY;
-
-        $('.art').mousemove(function(e){
+        target.mousemove(function(e){
           //console.log(e);
           var amountMovedX = e.offsetX * -1/20;
           var newX = amountMovedX + currentX;
