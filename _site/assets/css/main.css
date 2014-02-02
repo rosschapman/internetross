@@ -104,8 +104,8 @@ blockquote {
 /* line 86, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .posts li {
   margin-bottom: 30px;
-  line-height: 1.3em;
-  font-size: 28px;
+  line-height: 1.2;
+  font-size: 30px;
 }
 @media only screen and (max-width: 22em) {
   /* line 86, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
@@ -142,7 +142,7 @@ small {
 /* line 113, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post-title {
   margin-bottom: 0;
-  font-size: 2rem;
+  font-size: 30px;
   line-height: 1.2;
   font-weight: 900;
 }
