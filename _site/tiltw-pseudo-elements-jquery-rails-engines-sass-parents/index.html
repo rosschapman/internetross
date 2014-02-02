@@ -100,7 +100,7 @@ disagree</a>.</p>
 
 <p>Recently I&#39;ve been working on a hand-crafted CSS framework for <a href="http://www.scienceexchange.com">SciEx</a> and one of my key principles in designing the thing has been readability.  Particularly at the scan level. When a dev scans the stylesheet, they should be able to perceive natural groupings and object scopes.  </p>
 
-<p>Naturally, parent selectors have been a big help.  </p>
+<p>This is where the &quot;after&quot; parent has been a big help.  </p>
 
 <p>Let me give you an example of floating a main column depending on the orientation of the layout defined by its container class.</p>
 <div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="o">//</span> <span class="nt">Without</span> <span class="nt">a</span> <span class="nt">parent</span> <span class="nt">selector</span>
@@ -119,7 +119,7 @@ disagree</a>.</p>
     <span class="nc">.l-two-up-rt</span> <span class="o">&amp;</span>
         <span class="nt">float</span><span class="o">:</span> <span class="nt">right</span>
 
-<span class="o">//</span> <span class="nt">Output</span>
+<span class="o">//</span> <span class="nt">Output</span> <span class="o">(</span><span class="nt">same</span> <span class="nt">for</span> <span class="nt">both</span><span class="o">)</span>
 <span class="nc">.l-main</span> <span class="p">{</span>
   <span class="k">width</span><span class="o">:</span> <span class="m">715px</span><span class="p">;</span>
 <span class="p">}</span>
@@ -130,9 +130,9 @@ disagree</a>.</p>
   <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The second Sass rule group is way easier to scan because your brain quickly identifies a scope by virtue of the nesting.  If the concern is to work with the style rules of the main column (.l-main), all that the dev needs will be contained beneath that top level .l-main class.  S/he won&#39;t have to put any extra search effort to find relevant classes.  </p>
+<p>While the output of both these Sass groupings is identical, the second wins for readability. All the relevant code a dev needs to work with <code>.l-main</code> will be contained beneath the initial <code>.l-main</code> class declaration.  S/he won&#39;t have to put any extra effort to scan or search for relevant classes in the document.  </p>
 
-<p>There&#39;s an <a href="http://thesassway.com/intermediate/referencing-parent-selectors-using-ampersand">article</a> on the Sass Way that&#39;s a bit more in-depth on the topic.  And then the <a href="http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/">after-party</a> to that article is here - especially read if you use modernizr or other shim frameworks that write classes to <code>&lt;body&gt;</code>.</p>
+<p>There&#39;s an <a href="http://thesassway.com/intermediate/referencing-parent-selectors-using-ampersand">article</a> on the Sass Way that&#39;s a bit more in-depth on the topic that&#39;s def worth a read.  And then the <a href="http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/">after-party</a> to that article is here - def def read if you use modernizr or other shim frameworks that write classes to <code>&lt;body&gt;</code>.  Though you might already be guessing how the parent selector gets awesomer.</p>
 
 <p><sup id="1">1</sup> Stack Overflow really is like the App store of code problems.  &quot;There&#39;s an <em>answer</em> for that.&quot;</p>
 

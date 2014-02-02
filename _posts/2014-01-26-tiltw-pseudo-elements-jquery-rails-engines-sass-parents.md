@@ -85,7 +85,7 @@ But there's actually a more advanced usage of the parent selector which can real
 
 Recently I've been working on a hand-crafted CSS framework for [SciEx](http://www.scienceexchange.com) and one of my key principles in designing the thing has been readability.  Particularly at the scan level. When a dev scans the stylesheet, they should be able to perceive natural groupings and object scopes.  
 
-Naturally, parent selectors have been a big help.  
+This is where the "after" parent has been a big help.  
 
 Let me give you an example of floating a main column depending on the orientation of the layout defined by its container class.
 
@@ -106,7 +106,7 @@ Let me give you an example of floating a main column depending on the orientatio
 	.l-two-up-rt &
 		float: right
 
-// Output
+// Output (same for both)
 .l-main {
   width: 715px;
 }
@@ -118,8 +118,8 @@ Let me give you an example of floating a main column depending on the orientatio
 }
 ```
 
-The second Sass rule group is way easier to scan because your brain quickly identifies a scope by virtue of the nesting.  If the concern is to work with the style rules of the main column (.l-main), all that the dev needs will be contained beneath that top level .l-main class.  S/he won't have to put any extra search effort to find relevant classes.  
+While the output of both these Sass groupings is identical, the second wins for readability. All the relevant code a dev needs to work with `.l-main` will be contained beneath the initial `.l-main` class declaration.  S/he won't have to put any extra effort to scan or search for relevant classes in the document.  
 
-There's an [article](http://thesassway.com/intermediate/referencing-parent-selectors-using-ampersand) on the Sass Way that's a bit more in-depth on the topic.  And then the [after-party](http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/) to that article is here - especially read if you use modernizr or other shim frameworks that write classes to `<body>`.
+There's an [article](http://thesassway.com/intermediate/referencing-parent-selectors-using-ampersand) on the Sass Way that's a bit more in-depth on the topic that's def worth a read.  And then the [after-party](http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/) to that article is here - def def read if you use modernizr or other shim frameworks that write classes to `<body>`.  Though you might already be guessing how the parent selector gets awesomer.
 
 <sup id="1">1</sup> Stack Overflow really is like the App store of code problems.  "There's an *answer* for that."
