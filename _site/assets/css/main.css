@@ -65,7 +65,6 @@ blockquote {
 .container {
   position: relative;
   z-index: 10;
-  max-width: 36em;
   margin: 0;
   padding: 2em 3em 0;
   background: white;
@@ -78,7 +77,7 @@ blockquote {
   }
 }
 
-/* line 68, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 67, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .art {
   position: fixed;
   z-index: 1;
@@ -92,55 +91,55 @@ blockquote {
   background-image: url(/assets/images/jordan.jpg);
   background-position-x: 0;
 }
-/* line 81, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 80, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .art:hover {
   cursor: -webkit-grabbing;
 }
 
-/* line 84, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 83, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .posts {
   list-style-type: none;
 }
 
-/* line 87, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 86, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .posts li {
   margin-bottom: 30px;
   line-height: 1.3em;
   font-size: 28px;
 }
 @media only screen and (max-width: 22em) {
-  /* line 87, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+  /* line 86, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
   .posts li {
     margin-bottom: 20px;
     font-size: 16px;
   }
 }
-/* line 95, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 94, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .posts li a {
   font-weight: 900;
 }
 
-/* line 100, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 99, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 header .title a {
   color: #ff00c0;
 }
-/* line 103, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 102, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 header nav a {
   margin-right: 1em;
   font-weight: 900;
 }
 
-/* line 107, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 106, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 section {
   margin: 2em 0;
 }
 
-/* line 110, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 109, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 small {
   color: gray;
 }
 
-/* line 114, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 113, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post-title {
   margin-bottom: 0;
   font-size: 2rem;
@@ -148,14 +147,14 @@ small {
   font-weight: 900;
 }
 @media only screen and (max-width: 22em) {
-  /* line 114, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+  /* line 113, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
   .post-title {
     font-size: 24px;
     line-height: 1.3;
   }
 }
 
-/* line 123, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 122, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post-meta {
   float: left;
   clear: both;
@@ -164,18 +163,18 @@ small {
   font-size: 80%;
 }
 
-/* line 130, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 129, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post {
   clear: both;
   padding-bottom: 2em;
 }
 @media only screen and (max-width: 22em) {
-  /* line 130, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+  /* line 129, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
   .post {
     line-height: 1.9;
   }
 }
-/* line 137, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 136, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post h2 {
   font-size: 22px;
   line-height: 1.4;
@@ -184,13 +183,13 @@ small {
   margin-top: 50px;
 }
 @media only screen and (max-width: 22em) {
-  /* line 137, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+  /* line 136, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
   .post h2 {
     font-size: 20px;
     line-height: 1.3;
   }
 }
-/* line 147, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 146, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post pre {
   border: 1px solid #dddddd;
   background-color: #eeeeff;
@@ -199,33 +198,39 @@ small {
   font-size: 0.9rem;
   white-space: pre-wrap;
 }
-/* line 155, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+@media only screen and (max-width: 22em) {
+  /* line 146, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+  .post pre {
+    overflow: scroll;
+  }
+}
+/* line 156, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post ul, .post ol {
   margin-left: 1.35em;
   margin-bottom: 1em;
 }
-/* line 159, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 160, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post code {
   padding: 0 0.2em;
   border: 1px solid #dddddd;
   background-color: #eeeeff;
   font-size: 13px;
 }
-/* line 165, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 166, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post pre code {
   border: none;
 }
-/* line 168, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 169, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post pre.terminal {
   border: 1px solid black;
   background-color: #333333;
   color: white;
 }
-/* line 173, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 174, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post pre.terminal code {
   background-color: #333333;
 }
-/* line 176, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 177, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .post a:after {
   font-family: FontAwesome;
   content: " \f08e";
@@ -235,24 +240,24 @@ small {
   left: -2px;
 }
 
-/* line 184, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 185, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary ul {
   list-style: none;
   clear: both;
   margin-top: 50px;
 }
 
-/* line 189, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 190, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary li {
   margin-bottom: 20px;
 }
 
-/* line 192, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 193, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary li div {
   height: auto !important;
 }
 
-/* line 195, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 196, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary .term-name,
 .glossary .term-name:visited {
   display: block;

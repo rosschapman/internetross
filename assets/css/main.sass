@@ -57,7 +57,6 @@ blockquote
 .container
   position: relative
   z-index: 10
-  max-width: 36em
   margin: 0
   padding: 2em 3em 0
   background: white
@@ -151,6 +150,8 @@ small
     margin-bottom: 2em
     font-size: .9rem
     white-space: pre-wrap
+    +respond-to(small)
+      overflow: scroll
 
   ul, ol
     margin-left: 1.35em
