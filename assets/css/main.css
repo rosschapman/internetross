@@ -248,19 +248,20 @@ small {
   list-style: none;
   clear: both;
   margin-top: 50px;
+  margin-left: 0;
 }
 
-/* line 193, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 194, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary li {
   margin-bottom: 20px;
 }
 
-/* line 196, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 197, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary li div {
   height: auto !important;
 }
 
-/* line 199, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 200, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .glossary .term-name,
 .glossary .term-name:visited {
   display: block;
@@ -269,7 +270,7 @@ small {
   line-height: 1.3rem;
 }
 
-/* line 206, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
+/* line 207, /Applications/MAMP/htdocs/internetross/assets/css/main.sass */
 .gravatar {
   border-radius: 100%;
 }
