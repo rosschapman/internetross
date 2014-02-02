@@ -54,6 +54,8 @@
           var amountMovedX = e.offsetX * -1/20;
           var newX = amountMovedX + currentX;
           $(this).css('background-position-x', newX + 'px');
+
+          $('.container').css('left', amountMovedX * -1/7);
         })
       })
     </script>
