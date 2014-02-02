@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <header>
-        <h1 class="title"><a href="/">internetross</a></h1>
+        <h1 class="title"><a href="/"><img class="gravatar" src="" width="70" height="70"/></a></h1>
         <nav>
         <a href="/">home</a>
         <a href="/glossary">glossary</a>
@@ -140,19 +140,24 @@ disagree</a>.</p>
 </section>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery.md5.js"></script>
     <script>
       $(function(){
+        // It's easy to get your gravatar!
+        var img = $('.gravatar');
+        var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+        var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
+        img.attr('src',gravatar);
 
+        // Squeeeeeeeze
         // Select and cache target image
         var target = $('body').find('.art');
-        // Get current background position properties at page load.  Strip of 'px' so you just have integer
-        var currentX = parseInt(target.css('background-position-x').replace('px',''), 10);
-
+        // Set mousemove binding on art
         target.mousemove(function(e){
-          //console.log(e);
+          // Set amount of pixels to move art
           var amountMovedX = e.offsetX * -1/20;
-          var newX = amountMovedX + currentX;
-          $(this).css('background-position-x', newX + 'px');
+          // Set amount of pixels to move art
+          $(this).css('background-position-x', amountMovedX + 'px');
 
           $('.container').css('left', amountMovedX * -1/7);
         })
