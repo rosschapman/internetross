@@ -28,7 +28,6 @@ Unfortunately, while pseudo-elements are recognized and parsed by browsers in st
 However.  If you are in dire need to access pseudo-element properties programmatically with JavaScript you can take advantage of `getComputedStyle()` and do something like this:    
 
 ```javascript
-// Get the content value of .element:before
 var content = window.getComputedStyle(
 	document.querySelector('.element'), ':before'
 ).getPropertyValue('content');
