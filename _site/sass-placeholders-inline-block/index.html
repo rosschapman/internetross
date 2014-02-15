@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Sass Placeholders & inline-block</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+      <link rel="stylesheet" href="/assets/css/syntax.css">
+      <link rel="stylesheet" href="/assets/css/main.css">
+      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="title"><a href="/"><img class="gravatar" src="" width="70" height="70"/></a></h1>
+        <nav>
+          <a href="/">home</a>
+          <a href="/glossary">glossary</a>
+        </nav>
+      </header>
+      <section><h1 class="post-title">Sass Placeholders & inline-block</h1>
+<p class="post-meta">14 Jan 2014</p>
+
+<div class="post">
+<img class="post-splash" src="" />
+<p>Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
+<a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=@internetross, I like you, but..." target="_blank">
+disagree</a>.</p>
+
+<h2>Wait, Sass has Placeholders?!  Wait, what are Placeholders?!</h2>
+
+<p>Up until this week I was using Sass mixins anywhere I needed to recycle a special block of rule declarations and values, whether they received arguments or not.  Apparently, as I know now, this is about a 1.5 years outdated approach. (awkward laughter)</p>
+
+<p>Generally, mixins are <em>extremely</em> powerful to help DRY your Sass input - primarily because you can pass arguments. Here&#39;s an example of a mixin we use at at <a href="http://scienceexchange.com">Science Exchange</a> to help with cross-browser transparent backgrounds:</p>
+
+<div class="highlight"><pre><code class="css"><span class="o">=</span><span class="nt">transparent</span><span class="o">(</span><span class="err">$</span><span class="nt">color</span><span class="o">,</span> <span class="err">$</span><span class="nt">alpha</span><span class="o">)</span>
+  <span class="err">$</span><span class="nt">rgba</span><span class="o">:</span> <span class="nt">rgba</span><span class="o">(</span><span class="err">$</span><span class="nt">color</span><span class="o">,</span> <span class="err">$</span><span class="nt">alpha</span><span class="o">)</span>
+  <span class="err">$</span><span class="nt">ie-hex-str</span><span class="o">:</span> <span class="nt">ie-hex-str</span><span class="o">(</span><span class="err">$</span><span class="nt">rgba</span><span class="o">)</span>
+  <span class="nt">background-color</span><span class="o">:</span> <span class="nt">transparent</span>
+  <span class="nt">background-color</span><span class="o">:</span> <span class="err">$</span><span class="nt">rgba</span>
+  <span class="nt">filter</span><span class="o">:</span> <span class="nt">progid</span><span class="nd">:DXImageTransform</span><span class="nc">.Microsoft.gradient</span><span class="o">(</span><span class="nt">startColorstr</span><span class="o">=</span><span class="err">#</span><span class="p">{</span><span class="err">$</span><span class="n">ie</span><span class="o">-</span><span class="n">hex</span><span class="o">-</span><span class="n">str</span><span class="p">}</span><span class="o">,</span><span class="nt">endColorstr</span><span class="o">=</span><span class="err">#</span><span class="p">{</span><span class="err">$</span><span class="n">ie</span><span class="o">-</span><span class="n">hex</span><span class="o">-</span><span class="n">str</span><span class="p">}</span><span class="o">)</span>
+  <span class="nt">zoom</span><span class="o">:</span> <span class="nt">1</span>
+</code></pre></div>
+
+<p>The annoyance with mixins is that the CSS output can become a bit over-loquacious. Now, most of the time this extra code won&#39;t matter for load times - especially if our designs are lean to begin with.  But in the same way we should understand how jQuery obfuscates and translates plain javascript, we should be concerned with how preprocessors like Sass do the same for CSS.  Take the following example:</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="k">@mixin</span> <span class="nt">media</span>
+  <span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span>
+  <span class="o">&amp;</span><span class="nd">:first-child</span>
+      <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+  <span class="o">&amp;</span><span class="nd">:last-child</span>
+      <span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span>
+<span class="nc">.status</span>
+    <span class="k">@include</span> <span class="nt">media</span>
+
+<span class="nc">.profile</span>
+    <span class="k">@include</span> <span class="nt">media</span>
+</code></pre></div>
+<p>The resultant CSS output will be:</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="nc">.status</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.status</span><span class="nd">:first-child</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.status</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.profile</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.profile</span><span class="nd">:first-child</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.profile</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ok, let&#39;s take a look at how the placeholder selector would handle the same situation:</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="o">%</span><span class="nt">media</span>
+    <span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span>
+    <span class="o">&amp;</span><span class="nd">:first-child</span>
+        <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+    <span class="o">&amp;</span><span class="nd">:last-child</span>
+        <span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span>
+<span class="nc">.status</span>
+    <span class="k">@extend</span> <span class="o">%</span><span class="nt">media</span>
+
+<span class="nc">.profile</span>
+    <span class="k">@extend</span> <span class="o">%</span><span class="nt">media</span>
+</code></pre></div>
+<p>Looks like this compiled:</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="nc">.status</span><span class="o">,</span> <span class="nc">.profile</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.status</span><span class="nd">:first-child</span><span class="o">,</span> <span class="nc">.profile</span><span class="nd">:first-child</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.status</span><span class="nd">:last-child</span><span class="o">,</span> <span class="nc">.profile</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now that&#39;s DRY. Arid. Like the ashes from whence Daenerys Targaryen emerged baptized by fire and reborn a queen of dragons.</p>
+
+<p>What is Sass is doing differently with placeholders is moving the selectors to the properties instead of copying the properties into the selectors, working &quot;with the cascade&quot; vs &quot;working around the cascade&quot; <a href="http://chriseppstein.github.io/blog/2012/08/23/sass-3-2-is-released/"></a>.  That is awesome!</p>
+
+<p>If none of this just made sense, try and think of placeholders as mixins without arguments that are discarded from the output unless actually used.  There are broader implications for using placeholders effectively.  I liked Ian Taylor Storm&#39;s <a href="http://ianstormtaylor.com/oocss-plus-sass-is-the-best-way-to-css/">walk-through</a>, which might give you some more ideas.</p>
+
+<h2>Inline-block actin like words, word?</h2>
+
+<p>Using <code>display: inline-block</code> can save you a lot troubles floating elements - which defy <a href="http://www.w3.org/TR/CSS21/visuren.html#normal-flow">normal flow</a> - and I find myself relying on it more and more to save on CSS weight for tiered navigations, grid-like parts, faux-tables, etc...  Remember when IE6 and sometimes IE7 didn&#39;t support inline-block?  That was...<a href="/glossary#annoying">annoying</a>.</p>
+
+<p>If you&#39;ve used inline-block before you know that browsers will generate an extra space between each element.  I half-assumed that inline-block elements were similarly treated to inline elements.  Which was correct.  Just like inline elements, inline-block elements are treated like inline *content&quot; - i.e. words - and receive generic behavior - a ~4px space between elements - and properties like word-spacing and font-size.  Here&#39;s a simple codepen to demonstrate such and how to use negative word-spacing to fix the generic space between inline elements.</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="KCDiz" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/rosschapman/pen/KCDiz'>Spaces between inline elements</a> by Ross (<a href='http://codepen.io/rosschapman'>@rosschapman</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+<p>It feels counterintuitive to use word-spacing to handle layout issues for block elements, but it may be one of the less <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">weirder</a> ways.  Generally it seems counterintuitive to me for any kind of element inheriting block box properties to also inherit CSS properties that are &quot;textual&quot; - i.e. word-spacing, font-size, letter-spacing.  But I supposed you can&#39;t fault the tendency to introduce semantically textual properties to the spec when, at the start, most inline content on the web was just text.</p>
+
+<p>For more on the cryptic visual formatting model and how user agents (browsers) process the document tree, see the impossible-to-comprehend-except-after-reading-100x World Wide Web Consortium <a href="http://www.w3.org/TR/CSS2/visuren.html">spec</a>.</p>
+
+</div>
+</section>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery.md5.js"></script>
+    <script>
+      $(function(){
+        // It's easy to get your gravatar!
+        var img = $('.gravatar');
+        var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+        var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
+        img.attr('src',gravatar);
+
+        // Squeeeeeeeze
+        // Select and cache target image
+        var target = $('body').find('.art');
+        // Set mousemove binding on art
+        target.mousemove(function(e){
+          // Set amount of pixels to move art
+          var amountMovedX = e.offsetX * -1/20;
+          // Set amount of pixels to move art
+          $(this).css('background-position-x', amountMovedX + 'px');
+
+          $('.container').css('left', amountMovedX * -1/7);
+        })
+      })
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43971638-1');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Psuedo-elements and jQuery, the idiosyncrasies of Rails engines, and the Sass parent selector</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+      <link rel="stylesheet" href="/assets/css/syntax.css">
+      <link rel="stylesheet" href="/assets/css/main.css">
+      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="title"><a href="/"><img class="gravatar" src="" width="70" height="70"/></a></h1>
+        <nav>
+          <a href="/">home</a>
+          <a href="/glossary">glossary</a>
+        </nav>
+      </header>
+      <section><h1 class="post-title">Psuedo-elements and jQuery, the idiosyncrasies of Rails engines, and the Sass parent selector</h1>
+<p class="post-meta">26 Jan 2014</p>
+
+<div class="post">
+<img class="post-splash" src="" />
+<p>Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
+<a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=@internetross, I like you, but..." target="_blank">
+disagree</a>.</p>
+
+<h2>Getting psuedo-element properties with the realest jQueriest</h2>
+
+<p>Because you&#39;re a sexy modern web developer, you&#39;re likely a frequent user of the <code>:before</code> and <code>:after</code> pseudo-elements to make wondrous things with CSS. Create shapes, add icons from symbol sets, fades for modals, and <a href="http://css-tricks.com/pseudo-element-roundup/">other non-standard exploits</a>.  It&#39;s also likely, then, that you&#39;ve encountered the difficulty manipulating pseudo-elements with jQuery.</p>
+
+<p>This week I was messing with setting the <code>content</code> property on <code>:before</code> elements of list items, and considering ways to animate a character change - e.g, fade from a dot to an &quot;x&quot; to signify a &quot;remove&quot; action for the user.  My first exploration was some jQuery that looked like:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element:before&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>But fail.  So I wondered why and my research led me to <a href="http://stackoverflow.com/questions/5041494/manipulating-css-pseudo-elements-using-jquery-e-g-before-and-after">Stack Overflow</a> again, and to an answer<sup><a href="#1">1</a></sup>.</p>
+
+<p>Unfortunately, while pseudo-elements are recognized and parsed by browsers in stylesheets, they are not part of the DOM and therefore are inappropriate as part of jQuery selectors.  The w3 <a href="http://www.w3.org/TR/selectors-api/#grammar">spec</a> reinforces the same:</p>
+
+<blockquote>
+<p>Authors are advised that while the use of pseudo-elements in selectors is permitted, they will not match any elements in the document, and thus would not result in any elements being returned.</p>
+</blockquote>
+
+<p>However.  If you are in dire need to access pseudo-element properties programmatically with JavaScript you can take advantage of <code>getComputedStyle()</code> and do something like this:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">),</span> <span class="s1">&#39;:before&#39;</span>
+<span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Hat tip to the estimable <a href="http://davidwalsh.name/ways-css-javascript-interact">David Walsh</a> for the example.  The only gotcha, per usual, is that <code>getComputedStyle</code> is supported IE9+.  Sigh.</p>
+
+<h2>Under the hood</h2>
+
+<p>At <a href="http://www.scienceexchange.com">Science Exchange</a> we&#39;ve begun breaking apart our monolithic Rails app into smaller engines to help separate various concerns and modularize code.  We&#39;ve been inspired in part by Spree, which is a great <a href="https://github.com/spree/spree">example</a> of a modular app framework - you&#39;ll notice a very reasonable partition of functionality into api, backend, and frontend groups.</p>
+
+<p>Engines.  Man.</p>
+
+<p>Rails looks back at me an impish grin and I shake my fist. It&#39;s amazing how many times I&#39;ve failed to get something working by omitting or mis-using the smallest of lines of code.  In building the frontend engine for SciEx, I wrestled with two mysterious problems with simple, totally obscure, solutions.</p>
+
+<p>First.  Use underscores for engine names.  If you don&#39;t, you&#39;re engine&#39;s routing borks.  Rails expects underscores, which, like, how would you know that as a noob?  So after staring at the screen for a good while, I pleaded for help from a work homie, who in turn suggested running <code>rake routes</code>.  Which helped expose that Rails was searching for <strong>my_engine</strong>/path/to/greatness not <strong>my-engine</strong>/path/to/death.  The `rakes routes&#39; command is definitely a new besty.</p>
+
+<p>Ok, second gotcha.  Adding gem dependencies to your engine&#39;s gemspec file will not add the assets to the asset pipeline.  You&#39;d think it would, because this is how you&#39;d expect dependency inclusions like they normally do in your main app - just add to the Gemfile and voilà!  Against all reason, one more step is actually necessary.</p>
+
+<p>You need to add the following <code>require</code> line to your engine&#39;s <code>engine.rb</code>:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">MyRailsEngine</span>
+  <span class="k">class</span> <span class="nc">Engine</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Engine</span>
+    <span class="nb">require</span> <span class="s1">&#39;that_dependency&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Reboot and you&#39;re assets will be pre-processed into the asset pipeline and loadable via your JavaScript and CSS manifests (application.css &amp;&amp; application.js).</p>
+
+<h2>Sassy Parental Units</h2>
+
+<p>Yes, more love for Sass.</p>
+
+<p>If you&#39;re a modern sexy web developer, then you know the benefits of Sass are humungous. So chances are you aware of referencing parent selectors on nested classes with the <strong>&quot;&amp;&quot;</strong> character and achieving maximum code raditude.  A simple example:</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="o">//</span> <span class="nt">Sass</span>
+<span class="nc">.parent</span>
+    <span class="nt">height</span><span class="o">:</span> <span class="nt">100</span><span class="o">%</span>
+    <span class="o">&amp;</span><span class="nd">:child</span>
+        <span class="nt">height</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span>
+
+<span class="o">//</span> <span class="nt">CSS</span>
+<span class="nc">.parent</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.parent</span> <span class="nc">.child</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>But there&#39;s actually a more advanced usage of the parent selector which can really start to make things interesting, read: better. Putting the <strong>&quot;&amp;&quot;</strong> after.</p>
+
+<p>Recently I&#39;ve been working on a hand-crafted CSS framework for <a href="http://www.scienceexchange.com">SciEx</a> and one of my key principles in designing the thing has been readability.  Particularly at the scan level. When a dev scans the stylesheet, they should be able to perceive natural groupings and object scopes.</p>
+
+<p>This is where the &quot;after&quot; parent has been a big help.</p>
+
+<p>Let me give you an example of floating a main column depending on the orientation of the layout defined by its container class.</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="o">//</span> <span class="nt">Without</span> <span class="nt">a</span> <span class="nt">parent</span> <span class="nt">selector</span>
+<span class="nc">.l-main</span>
+    <span class="nt">width</span><span class="o">:</span> <span class="nt">715px</span>
+<span class="nc">.l-two-up-lt</span> <span class="nc">.l-main</span>
+    <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+<span class="nc">.l-two-up-lt</span> <span class="nc">.l-main</span>
+    <span class="nt">float</span><span class="o">:</span> <span class="nt">right</span>
+
+<span class="o">//</span> <span class="nt">With</span> <span class="nt">a</span> <span class="nt">parent</span> <span class="nt">selector</span>
+<span class="nc">.l-main</span>
+    <span class="nt">width</span><span class="o">:</span> <span class="nt">715px</span>
+    <span class="nc">.l-two-up-lt</span> <span class="o">&amp;</span>
+        <span class="nt">float</span><span class="o">:</span> <span class="nt">left</span>
+    <span class="nc">.l-two-up-rt</span> <span class="o">&amp;</span>
+        <span class="nt">float</span><span class="o">:</span> <span class="nt">right</span>
+
+<span class="o">//</span> <span class="nt">Output</span> <span class="o">(</span><span class="nt">same</span> <span class="nt">for</span> <span class="nt">both</span><span class="o">)</span>
+<span class="nc">.l-main</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">715px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.l-two-up-lt</span> <span class="nc">.l-main</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.l-two-up-rt</span> <span class="nc">.l-main</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>While the output of both these Sass groupings is identical, the second wins for readability. All the relevant code a dev needs to work with <code>.l-main</code> will be contained beneath the initial <code>.l-main</code> class declaration.  S/he won&#39;t have to put any extra effort to scan or search for relevant classes in the document.</p>
+
+<p>There&#39;s an <a href="http://thesassway.com/intermediate/referencing-parent-selectors-using-ampersand">article</a> on the Sass Way that&#39;s a bit more in-depth on the topic that&#39;s def worth a read.  And then the <a href="http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/">after-party</a> to that article is here - def def read if you use modernizr or other shim frameworks that write classes to <code>&lt;body&gt;</code>.  Though you might already be guessing how the parent selector gets awesomer.</p>
+
+<p><sup id="1">1</sup> Stack Overflow really is like the App store of code problems.  &quot;There&#39;s an <em>answer</em> for that.&quot;</p>
+
+</div>
+</section>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery.md5.js"></script>
+    <script>
+      $(function(){
+        // It's easy to get your gravatar!
+        var img = $('.gravatar');
+        var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+        var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
+        img.attr('src',gravatar);
+
+        // Squeeeeeeeze
+        // Select and cache target image
+        var target = $('body').find('.art');
+        // Set mousemove binding on art
+        target.mousemove(function(e){
+          // Set amount of pixels to move art
+          var amountMovedX = e.offsetX * -1/20;
+          // Set amount of pixels to move art
+          $(this).css('background-position-x', amountMovedX + 'px');
+
+          $('.container').css('left', amountMovedX * -1/7);
+        })
+      })
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43971638-1');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
