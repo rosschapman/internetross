@@ -68,26 +68,42 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="/lib/jquery.md5.js"></script>
     <script>
+      // We have such a tiny amount of JS for this little site, let's just put it all on the page.
       $(function(){
-        // It's easy to get your gravatar!
-        var img = $('.gravatar');
-        var hash = $.md5('rosschapman@gmail.com').toLowerCase();
-        var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
-        img.attr('src',gravatar);
 
-        // Squeeeeeeeze
-        // Select and cache target image
-        var target = $('body').find('.art');
-        // Set mousemove binding on art
-        target.mousemove(function(e){
-          // Set amount of pixels to move art
-          var amountMovedX = e.offsetX * -1/20;
-          // Set amount of pixels to move art
-          $(this).css('background-position-x', amountMovedX + 'px');
+        // Add my Gravatar.com avatar to the page.
+        (function doGravatar() {
+          var img = $('.gravatar');
 
-          $('.container').css('left', amountMovedX * -1/7);
-        })
-      })
+          // Use md5 plugin to hash my email.
+          var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+
+          // Get my avatar using Gravatar's amazingly simple API.
+          var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=70';
+
+          // Set img to my gravatar.
+          img.attr('src',gravatar);
+        })();
+
+        // Played around with sorta parallaxy thing one day.
+        (function sortaParallax() {
+
+          // Lookups.
+          var target = $('body').find('.art');
+          var container = $('body').find('.container');
+
+          // Set mousemove binding on art.
+          target.mousemove(function(e){
+
+            // Calculate x-axis pixel distance based on offest of mouse.
+            var amountMovedX = e.offsetX * -1/20;
+
+            // Set the position of the image and other stuff so it looks like we are squeezing things.
+            $(this).css('background-position-x', amountMovedX + 'px');
+            container.css('left', amountMovedX * -1/7);
+          });
+        })();
+      });
     </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

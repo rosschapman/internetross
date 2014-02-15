@@ -31,7 +31,7 @@
       $(function(){
 
         // Add my Gravatar.com avatar to the page.
-        function doGravatar() {
+        (function doGravatar() {
           var img = $('.gravatar');
 
           // Use md5 plugin to hash my email.
@@ -42,10 +42,10 @@
 
           // Set img to my gravatar.
           img.attr('src',gravatar);
-        }();
+        })();
 
         // Played around with sorta parallaxy thing one day.
-        function sortaParallax() {
+        (function sortaParallax() {
 
           // Lookups.
           var target = $('body').find('.art');
@@ -60,8 +60,8 @@
             // Set the position of the image and other stuff so it looks like we are squeezing things.
             $(this).css('background-position-x', amountMovedX + 'px');
             container.css('left', amountMovedX * -1/7);
-          })
-        }();
+          });
+        })();
       });
     </script>
     <script>
