@@ -60,7 +60,7 @@ blockquote
   z-index: 10
   max-width: 34em
   margin: 0
-  padding: 2em 3em 0
+  padding: 2em 3em
   background: white
   -webkit-font-smoothing: antialiased
   +respond-to(small)
@@ -94,7 +94,17 @@ blockquote
     font-size: 16px
 
   a
+    display: inline-block
+    width: 540px
+    margin-left: 20px
     font-weight: 900
+    +respond-to(small)
+      display: block
+      clear: left
+      margin-left: 0
+      width: auto
+
+
 
 header
 
@@ -104,6 +114,8 @@ header
   nav a
     margin-right: 15px
     font-weight: 200
+    color: rgb(94, 94, 94)
+    font-size: 26px
 
 section
   margin: 2em 0
@@ -113,7 +125,7 @@ small
 
 
 .post-title
-  margin-bottom: 0
+  margin-bottom: 10px
   font-size: 30px
   line-height: 1.2
   font-weight: 900
@@ -123,11 +135,11 @@ small
 
 .post-meta
   clear: both
-  margin-top: 10px
-  color: gray
-  font-size: 12px
-  background: #efefef
-  padding: 3px 5px
+  float: left
+  margin-top: 7px
+  color: rgb(94, 94, 94)
+  font-weight: 700
+  font-size: 11px
   border-radius: 3px
   display: inline-block
 
