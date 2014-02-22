@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sass Placeholders & inline-block"
-categories: tiltw ror jquery
+categories: RoR jQuery
 ---
 
 Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may

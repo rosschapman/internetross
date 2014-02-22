@@ -20,7 +20,7 @@ html, body
   height: 100%
 
 body
-  background-color: #FFF
+  background-color: white
   font: 19px/1.6 "Lato", georgia, serif
   letter-spacing: .02em
   color: #19272d
@@ -51,8 +51,19 @@ img
   margin-top: 20px
 
 blockquote
-  margin-left: 20px
-  color: gray
+  margin: 10px 30px 50px
+  font-size: 16px
+  line-height: 1.5
+  border-left: 2px solid #ddd
+  padding-left: 20px
+
+  +respond-to(small)
+    margin: 0 0 50px
+    font-size: 14px
+
+  a
+    font-weight: 400
+
 
 // Classes.
 .container
@@ -104,10 +115,7 @@ blockquote
       margin-left: 0
       width: auto
 
-
-
 header
-
   .title a
     color: #ff00c0
 
@@ -122,7 +130,6 @@ section
 
 small
   color: gray
-
 
 .post-title
   margin-bottom: 10px
@@ -198,6 +205,26 @@ small
     position: relative
     top: -8px
     left: -2px
+
+.post-navigation
+  overflow: hidden
+
+  a
+    float: left
+    font-size: 13px
+    +respond-to(small)
+      display: block
+      margin-bottom: 20px
+      font-size: 11px
+
+  .previous .arrow
+    -webkit-transform: rotate(180deg)
+    display: inline-block
+
+  .next
+    float: right
+    +respond-to(small)
+      float: none
 
 .glossary ul
   list-style: none

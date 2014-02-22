@@ -8,3 +8,12 @@ layout: default
 <img class="post-splash" src="{{ page.image }}" />
 {{ content }}
 </div>
+
+<div class="post-navigation">
+  {% if page.previous.url %}
+    <a class="previous" href="{{ page.previous.url }}"><span class="arrow">&#10140;</span> Old revelations about {{ page.previous.categories | cat_list }}</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a class="next" href="{{ page.next.url }}">Futuristic notions about {{ page.next.categories | cat_list }} &#10140;</a>
+  {% endif %}
+</div>

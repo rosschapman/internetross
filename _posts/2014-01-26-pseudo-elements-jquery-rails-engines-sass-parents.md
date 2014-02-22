@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Psuedo-elements and jQuery, the idiosyncrasies of Rails engines, and the Sass parent selector"
-categories: sass jQuery rails engines
+categories: sass jQuery RoR
 ---
 
 Each week I learn something new.  At the end of the week, I pick a couple of things to write about that I think are cool. You may
