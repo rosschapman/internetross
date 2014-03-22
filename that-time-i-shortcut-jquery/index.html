@@ -10,23 +10,23 @@
       <meta name="description" content="front-end developer who blogs about shit everyone knows already">
       <link rel="stylesheet" href="/assets/css/syntax.css">
       <link rel="stylesheet" href="/assets/css/main.css">
-      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-        <h1 class="title"><a href="/"><img class="gravatar" src="" width="40" height="40"/></a></h1>
-        <nav>
-          <a href="/glossary"></a>
-        </nav>
-      </header>
     <div class="container">
-      <section><h1 class="post-title">That Time I Shortcut jQuery Deferred</h1>
-<p class="post-meta">22 Dec 2013</p>
-
-<div class="post">
-<img class="post-splash" src="" />
-<p>Recently I had one of those moments where I tried to do something fancy with jQuery while working on a file uploader, to which IE8 sneered in defiance, turned up <a href="http://www.youtube.com/watch?v=rfjtpp90lu8">Blame It</a>, and started sobbing again about Michael Jackson.  Ultimately I found an acceptable backwards compatible solution that was functional and readable, and used a simple counter rather than jQuery&#39;s Deferred Object.</p>
+      <header>
+        <a href="/"><img class="gravatar" src="" width="230" height="230"/></a>
+        <h1>About Ross</h1>
+        <p>I'm currently a web developer at <a href="http://www.scienceexchange.com">Science Exchange</a> who hopes his current work building the front parts of an online marketplace for scientific collaboration will quickly lead to the invention of the hover board and hyposprays. Like, <em>quickly</em>.</p>
+        <p class="social">
+          <a href="http://twitter.com/internetross">twitter</a>
+          <a href="www.linkedin.com/in/rosschapman‎">linkedin</a>
+        </p>
+      </header>
+      <main><article>
+  <h1>That Time I Shortcut jQuery Deferred</h1>
+  <time>22 Dec 2013</time>
+  <img class="post-splash" src="" />
+  <p>Recently I had one of those moments where I tried to do something fancy with jQuery while working on a file uploader, to which IE8 sneered in defiance, turned up <a href="http://www.youtube.com/watch?v=rfjtpp90lu8">Blame It</a>, and started sobbing again about Michael Jackson.  Ultimately I found an acceptable backwards compatible solution that was functional and readable, and used a simple counter rather than jQuery&#39;s Deferred Object.</p>
 
 <p>The file uploader I was designing allowed users to upload multiple files. Now, a normal UI/code flow for this is fairly straightforward:</p>
 
@@ -63,14 +63,14 @@
 
 <p>No major moral here.  Just a little fun thinking with problems. Maybe <a href="http://twitter.com/internetross">together</a>?</p>
 
-</div>
+</article>
 
-<div class="post-navigation">
+<nav>
   
   
-    <a class="next" href="/rails-form-tags-jquery-prop/">Futuristic notions about ror and jquery &#10140;</a>
+    <a class="next" href="/rails-form-tags-jquery-prop/"> &#10140; Futuristic notions about ror and jquery</a>
   
-</div></section>
+</nav></main>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="/lib/jquery.md5.js"></script>
@@ -86,29 +86,10 @@
           var hash = $.md5('rosschapman@gmail.com').toLowerCase();
 
           // Get my avatar using Gravatar's amazingly simple API.
-          var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=40';
+          var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=230';
 
           // Set img to my gravatar.
           img.attr('src',gravatar);
-        })();
-
-        // Played around with sorta parallaxy thing one day.
-        (function sortaParallax() {
-
-          // Lookups.
-          var target = $('body').find('.art');
-          var container = $('body').find('.container');
-
-          // Set mousemove binding on art.
-          target.mousemove(function(e){
-
-            // Calculate x-axis pixel distance based on offest of mouse.
-            var amountMovedX = e.offsetX * -1/20;
-
-            // Set the position of the image and other stuff so it looks like we are squeezing things.
-            $(this).css('background-position-x', amountMovedX + 'px');
-            container.css('left', amountMovedX * -1/7);
-          });
         })();
       });
     </script>
