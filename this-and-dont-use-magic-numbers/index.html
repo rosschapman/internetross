@@ -15,11 +15,11 @@
     <div class="container">
       <main><article>
   <h1>this management, and don't use magic numbers</h1>
-  <time>20 Mar 2014</time>
+  <time>04 Apr 2014</time>
   <img class="post-splash" src="" />
   <h2>just like this</h2>
 
-<p>As you may or may not know, <code>.apply()</code> and <code>.call()</code> are crucial to OOP-ish JavaScript because you&#39;re absolutely going to come across scope issues when writing modular-ly.  Now, JavaScript really only has two scopes, global and function.  But that&#39;s misleadingly simplistic. Because once you shotgun blast your code across multiple files to craft beautiful, &quot;loosely coupled&quot; functions, you need to think global, act global, think local, and act local in every file and code block about...<code>this</code>.  </p>
+<p>As you may or may not know, <code>.apply()</code> and <code>.call()</code> are crucial to OOP-ish JavaScript because you&#39;re absolutely going to come across scope issues when writing modular-ly.  Now, JavaScript really only has two scopes, global and function.  But that&#39;s misleadingly simplistic. Because once you shotgun blast your code across multiple files to craft beautiful, &quot;loosely coupled&quot; functions, you need to think global, act global, think local, and act local in every file and code block about...<code>this</code>.</p>
 
 <p>Oh that.  That...thing.  Yes, the most feared of all JavaScript objects. Yes, merely an object like all others.  Not magic.  Just like this.  Zen, brah.</p>
 
@@ -30,14 +30,14 @@
 </code></pre></div>
 <p><code>$(&#39;.element&#39;)</code> <em>becomes</em> <code>this</code>.</p>
 
-<p><code>this</code> is no longer an object of the outer scope, but an object of the <code>.click()</code> handler callback context.  </p>
+<p><code>this</code> is no longer an object of the outer scope, but an object of the <code>.click()</code> handler callback context.</p>
 
-<p><a href="http://james.padolsey.com/jquery/#v=1.10.2&amp;fn=jQuery.fn.click">Under the hood</a> you can easily find this obfuscated <code>this</code>.  You&#39;ll notice <code>.click()</code> is actually a function wrapper for <a href="http://james.padolsey.com/jquery/#v=1.10.2&amp;fn=jQuery.fn.trigger"><code>.trigger()</code></a> which handles <code>this</code> explicitly as the third argument.  Check it out: </p>
+<p><a href="http://james.padolsey.com/jquery/#v=1.10.2&amp;fn=jQuery.fn.click">Under the hood</a> you can easily find this obfuscated <code>this</code>.  You&#39;ll notice <code>.click()</code> is actually a function wrapper for <a href="http://james.padolsey.com/jquery/#v=1.10.2&amp;fn=jQuery.fn.trigger"><code>.trigger()</code></a> which handles <code>this</code> explicitly as the third argument.  Check it out:</p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">jQuery</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
 </code></pre></div>
-<p>Of course you could go farther up the jQuery source code tree to figure out how trigger works - I encourage it!  </p>
+<p>Of course you could go farther up the jQuery source code tree to figure out how trigger works - I encourage it!</p>
 
-<p>jQuery.  A little lightweight context control. But it actually gets more heavyweight.  jQuery is always thinking about making life easier for us.  </p>
+<p>jQuery.  A little lightweight context control. But it actually gets more heavyweight.  jQuery is always thinking about making life easier for us.</p>
 
 <p>jQuery takes context management further with a suuuuuper handy method called <a href="https://api.jquery.com/jQuery.proxy/"><code>$.proxy()</code></a>, which wraps around native binder methods  <code>.call()</code> and <code>.apply()</code>.  The syntax for proxy is peasy:</p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">thiz</span><span class="p">()</span> <span class="p">{</span>
@@ -72,9 +72,9 @@
 </code></pre></div>
 <h2>Magic numbers and code smell</h2>
 
-<p>Do you guys know about magic numbers in programming and why they are bad?  </p>
+<p>Do you guys know about magic numbers in programming and why they are bad?</p>
 
-<p>Scott Murray discusses magic numbers in his <a href="http://alignedleft.com/work/d3-book">book about D3</a>, which I was skimming through the other day.  I was then reminded of the article Harry Roberts wrote on <a href="http://csswizardry.com/2012/11/code-smells-in-css/">code smell</a> in CSS - which I read a good while back - which also discusses magic numbers and why they are bad. </p>
+<p>Scott Murray discusses magic numbers in his <a href="http://alignedleft.com/work/d3-book">book about D3</a>, which I was skimming through the other day.  I was then reminded of the article Harry Roberts wrote on <a href="http://csswizardry.com/2012/11/code-smells-in-css/">code smell</a> in CSS - which I read a good while back - which also discusses magic numbers and why they are bad.</p>
 
 <p>Magic numbers are generally integers used in code &quot;just because it works&quot; - as Harry Roberts likes to put it.  He goes on to talk about how you&#39;ll confuse the heck out of other devs who look at your code because a typical developer approaches hard-coded integers with fear.  But that integer is probably just there arbitrarily.  We&#39;ve all put them there before.</p>
 
@@ -91,10 +91,10 @@
   <span class="k">@if</span> <span class="nv">$goBackwards</span> <span class="o">==</span> <span class="no">yes</span>
     <span class="na">top</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$size</span><span class="si">}</span><span class="no">px</span>
     <span class="na">top</span><span class="o">:</span> <span class="si">#{</span><span class="p">(</span><span class="nv">$size</span><span class="p">)</span><span class="mi">-1</span><span class="si">}</span><span class="err">\</span><span class="mi">9</span> <span class="c1">// or whatevs hack</span>
-  <span class="k">@else</span> 
+  <span class="k">@else</span>
     <span class="na">top</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$size</span><span class="si">}</span><span class="no">px</span>
 
-<span class="nc">.thang</span> 
+<span class="nc">.thang</span>
     <span class="na">position</span><span class="o">:</span> <span class="no">absolute</span>
     <span class="na">left</span><span class="o">:</span> <span class="mi">0</span>
     <span class="nd">+box-top</span><span class="p">(</span><span class="no">yes</span><span class="o">,</span> <span class="mi">52</span><span class="p">)</span>
@@ -105,7 +105,7 @@
 
 <span class="c1">// BETTER</span>
 <span class="kd">var</span> <span class="nx">boxTop</span><span class="p">;</span>
-<span class="nx">boxTop</span> <span class="o">=</span> <span class="nx">goBackwards</span> <span class="o">?</span> <span class="mi">52</span> <span class="o">:</span> <span class="mi">52</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> 
+<span class="nx">boxTop</span> <span class="o">=</span> <span class="nx">goBackwards</span> <span class="o">?</span> <span class="mi">52</span> <span class="o">:</span> <span class="mi">52</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 
 <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.thang&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="nx">boxTop</span><span class="p">);</span>
 </code></pre></div>
@@ -117,6 +117,8 @@
   
     <a class="previous" href="/overflow-hidden/"><span class="arrow">&#10140;</span> Old revelations about css and javsacript</a>
   
+  
+    <a class="next" href="/programming-quickies/"> &#10140; Futuristic notions about jquery,, javascript, and ror</a>
   
 </nav></main>
       <header>

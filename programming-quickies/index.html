@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Programming quickies</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+      <link rel="stylesheet" href="/assets/css/syntax.css">
+      <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <main><article>
+  <h1>Programming quickies</h1>
+  <time>04 Apr 2014</time>
+  <img class="post-splash" src="" />
+  <h2>Decouple more: closest() vs. parent()</h2>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/z_aC5xPQ2f4?modestbranding=1&controls=2" frameborder="0" allowfullscreen></iframe>
+
+<p>This is a pro-tip I can&#39;t take credit for (thanks Mike!).  But if you share this, don&#39;t mention Mike - it would just confuse people.  </p>
+
+<p>In the everlasting pursuit to decouple things you should deeply consider using <code>closest()</code> instead of <code>parent()</code> in your jQuizzle to future-proof your DOM/javascript lovenest.  At the moment you plug your chars into Sublime, you know the truth about your DOM.  But that truth is most likely going to change, probably by another dev on your team - because you guys decided to move all your <code>&lt;button&gt;</code>&#39;s outside the <code>.form-inner</code> div.  When that happens, you may have your bud scratching her head because that button click is no longer firing the transition.  Epistemic crisis!</p>
+
+<p>The culprit was <code>parent()</code>, of course.  </p>
+
+<p>What&#39;s great about <code>closest()</code> is that you get the same squirrelly ancestor traversal as <code>parent()</code> but <code>closest()</code> is not dependent on the position of your selector in the DOM tree - you&#39;re not accessing DOM nodes in super strict relationship.  So you&#39;re safe from HTML rearrangements.  Maybe not <em>entirely</em> bulletproof, but safer.</p>
+
+<p>Epistemic crisis averted.  </p>
+
+<h2>Best multiline string building in JavaScript</h2>
+
+<p>This week I decided to cement the follow pattern as my goto for string building:</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">multiStr</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;What, I thought we were&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;in the trust tree,&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;in the nest.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Are we not?&#39;</span>
+<span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>It&#39;s just so easy to read, even though it&#39;s not <a href="http://jsperf.com/zp-string-concatenation/6">the fastest</a>.</p>
+
+<h2>Rails form.label yml magic</h2>
+
+<p>In my previous life as a WordPress dev, i18n was a bit of a pain because .po files are a PITA to manage outside of a GUI like <a href="http://www.poedit.net/">Poedit</a>. And Poedit was buggy sometimes.  There&#39;s no question the GetText backend was powerful  and WordPress abstracted some nice methods out for string replacement. </p>
+
+<p>Rails does it own similar magic.  But I do find the CSS-like, hierarchical cascade module for storing strings easier to work with.  Like:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="ss">en</span><span class="p">:</span>
+  <span class="ss">activerecord</span><span class="p">:</span>
+    <span class="ss">models</span><span class="p">:</span>
+      <span class="ss">user</span><span class="p">:</span> <span class="no">Hulk</span>
+    <span class="ss">attributes</span><span class="p">:</span>
+      <span class="ss">user</span><span class="p">:</span>
+        <span class="ss">login</span><span class="p">:</span> <span class="s2">&quot;Smash&quot;</span>
+</code></pre></div>
+<p>There are some tricks though.  Like, I had to change the label value for this one form field.  I saw this:</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:discount_code</span> <span class="o">%&gt;</span>
+</code></pre></div>
+<p>Which printed:</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;discount_code&quot;</span><span class="nt">&gt;</span>Discount code<span class="nt">&lt;/label&gt;</span>
+</code></pre></div>
+<p>But I had no idea where the label value was coming from, or how to change it.  All I had was this lone symbol argument - dust in the wind.</p>
+
+<p>Well, turns out a couple things are happening.  First, Rails just totally magically converts a database column name, &quot;discount_code,&quot; into a Capitalized natural language string.  And then second, there&#39;s apparently a neato trick, if you&#39;re utilizing the i18n module, to change the string by adding a translation under the activerecord &gt; attributes tree.  </p>
+
+<p>This was the preferred method on our team, but damned if that should be easy to figure out as a Rails noob!</p>
+
+</article>
+
+<nav>
+  
+    <a class="previous" href="/this-and-dont-use-magic-numbers/"><span class="arrow">&#10140;</span> Old revelations about jquery, and javascript</a>
+  
+  
+</nav></main>
+      <header>
+        <a href="/"><img class="gravatar" src="" width="230" height="230"/></a>
+        <h1>About Me</h1>
+        <p>I'm a web developer who works on the front parts of <a href="http://www.scienceexchange.com">Science Exchange</a>, an online marketplace for scientific collaboration.  I hope my work will quickly lead to the invention of the hover board and hyposprays. Like, <em>quickly</em>.</p>
+        <p class="social">
+          <a href="http://twitter.com/internetross">twitter</a>
+          <a href="www.linkedin.com/in/rosschapman‎">linkedin</a>
+        </p>
+      </header>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery.md5.js"></script>
+    <script>
+      // We have such a tiny amount of JS for this little site, let's just put it all on the page.
+      $(function(){
+
+        // Add my Gravatar.com avatar to the page.
+        (function doGravatar() {
+          var img = $('.gravatar');
+
+          // Use md5 plugin to hash my email.
+          var hash = $.md5('rosschapman@gmail.com').toLowerCase();
+
+          // Get my avatar using Gravatar's amazingly simple API.
+          var gravatar = 'http://www.gravatar.com/avatar/'+ hash + '?size=230';
+
+          // Set img to my gravatar.
+          img.attr('src',gravatar);
+        })();
+      });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43971638-1');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
