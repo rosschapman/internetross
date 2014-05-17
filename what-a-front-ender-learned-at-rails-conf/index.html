@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Rails Conf 2014 Roundup</title>
+      <title>#railsconf 2014 roundup.</title>
       <meta name="viewport" content="width=device-width">
       <meta name="description" content="front-end developer who blogs about shit everyone knows already">
       <link rel="stylesheet" href="/assets/css/syntax.css">
@@ -14,14 +14,14 @@
   <body>
     <div class="container">
       <main><article>
-  <h1>Rails Conf 2014 Roundup</h1>
+  <h1>#railsconf 2014 roundup.</h1>
   <time>23 Apr 2014</time>
   <img class="post-splash" src="" />
-  <p>Last week I had grand plaisir of joining my colleagues from Science Exchange at Rails Conf in Chicago.  Hella good conference! Especially for a front-sider turning full stacks racker.  Man I was hungering for that deep dish wisdom of the backends.  I was not disappointed.  </p>
+  <p>Last week I had grand plaisir of joining my colleagues from Science Exchange at Rails Conf in Chicago.  Hella good conference! Especially for a front-sider turning full stacks racker.  Man I was hungering for that deep dish wisdom of the backends.  I was not disappointed.</p>
 
-<p>Probs the biggest takeaway is that no question remains: an understanding of the full web stack is crucial for any contemporary front-ender building a software <em>application</em>.  For whatever flavor of front-side craftgineer you are: UI eng, UX eng, Front-end Eng, JavaScript Eng...  We must be strapped up and down straight Punisher ish.  I mean, this was always already true - but, if you&#39;re like me, maybe your career is young and you&#39;ve been mostly scripting and styling DOM states with jQuery mixed with sprinkles of AJAX for sporadic sexy data fetching.  Maybe that could get you far in the past.  But the web stack is growing up fast, exponentially, and apps are going to have that familiar JavaScript feel, they&#39;re gonna look like Rails apps, or Django apps.  </p>
+<p>Probs the biggest takeaway is that no question remains: an understanding of the full web stack is crucial for any contemporary front-ender building a software <em>application</em>.  For whatever flavor of front-side craftgineer you are: UI eng, UX eng, Front-end Eng, JavaScript Eng...  We must be strapped up and down straight Punisher ish.  I mean, this was always already true - but, if you&#39;re like me, maybe your career is young and you&#39;ve been mostly scripting and styling DOM states with jQuery mixed with sprinkles of AJAX for sporadic sexy data fetching.  Maybe that could get you far in the past.  But the web stack is growing up fast, exponentially, and apps are going to have that familiar JavaScript feel, they&#39;re gonna look like Rails apps, or Django apps.</p>
 
-<p>Any moment now you&#39;re going to be sitting at the terminal looking at codes called Lineman, Grunt, Gulp, Broccoli, maybe some thing called Perspectives Rap Genius is building, Node, Handlebars, Ember, Angular, Rendr,     Backbone, Yoeman, D3, and we haven&#39;t started talking TDD yet.  You&#39;ll be <em>required</em> to understand MVC, hexagons and domains, or some similar architectural pattern to deliver that a juicy SPA experience to users who don&#39;t want no static.  You must become a veritable master of <em>state</em>.  I&#39;m not sure what the winning stack is these days, but an EmberJS client backed with a Rails JSON API was a hot combo at Rails conf - for obvious reasons (read: Yehuda).  </p>
+<p>Any moment now you&#39;re going to be sitting at the terminal looking at codes called Lineman, Grunt, Gulp, Broccoli, maybe some thing called Perspectives Rap Genius is building, Node, Handlebars, Ember, Angular, Rendr,     Backbone, Yoeman, D3, and we haven&#39;t started talking TDD yet.  You&#39;ll be <em>required</em> to understand MVC, hexagons and domains, or some similar architectural pattern to deliver that a juicy SPA experience to users who don&#39;t want no static.  You must become a veritable master of <em>state</em>.  I&#39;m not sure what the winning stack is these days, but an EmberJS client backed with a Rails JSON API was a hot combo at Rails conf - for obvious reasons (read: Yehuda).</p>
 
 <p>Ember is picking up speed.  Go watch Brandon Hays&#39; talk and start sprinkling in Ember right now.  Agile that shit right in there.</p>
 
@@ -40,6 +40,8 @@
     <a class="previous" href="/loose-jquery-multistr-and-rails-i18n/"><span class="arrow">&#10140;</span> Old revelations about jquery, javascript and ror</a>
   
   
+    <a class="next" href="/console-log-meh-and-rotating-images-in-rails/"> &#10140; Futuristic notions about  and </a>
+  
 </nav></main>
       <header>
         <a href="/"><img class="gravatar" src="" width="230" height="230"/></a>
@@ -51,12 +53,11 @@
         </p>
       </header>
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascript/jquery.min.js"></script>
     <script type="text/javascript" src="/lib/jquery.md5.js"></script>
     <script>
       // We have such a tiny amount of JS for this little site, let's just put it all on the page.
       $(function(){
-
         // Add my Gravatar.com avatar to the page.
         (function doGravatar() {
           var img = $('.gravatar');
@@ -69,6 +70,7 @@
 
           // Set img to my gravatar.
           img.attr('src',gravatar);
+          debugger;
         })();
       });
     </script>

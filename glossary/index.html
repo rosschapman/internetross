@@ -41,12 +41,11 @@
         </p>
       </header>
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascript/jquery.min.js"></script>
     <script type="text/javascript" src="/lib/jquery.md5.js"></script>
     <script>
       // We have such a tiny amount of JS for this little site, let's just put it all on the page.
       $(function(){
-
         // Add my Gravatar.com avatar to the page.
         (function doGravatar() {
           var img = $('.gravatar');
@@ -59,6 +58,7 @@
 
           // Set img to my gravatar.
           img.attr('src',gravatar);
+          debugger;
         })();
       });
     </script>
