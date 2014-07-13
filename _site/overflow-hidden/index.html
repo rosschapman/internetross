@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>overflow: hidden explained, named functions for perf, and why radix is aight.</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+      <link rel="stylesheet" href="/assets/css/syntax.css">
+      <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <main><article>
+  <header>
+    <h1>overflow: hidden explained, named functions for perf, and why radix is aight.</h1>
+    <time>20 Feb 2014</time>
+  </header>
+  <h2>Whoaverflow</h2>
+
+<p>99% of the time these days you won&#39;t need a clearfix hack to get a box to properly wrap floated child elements. Setting <code>overflow: hidden</code> on the containing box works in all relevant browsers (read: I8+ etc...).  Most of us have been using this technique, yes, but the other day I realized I couldn&#39;t explain in depth to a colleague <em>why</em> it worked.  Like, why would setting a visibility-related property have side effects on the layout and block formatting context?</p>
+
+<p>The &quot;why&quot; is a sort of bizarre tale, though a non too surprising entry in the analog of CSS development.  In a nutshell, a change was introduced into the CSS2.1 spec to address performance problems when floated elements intruded/intersected with nearby scrollable elements.  There&#39;s a wonderful and wonderfully thorough discussion of this on the <a href="http://stackoverflow.com/questions/9943503/why-does-css2-1-define-overflow-values-other-than-visible-to-establish-a-new-b/11854515#11854515">stacks-a-million</a> so check that out.</p>
+
+<p>So, <code>overflow: hidden</code>, or setting <code>overflow</code> to anything but <code>visible</code>,  creates a new BFC as a side-effect - though intentional - which in turn triggers an automatic recalculation of height.  Crazy times!  From the spec:</p>
+
+<blockquote>
+<p><a href="http://www.w3.org/TR/CSS21/visudet.html#root-height">In addition, if the element has any floating descendants whose bottom margin edge is below the element&#39;s bottom content edge, then the height is increased to include those edges. Only floats that participate in this block formatting context are taken into account, e.g., floats inside absolutely positioned descendants or other floats are not.</a></p>
+</blockquote>
+
+<h2>Name all the things</h2>
+
+<p>The other day I found myself writing a small anonymous function to do a bit of string parsing or something and I was like, should I name this little guy, or leave him anonymous in obscurity?  There&#39;s definitely some readability advantage and it makes code reviews a little easier because you can reference functions by name...but there&#39;s also a much bigger advantage.  Debugging.</p>
+
+<p>One of my standard go-to references about JS functions is Ben Alman&#39;s 4-year-old <a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">article on IIFE&#39;s</a>.  It&#39;s just a really clear explanation of how how to write and refer to function declarations and expressions in JavaScript.  So in my existential moment, I read that.  Which then somehow led me on a hyperlink voyage to a great article on <a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">Smashing Mag</a> that explains how to debug named functions with the JavaScript profiling tool in dev tools.</p>
+
+<p>Ain&#39;t that some shit.  With the JS profiler you get some fab resource usage data about your code including CPU for your JS, CPU for your CSS selection, and memory usage by JS objects.  I can&#39;t claim to have really put these stats to use quite yet, but the key point is that if you name functions you&#39;ll expose your function to performance inspection.   So go all roll call on your functions.  Present.</p>
+
+<h2>A really concise technique for creating a random 4-digit ID with a string method?</h2>
+
+<p>So I wanted to generate a random identifier for a set of hidden inputs on a form.  Got myself some radix.</p>
+
+<p>All objects in JavaScript have a prototype method called <code>toString()</code> which converts their internal value to a textual string.  When used on a Number object, the toString() method accepts a radix as a single parameter.  A <a href="http://en.wikipedia.org/wiki/Radix">radix</a>, or base, is a number that represents a unique set of digits - which could be numbers or letters.  For example, a radix of <strong>10</strong> represents the well-known decimal system with digits of &quot;0-9.&quot;  And a radix of <strong>2</strong> represents a binary numeral system of &quot;0&quot; and &quot;1.&quot;  And a radix of <strong>16</strong> yields &quot;0-9&quot; and &quot;A-F.&quot;  Math dude!</p>
+
+<p>For the more linguistics-interested, &quot;radix&quot; is actually the Latin word for &quot;root.&quot;  And for musical types, the Roots Radics are a <a href="http://en.wikipedia.org/wiki/Roots_Radics">reggae band</a> from the <a href="http://www.youtube.com/watch?v=He5pOzmI8-c">70s</a>.  Fyah!!</p>
+
+<p>Based on this knowledge, suddenly we have a very concise and readable way of creating a set of four random numbers starting with JavaScript&#39;s built-in Math.random method which generates a <a href="http://en.wikipedia.org/wiki/Pseudorandomness">pseudo-random</a> number between 0 (inclusive) and 1 (exclusive):</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">roots_radics</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">roots_radics</span><span class="p">();</span>
+<span class="c1">// outputs something like &quot;4759&quot;</span>
+</code></pre></div>
+<p>Of course there are a myriad of ways to rand nums in JS. Personally I&#39;m liking the way that radix is employed here to restrict the numeral set.  Also, in order to ensure the length of your numbers is correct by using <code>substring()</code>, it makes kinda semantic sense to use a string method on a number object that&#39;s been converted to a string already.</p>
+
+</article>
+
+<nav>
+  
+    <a class="previous" href="/pseudo-elements-jquery-rails-engines-sass-parents/"><span class="arrow">&#10140;</span> Old revelations about sass, jquery and rails</a>
+  
+  
+    <a class="next" href="/this-and-dont-use-magic-numbers/"> &#10140; Futuristic notions about jquery and javascript</a>
+  
+</nav>
+
+<nav>
+  
+    <a href="/jquery" class="category-nav-item">#jquery</a>
+  
+    <a href="/rails" class="category-nav-item">#rails</a>
+  
+    <a href="/backbone" class="category-nav-item">#backbone</a>
+  
+    <a href="/jekyll" class="category-nav-item">#jekyll</a>
+  
+    <a href="/sass" class="category-nav-item">#sass</a>
+  
+    <a href="/css" class="category-nav-item">#css</a>
+  
+    <a href="/javascript" class="category-nav-item">#javascript</a>
+  
+    <a href="/conferences" class="category-nav-item">#conferences</a>
+  
+    <a href="/mashups" class="category-nav-item">#mashups</a>
+  
+</nav></main>
+      <aside>
+        <a href="/"><img class="gravatar" src="http://d2ybgnpt0qry0r.cloudfront.net/img/rossy-smalls.png" width="260" height="260"/></a>
+        <h1>About Me</h1>
+        <p>I'm a web developer who works on the front parts of <a href="http://www.scienceexchange.com">Science Exchange</a>, an online marketplace for scientific collaboration.  I hope my work will quickly lead to the invention of the hover board and hyposprays. Like, <em>quickly</em>.</p>
+        <p class="social">
+          <a href="http://twitter.com/internetross">twitter</a>
+          <a href="www.linkedin.com/in/rosschapman‎">linkedin</a>
+        </p>
+      </aside>
+    </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43971638-1');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

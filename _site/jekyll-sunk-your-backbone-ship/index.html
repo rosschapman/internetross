@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Jekyll sunk your Backbone ship.</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="front-end developer who blogs about shit everyone knows already">
+      <link rel="stylesheet" href="/assets/css/syntax.css">
+      <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <main><article>
+  <header>
+    <h1>Jekyll sunk your Backbone ship.</h1>
+    <time>11 Jan 2014</time>
+  </header>
+  <p>If you&#39;re one of the five web developers or recruiters who have looked at my website in the past couple months, you&#39;re undoubtedly noticing a new look and feel.</p>
+
+<p>That&#39;s because I just migrated my website to <a href="http://jekyllrb.com/">Jekyll</a>, a static-site generator built on ruby.  In the short term, the old site design, which some colleagues told me was &quot;pretty good&quot;, was sacrificed.  In the meantime, my beautiful prose will have to dazzle you.</p>
+
+<p>So how did we get here?</p>
+
+<h2>Bone of Back</h2>
+
+<p>After leaving Zendesk behind in September, I found most companies hiring front-enders were looking for experience with JavaScript MV-patterned frameworks like <a href="http://backbonejs.org">Backbone.js</a>, <a href="http://angularjs.org">AngularJS</a>, or <a href="http://emberjs.com">Ember</a>. So I decided to learn some of that new cool by building a website, on it.  Since my own website was languishing in obscurity and neglect for the past few years, I would rebuild my own website, on it.</p>
+
+<p>The week before an interview with a venture-backed startup equally as hot and <a href="/glossary#surgepricey">surgepricey</a> as JavaScript, I spirited through <a href="http://twitter.com/addyosmani">@addyosmani&#39;s</a> Backbone.js <a href="http://addyosmani.github.io/backbone-fundamentals/">book</a> and rebuilt my website using what some are calling an &quot;API first&quot; approach: my blog datas were fetched, parsed, and rendered in the DOM entirely by a database-unawares mini Backbone app that talked to WordPress.com&#39;s <a href="http://developer.wordpress.com/docs/api/">JSON API</a>.</p>
+
+<p>Talk about dazzling.  In about 3 days I had a modern ajax-y single page app for a portfolio site - complete with a loading gif and picture of myself <a href="http://dttf.tumblr.com/">touching my face</a> inside a circle. Silicon-valley certified. You can actually see it in cryo-stasis <a href="/backbone-it-up/">here</a>.</p>
+
+<p>Having built WordPress sites for like five years - and the occasional Drupal or Joomla site (yeah, throwback) - it was refreshing to be free of context-switching between PHP and JavaScript. Which is a particular bitch when remembering string methods.  But the real Mentos freshness was having all the site logic <strong>completely</strong> client-side, so I could deploy the thing on <a href="http://pages.github.com/">Github Pages</a>.</p>
+
+<p>I love Github Pages. It is THE best web host I&#39;ve ever used and the easiest way to publish a static website I can think of. My most recent &quot;oh that&#39;d be cool&quot; moment was when I realized marketers could be abusing the crap out of Github Pages for landing page testing. Seriously, nerd cred to non-devs who publish a web page on Github.</p>
+
+<p>Anywho, while my Backbone experiment was successful, the architecture was a bit overkill for my needs. The <a href="/glossary#spa">SPA</a> sans-reload UI was silky, but I didn&#39;t really need a framework with models and routing to handle some basic strings and markup. Also, SEO is completely sacrificed with a front-end JavaScript framework (I know, I know, there are hacky-crawly ways around it).  But I wouldn&#39;t want to deprive my next five fans from discovering me on the web searching for &quot;random front-end developers who blog about shit everyone knows already&quot; - do you get the joke (hint: meta)? And, well, what if mom couldn&#39;t find my website when she googled my name?  Fool me once, shame on you.  Fool me, you can&#39;t get fooled again.</p>
+
+<h2>Enter Jekyll</h2>
+
+<p>Jekyll was an obvious choice for a couple reasons.  First, Github Pages uses Jekyll <a href="https://help.github.com/articles/using-jekyll-with-pages">already</a>, so they understand how to serve static pages that Jekyll compiles, and I wouldn&#39;t have to consider another hosting solution. Second, its built with ruby, and I am learning <a href="http://www.codecademy.com/users/pyRockstar96979/achievements">that</a>.</p>
+
+<p>Switching to Jekyll also forces you to write Markdown.  Oh, Marcus Aurelius de mi corazon. Why did I ever fear your gentle brace? Markdown is really easy to pick up - there&#39;s like four syntax things to know and its entirely <tag> free.  It&#39;s perfect for internet writing - you can hyperlink and create typographic hierarchy with braces and pounds. It&#39;s really no wonder WordPress.com just <a href="http://en.blog.wordpress.com/2013/11/19/markdown/">released</a> native Markdown support and other web authoring tools like <a href="http://ghost.org">Ghost</a> are going full Markdown from the get-go.</p>
+
+<p>Speaking of Ghost, I near-copied the interface on my desktop by putting iA Writer and Chrome side by side:</p>
+
+<p><img src="/assets/images/kinda-like-ghost.png" alt="Ghost.org lookalike">
+<img src="http://cdn.arstechnica.net/wp-content/uploads/2013/10/Screenshot-3.jpg" alt="Ghost.org screenshot"></p>
+
+<p>With the combo-punch of the <a href="https://github.com/guard/guard">Guard</a> and <a href="https://github.com/guard/guard-livereload">Guard-Livereload</a> gems I get instant refreshes in Chrome on save. I call it &quot;OSX Mavericks CMS&quot;.</p>
+
+<p>There&#39;s not a ton more to say about this website for now.  I&#39;ll be boosting readability and general delight in the near future, which probably won&#39;t even deserve <a href="http://dribbble.com/internetross">Dribbbling</a>.  Quarterly report on delight metrics forthcoming. Synergy.  Generally, I hope - I want! - your eyeballs and mind grapes to find less corn syrup and more protein on these pages.  It&#39;s going to continue being/becoming honest, humble ruminations on code and UX and being a web professional for startups - which really just means young companies? - in Silicon Valley/Alley and the search for lost personhood in the matrix.  K, talk soon.</p>
+
+</article>
+
+<nav>
+  
+    <a class="previous" href="/rails-form-tags-jquery-prop/"><span class="arrow">&#10140;</span> Old revelations about rails and jquery</a>
+  
+  
+    <a class="next" href="/sass-placeholders-inline-block/"> &#10140; Futuristic notions about rails and jquery</a>
+  
+</nav>
+
+<nav>
+  
+    <a href="/jquery" class="category-nav-item">#jquery</a>
+  
+    <a href="/rails" class="category-nav-item">#rails</a>
+  
+    <a href="/backbone" class="category-nav-item">#backbone</a>
+  
+    <a href="/jekyll" class="category-nav-item">#jekyll</a>
+  
+    <a href="/sass" class="category-nav-item">#sass</a>
+  
+    <a href="/css" class="category-nav-item">#css</a>
+  
+    <a href="/javascript" class="category-nav-item">#javascript</a>
+  
+    <a href="/conferences" class="category-nav-item">#conferences</a>
+  
+    <a href="/mashups" class="category-nav-item">#mashups</a>
+  
+</nav></main>
+      <aside>
+        <a href="/"><img class="gravatar" src="http://d2ybgnpt0qry0r.cloudfront.net/img/rossy-smalls.png" width="260" height="260"/></a>
+        <h1>About Me</h1>
+        <p>I'm a web developer who works on the front parts of <a href="http://www.scienceexchange.com">Science Exchange</a>, an online marketplace for scientific collaboration.  I hope my work will quickly lead to the invention of the hover board and hyposprays. Like, <em>quickly</em>.</p>
+        <p class="social">
+          <a href="http://twitter.com/internetross">twitter</a>
+          <a href="www.linkedin.com/in/rosschapman‎">linkedin</a>
+        </p>
+      </aside>
+    </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43971638-1');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
