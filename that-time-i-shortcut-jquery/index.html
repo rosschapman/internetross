@@ -18,9 +18,11 @@
     <h1>That Time I Shortcut jQuery Deferred.</h1>
     <time>22 Dec 2013</time>
   </header>
-  <p>Recently I had one of those moments where I tried to do something fancy with jQuery while working on a file uploader, to which IE8 sneered in defiance, turned up <a href="http://www.youtube.com/watch?v=rfjtpp90lu8">Blame It</a>, and started sobbing again about Michael Jackson.  Ultimately I found an acceptable backwards compatible solution that was functional and readable, and used a simple counter rather than jQuery&#39;s Deferred Object.</p>
+  <p>Recently I had one of those moments where I tried to rely on jQuery for some promise action while working on a file uploader.  But then I got snagged on IE8.  Shocker.</p>
 
-<p>The file uploader I was designing allowed users to upload multiple files. Now, a normal UI/code flow for this is fairly straightforward:</p>
+<p>TLDR: I ended up with an acceptable backwards compat solution that used a simple counter and deterred on jQuery deferreds.</p>
+
+<p>The file uploader I was designing allowed users to upload multiple files. Now, a normal type of flow for this is fairly straightforward:</p>
 
 <ul>
 <li>User uploads file(s)</li>
@@ -29,16 +31,16 @@
 <li>Code executes callback in the response to submit the form</li>
 </ul>
 
-<p>Right, so normally you could post the entire upload data packet inside one request.  But in this case I was using a third-party vendor&#39;s API to help us stream these files to S3.  And unfortunately, this API only allowed one stream request at a time.  (It&#39;s a young product).  So rather than sending the file data in one ajax request, I would need some code that could wait for an indeterminate amount of async calls to complete before going ahead and submitting the form.</p>
+<p>Normally you could post the entire upload object inside one request.  But in this case I was using a Inc.com&#39;s <a href="https://www.filepicker.io/">FilePicker</a> API to help us stream these files to S3.  Unfortunately, this API only allowed one stream request at a time.  (It&#39;s a young product).  So rather than sending the file data in one ajax request, I would need to wait for an <em>indeterminate</em> amount of upload calls to complete before submitting the form.</p>
 
-<p>jQuery has a nifty method to execute callbacks based on Deferred objects for async events.  So my initial idea, having been reading a lot about JavaScript Promises lately, was to create an array of these calls and then pass them to <a href="http://api.jquery.com/jquery.when/"><code>$.when</code></a> like so:</p>
+<p>jQuery has a when method for Deferred objects.  So my initial idea was to take an array of these upload calls and then pass them to <a href="http://api.jquery.com/jquery.when/"><code>$.when</code></a> like so:</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">promises</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">form</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div>
 
-<p>But IE8 simply didn&#39;t want to play.  My suspicion is that the vendor-specific API methods in my ajax calls were causing some trouble because <code>$.when</code> <em>did</em> work when I tested a simple ajax request.  I didn&#39;t have time for a full investigation with the vendor so I went ahead to find a different solution.  And came up with the following (simplified for exemplification):</p>
+<p>But IE8 simply didn&#39;t want to play.  My suspicion is that the FilePicker&#39;s API methods in my ajax calls were causing some trouble because <code>$.when</code> <em>did</em> work when I tested an isolated ajax request.  Deadline looming, I had to forego a full investigation with the vendor and instead flip the script.  I came up with the following (simplified for exemplification):</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="c1">// Loop through each file and call stream method</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arrOfFiles</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">file</span> <span class="p">)</span> <span class="p">{</span>
@@ -53,7 +55,9 @@
 <span class="p">});</span>
 </code></pre></div>
 
-<p>No major moral here.  Just a little fun thinking with problems. Maybe <a href="http://twitter.com/internetross">together</a>?</p>
+<p>No major moral here. Just a nice bit of fun dodging bullets.</p>
+
+<p>Update 6.25.14: FilePicker allows multi-uploads now.  derp</p>
 
 </article>
 
