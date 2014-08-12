@@ -22,30 +22,6 @@
 <a title="Share on Twitter" data-network="twitter" data-action="share" href="https://twitter.com/share?url=http://internetross.me/tiltw-dec-30-jan-3&amp;text=@internetross, I like you, but..." target="_blank">
 disagree</a>.</p>
 
-<h2>Getting psuedo-element properties with the realest jQueriest</h2>
-
-<p>Because you&#39;re a sexy modern web developer, you&#39;re likely a frequent user of the <code>:before</code> and <code>:after</code> pseudo-elements to make wondrous things with CSS. Create shapes, add icons from symbol sets, fades for modals, and <a href="http://css-tricks.com/pseudo-element-roundup/">other non-standard exploits</a>.  It&#39;s also likely, then, that you&#39;ve encountered the difficulty manipulating pseudo-elements with jQuery.</p>
-
-<p>This week I was messing with setting the <code>content</code> property on <code>:before</code> elements of list items, and considering ways to animate a character change - e.g, fade from a dot to an &quot;x&quot; to signify a &quot;remove&quot; action for the user.  My first exploration was some jQuery that looked like:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element:before&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>But fail.  So I wondered why and my research led me to <a href="http://stackoverflow.com/questions/5041494/manipulating-css-pseudo-elements-using-jquery-e-g-before-and-after">Stack Overflow</a> again, and to an answer<sup><a href="#1">1</a></sup>.</p>
-
-<p>Unfortunately, while pseudo-elements are recognized and parsed by browsers in stylesheets, they are not part of the DOM and therefore are inappropriate as part of jQuery selectors.  The w3 <a href="http://www.w3.org/TR/selectors-api/#grammar">spec</a> reinforces the same:</p>
-
-<blockquote>
-<p>Authors are advised that while the use of pseudo-elements in selectors is permitted, they will not match any elements in the document, and thus would not result in any elements being returned.</p>
-</blockquote>
-
-<p>However.  If you are in dire need to access pseudo-element properties programmatically with JavaScript you can take advantage of <code>getComputedStyle()</code> and do something like this:</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">),</span> <span class="s1">&#39;:before&#39;</span>
-<span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
-</code></pre></div>
-<p>Hat tip to the estimable <a href="http://davidwalsh.name/ways-css-javascript-interact">David Walsh</a> for the example.  The only gotcha, per usual, is that <code>getComputedStyle</code> is supported IE9+.  Sigh.</p>
-
 <h2>Under the hood</h2>
 
 <p>At <a href="http://www.scienceexchange.com">Science Exchange</a> we&#39;ve begun breaking apart our monolithic Rails app into smaller engines to help separate various concerns and modularize code.  We&#39;ve been inspired in part by Spree, which is a great <a href="https://github.com/spree/spree">example</a> of a modular app framework - you&#39;ll notice a very reasonable partition of functionality into api, backend, and frontend groups.</p>

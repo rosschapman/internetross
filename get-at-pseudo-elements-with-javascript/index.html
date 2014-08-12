@@ -29,7 +29,7 @@
 </code></pre></div>
 <p>But fail.  So I wondered why and my research led me to <a href="http://stackoverflow.com/questions/5041494/manipulating-css-pseudo-elements-using-jquery-e-g-before-and-after">Overflown Stackers</a>.</p>
 
-<p>Unfortunately, while pseudo-elements are visible to the rendering engine and are parsed for styling the document, they do not become part of the CSSOM or DOM and therefore are not eposed to any JavaScript APIs.  The w3 <a href="http://www.w3.org/TR/selectors-api/#grammar">spec</a> reinforces the same:</p>
+<p>Unfortunately, while pseudo-elements are visible to the rendering engine and are parsed for styling the document, they do not become part of the DOM and therefore are not exposed to any JavaScript APIs.  The w3 <a href="http://www.w3.org/TR/selectors-api/#grammar">spec</a> reinforces similar:</p>
 
 <blockquote>
 <p>Authors are advised that while the use of pseudo-elements in selectors is permitted, they will not match any elements in the document, and thus would not result in any elements being returned.</p>
