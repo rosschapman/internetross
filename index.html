@@ -51,4 +51,8 @@
     ga('create', 'UA-43971638-1', 'auto');
     ga('send', 'pageview');
   </script>
+  <script>
+    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    if (!is_firefox) { console.log("sup, cuz. %c  ", "background-image: url(\"http://www.emoji-cheat-sheet.com/graphics/emojis/hankey.png\"); background-size: cover")}
+  </script>
 </html>
