@@ -4,50 +4,180 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>internetross</title>
+      <title>Ross</title>
       <meta name="viewport" content="width=device-width">
-      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
       <style>
-        body {
-          font-family: 'Open Sans', sans-serif;
-          font-size: 18px;
-          font-weight: lighter;
-          line-height: 1.1;
-          max-width: 610px;
-          padding: 15px;
+        * {
+          box-sizing: border-box;
         }
-        .small {
-          font-size: 12px;
-          line-height: 1.4;
+        body {
+          margin: 0;
+          font-size: 15px;
+          font-weight: lighter;
+          border-top: 2px solid #FC6098;
+        }
+        .container {
+          font-family: helvetica;
+          padding: 30px;
+          max-width: 1290px;
+
+        }
+        .ImUsingFlexBoxYayyy {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .ImUsingFlexBoxYayyy div {
+          max-width: 100%;
+        }
+
+        .ImUsingFlexBoxYayyy div:first-child {
+          padding-right: 0px;
+        }
+        img {
+          text-align: center;
         }
         p {
-          line-height: 1.3;
+          line-height: 1.5;
+        }
+        a:focus {
+          position: relative;
+          top: 1px;
+        }
+        li {
+          margin-bottom: 10px;
+        }
+        small {
+          width: 100%;
+          display: block;
+          font-family: arial;
+        }
+        small p {
+          border-left: 2px solid #FC6098;
+          padding-left: 10px;
+        }
+        .Me {
+          width: 70px;
+          height: 70px;
+        }
+        .Space {
+          display: inline-block;
+          width: 10px;
+        }
+        .CodeTypography {
+          font-family: courier;
+        }
+
+        @media (min-width: 768px) {
+          .ImUsingFlexBoxYayyy div {
+            max-width: 50%;
+            padding-right: 50px;
+          }
+          .ImUsingFlexBoxYayyy div:first-child {
+            max-width: 50%;
+            padding-right: 50px;
+          }
         }
       </style>
   </head>
   <body>
-    <img class="gravatar" src="http://s.gravatar.com/avatar/f8881b0b58abdbc5e1ac3e4e052bddf2?s=500" width="230" height="230">
-    <p>Internet! It's me, Ross Chapman - a UX engineer based in San Francisco.</p>
-    <p>These days I'm building modern front-sides on Rails and EmberJS at <a href="https://www.scienceexchange.com">Science Exchange</a> - greasing the wheels for scientific discovery and collaboration with a long-overdue online marketplace for scientific services.
+    <img class="gravatar" src="assets/images/dennis-place-for-games.jpg" height="375">
+    <div class="container">
+      <div class="ImUsingFlexBoxYayyy">
+        <div>
+          <h1>What the actual fuck</h1>
 
-    <p>Formerly I cut my teeth in the industry as the marketing web developer at <a href="http://www.zendesk.com">Zendesk</a> - where I spent near 4 years building the corporate online presence for what would become a SV darling IPO. Somehow we made helpdesks beautiful and cool.
+          <h4>Who the actual fuck (professionally speaking)</h4>
 
-    <p>Before Saas and the like, I spent time and talent on a mix of things including small business "getting folks online" <a href="https://web.archive.org/web/20111211030717/http://folkspants.com/design.html">consulting</a>, organic food <a href="http://www.bostonorganics.com/">shepherding</a>, and community organizing for economic justice with <a href="http://resourcegeneration.org/">Resource Generation</a>.</p>
+          <p>Ross. <a href="https://twitter.com/internetross">@internetross</a>. Ross who never really left  Dennis' Place for Games.</p>
 
-    <p>I also journal a bit about professional coding on <a href="http://medium.com/@internetross">Medium.com</a>.</p>
+          <p>Based in San Francisco. At this moment likely having an existential crisis over <em>const</em> and <em>let</em> and wondering how Yehuda Katz can just do all the things. Or about extending the invitation. Or how, as Jaron Lanier reminds us, Google only matters because we screwed up Nelson's two-way linking.</p>
 
-    <small>
-      <p>Else: <br>
-        <a href="http://twitter.com/internetross">twitter</a> <br>
-        <a href="http://github.com/rosschapman">github</a> (alas, most of my work is private repos) <br>
-        <a href="http://linkedin.com/in/rosschapman">linkedin</a>
-      </p>
-      <p>Holler at me anytime to talk shop or grab a drink.</p>
-      <p class="small">
-        This site was left aligned with CSS3 and built with a 28.8k TCP packet transpiled from ES6 for SEO/SEM. <br />
-        &copy; wrong
-      </p>
-    </small>
+          <p>Me circa 2016 (look at that punim): </p>
+
+          <img class="Me" src="assets/images/me.jpg">
+
+          <h4>Professional bio teasers</h4>
+
+          <p>Presently I'm a web developer for Science Exchange, the world's best online marketplace for experiments. I mostly use the popular RJCH-nnito stack (Ruby, JavaScript, CSS, HTML, not necessarily in that order) to solve the company's technical challenges.</p>
+
+          <p>But it's taken me a while to get here. Like, this wasn't my first <em>what I want to be when i grow up</em> idea. When I was a 12 year-old kid sketching charcoal nudes at the Art Institute, I dreamed my future self a loose t-shirt wearing painter sitting around in European cafes in the 1920s. Shakespeare & Co. or what have you.
+
+          <p>In summer, of course. The loosest of shirts.</p>
+
+          <p>(Shoutout to my brother for the way he's truly embodied my dream of perfect loose t-shirt adornment in the early 2000s.)</p>
+
+          <p>In some ways it's too bad it took me so long to fall all the way for internet work. I certainly craned my neck that way over the years. Like, early echoes from my childhood: sneaky delights at the DOS prompt, initializing programs and traversing directory trees. WordPerfect. Word up. (How far we've come now!: just CMD + Space, type in the program name, hit enter.) And so many free hours of AOL to chat with the whole world when I was a tween. 22/f here to chat. First gender plays, too. (Like now when I sit in the dark and pretend to be Kate Libby with that red leather zipped up tight over her boobies, munging JSON and bussing messages around.)</p>
+
+          <p>And then I remember the mind explosion when I saw the ILOVEYOU worm corrupt a hard-drive in real-time during my internship with the InfoTechWarPeace project in college. Wooed so hard by hacker smooches. (And falling a bit, too, for the dashing deutsche curator Franziska Nori).</p>
+
+          <p>Then I touched down in the Yay Area in 2007, a year after Twitter launched and the SaaS bookmark service wars were really heating up. It was really nearly inevitable to plug in and play in those mythic times. <a href="http://genius.com/71717">Doors [were kinda] open, mayne</a>, and everytime I was at some networking function it was like "what can you do [on the computer]" and I'd be like, "well I've built a couple websites??" Didn't take long to realize what skills were valued out here aside from, like, non-profit leadership and being a Stanford grad. So I started tickling those keys.</p>
+
+          <p>🙌 <span class="Space"></span>(life...)</p>
+
+          <p>And so here we are. After repeated flirts and intellectual fancies with the web, I'm like ~6 years into a professional career designing, developing, and debugging useful web things. Fucking love it. I/O bound. It's an existence of multiplying ahas and obsessions and wtfs as you go deeper. And in the last 3 years greatly accelerated working end-to-end on the product side building collaboration augmentationers for scientists. The result? Any given day I'm caring more than I ever thought I would about a deep interplay of protocols and practices of cloudgineering (you might even say a Matrix):</p>
+
+          <ul>
+            <li>REST</li>
+            <li>tldr</li>
+            <li>object-oriented CSS</li>
+            <li>content-first development</li>
+            <li>diverse teams</li>
+            <li>empathetic teams</li>
+            <li>URLs</li>
+            <li>state management</li>
+            <li>should the client or server do this?</li>
+            <li>technical debt</li>
+            <li>FOSS</li>
+            <li>visual diffing</li>
+            <li>type checking</li>
+            <li>null checking</li>
+            <li>indentation style</li>
+            <li>code review</li>
+            <li>battling imposter syndrome</li>
+            <li>JavaScript everywhere</li>
+            <li>default arguments in JavaScript</li>
+            <li>async on single threads</li>
+            <li>hyperlinks</li>
+            <li>XSS</li>
+            <li>1:1s</li>
+            <li>conferences</li>
+            <li>purchase flows</li>
+            <li>onboarding flows</li>
+            <li>ending dead ends</li>
+            <li>variable and method naming</li>
+            <li>explaining technical concepts with metaphor</li>
+            <li>to framework or not?</li>
+            <li>programmers v developers</li>
+            <li>hackers v normals</li>
+            <li>hackers v normals</li>
+            <li>git log --reverse --pretty=format:'%s (%an)'</li>
+            <li>...</li>
+          </ul>
+          <p>Yadadamean??</p>
+        </div>
+        <div>
+          <h1>Diaries and daydreams</h1>
+          <p>Learning never stops in the software biz because the singularity must be hastened or something. Who knows exactly, but the reality is that under the choking ozone of Tesla fumes we rage forward with a nerdcore will/fantasy/hubris/<a href="https://medium.com/@girlziplocked/the-delusions-of-heroic-innovation-e6857b256ec6#.a8odjvg8t">delusional heroism</a> to stretch human meaning to the limit by augmentation or AI. Gordon Moore is forcing things along hella fast and you gotta keep up. (Or was it Fred Moore?)</p>
+
+          <p>Many coders fold this learning back into code in the form of side projects; always the bricoleurs. Personally, I've found writing to be a satisfying outlet for working over the TILs. In many ways I write for me, and that's why some of my phrasing reads like e.e. cummings, or me after a couple pinots. But I do keep you in mind. Although I imagine you as someone who writes some code or helps build web products in some fashion. That summarily prefaced, here's a sample of my diary (with the whole rest of the lot <a href="https://medium.com/@internetross">here</a>):</p>
+
+          <ul>
+            <li><a href="https://medium.com/@internetross/two-years-a-cloudgineer-technical-debt-b60a83e08a97#.9he4koe6q">Two years a cloudgineer: technical debt limbo</a></li>
+            <li><a href="https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583#.wzoddph7h">“do” helper for emphasis in variable naming</a></li>
+            <li><a href="https://medium.com/@internetross/ie-disco-dev-fa37a65703b0#.2za2dt9x3">IE 8: disco dev</a></li>
+            <li><a href="https://medium.com/@internetross/address-bar-frameworks-of-early-2015-d23b75ee340a#.7m390fvyz">The state of address bar frameworks in early 2015</a></li>
+            <li><a href="https://medium.com/@internetross/one-year-a-cloudgineer-optimism-b93fa8642173#.hkmlmneee">One year a cloudgineer: Optimism</a></li>
+          </ul>
+        </div>
+      </div>
+      <small>
+        <p>This site was left aligned with CSS2 and transpiled by gofunctionalyourself.js inside an 8-bit TCP switch packet for SEM optimization. Ask my friend Mike, he'll tell you all about it.</p>
+        <p>Cover art <a href="https://www.flickr.com/photos/16539699@N00/498689066">"dennis' place for games"</a> by <a href="https://www.flickr.com/photos/16539699@N00/">mo pie</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC 2.0</a></p>
+        <p>&copy; MIT/GPL/RZA/GZA/Bill Murray 🛀</p>
+      </small>
+    </div>
   </body>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
