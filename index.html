@@ -55,18 +55,6 @@
           padding-bottom: 0;
         }
 
-        @media only screen
-          and (min-device-width: 320px)
-          and (max-device-width: 568px)
-          and (-webkit-min-device-pixel-ratio: 2) {
-            .Content {
-              padding: 1em;
-              width: max-content;
-            }
-            small {
-              margin-top: 1em;
-            }
-          }
         
         /* 
           TYPOGRAPHY
@@ -100,78 +88,90 @@
         small p {
           font-size: .8em;
         }
+       
+        @media only screen
+          and (min-width: 320px)
+          and (max-width: 568px) {
+            .Content {
+              width: 100%;
+              max-width: max-content;
+            }
+
+            figure {
+              max-width: 100%;
+            }
+          }
       </style>
   </head>
   <body>
     <div class="Content">
-      <div>
-        <p>Hey y'all! I'm Ross.</p>
-        <img src="assets/images/me-old.jpg" width="150" height="150">
-          <p>I'm a web developer based in San Francisco (fully embedded in the trillicon valley zeitgeist) building parts of the internet as a front-end heavy full-stack specialist. Originally I hail from the city of Chicago where I was raised on 90s Bulls and bday parties dominating multiplayer arcade boxes at Dennis' Place for Games.</p>
+      <p>Hey y'all! I'm Ross.</p>
+      <img src="assets/images/me-old.jpg" width="150" height="150">
+        <p>I'm a web developer based in San Francisco (fully embedded in the trillicon valley zeitgeist) building parts of the internet as a front-end heavy full-stack specialist. Originally I hail from the city of Chicago where I was raised on 90s Bulls and bday parties dominating multiplayer arcade boxes at Dennis' Place for Games.</p>
 
-          <figure>
-            <img src="assets/images/dennis-place-for-games.jpg">
-          </figure>
-            
-          <p>Though less of an arcade addict now--more of <a href="http://pgbsf.org/">kung fu dude</a> in my spare time--I  recently played Zelda at my friend Mike's house on Nintendo Switch and I mayyyy have to hit restart on that. You'll also find me around town hosting a private small code club for other web dev job seekers (holler if your'e interested!), showing up for URMs in our industry at <a href="https://techtonica.org/">Techtonica</a>, or pretending to move to New York every 6 months.</p>
-
-          <figure>
-            <img src="assets/images/bulls-90s.jpg">
-            <figcaption>So much love for this era.</figcaption>
-          </figure>
+        <figure>
+          <img src="assets/images/dennis-place-for-games.jpg">
+        </figure>
           
-          <p>Now, what else to share in this perhaps not-so-laconic one-sheeter of a bildungsroman?</p>
+        <p>Though less of an arcade addict now--more of <a href="http://pgbsf.org/">kung fu dude</a> in my spare time--I  recently played Zelda at my friend Mike's house on Nintendo Switch and I mayyyy have to hit restart on that. You'll also find me around town hosting a private small code club for other web dev job seekers (holler if your'e interested!), showing up for URMs in our industry at <a href="https://techtonica.org/">Techtonica</a>, or pretending to move to New York every 6 months.</p>
 
-          <h2>A little about professional me</h2>
+        <figure>
+          <img src="assets/images/bulls-90s.jpg">
+          <figcaption>So much love for this era.</figcaption>
+        </figure>
+        
+        <p>Now, what else to share in this perhaps not-so-laconic one-sheeter of a bildungsroman?</p>
 
-          <figure>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/vgCvjppDwN8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <figcaption>Pretty sure this is the actual video from Encarta.</figcaption>
-          </figure>
+        <h2>A little about professional me</h2>
 
-          <p>Why do I make the internet for a living? I'd posit it may have been the adventurous info hunting of hyperlinked documents I first encountered in Microsoft Encarta as a kid; being able to control playback of that bald eagle swoop down for that fish; jump to other pages with even more videos; so cool. Another possibility: it was that deep space of anything goes while the cursor blinked at the DOS prompt on my Dad's Apple IIe. Like, maybe I could really do crazy stuff with this interactive tv. I seriously got excited over simple stuff like initializing programs and traversing directory trees. (I also played a ton of <a href="https://en.wikipedia.org/wiki/Bubble_Bobble">Bubble Bobble</a>.) Another key moment may have been ~1999, when I was a senior in high school. I edited an eBay web page during a summer internship. Just changed some font sizes and colors. But it was soooo satisfying to see those changes go live so instantaneously.</p>
+        <figure>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vgCvjppDwN8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <figcaption>Pretty sure this is the actual video from Encarta.</figcaption>
+        </figure>
 
-          <p>Alas, I had an artistic side too. And that side just got more love through my teens and the college years. If you had asked me at 12 years old, bent over a sketch book contouring charcoal nudes in one of the seeming infinite halls of the Art Institute: hey kid, what do you want to be when you grow up? I'd probably reply, shyly, something like: a loose t-shirt wearing painter sitting around in European cafes in the 1920s. Shakespeare <span class="amp"></span>& Co. or what have you.</p>
-          
-          <p>Always a bit of a romantic.</p>
+        <p>Why do I make the internet for a living? I'd posit it may have been the adventurous info hunting of hyperlinked documents I first encountered in Microsoft Encarta as a kid; being able to control playback of that bald eagle swoop down for that fish; jump to other pages with even more videos; so cool. Another possibility: it was that deep space of anything goes while the cursor blinked at the DOS prompt on my Dad's Apple IIe. Like, maybe I could really do crazy stuff with this interactive tv. I seriously got excited over simple stuff like initializing programs and traversing directory trees. (I also played a ton of <a href="https://en.wikipedia.org/wiki/Bubble_Bobble">Bubble Bobble</a>.) Another key moment may have been ~1999, when I was a senior in high school. I edited an eBay web page during a summer internship. Just changed some font sizes and colors. But it was soooo satisfying to see those changes go live so instantaneously.</p>
 
-          <p>Fast forward a bit to college. Another key moment: the mind explosion when I saw the ILOVEYOU worm corrupt a hard-drive in real-time at a gallery put on by the Watson Institute's <a href="http://www.infopeace.org/ppn/">InfoTechWarPeace project</a> where I interned. You might say I was getting seriously wooed by hacker advances. (And falling a bit, too, for the dashing deutsche curator of that show, Franziska Nori).</p>
+        <p>Alas, I had an artistic side too. And that side just got more love through my teens and the college years. If you had asked me at 12 years old, bent over a sketch book contouring charcoal nudes in one of the seeming infinite halls of the Art Institute: hey kid, what do you want to be when you grow up? I'd probably reply, shyly, something like: a loose t-shirt wearing painter sitting around in European cafes in the 1920s. Shakespeare <span class="amp"></span>& Co. or what have you.</p>
+        
+        <p>Always a bit of a romantic.</p>
 
-          <figure>
-            <img src="assets/images/i-love-you.jpg">
-          </figure>
+        <p>Fast forward a bit to college. Another key moment: the mind explosion when I saw the ILOVEYOU worm corrupt a hard-drive in real-time at a gallery put on by the Watson Institute's <a href="http://www.infopeace.org/ppn/">InfoTechWarPeace project</a> where I interned. You might say I was getting seriously wooed by hacker advances. (And falling a bit, too, for the dashing deutsche curator of that show, Franziska Nori).</p>
 
-          <p>Then I touched down in the Yay Area in 2007, a couple years after college with experience in organic food notched to my belt. At this touchpoint of Valley history Twitter was a year launched and the SaaS bookmark service wars were reaching crescendo (do you remember???). It was practically inevitable to jack in during those times. Peeps at a networking function: what can you do [on the computer]? Me: well I've built a couple websites?? The way their eyes would just light up...</p>
+        <figure>
+          <img src="assets/images/i-love-you.jpg">
+        </figure>
 
-          <p>In 2013 I got my first job building web applications at Science Exchange. Interestingly, at that moment I was a bit ambivallent about continuing to be paid to give computers instructions. I even went through a product <i>design</i> interview process with another small company at the time called Ripple (now not so small).</p>
-          
-          <p>But as fate would have it, at Science Exchange I worked with some amazeball folks who's overall stokedness about web dev wired the boring and hard stuff into my curiosity drive. And then there was joy of software teams: lunch and learns, conference field trips, book club, the spirited architectural design debates. I came to understand that I loves me some ridiculous optimism and enthusiasm and obsession with building castles of air with people. I'm not looking back.</p>
+        <p>Then I touched down in the Yay Area in 2007, a couple years after college with experience in organic food notched to my belt. At this touchpoint of Valley history Twitter was a year launched and the SaaS bookmark service wars were reaching crescendo (do you remember???). It was practically inevitable to jack in during those times. Peeps at a networking function: what can you do [on the computer]? Me: well I've built a couple websites?? The way their eyes would just light up...</p>
 
-          <p>And so here we are. After some initial clogs, flirts, and fancies with the web, I'm like ~7 years into a professional career designing, developing, and debugging useful web things. Suddenly you look up from Land of Lisp and it's like whoa. This ish is great. I'm totally I/O bound and hanging ten on the info highway. It suits me well as a ravenous learner, I think. And romantic optimist about the power of the web. This is a heady existence of exponentializing ahas and obsessions and happy wtfs as you go deeper and follow the rhizomatic spread into things that empower so many things. The implicit return? Any given day I'm caring more than I ever thought I would about a big world of web stuff.</p>
-          
-          <p>Like: Higher order funcs and how functional is cool but like it feels awkward to say the word "pure" so much, ActiveRecord or DataMapper, tryna use this 418 status code, what to do at the corners of REST, empathetic teams, effing CORS, URLs ARE IMPORTANT, how ad-driven web is a bit sad, sharing state in complex single page apps, the emotional side of technical debt, to Flow?, code reviews for team awesomeness not for speed, battling imposter syndrome, wait is this agile?, parameterized queries, discovering the right metaphors to describe what I'm actually doing, studying Martin Fowler, Aditya Bhargava, Kyle Simpson, Sandi Metz, Lea Verou, and more.</p>
+        <p>In 2013 I got my first job building web applications at Science Exchange. Interestingly, at that moment I was a bit ambivallent about continuing to be paid to give computers instructions. I even went through a product <i>design</i> interview process with another small company at the time called Ripple (now not so small).</p>
+        
+        <p>But as fate would have it, at Science Exchange I worked with some amazeball folks who's overall stokedness about web dev wired the boring and hard stuff into my curiosity drive. And then there was joy of software teams: lunch and learns, conference field trips, book club, the spirited architectural design debates. I came to understand that I loves me some ridiculous optimism and enthusiasm and obsession with building castles of air with people. I'm not looking back.</p>
 
-          <figure>
-            <img src="assets/images/the_internet.jpg">
-            <figcaption>
-              Remember when the internet was for doing anything?
-            </figcaption>
-          </figure>
+        <p>And so here we are. After some initial clogs, flirts, and fancies with the web, I'm like ~7 years into a professional career designing, developing, and debugging useful web things. Suddenly you look up from Land of Lisp and it's like whoa. This ish is great. I'm totally I/O bound and hanging ten on the info highway. It suits me well as a ravenous learner, I think. And romantic optimist about the power of the web. This is a heady existence of exponentializing ahas and obsessions and happy wtfs as you go deeper and follow the rhizomatic spread into things that empower so many things. The implicit return? Any given day I'm caring more than I ever thought I would about a big world of web stuff.</p>
+        
+        <p>Like: Higher order funcs and how functional is cool but like it feels awkward to say the word "pure" so much, ActiveRecord or DataMapper, tryna use this 418 status code, what to do at the corners of REST, empathetic teams, effing CORS, URLs ARE IMPORTANT, how ad-driven web is a bit sad, sharing state in complex single page apps, the emotional side of technical debt, to Flow?, code reviews for team awesomeness not for speed, battling imposter syndrome, wait is this agile?, parameterized queries, discovering the right metaphors to describe what I'm actually doing, studying Martin Fowler, Aditya Bhargava, Kyle Simpson, Sandi Metz, Lea Verou, and more.</p>
 
-          <h2>I do like writing about this journey as a community-taught programmer</h2>
+        <figure>
+          <img src="assets/images/the_internet.jpg">
+          <figcaption>
+            Remember when the internet was for doing anything?
+          </figcaption>
+        </figure>
 
-          <p>Learning never stops in the software biz. Technology change is a constant. Our community and industry is really excited about how to get better. Gordon Moore is forcing things along hella fast and you gotta keep up. (Or was it Fred Moore?)</p>
+        <h2>I do like writing about this journey as a community-taught programmer</h2>
 
-          <p>Many coders fold this learning back into code in the form of side projects; always the bricoleurs. I've found writing to be a satisfying outlet for working over the TILs--though I did <a href="https://github.com/rosschapman/if-ross-wrote-javascript">hack a bit of node</a> recently to spread my JavaScript wings to the server. In many ways I write for me, and that's why some of my phrasing reads like e.e. cummings, or me after a couple pinots. But I do keep you in mind. Although I imagine you as someone who writes some code or helps build web products in some fashion. If you want to keep going, here's a sample of what I might call my professional web dev diary (with the whole rest of the lot <a href="https://medium.com/@internetross">here</a>):</p>
-          
+        <p>Learning never stops in the software biz. Technology change is a constant. Our community and industry is really excited about how to get better. Gordon Moore is forcing things along hella fast and you gotta keep up. (Or was it Fred Moore?)</p>
 
-          <ul>
-            <li><a href="https://medium.com/@internetross/dakku-hanto-how-poodr-helped-me-solve-the-case-and-find-the-duck-who-i-named-a-crime-fighting-duck-78e7a74953e7">Dakku Hanto: How POODR helped me solve the case and find the duck who I named a crime fighting duck</a></li>
-            <li><a href="https://medium.com/@internetross/two-years-a-cloudgineer-technical-debt-b60a83e08a97#.9he4koe6q">Two years a cloudgineer: technical debt limbo</a></li>
-            <li><a href="https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583#.wzoddph7h">“do” helper for emphasis in variable naming</a></li>
-            <li><a href="https://medium.com/@internetross/ie-disco-dev-fa37a65703b0#.2za2dt9x3">IE 8: disco dev</a></li>
-            <li><a href="https://medium.com/@internetross/one-year-a-cloudgineer-optimism-b93fa8642173#.hkmlmneee">One year a cloudgineer: Optimism</a></li>
-          </ul>
+        <p>Many coders fold this learning back into code in the form of side projects; always the bricoleurs. I've found writing to be a satisfying outlet for working over the TILs--though I did <a href="https://github.com/rosschapman/if-ross-wrote-javascript">hack a bit of node</a> recently to spread my JavaScript wings to the server. In many ways I write for me, and that's why some of my phrasing reads like e.e. cummings, or me after a couple pinots. But I do keep you in mind. Although I imagine you as someone who writes some code or helps build web products in some fashion. If you want to keep going, here's a sample of what I might call my professional web dev diary (with the whole rest of the lot <a href="https://medium.com/@internetross">here</a>):</p>
+        
+
+        <ul>
+          <li><a href="https://medium.com/@internetross/dakku-hanto-how-poodr-helped-me-solve-the-case-and-find-the-duck-who-i-named-a-crime-fighting-duck-78e7a74953e7">Dakku Hanto: How POODR helped me solve the case and find the duck who I named a crime fighting duck</a></li>
+          <li><a href="https://medium.com/@internetross/two-years-a-cloudgineer-technical-debt-b60a83e08a97#.9he4koe6q">Two years a cloudgineer: technical debt limbo</a></li>
+          <li><a href="https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583#.wzoddph7h">“do” helper for emphasis in variable naming</a></li>
+          <li><a href="https://medium.com/@internetross/ie-disco-dev-fa37a65703b0#.2za2dt9x3">IE 8: disco dev</a></li>
+          <li><a href="https://medium.com/@internetross/one-year-a-cloudgineer-optimism-b93fa8642173#.hkmlmneee">One year a cloudgineer: Optimism</a></li>
+        </ul>
       </div>
       <small>
         <p>This site was left aligned with CSS2 and transpiled by gofunctionalyourself.js inside an 8-bit TCP switch packet for SEM optimization. Ask my friend Mike, he'll tell you all about it.</p>
