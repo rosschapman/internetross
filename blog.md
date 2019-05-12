@@ -7,13 +7,21 @@ Navigate: [Index](/)
 There are too many imports in this file. I'm staring down like 50 lines of imports. External libraries (React, Lodash, etc...), to our own internal libraries, to components, to helpers, to constants. The last bothers me the most because they feel like implementation details I want hidden away in these other components or helpers.
 And as am I'm looking at this statement inside a `render()` block:
 
-`const isSoldOut = this.props.statusType == SOLD_OUT`
+```javascript
+const isSoldOut = this.props.statusType == SOLD_OUT
+```
 
 I'm suddenly reminded of what @getify told me on twitter a couple weeks ago: "in 'functional programming', we love and embrace functions! functions everywhere!"<sup>[🔗](https://twitter.com/getify/status/1123408796276142080)</sup> That's it, that's my out.
 
-`const isSoldOut = ({status}) => status === SOLD_OUT`
+```javascript
+const isSoldOut = ({status}) => status === SOLD_OUT
 
-I can refactor this down to a data utility. And though I'm not cutting down the number of imports, I'm perhaps doing a few other useful things:
+// Or we might even abstract this into a general utility if it makes sense
+
+const getTicketStatusType = (ticketProps) => STATUS_TYPES_MAP[get(ticketProps, 'status')];
+```
+
+We can refactor this down to a data utility. And though it's not cutting down the number of imports, I'm perhaps doing a few other useful things:
 
 1.  Cutting down the number of imports from _different_ files
 2.  Creating a reusable abstraction -- which I know can be employed elsewhere
