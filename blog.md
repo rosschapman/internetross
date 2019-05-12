@@ -1,5 +1,3 @@
-Navigate: [Index](/)
-
 # 5/11/2019
 ## Too many imports
 ### Tags: javascript, react, refactoring
