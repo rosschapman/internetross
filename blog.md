@@ -31,7 +31,7 @@ We can refactor this down to a data utility. And though it's not cutting down th
 That last point is important. At least to me. Untidy `render()` blocks are hard to grok, debug, and test. A lot of the figuring out how to construct and compose the things to render can happen in other places: above the component class definition, in class methods, or in another file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
 
 # 4/10/2019
-## Starting a new blog
-### Tags: python, design patterns
+## Starting a new blog and jumping right into an article I read about dependency injection using function parameters
+### Tags: python, design patterns 
 
 Read [Ensuring Clean Code: A Look at Python, Parameterized](https://www.toptal.com/python/python-parameterized-design-patterns) this morning. Parameters as DI! So yeah, now that we have default parameters in JavaScript -- as of ES6 -- we can think of parameterized DI for JS too; right there in our function declarations. This is super familiar if you're coming from JS where funcs are first class.
