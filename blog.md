@@ -9,7 +9,10 @@ And as am I'm looking at this statement inside a `render()` block:
 const isSoldOut = this.props.statusType == SOLD_OUT
 ```
 
-I'm suddenly reminded of what @getify told me on twitter a couple weeks ago: "in 'functional programming', we love and embrace functions! functions everywhere!"<sup>[🔗](https://twitter.com/getify/status/1123408796276142080)</sup> That's it, that's my out.
+I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago: 
+> "in 'functional programming', we love and embrace functions! functions everywhere!" -- [@getify](https://twitter.com/getify/status/1123408796276142080)
+
+That's it, that's my out.
 
 ```javascript
 const isSoldOut = ({status}) => status === SOLD_OUT
