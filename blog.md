@@ -1,3 +1,18 @@
+# 6/19/2019
+## Pre-crude development
+### Tags: legacy code 
+
+I caught [this tweet](https://twitter.com/ruthmalan/status/1141169409609863170?s=20) by Ruth Malan yesterday which references the "tension between continuous evolution and product instability". This is a tension we hold as software engineers daily. It's the source of these "trade-offs" that we often talk about. 
+
+At the start of my career I thought that longer-lived codebases would be orders of magnitude more stable than the piddly-sized Rails app I was working on. I currently work in a legacy codebase (like 10+ years running), and I'm not really sure if it's that much more stable than that 3 year-old startup experiment. Sure, there are fossilized pieces of code in corner tar pits that have run largely unattended for years which we can ignore. But I find myself often in labored negotiation with code that has a mix of pieces written a year or two ago, and then some new additions in the past few months. Basically pre-crude pressurized compounds with some new raw material shoveled in -- forming. These are tension points where I struggle with the tension the most. There are just enough layers of abstraction, code reuse, shared responsibilty, etc... -- tensile strength -- that don't make changing the code easy. Any change could destabilize things, like expose bugs, ie break existing functionality. 
+
+So the day-to-day discipline in legacy code is wiggle in tension to add/change behavior, but also support all existing behavior. Jessitron quotes in a recent newsletter: 
+
+> Every new feature comes with the invisible requirement: “and everything else still works.”
+
+This is a wild task in pre-crude places! 
+
+
 # 5/11/2019
 ## Too many imports
 ### Tags: javascript, react, refactoring
