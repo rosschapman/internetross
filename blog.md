@@ -4,7 +4,7 @@
 
 This weekend I spotted Julia Evans posting some tips about debugging -- of course a zine followed -- and it resonated deeeply because it touches on one aspect of debugging that I often struggle with. It's comforting to know this is a common kind of struggle!
 
-![https://twitter.com/b0rk/status/1142812831420768257](https://pbs.twimg.com/media/D9wWNfFXoAcsUqq?format=jpg)
+[https://twitter.com/b0rk/status/1142812831420768257](https://pbs.twimg.com/media/D9wWNfFXoAcsUqq?format=jpg)
 
 Every time we sit down to debug part of a program, we're bringing a worldview to bear about how the program *should* work. Oftentimes this mis-assumption is what makes debugging take time. There's a heated tango between proving out how the code should run in the current environment, with a certain set of data, in a certain test harness, etc... and then the surprises you discover along the way. We unlearn, go back, change course. Maybe rinse repeat.
 
