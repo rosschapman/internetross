@@ -1,3 +1,18 @@
+# 6/24/2019
+## Pre-crude development
+### Tags: debugging
+
+This weekend I spotted Julia Evans posting some tips about debugging -- of course a zine followed -- and it resonated deeeply because it touches on one aspect of debugging that I often struggle with. It's comforting to know this is a common kind of struggle!
+
+![https://twitter.com/b0rk/status/1142812831420768257](https://pbs.twimg.com/media/D9wWNfFXoAcsUqq?format=jpg&name=large)
+
+Every time we sit down to debug part of a program, we're bringing a worldview to bear about how the program *should* work. Oftentimes this mis-assumption is what makes debugging take time. There's a heated tango between proving out how the code should run in the current environment, with a certain set of data, in a certain test harness, etc... and then the surprises you discover along the way. We unlearn, go back, change course. Maybe rinse repeat.
+
+I think this is just the nature of it. We can't simply throw out all we know at the beginning and re-interrogate every line of code near the point of failure. Ulimately we just need to leverage a great deal of patience.
+
+Just this past week I spent a couple days wrestling with a bug where I was very misdirected by the incorrect assumptions in a failing test itself. In this case I was trying to determine how Selenium's simulated click selection on a dropdown menu was not producing a change in Redux state to activate a purchase button in the page footer. I had made some changes to where the data for the initial values for the dropdown were coming from, so I was tinkering around pretty stuck on figuring out if the data for the dropdown values in the test was wrong. But alas, in the process of reproducing the unexpected behavior and comparing it to the expected behavior on a clean branch, I realized that the dropdown data was fine but there was an incorrect minimum passed to the purchase button component being set farther upstream -- it should have been the minimum from the dropdown values but it was coming from another `minimum` property on the item itself. In this particular scenario, when there is only one item for purchase, the purchase button was supposed to be become activate on load. The test step that selected a value was making an incorrect assumption that selecting a value needed to happen in order to activate the purchase button. While this discovery didn't lead to a solve right away, at the least it corrected my worldview and redirected my attention from the dropdown values to other initial component state and props and how they were affected by changes.
+
+
 # 6/19/2019
 ## Pre-crude development
 ### Tags: legacy code 
