@@ -1,3 +1,15 @@
+<style>
+/* https://github.com/lonekorean/gist-syntax-themes */
+@import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+  margin: 20px;
+  font: 16px 'Open Sans', sans-serif;
+}
+</style>
+
+
 # 7/13/2019
 ## 499 closed connections
 ### Tags: nginx, debugging, 499, promises, async/await
