@@ -14,7 +14,7 @@ The code we found responsible for persisting these entities was designed as a ki
 
 Can you see how this code was written a bit too simplistically? From what I can tell there are at least two latent problems that make this code prone to fail in a way we don't want.
 
-1) First, a parse error may be thrown during "other synchronous things" after the `saveChildEntity` promise is fulfilled. See a contrived example of that: https://codesandbox.io/embed/asyncawait-with-synchronous-error-7c7d5?fontsize=14
+1) First, a parse error may be thrown during "other synchronous things" after the `saveChildEntity` promise is fulfilled. See a contrived example of that: [async/await with synchronous error](https://codesandbox.io/embed/asyncawait-with-synchronous-error-7c7d5?fontsize=14)
 
 2) Second, it's possible that the POST request initiated by `saveChildEntity` may be succeed on the backend but the connection between browser and server may be severed before the browser recieves the `200` and the promise becomes fulfilled! When that happens, promise is actually rejected and the runtime goes into the catch block.
 
@@ -35,7 +35,7 @@ Sometimes. Bugs are sometimes a result of a big complex system with fast-shiftin
 
 It sucks but we observed some new things and thereby learned some new things.
 
-Even another cool, tangential observation/learning came from understanding the possible sources of 499s. I did some digging into this and discovered that connections *could* be cancelled eagerly by a load balancer, or proxy "client," a timeout. See: https://stackoverflow.com/questions/12973304/nginx-499-error-codes#comment98898883_18410932. Our server ops folks were able to confirm we did not have a load balancer managing the requests. Demystifying is an important part of this process. Don't follow clues you don't have to. A timeout might point to a slow service. 
+Even another cool, tangential observation/learning came from understanding the possible sources of 499s. I did some digging into this and discovered that connections *could* be cancelled eagerly by a load balancer, or proxy "client," upon a timeout. See: [Nginx 499 error codes](https://stackoverflow.com/questions/12973304/nginx-499-error-codes#comment98898883_18410932). Our server ops folks were able to confirm we did not have a load balancer managing the requests. Demystifying is an important part of this process. Don't follow clues you don't have to. A timeout might point to a slow service. 
 
 I'm just hard reflecting on on how signals of "broken" -- like bad data -- can reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
 
