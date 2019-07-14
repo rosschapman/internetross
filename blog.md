@@ -40,7 +40,7 @@ Can you see how this code was written a bit too simplistically? From what I can 
 
 1) First, a parse error may be thrown during "other synchronous things" after the `saveChildEntity` promise is fulfilled. See a contrived example of that: [async/await with synchronous error](https://codesandbox.io/embed/asyncawait-with-synchronous-error-7c7d5?fontsize=14)
 
-2) Second, it's possible that the POST request initiated by `saveChildEntity` may be succeed on the backend but the connection between browser and server may be severed before the browser recieves the `200` and the promise becomes fulfilled! When that happens, promise is actually rejected and the runtime goes into the catch block.
+2) Second, it's possible that the POST request initiated by `saveChildEntity` may succeed on the backend and persist the child data, but the connection between browser and server may be severed before the browser recieves the `200` and the promise becomes fulfilled! When that happens, the promise is actually rejected and the runtime goes into the catch block.
 
 It was this numero dos vulnerability that got us.
 
