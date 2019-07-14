@@ -38,6 +38,10 @@ It was this second vulnerability that bit us this time.
 
 It seems obvious in retrospect, but we had a situation where the user could start navigating away from the page by clicking a link that took a while to do stuff -- in our particular case a "Publish" action with a lot of network calls followed by a page reload. But while the *publish* was happening the user wasn't prevented from continuing to interact with the page. Which means they could also click another button that would trigger `saveStuffThunk`. Based on the server logs, it seems that fairly often the *publish* would complete and then start to reload the page *right in the middle* of the second `try/catch` block of `saveStuffThunk`. When that happened `nginx` would send down it's special `499` status code meaning *the client closed the connection before the server responded with a request*. The JavaScript then interpreted this as an error and sent the runtime into the catch delete block. 
 
+The logs literally read (simplified): 
+- POST /save/<id>
+- DELETE /<id> 499
+
 It still blows my mind this happened consistently to effect hundreds of records. It was a very strange UX-driven race condition.
 
 Another really interesting aspect of this bug was learning that, in addition to our thunk code being a little too clever, we had missed the really really important requirement of locking the page for the user when they click the Publish button. This was actually implemented on different views but my team had implemented a new screen with similar access to the Publish button and didn't fully understanding the potentiality of allowing this race condition. 
@@ -45,10 +49,6 @@ Another really interesting aspect of this bug was learning that, in addition to 
 Bugs are just sometimes a result of a big complex system with fast-shifting pubertal code and fugitive ownership creating blind spots. It sucks but we observed some new things and thereby learned some new things.
 
 A tangential observation/learning was that the 499s were not being sent as a result of load balancer, or proxy "client" cancelling the connection after a timeout. See: https://stackoverflow.com/questions/12973304/nginx-499-error-codes#comment98898883_18410932. Our server ops folks were able to confirm we did not have a load balancer managing the requests. If that had been the case the bug may have been caused by a slow service. Which makes me reflect on how signals of "broken" -- like bad data -- can actual reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
-
-The logs literally read (simplified): 
-- POST /save/<id>
-- DELETE /<id> 499
 
 # 6/24/2019
 ## Pre-crude development
