@@ -1,6 +1,6 @@
 # 7/13/2019
 ## 499 closed connections
-### Tags: nginx, debugging
+### Tags: nginx, debugging, 499, promises, async/await
 
 I'm thinking about cool bugs again! Because I just experienced another one. 
 
