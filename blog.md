@@ -10,7 +10,7 @@ After some investigation we realized our JavaScript was erroneously deleting a p
 
 The code we found responsible for persisting these entities was designed as a kind of sequential *transaction*. When the user clicked "Save", separate POST requests for parent and child/ren would be sent one at a time -- our restful API routes didn't allow us to send merged data. Now, in the scenario that the POST request for the child failed, our JavaScript code would send an immediate destroy request for the parent -- like a roll back. Take a look at the code (simplified for example):
 
-<script src="https://gist.github.com/rosschapman/2d75d45892720f70672fb0b4f5625a3c.js"></script>
+{% gist 2d75d45892720f70672fb0b4f5625a3c %}
 
 Can you see how this code was written a bit too simplistically? From what I can tell there are at least two latent problems that make this code prone to fail in a way we don't want.
 
