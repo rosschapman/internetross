@@ -10,6 +10,9 @@
 .markdown-body table tr:nth-child(2n) {
    background-color: inherit;
 }
+.markdown-body table tr:hover {
+    background: black
+}
 .markdown-body table th, .markdown-body table td {
     padding: 6px 13px;
     border: inherit;
