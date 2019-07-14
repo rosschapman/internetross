@@ -17,6 +17,9 @@
     padding: 6px 13px;
     border: inherit;
 }
+.gist .blob-num:hover {
+    color: inherit;
+}
 </style>
 
 # 7/13/2019
