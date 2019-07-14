@@ -3,9 +3,16 @@
 @import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css');
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-body {
-  margin: 20px;
-  font: 16px 'Open Sans', sans-serif;
+.markdown-body table tr {
+    background-color: inherit;
+    border-top: inherit;
+}
+.markdown-body table tr:nth-child(2n) {
+   background-color: inherit;
+}
+.markdown-body table th, .markdown-body table td {
+    padding: 6px 13px;
+    border: inherit;
 }
 </style>
 
