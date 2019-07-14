@@ -19,7 +19,7 @@ body {
   margin: 20px;
   font: 16px 'Open Sans', sans-serif;
 }
-<style>
+</style>
 <script src="https://gist.github.com/rosschapman/2d75d45892720f70672fb0b4f5625a3c.js"></script>
 
 Can you see how this code was written a bit too simplistically? From what I can tell there are at least two latent problems that make this code prone to fail in a way we don't want.
