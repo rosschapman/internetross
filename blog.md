@@ -4,7 +4,7 @@
 
 Bugs reveal. We look, observe. I learn things. I just experienced another one. 
 
-The customer can't *publish*. How come??? 
+The customer can't *publish*. [How come???](https://vimeo.com/157670461)
 
 After some investigation we realized our JavaScript was erroneously deleting a parent entity too eagerly in some other flow and leaving us with child data stranded in the db. "Publish" didn't know what to do with bad data. 
 
