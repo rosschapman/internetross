@@ -41,7 +41,7 @@ In my own experience *why* explanations tends to stick more, which is why I agre
 
 To wit, this week I toiled on a bug with a colleague that turned out to be a classic React no-no pattern where an inline function causing a re-render of a Pure Component. Now, I've definitely read at least a 3-4 articles on the pitfalls of creating functions inside of `render()`. Yeah perf implications and unnecessary function invocations, etc.... But that insight didn't help my similarly schooled colleague and I with this effort; the solution to which only became obvious *after* we pinpointed the problem code. There was no way to bring our deep academic rigor to bear because we weren't working with isolated toy code. Finding problematic inline functions, something like this triviality of Hillel' lament, would be much easier: 
 
-```javascript
+```
 render() {
     return (
         <button onClick={() => this.setState(…)}>
@@ -53,7 +53,7 @@ render() {
 
 But the code we were excavating was a slice of a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file. Miles from `render()` in the piece of the state tree we were looking at. Our code better resembled: 
 
-```javascript
+```
 // ../Template.js
 export default (...props) => {
     /* ... */
@@ -84,7 +84,7 @@ Then suddenly you find yourself debugging why a click event on a sidebar button 
 
 One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude just basically commented out lines of code up and down `<Page />` --  which is way more busy than I'm showing here -- until the re-renders stopped. He's a hero. Of course, the fix ends up being fairly simple. We simply moved the invocation of `connectSidebar` -- and `connectMain` outside of the `Template` export: 
 
-```javascript
+```
 // Template.js
 const Sidebar = connectSidebar(Sidebar);
 const Main = connectMain(Main);
