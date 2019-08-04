@@ -32,10 +32,10 @@ The argument is that instructive examples don't make a reader care. Persuasive e
 
 They can be hard to construct because:
 
-> 1) If your example is too simple, people brush it off.
-> 2) If your example is too complicated, people won’t follow. They’re also less likely - to trust it, because you complicated example might be concealing a simpler way.
-> 3) If your example is too abstract, people won’t see how it’s useful in practice.
-> 4) If your example is too concrete, people won’t see how it generalizes to their own - problems.
+> 1) If your example is too simple, people brush it off.    
+> 2) If your example is too complicated, people won’t follow. They’re also less likely - to trust it, because you complicated example might be concealing a simpler way.    
+> 3) If your example is too abstract, people won’t see how it’s useful in practice.    
+> 4) If your example is too concrete, people won’t see how it generalizes to their own - problems.    
 
 In my own experience *why* explanations tends to stick more, which is why I agree with Hillel. I'm less likely to discover an anti-pattern or work my way out of one after consuming articles with simplistic examples. 
 
