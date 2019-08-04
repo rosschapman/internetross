@@ -95,7 +95,9 @@ export default (...props) => {
 }
 ```
 
-Now when `<Layout />` is rendered the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached in mem. 
+Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached in mem.
+
+Y'all, let's be careful about how we present anti-patterns and best practices in our thought leadershipness. Often this writing ends up being spec or framework documentation plagiarized and adorned with gifs. But without contextual complexity we may be doing a disservice to our fellow humans who dev -- especially less experienced devs. With this week's challenge, that's now two major prod bugs I've fixed related to inline functions causing unecessary re-renders and creating undesired effects. However, both cases were materially quite different because the offending inline funcs were buried in different types of abstractions. I'm glad that after the fact I can properly attribute the cause to a commonly known React architecture problem -- that is, a problem with React composition not a problem inherent to React. Having shared language when communicating the *what* or *what caused this...* is important for incident reporting.
 
 
 # 7/13/2019
