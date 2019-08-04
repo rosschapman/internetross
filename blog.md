@@ -22,6 +22,82 @@
 }
 </style>
 
+# 7/31/2019
+## React inline function gotcha, but in a non-obvious way
+### Tags: react, DOM, performance
+
+I think a lot about Hillel Wayne's blog post [*INSTRUCTIVE AND PERSUASIVE EXAMPLES*](https://www.hillelwayne.com/post/persuasive-examples/) where, through an interpolative reading, he critques a best practice article on unit testing.
+
+The argument is that instructive examples don't make a reader care. Persuasive examples are harder, but better; they explain to you *why and why not*.
+
+They can be hard to construct because:
+
+> 1) If your example is too simple, people brush it off.
+> 2) If your example is too complicated, people won’t follow. They’re also less likely - to trust it, because you complicated example might be concealing a simpler way.
+> 3) If your example is too abstract, people won’t see how it’s useful in practice.
+> 4) If your example is too concrete, people won’t see how it generalizes to their own - problems.
+
+In my own experience *why* explanations tends to stick more, which is why I agree with Hillel. I'm less likely to discover an anti-pattern or work my way out of one after consuming articles with simplistic examples. 
+
+To wit, this week I toiled on a bug with a colleague that turned out to be a classic React no-no pattern where an inline function causing a re-render of a Pure Component. Now, I've definitely read at least a 3-4 articles on the pitfalls of creating functions inside of `render()`. Yeah perf implications and unnecessary function invocations, etc.... But that insight didn't help my similarly schooled colleague and I with this effort; the solution to which only became obvious *after* we pinpointed the problem code. There was no way to bring our deep academic rigor to bear because we weren't working with isolated toy code. Finding problematic inline functions, something like this triviality of Hillel' lament, would be much easier: 
+
+```javascript
+render() {
+    return (
+        <button onClick={() => this.setState(…)}>
+            Click Me
+        </button>
+    )
+}
+```
+
+But the code we were excavating was a slice of a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file. Miles from `render()` in the piece of the state tree we were looking at. Our code better resembled: 
+
+```javascript
+// ../Template.js
+export default (...props) => {
+    /* ... */
+    const Sidebar = connectSidebar(Sidebar);
+    const Main = connectMain(Main);
+
+    return <Layout sidebar={Sidebar} main={Main} />;
+}
+
+---
+ 
+// ../Page.js
+import Template from `./Template`;
+
+export class Page extends Component {
+    /* ... */
+    render() {
+        return (
+            <Template {...props} />
+        )
+    }
+}
+```
+
+It's harder to catch, and this code is stripped, but `connectSidebar` actually gets called every time there are store updates that cause a re-render of `<Template />` inside of `<Page />` -- the `<Page />` component itself subscribes to the store. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a common--forgivable!--symptom of "bottom-up" programming that occurs in agile UI projects in larger organizations where the requirements for your application accrete over time. The primitives you start to satisfy small requirements, like a root-level `<Page />` component, will become one large prop-drilled well with functions inside of functions and...sigh.
+
+Then suddenly you find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! Believe it or not, if the user had just been inside a field in the main content area of the page and then clicked a button in the sidebar, a blur event was triggered on the form field in main content; because that field was inside a *redux-form* form (meaning connected to the redux state tree), a hard-to-follow cascade of component updates was triggered. To our dismay, the sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
+
+One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude just basically commented out lines of code up and down `<Page />` --  which is way more busy than I'm showing here -- until the re-renders stopped. He's a hero. Of course, the fix ends up being fairly simple. We simply moved the invocation of `connectSidebar` -- and `connectMain` outside of the `Template` export: 
+
+```javascript
+// Template.js
+const Sidebar = connectSidebar(Sidebar);
+const Main = connectMain(Main);
+
+export default (...props) => {
+    /* ... */
+    return <Layout sidebar={Sidebar} main={Main} />;
+}
+```
+
+Now when `<Layout />` is rendered the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached in mem. 
+
+
 # 7/13/2019
 ## 499 closed connections
 ### Tags: nginx, debugging, 499, promises, async/await
