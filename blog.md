@@ -90,7 +90,7 @@ But why?
 
 Believe it or not, if the user had just left a field in the Main Content area of the page and then proceeded to click a button in the Sidebar, a blur event was triggered on the previous form field in Main Content; because that field was inside a *redux-form* form (meaning connected to the redux state tree), a hard-to-follow cascade of component updates was triggered. 
 
-<img src="assets/images/inline_gotcha_funtimes.jpg>
+<img src="/assets/images/inline_gotcha_funtimes.jpg>
 
 To our dismay, the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
