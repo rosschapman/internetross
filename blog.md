@@ -90,6 +90,8 @@ But why?
 
 Believe it or not, if the user had just left a field in the Main Content area of the page and then proceeded to click a button in the Sidebar, a blur event was triggered on the previous form field in Main Content; because that field was inside a *redux-form* form (meaning connected to the redux state tree), a hard-to-follow cascade of component updates was triggered. 
 
+<img src="assets/images/inline_gotcha_funtimes.jpg>
+
 To our dismay, the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
 One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude just basically commented out lines of code up and down `<Page />` --  which is way more busy than I'm showing here -- until the re-renders stopped. He's a hero. Of course, the fix ends up being fairly simple. We simply moved the invocation of `connectSidebar` -- and `connectMain` outside of the `Template` export: 
