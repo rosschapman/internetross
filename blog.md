@@ -28,20 +28,22 @@
 
 I think a lot about Hillel Wayne's blog post [*INSTRUCTIVE AND PERSUASIVE EXAMPLES*](https://www.hillelwayne.com/post/persuasive-examples/) where he does this interpolative critque of a best practice article on unit testing.
 
-His argument is that "instructive" examples don't make a reader care. Persuasive examples, on the other hand, are harder to invent, but better; they explain to you the *why and why not*.
-
-I like these reasons he lists that make persuasive examples hard:
+His argument is that "instructive" examples don't make a reader care. "Persuasive" examples, on the other hand, are harder to invent, but better. They're hard because:
 
 > 1) If your example is too simple, people brush it off.    
 > 2) If your example is too complicated, people won’t follow. They’re also less likely - to trust it, because you complicated example might be concealing a simpler way.    
 > 3) If your example is too abstract, people won’t see how it’s useful in practice.    
-> 4) If your example is too concrete, people won’t see how it generalizes to their own - problems.    
+> 4) If your example is too concrete, people won’t see how it generalizes to their own - problems.   
 
-I agree with Hillel because it's my experience. *Why* explanations are stickier in my memory. I'm less likely to discover an anti-pattern or work my way out from under one if I'm knowledge gathering from articles with rudimentary examples. 
+We see examples of #1 and #4 all of the time in technical writing -- maybe because a lot of it is written for marketing purposes. Y'all, let's be careful about how we present anti-patterns and best practices when we're trying to thought leader. Often this writing ends up being spec or framework documentation plagiarized and adorned with gifs. But without contextual complexity we may be doing a disservice to our fellow humans who dev -- especially less experienced devs.
 
-To wit. 
+Persuasive examples are harder but the payoff is bigger. By *demonstrating* the why and why not, we have a better chance of putting knowledge into a brain and making it stick. This is certainly my experience. I'm less likely to discover an anti-pattern or work my way out from under one if I'm knowledge gathering from just articles with rudimentary examples. 
 
-Just this week I toiled on a bug with a colleague that turned out to be a classic React no-no pattern where an inline function caused a re-render of a Pure Component. Now, I've definitely read at least a 3-4 articles on the pitfalls of creating functions inside of `render()`. Perf implications and unnecessary function invocations, etc.... But that insight didn't help my similarly schooled colleague and I get to the bottom of a bug inside a more complex system. The root cause only became obvious *after* we did hours of thought-work to pinpoint the problem code. We failed spectacularly to bring our deep academic rigor to bear because we weren't working with the familiar sandboxed toy code. Finding problematic inline functions in something like this triviality of Hillel' lament would be much easier: 
+To wit. (An attempt at a pursuasive example.) 
+
+Just this week I toiled on a bug with a colleague that ultimately  turned out to be a case of a classic React anti-pattern where an inline function caused a re-render of a Pure Component. 
+
+Now, I've definitely read at least a 3-4 *instructive* articles on the pitfalls of creating functions inside of `render()`. Perf implications and unnecessary function invocations, etc.... But that insight didn't help my similarly schooled colleague and I get to the bottom of a bug inside a more complex system. The root cause only became obvious *after* we did hours of thought-work to pinpoint the problem code. In other words, we failed spectacularly to bring our academic rigor to bear because we weren't working with the familiar sandboxed toy code from instructive examples. Finding problematic inline functions in something like this triviality of Hillel' lament would be much easier: 
 
 ```
 render() {
@@ -82,19 +84,13 @@ export class Page extends Component {
 
 It's harder to catch -- and this code is already stripped down -- but `connectSidebar` actually gets called every time there are store updates that cause a re-render of `<Template />` inside of `<Page />`. The `<Page />` component itself subscribes to the store. 
 
-Sigh. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from larger organizations where the requirements for the  application accrete, fissure, and even explode in fantastic ways over time. The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
-
-Which means suddenly you find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
-
-But why?
-
 Believe it or not, if the user had just left a field in the Main Content area of the page and then proceeded to click a button in the Sidebar, a blur event was triggered on the previous form field in Main Content; because that field was inside a *redux-form* form (meaning connected to the redux state tree), a hard-to-follow cascade of component updates was triggered. 
 
 <img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
 
 To our dismay, the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
-One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude just basically commented out lines of code up and down `<Page />` --  which is way more busy than I'm showing here -- until the re-renders stopped. He's a hero. Of course, the fix ends up being fairly simple. We simply moved the invocation of `connectSidebar` -- and `connectMain` outside of the `Template` export: 
+One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
 
 ```
 // Template.js
@@ -109,7 +105,11 @@ export default (...props) => {
 
 Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached in mem.
 
-Y'all, let's be careful about how we present anti-patterns and best practices in our thought leadershipness. Often this writing ends up being spec or framework documentation plagiarized and adorned with gifs. But without contextual complexity we may be doing a disservice to our fellow humans who dev -- especially less experienced devs. With this week's challenge, that's now two major prod bugs I've fixed related to inline functions causing unecessary re-renders and creating undesired effects. However, both cases were materially quite different because the offending inline funcs were buried in different types of abstractions. I'm glad that after the fact I can properly attribute the cause to a commonly known React architecture problem -- that is, a problem with React composition not a problem inherent to React. Having shared language when communicating the *what* or *what caused this...* is important for incident reporting.
+Sigh. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from larger organizations where the requirements for the  application accrete, fissure, and even explode in fantastic ways over time. The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
+
+Which means suddenly you find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
+
+Ok, so instructive examples won't necessarily help you. But I'll also asterisk this post and append they aren't worthless either. *Post facto* I can properly identify and classify this bug as a commonly known React problem -- that is, a problem with React composition not a problem inherent to React -- because I have done some reading about this potential problem. I can then use this shared language when communicating the *what* or *what caused this...* during a retrospective or or incident report. But I suspect I could have arrived to that similar conclusion if I'd read articles that had more persuasive examples.
 
 
 # 7/13/2019
