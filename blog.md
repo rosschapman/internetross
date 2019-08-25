@@ -39,10 +39,10 @@ We see examples of #1 and #4 all of the time in technical writing -- maybe becau
 
 Persuasive examples are harder but the payoff is bigger. By *demonstrating* the why and why not we have a better chance of putting knowledge into a brain and making it stick. This is certainly my experience. I'm less likely to discover an anti-pattern or work my way out from under one if I'm relying on  knowledge gathering from articles with rudimentary examples and toy code. I want the expert to:
 
-1) Ask why as they construct the example as we
-2) Share the reasoning behind all of the small decisions getting from A to B, or determining why A or B is important
-3) Give me code that looks more like code "in the wild"
-4) Explain whether these ideas are new or old
+1) Ask why as they construct the example as we    
+2) Share the reasoning behind all of the small decisions getting from A to B, or determining why A or B is important    
+3) Give me code that looks more like code "in the wild"    
+4) Explain whether these ideas are new or old    
 
 ***
 
