@@ -42,7 +42,7 @@ Persuasive examples are harder but the payoff is bigger. By *demonstrating* the 
 1) Ask why as they construct the example as we
 2) Share the reasoning behind all of the small decisions getting from A to B, or determining why A or B is important
 3) Give me code that looks more like code "in the wild"
-4) Explain whether these ideas are knew or old
+4) Explain whether these ideas are new or old
 
 ***
 
