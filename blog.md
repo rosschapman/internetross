@@ -30,7 +30,7 @@ I've been reading two texts this week. Side-by-side they offer another reveal of
 
 Knight's pop fantasy of himself and the pursuit of a vision to make life about "play" through footwear and lifestyling branding falls so fucking flat against the underlying drivers of the globalization that were making cheap shoes possible -- the return to exploitative capitalism (slavery), maintenance of a permamenent underlcass. Etc. This theft shifted majority voting power before blacks could vote. This theft continues to enrich white investors, hedge fund managers, and agri-business who now own these once-black suffered farm lands. 
 
-Overall I enjoy Knight's story. But the American dream is still only avaialbe for a white ruling class only -- and those they selectively permit. Holding that heavy. 
+Overall I enjoy Knight's story. But the American dream is still available for a white ruling class only -- and those they selectively permit. Holding that heavy. 
 
 # 7/31/2019
 ## React inline function gotcha, but in a non-obvious way
