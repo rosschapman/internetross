@@ -32,16 +32,30 @@ I've been waiting a long time to use a bitwise operator in JavaScript -- like 5-
 
 In UI code, probably 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
 
-Take XOR. In JavaScript XOR will return `1` when the output of *either side of the operator is different*.
+Take the bitwise boolean operator XOR.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different*.
 
 This turns out to be the very logic we need to express when testing existence for two dependent form fields. 
 
 At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. Which means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
 
-With a tiny massage of a bare bones XOR comparison into a composable function by casting the values to boolean with a bang, we get our very concise validator: 
+In order to to check existence, we don't want to bitwise compare the two sides of the expression directly which could be many kinds of strings. To make the comparison reliable, we cast each side to boolean values with a bang. Then we wrap up the expression in a composable function. The result is a very concise one-liner: 
 
 ```
 const isOneTruthyAndTheOtherNot = (a, b) => !a ^ !b;
+```
+
+Which might be passed around in my hypothetical React event handler like: 
+```
+dateTimeValidator: (dateValue, timeValue) => {
+    const hasEmptyField = isOneTruthyAndTheOtherNot(dateValue, timeValue);
+    const error = hasEmptyField ? FORM_ERRORS('dateTimeField') : null;
+
+    this.setState({
+        dateTimeFieldError: error
+    }
+
+    this.props.onError(error)
+}
 ```
 
 This could be written in a couple ways without the more arcane XOR:
