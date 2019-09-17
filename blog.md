@@ -22,6 +22,23 @@
 }
 </style>
 
+# 9/16/2019
+## Deep(er) software concepts showing up in "easy" UI problems
+
+I've got three posts in my brain backlog now about more complex software concepts showing up in UI work.
+
+I've been waiting a long time to use a bitwise operator in JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
+
+In UI code, probably 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
+
+Take XOR. In JavaScript XOR will return 1 when the output of either side of the expression is true, but not if both are true. I recently discovered this operator to be *very* handy in tackling a UI challenge. 
+
+The task
+  
+I have to admit, what always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work. Like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
+
+
+
 # 9/9/2019
 ## White theft, white entrepreneurship
 ### Tags: white theft, entrepreneurship, racism
