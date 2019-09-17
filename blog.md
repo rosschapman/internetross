@@ -30,9 +30,9 @@ I've got three posts in my brain backlog now about more complex software concept
 
 I've been waiting a long time to use a bitwise operator in "real world" JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
 
-In UI code, 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
+In UI, near 100% of the time the basic *comparison* and *logical* operators of the JavaScript language give us the expressive power and control we need to write product requirements into our code. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
 
-Take the bitwise boolean operator XOR.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different*.
+Take the **bitwise** boolean operator XOR which actually looks at the binary integral -- bit -- representation of the comparison values.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different* and 0 if otherwise. Similar to a boolean return, we can easily pass around the result of a bitwise operator as a predicate.
 
 This turns out to be the very logic we need to express when testing existence for two dependent form fields. 
 
