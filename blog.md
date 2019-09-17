@@ -26,19 +26,19 @@
 #### Tags: JavaScript, bitwise operators
 ###### 9/16/2019
 
-I've got three posts in my brain backlog now about more complex software concepts showing up in UI work.
+I've got three posts in my brain backlog now about more complex software concepts showing up in UI work. Here's the first!
 
-I've been waiting a long time to use a bitwise operator in JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
+I've been waiting a long time to use a bitwise operator in "real world" JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
 
-In UI code, probably 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
+In UI code, 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
 
 Take the bitwise boolean operator XOR.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different*.
 
 This turns out to be the very logic we need to express when testing existence for two dependent form fields. 
 
-At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. Which means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
+At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. This means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
 
-In order to to check existence, we don't want to bitwise compare the two sides of the expression directly which could be many kinds of strings. To make the comparison reliable, we cast each side to boolean values with a bang. Then we wrap up the expression in a composable function. The result is a very concise one-liner: 
+In order tocheck existence, we don't want to bitwise compare the two sides of the expression directly which could be many kinds of strings. To make the comparison reliable, we cast each side to boolean values with a bang. Then we wrap up the expression in a composable function. The result is a very concise one-liner: 
 
 ```
 const isOneTruthyAndTheOtherNot = (a, b) => !a ^ !b;
@@ -64,11 +64,11 @@ This could be written in a couple ways without the more arcane XOR:
 ... = foo ? !bar : bar
 ```
 
-I'm generally against using overly clever code in codebases that are worked on by less experienced engineers, but I think the bitwise operators are great tool for anyone to know. And the MDN docs are *very* clear about how XOR works:
+I'm generally against using overly clever code in codebases that are worked on by less experienced engineers, but I think the bitwise operators are a great tool for anyone to know. And the MDN docs are *very* clear about how XOR works:
 
 > "Performs the XOR operation on each pair of bits. a XOR b yields 1 if a and b are different"
 
-The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new develoeprs to. We all should be in the habit of writing decision tables more:
+The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new developers to. We all should be in the habit of writing decision tables more:
 
 a |b |a XOR b
 :-----:|:-----:|:-----:
@@ -180,7 +180,7 @@ Now, when `<Layout />` is rendered, the child component passed as the prop `side
 
 Sigh. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from larger organizations where the requirements for the  application accrete, fissure, and even explode in fantastic ways over time. The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
 
-Which means suddenly you find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
+This means you suddenly find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
 
 Ok, so instructive examples won't necessarily help you. But I'll also asterisk this post and append they aren't worthless either. *Post facto* I can properly identify and classify this bug as a commonly known React problem -- that is, a problem with React composition not a problem inherent to React -- because I have done some reading about this potential problem. I can then use this shared language when communicating the *what* or *what caused this...* during a retrospective or or incident report. But I suspect I could have arrived to that similar conclusion if I'd read articles that had more persuasive examples.
 
