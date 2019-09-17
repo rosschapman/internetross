@@ -23,7 +23,7 @@
 </style>
 
 # 9/16/2019
-## Deep(er) software concepts showing up in "easy" UI problems
+## Deep(er) software concepts showing up in UI problems
 ### JavaScript, bitwise operators
 
 I've got three posts in my brain backlog now about more complex software concepts showing up in UI work.
