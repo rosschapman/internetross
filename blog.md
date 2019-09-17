@@ -22,9 +22,9 @@
 }
 </style>
 
-# 9/16/2019
 ## Deep(er) software concepts showing up in UI problems
 ### JavaScript, bitwise operators
+#### 9/16/2019
 
 I've got three posts in my brain backlog now about more complex software concepts showing up in UI work.
 
@@ -54,7 +54,7 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 > "Performs the XOR operation on each pair of bits. a XOR b yields 1 if a and b are different"
 
-The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new develoeprs to. We all should be in the habit of writing decision tables more often!!:
+The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new develoeprs to. We all should be in the habit of writing decision tables more:
 
 a |b |a XOR b
 :-----:|:-----:|:-----:
@@ -65,9 +65,9 @@ a |b |a XOR b
   
 I have to admit, what always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
-# 9/9/2019
 ## White theft, white entrepreneurship
 ### Tags: white theft, entrepreneurship, racism
+#### 9/9/2019
 
 I've been reading two texts this week. Side-by-side they offer another reveal of the tragic double standard of black and white life in our America. I really felt that truth descend upon reaching 90 pages into *Shoe Dog*, Phil Knight's memoir about starting Nike. On the one hand: a story about a white Christian rich kid using military connections to build a business with a recently conquered nation. 1964: the year Knight starts Blue Ribbon Sports. On the other hand: I'm half-way through the drudge of Vann R. Newkirk II's long-form in the Atlantic, *The Great Land Robbery*, about the vast land theft and wealth transfer *during the civil rights era* from blacks to whites in Mississipi. 1964: by this year almost 800,000 acres of land have transfered from blacks to whites as a result of *legal* discriminatory (racist) federal farm loan programs and private lenders.
 
@@ -75,9 +75,9 @@ Knight's pop fantasy of himself and the pursuit of a vision to make life about "
 
 Overall I enjoy Knight's story. But the American dream is still available for a white ruling class only -- and those they selectively permit. Holding that heavy. 
 
-# 7/31/2019
 ## React inline function gotcha, but in a non-obvious way
 ### Tags: react, DOM, performance
+#### 7/31/2019
 
 I think a lot about Hillel Wayne's blog post [*INSTRUCTIVE AND PERSUASIVE EXAMPLES*](https://www.hillelwayne.com/post/persuasive-examples/) where he does this interpolative critque of a best practice article on unit testing.
 
@@ -171,9 +171,9 @@ Which means suddenly you find yourself debugging why a click event on a sidebar 
 Ok, so instructive examples won't necessarily help you. But I'll also asterisk this post and append they aren't worthless either. *Post facto* I can properly identify and classify this bug as a commonly known React problem -- that is, a problem with React composition not a problem inherent to React -- because I have done some reading about this potential problem. I can then use this shared language when communicating the *what* or *what caused this...* during a retrospective or or incident report. But I suspect I could have arrived to that similar conclusion if I'd read articles that had more persuasive examples.
 
 
-# 7/13/2019
 ## 499 closed connections
 ### Tags: nginx, debugging, 499, promises, async/await
+#### 7/13/2019
 
 Bugs reveal. We look, observe. I learn things. I just experienced another one. 
 
@@ -212,9 +212,9 @@ Even another cool, tangential observation/learning came from understanding the p
 
 I'm just hard reflecting on on how signals of "broken" -- like bad data -- can reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
 
-# 6/24/2019
 ## Pre-crude development
 ### Tags: debugging
+#### 6/24/2019
 
 This weekend I spotted Julia Evans posting some tips about debugging -- of course a zine followed -- and it resonated deeeply because it touches on one aspect of debugging that I often struggle with. It's comforting to know this is a common kind of struggle!
 
@@ -227,9 +227,9 @@ I think this is just the nature of it. We can't simply throw out all we know at 
 Just this past week I spent a couple days wrestling with a bug where I was very misdirected by the incorrect assumptions in a failing test itself. In this case I was trying to determine how Selenium's simulated click selection on a dropdown menu was not producing a change in Redux state to activate a purchase button in the page footer. I had made some changes to where the data for the initial values for the dropdown were coming from, so I was tinkering around pretty stuck on figuring out if the data for the dropdown values in the test was wrong. But alas, in the process of reproducing the unexpected behavior and comparing it to the expected behavior on a clean branch, I realized that the dropdown data was fine but there was an incorrect minimum passed to the purchase button component being set farther upstream -- it should have been the minimum from the dropdown values but it was coming from another `minimum` property on the item itself. In this particular scenario, when there is only one item for purchase, the purchase button was supposed to be become activate on load. The test step that selected a value was making an incorrect assumption that selecting a value needed to happen in order to activate the purchase button. While this discovery didn't lead to a solve right away, at the least it corrected my worldview and redirected my attention from the dropdown values to other initial component state and props and how they were affected by changes.
 
 
-# 6/19/2019
 ## Pre-crude development
 ### Tags: legacy code 
+#### 6/19/2019
 
 I caught [this tweet](https://twitter.com/ruthmalan/status/1141169409609863170?s=20) by Ruth Malan yesterday which references the "tension between continuous evolution and product instability". This is a tension we hold as software engineers daily. It's the source of these "trade-offs" that we often talk about. 
 
@@ -242,9 +242,9 @@ So the day-to-day discipline in legacy code is wiggle in tension to add/change b
 This is a wild task in pre-crude places! 
 
 
-# 5/11/2019
 ## Too many imports
 ### Tags: javascript, react, refactoring
+#### 5/11/2019
 
 There are too many imports in this file. I'm staring down like 50 lines of imports. External libraries (React, Lodash, etc...), to our own internal libraries, to components, to helpers, to constants. The last bothers me the most because they feel like implementation details I want hidden away in these other components or helpers.
 And as am I'm looking at this statement inside a `render()` block:
@@ -274,8 +274,8 @@ We can refactor this down to a data utility. And though it's not cutting down th
 
 That last point is important. At least to me. Untidy `render()` blocks are hard to grok, debug, and test. A lot of the figuring out how to construct and compose the things to render can happen in other places: above the component class definition, in class methods, or in another file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
 
-# 4/10/2019
 ## Starting a new blog and jumping right into an article I read about dependency injection using function parameters
 ### Tags: python, design patterns 
+#### 4/10/2019
 
 Read [Ensuring Clean Code: A Look at Python, Parameterized](https://www.toptal.com/python/python-parameterized-design-patterns) this morning. Parameters as DI! So yeah, now that we have default parameters in JavaScript -- as of ES6 -- we can think of parameterized DI for JS too; right there in our function declarations. This is super familiar if you're coming from JS where funcs are first class.
