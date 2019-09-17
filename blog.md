@@ -31,13 +31,38 @@ I've been waiting a long time to use a bitwise operator in JavaScript -- like 5-
 
 In UI code, probably 100% of the time the language lexicon we rely on to express logical mappings of product requirements can be found in the  basic *comparison* and *logical* operators. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
 
-Take XOR. In JavaScript XOR will return 1 when the output of either side of the expression is true, but not if both are true. I recently discovered this operator to be *very* handy in tackling a UI challenge. 
+Take XOR. In JavaScript XOR will return `1` when the output of *either side of the operator is different*.
 
-The task
+This turns out to be the very logic we need to express when testing existence for two dependent form fields. 
+
+At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. Which means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
+
+With a tiny massage of a bare bones XOR comparison into a composable function by casting the values to boolean with a bang, we get our very concise validator: 
+
+```
+const isOneTruthyAndTheOtherNot = (a, b) => !a ^ !b;
+```
+
+This could be written in a couple ways without the more arcane XOR:
+```
+... = ( foo && !bar ) || ( !foo && bar );
+... = foo ? !bar : bar
+```
+
+I'm generally against using overly clever code in codebases that are worked on by less experienced engineers, but I think the bitwise operators are great tool for anyone to know. And the MDN docs are *very* clear about how XOR works:
+
+> "Performs the XOR operation on each pair of bits. a XOR b yields 1 if a and b are different"
+
+The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new develoeprs to. We all should be in the habit of writing decision tables when possible:
+
+a |b |a XOR b
+:-----:|:-----:|:-----:
+0 |0 |0
+0 |1 |1
+1 |0 |1
+1 |1 |0
   
-I have to admit, what always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work. Like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
-
-
+I have to admit, what always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
 # 9/9/2019
 ## White theft, white entrepreneurship
