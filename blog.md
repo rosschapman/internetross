@@ -30,7 +30,7 @@ I've got three posts in my brain backlog now about more complex software concept
 
 I've been waiting a long time to use a bitwise operator in "real world" JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
 
-In UI, near 100% of the time the basic *comparison* and *logical* operators of the JavaScript language give us the expressive power and control we need to write product requirements into our code. Equal, not equal, AND, OR, NOT, etc.. But other operators can afford us shortcuts to make code easier to read.
+In UI, near 100% of the time the basic comparison and logical operators of the JavaScript language give us the power and control we need to express product requirements in code. Equal, not equal, AND, OR, NOT, etc.. But then there's that arcane set of integral comparison operators that, as I reveal below, bring similar expressiveness to more complex comparison scenarios. 
 
 Take the **bitwise** boolean operator XOR which actually looks at the binary integral -- bit -- representation of the comparison values.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different* and 0 if otherwise. Similar to a boolean return, we can easily pass around the result of a bitwise operator as a predicate.
 
