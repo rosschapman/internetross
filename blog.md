@@ -30,11 +30,11 @@ I've got three posts in my brain backlog now about more complex software concept
 
 I've been waiting a long time to use a bitwise operator in "real world" JavaScript -- like 5-6 years -- and the opportunity finally presented itself the other day.
 
-In UI, near 100% of the time the basic comparison and logical operators of the JavaScript language give us the power and control we need to express product requirements in code. Equal, not equal, AND, OR, NOT, etc.. But then there's that arcane set of integral comparison operators that, as I reveal below, bring similar expressiveness to more complex comparison scenarios. 
+In UI, near 100% of the time the basic comparison and logical operators of the JavaScript language give us the power and control we need to express product requirements in code. Equal, not equal, AND, OR, NOT, etc.. But then there's that arcane set of **bitwise** comparison operators. These special boolean operators give us expressiveness for more complex comparison scenarios. They're also just kinda weird because they do comparisons at the binary integral level -- that is, they coerce the values to bits first. 
 
-Take the **bitwise** boolean operator XOR which actually looks at the binary integral -- bit -- representation of the comparison values.  Think of it as "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different* and 0 if otherwise. Similar to a boolean return, we can easily pass around the result of a bitwise operator as a predicate.
+Take XOR. Which in more layman terms is "exclusive OR". In JavaScript XOR will return `1` when the output of *either side of the operator is different* and 0 if otherwise. Similar to a boolean return, we can easily pass around the result of a bitwise operator as a predicate.
 
-This turns out to be the very logic we need to express when testing existence for two dependent form fields. 
+As it turns out, this happens to be the very logic we need for testing existence between two dependent form fields. 
 
 At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. This means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
 
