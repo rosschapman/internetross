@@ -157,22 +157,22 @@ render() {
 Our problematic code was buried in a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file and blah dee blah...you get the point. Our journey was starting  miles from `render()`. Our code better resembled: 
 
 ```javascript
-// ../Template.js
+// Template.js
 export default (...props) => {
-    /* ... */
+    // ...
     const Sidebar = connectSidebar(Sidebar);
     const Main = connectMain(Main);
 
     return <Layout sidebar={Sidebar} main={Main} />;
 }
 
----
+// ...................................................
  
-// ../Page.js
+// Page.js
 import Template from `./Template`;
 
 export class Page extends Component {
-    /* ... */
+    // ...
     render() {
         return (
             <Template {...props} />
