@@ -206,7 +206,9 @@ export default (...props) => {
 
 Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached.
 
-Sigh. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from larger organizations where the requirements for the  application accrete, fissure, and even explode in fantastic ways over time. The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
+Sigh. We likely ended up in this place by not being as careful with nested connectors and subscription boundaries over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. (I think David Kourshid's [talk](https://www.youtube.com/watch?v=RqTxtOXcv8Y) about finite state machines introduced me to the "bottom-up"). 
+
+Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from large organizations -- cue Conway's law -- where the requirements for the  application accrete in fantastic ways over time. Cue McConnell's oyster farms.  The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
 
 This means you suddenly find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
 
