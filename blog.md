@@ -21,6 +21,30 @@
     color: inherit;
 }
 </style>
+### Two tales of Binary Search
+#### Tags: JavaScript, interviews
+###### 10/1/2019
+
+I still have lingering rage from about two years ago when an interviewer said to me: "I could probably implement this in about 20 minutes." These are crushing words during a facetime screen for someone who has been programming and building web apps professionally for 3+ years.
+
+The problem was something like *find the nearest value to x in the array*. Basic algorithm bullshit. But UIs we build for more typical business and e-commerce applications don't often require handling of big datasets, so a simple *filter* function at 0(n) time will satisfy the requirements. That was my lived experience.  
+
+My interviewer pushed me to consider a big data array. I was stumped, and failing hard in the spotlight. But apparently this was easy. His tone communicated this was basic stuff. *20 minutes*. He let me spend some time after the interview coming up with a solution to email later, but that was futile. I didn't even  know how to properly phrase the problem for Google. I got rejected.
+
+What I learned later is that the dude was looking for a solution implementing binary search -- something any CS grad would know. I didn't have a CS background. I learned to program on the job and never had to care about that level of performance in the apps I worked on.
+
+To this day, around 6 years into my career, I haven't had to implement a binary search algorithm to scan over a big data set.
+
+---
+
+Julia Evans put out a short series of zine pages recently that describe best practices for debugging. And guess who showed up? Binary search! Leaning back at my desk chair I realized that all along I've been using binary search in my every day work.
+
+When fixing a bug without a useful stack trace, triangulating the problematic code requires what I used to think as a kind of cludgy technique: step by step, commenting out large parts of the code at the top and/or bottom of suspect files. Like, literally just comment out half the file where you think the buggy code lives. Does the error still throw? If yes, the problem is not in that half. Try commenting out the other half. If no, then keep halving that part of the file. Recursively repeat. This is binary search. Also, did you notice we're now also talking about recursion, a topic that even senior programmers have trouble with?
+
+"Advanced" CS concepts can show up in our work all the time. Whether it's UI, backend, databases, ops, throughout all layers of this mushy cake stack. ("Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.) We need to begin reconciling with the danger of narrowly defining their employ and weaponizing them in toy code examples for gatekeeping (cough cough interviewing).
+
+When we learn the meaning behind these CS concepts, we may actually discover more creative ways to use them. Or how they are already part of our toolkit. For example, *git-bisect*!
+
 
 ### Deep(er) software concepts showing up in UI problems
 #### Tags: JavaScript, bitwise operators
@@ -116,7 +140,9 @@ To wit. (An attempt at a pursuasive example.)
 
 Just this week I toiled on a bug with a colleague that ultimately  turned out to be a case of a classic React anti-pattern where an inline function caused a re-render of a Pure Component. 
 
-Now, I've definitely read at least a 3-4 *instructive* articles on the pitfalls of creating functions inside of `render()`. Perf implications and unnecessary function invocations, etc.... But that insight didn't help my similarly schooled colleague and I get to the bottom of a bug inside a more complex system. The root cause only became obvious *after* we did hours of thought-work to pinpoint the problem code. In other words, we failed spectacularly to bring our academic rigor to bear because we weren't working with the familiar sandboxed toy code from instructive examples. Finding problematic inline functions in something like this triviality of Hillel' lament would be much easier: 
+Now, I've definitely read at least a 3-4 *instructive* articles on the pitfalls of creating functions inside of `render()`. Perf implications and unnecessary function invocations, etc.... But that insight didn't help me or my similarly schooled colleague figure out this bug inside a more complex and complicated system. Here's a framework for those words I like:  https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/)
+
+The root cause only became obvious *after* we did hours of thought-work to pinpoint the problem code. In other words, we failed spectacularly to bring our academic rigor to bear because we weren't working with the familiar sandboxed toy code from instructive examples. Finding problematic inline functions in something like this triviality of Hillel' lament would be much easier: 
 
 ```
 render() {
@@ -128,9 +154,9 @@ render() {
 }
 ```
 
-But the code we were excavating was a slice of a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file and blah dee blah. We were starting miles from `render()` when we leveled our gaze onto the the state tree. Our code better resembled: 
+Our problematic code was buried in a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file and blah dee blah...you get the point. Our journey was starting  miles from `render()`. Our code better resembled: 
 
-```
+```javascript
 // ../Template.js
 export default (...props) => {
     /* ... */
@@ -155,13 +181,15 @@ export class Page extends Component {
 }
 ```
 
-It's harder to catch -- and this code is already stripped down -- but `connectSidebar` actually gets called every time there are store updates that cause a re-render of `<Template />` inside of `<Page />`. The `<Page />` component itself subscribes to the store. 
+It's harder to see in this paired down example, but `connectSidebar` will be called called every time there are store updates that re-render `<Template />` inside of `<Page />`. (The `<Page />` component itself subscribes to the store.)
 
-Believe it or not, if the user had just left a field in the Main Content area of the page and then proceeded to click a button in the Sidebar, a blur event was triggered on the previous form field in Main Content; because that field was inside a *redux-form* form (meaning connected to the redux state tree), a hard-to-follow cascade of component updates was triggered. 
+Here's the basic UI and behavior: 
 
 <img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
 
-To our dismay, the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
+The bug was observed if a user clicks the "Buy on Map" button in the Sidebar. At this moment a event is triggered on the form field in *Main Content*. Because the that field is inside a *redux-form* form (connected to the redux state tree), a hard-to-follow cascade of component updates are triggered. This is the *complex* part: "hard to predict; forces interact to produce surprising behavior."
+
+Digging in with React dev tools, we noticed the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
 One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
 
