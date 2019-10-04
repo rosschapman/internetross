@@ -191,7 +191,7 @@ The bug was observed when a user clicks the "Buy on Map" button in the Sidebar. 
 
 Digging in with React dev tools, we noticed the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
-One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
+One hackish thing we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
 
 ```javascript
 // Template.js
@@ -204,7 +204,7 @@ export default (...props) => {
 }
 ```
 
-Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached in mem.
+Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached.
 
 Sigh. We likely ended up in this place as a result of not inserting more connect boundaries for store-subscribed components as the code grew over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from larger organizations where the requirements for the  application accrete, fissure, and even explode in fantastic ways over time. The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
 
