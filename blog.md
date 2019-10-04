@@ -187,7 +187,7 @@ Here's the basic UI and behavior:
 
 <img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
 
-The bug was observed if a user clicks the "Buy on Map" button in the Sidebar. At this moment a event is triggered on the form field in *Main Content*. Because the that field is inside a *redux-form* form (connected to the redux state tree), a hard-to-follow cascade of component updates are triggered. This is the *complex* part: "hard to predict; forces interact to produce surprising behavior."
+The bug was observed when a user clicks the "Buy on Map" button in the Sidebar. At this moment a event is triggered on the form field in *Main Content*. Because the that field is inside a *redux-form* form (connected to the redux state tree), a hard-to-follow cascade of component updates are triggered. This is the *complex* part: "hard to predict; forces interact to produce surprising behavior."
 
 Digging in with React dev tools, we noticed the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button had no idea about the just recent click event.
 
