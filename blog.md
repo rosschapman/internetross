@@ -193,13 +193,13 @@ Digging in with React dev tools, we noticed the Sidebar button was getting re-re
 
 One hackish thing we stumbled across and considered was changing the `onClick` handler on the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
 
-```
+```javascript
 // Template.js
 const Sidebar = connectSidebar(Sidebar);
 const Main = connectMain(Main);
 
 export default (...props) => {
-    /* ... */
+    // ...
     return <Layout sidebar={Sidebar} main={Main} />;
 }
 ```
