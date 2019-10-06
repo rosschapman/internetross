@@ -21,17 +21,36 @@
     color: inherit;
 }
 </style>
+
+### A better term for unintentional technical debt
+#### Tags: technical debt
+##### 10/6/2019
+
+The other day I got into a small argument with coworkers during sprint retro about the meaning of "technical debt." We were scattered about the room scribbling on stickies and considering the anchors that held us back during the last two weeks. I noted that the application we were working on had become too large with too many contributions from different teams. It was too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/). There were places that multiple behaviors were handled by forking rather than separation and the branching was somewhat littered about connectors and the jsx further downstream. It was becoming hard to reason about and, more importantly, to change.
+
+In that moment I was reticent to describe this situation as "debt" since I'd been thinking more about debt as the future IOW you make for a present tradeoff that increases your speed. Which means you're kicking off an amortization plan, hopefully incremental and steady. To think of complicated code emerging from *bit rot* or *cruft* -- or in this case may have just been not-so-great design -- didn't situate in Cunningham's metaphor for me because it showed up as a surprise. Are we ever really surprised by our credit card bill? 
+
+There are other sources of debt people talk about. Procrastination, neglecting architectural work. I truly believe the teams working in this code were moving smartly. Then there's the whole category of "unintentional" debt. That didn't didn't feel accurate to me. There is an aspect of stuff out of our control but the intent/unintent dichotomy feels unsatisfying if software is a complex system of people, code, automations, feedbacks...I don't know. Language is hard. I guess I'm gliding at the edges of a linguistic constraint.  A *weak* Sapir–Whorfian [confusion](https://en.wikipedia.org/wiki/Linguistic_relativity). 
+
+Nonetheless, I conceded this was *a form* of technical debt. While it may not have been a result of a conscious decision, now that we observed it we could choose to deal with it as debt. 
+
+Luckily, as I was catching up on my daily doses of software newsletters this morning, jessitron hyperlinked her latest [blog](https://blog.jessitron.com/2019/10/05/dont-just-keep-trying-report-your-limits/) to another [post](https://blog.atomist.com/whats-lurking/) from the Atomist site that gives us what I think is a more accurate  language for this very type of technical debt.
+
+> Technology drift is a form of technical debt that comes from progress. As our target architecture advances, it leaves a trail of projects in all its momentary incarnations. As repositories proliferate, the accumulation holds us back. We have many technologies and many versions of each. We have the risks of all of them.
+
+Technical drift! I can get down with that. 
+
 ### Two tales of Binary Search
 #### Tags: JavaScript, interviews
 ###### 10/1/2019
 
-I still have lingering rage from about two years ago when an interviewer said to me: "I could probably implement this in about 20 minutes." These are crushing words during a facetime screen for someone who has been programming and building web apps professionally for 3+ years.
+I still have lingering rage from two years ago when an interviewer said to me: "I could probably implement this in about 20 minutes." Seriously crushing words to utter offhand during a facetime code screen for someone who has been programming and building web apps professionally for 3+ years.
 
-The problem was something like *find the nearest value to x in the array*. Basic algorithm bullshit. But UIs we build for more typical business and e-commerce applications don't often require handling of big datasets, so a simple *filter* function at 0(n) time will satisfy the requirements. That was my lived experience.  
+The problem was something like *find the nearest value to x in the array*. I'm so bad at toy algorithm questions since I basically spent those first 3sh years smashing a ton of Rails and Ember into my brain and worked to be productive building more typical business app/e-commerce style UIs. I wasn't a whiz at data traversal. More like a deep component interface expert. What else would you call it?  Suffice to say a simple *filter* function at 0(n) time would satisfy the requirements. That is lived experience.
 
-My interviewer pushed me to consider a big data array. I was stumped, and failing hard in the spotlight. But apparently this was easy. His tone communicated this was basic stuff. *20 minutes*. He let me spend some time after the interview coming up with a solution to email later, but that was futile. I didn't even  know how to properly phrase the problem for Google. I got rejected.
+But my interviewer pushed me to consider a big fat array. I was stumped, and failing hard in the spotlight. *Only 20 minutes*. Bro even let me spend some time after the interview coming up with a solution to email later, but that was futile. I didn't even know how to properly phrase the problem for Google. I got rejected.
 
-What I learned later is that the dude was looking for a solution implementing binary search -- something any CS grad would know. I didn't have a CS background. I learned to program on the job and never had to care about that level of performance in the apps I worked on.
+What I learned later is that bro was looking for a solution implementing binary search -- something any CS grad would know. I didn't have a CS background. I learned to program on the job and never had to care about that level of performance in the apps I worked on.
 
 To this day, around 6 years into my career, I haven't had to implement a binary search algorithm to scan over a big data set.
 
