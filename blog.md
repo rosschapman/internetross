@@ -38,7 +38,7 @@ There are other sources of debt people talk about. Procrastination, neglecting a
 
 Nonetheless, I conceded this was *a form* of technical debt. While it may not have been a result of a conscious decision, now that we observed it we could choose to deal with it as debt. Debt is debt whether it arrives by forethought or magical inertia. 
 
-Luckily, as I was catching up on my daily doses of software newsletters this morning, jessitron (who I can't stop quoting) hyperlinked her latest [blog](https://blog.jessitron.com/2019/10/05/dont-just-keep-trying-report-your-limits/) to another [post](https://blog.atomist.com/whats-lurking/) from the Atomist site that gives us what I think is a more accurate language for this very type of technical debt.
+Luckily, as I was catching up on my daily doses of software newsletters this morning, jessitron (who I can't stop quoting) hyperlinked her latest [blog](https://blog.jessitron.com/2019/10/05/dont-just-keep-trying-report-your-limits/) to another [post](https://blog.atomist.com/whats-lurking/) from the Atomist site that gives us what I think is a more accurate language for this very type of technical debt. Frankly, any optimistic (re)casting of language in our field is welcome; we're so prone to a feeling of unfinished, incomplete, overwhelmed. 
 
 > Technology drift is a form of technical debt that comes from progress. As our target architecture advances, it leaves a trail of projects in all its momentary incarnations. As repositories proliferate, the accumulation holds us back. We have many technologies and many versions of each. We have the risks of all of them.
 
