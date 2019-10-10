@@ -151,21 +151,25 @@ His argument is that "instructive" examples don't make a reader care. "Persuasiv
 
 We see examples of #1 and #4 all of the time in technical writing -- maybe because a lot of it is written for marketing purposes. Y'all, let's be careful about how we present anti-patterns and best practices when we're trying to thought leader. Often this writing ends up being spec or framework documentation plagiarized and adorned with gifs. But without contextual complexity we may be doing a disservice to our fellow humans who dev -- especially less experienced devs.
 
-Persuasive examples are harder but the payoff is bigger. By *demonstrating* the why and why not we have a better chance of putting knowledge into a brain and making it stick. This is certainly my experience. I'm less likely to discover an anti-pattern or work my way out from under one if I'm relying on  knowledge gathering from articles with rudimentary examples and toy code. I want the expert to:
+Persuasive examples are harder but the payoff is bigger. By *demonstrating* the why and why not there's a better chance of putting knowledge into your reader's brain and making it stick. This is certainly my experience. If you:
   
 1) Share the reasoning behind all of the small decisions getting from A to B, or determining why A or B is important    
 2) Give me code that looks more like code "in the wild"    
 3) Explain whether these ideas are new or old    
 
+I'm more likely to recognize anti-patterns or work my way out from under one in a living, breathing codebase.
+
 ***
 
 To wit. (An attempt at a pursuasive example.) 
 
-Just this week I toiled on a bug with a colleague that ultimately  turned out to be a case of a classic React anti-pattern where an inline function caused a re-render of a Pure Component. 
+Just this week I toiled on a bug with a colleague that ultimately turned out to be a case of a classic React anti-pattern where an inline function invocation caused a re-render of a Pure Component. 
 
-Now, I've definitely read at least a 3-4 *instructive* articles on the pitfalls of creating functions inside of `render()`. Perf implications and unnecessary function invocations, etc.... But that insight didn't help me or my similarly schooled colleague figure out this bug inside a more complex and complicated system. Here's a framework for those words I like:  https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/)
+Now, I've definitely read at least a 3-4 *instructive* articles on the pitfalls of declaring functions inside of `render()`. Perf implications and unnecessary function creation, etc.... But that insight didn't help me or my similarly schooled colleague solve this bug inside a more [complex and complicated system](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/).
 
-The root cause only became obvious *after* we did hours of thought-work to pinpoint the problem code. In other words, we failed spectacularly to bring our academic rigor to bear because we weren't working with the familiar sandboxed toy code from instructive examples. Finding problematic inline functions in something like this triviality of Hillel' lament would be much easier: 
+We failed spectacularly to bring our academic rigor to bear because we weren't working with the familiar sandboxed toy code from instructive examples. The root cause became obvious only *after* we did hours of thought-work to pinpoint the problem code. 
+
+Finding problematic inline functions in something like this triviality of Hillel's lament would be much easier: 
 
 ```
 render() {
@@ -177,7 +181,9 @@ render() {
 }
 ```
 
-Our problematic code was buried in a large component tree where the inline function was wrapped in another constructor function and abstracted into a separate helper in a separate file and blah dee blah...you get the point. Our journey was starting  miles from `render()`. Our code better resembled: 
+But in our case, the problem function invocation was buried in a nested component wrapped in a separate  constructor function and abstracted into a separate helper in a separate file and blah dee blah...you get the point. Our journey was starting miles from `render()`. 
+
+Our code better resembled: 
 
 ```javascript
 // Template.js
@@ -188,8 +194,6 @@ export default (...props) => {
 
     return <Layout sidebar={Sidebar} main={Main} />;
 }
-
-// ...................................................
  
 // Page.js
 import Template from `./Template`;
@@ -204,17 +208,17 @@ export class Page extends Component {
 }
 ```
 
-It's harder to see in this paired down example, but `connectSidebar` will be called called every time there are store updates that re-render `<Template />` inside of `<Page />`. (The `<Page />` component itself subscribes to the store.)
-
-Here's the basic UI and behavior: 
+The bug was observed when a user clicks the "Buy on Map" button in the Sidebar. The click was getting swallowed and not transitioning the view. 
 
 <img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
 
-The bug was observed when a user clicks the "Buy on Map" button in the Sidebar. At this moment a event is triggered on the form field in the `<Main />` component. Because the that field is inside a *redux-form* form (connected to the redux state tree), a hard-to-follow cascade of component updates are triggered. This is the *complex* part: "hard to predict; forces interact to produce surprising behavior."
+So what was going on? 
 
-Digging in with React dev tools, we noticed the Sidebar button was getting re-rendered *in the middle of the click event*. Therefore the newly rendered button was no longer listening.
+When we looked closer we noticed that at the moment of click an unwanted blur event would be triggered on the form field in the `<Main />` component; and its state would be updated. This redux-form state update would then ripple through the component tree and cause the sidebar to be re-rendered, even though none of the props passed to `<Sidebar />` had changed. The result was the sidebar button getting re-rendered *in the middle of the click event*; which meant the click handlers of the newly rendered button were not capturing the click and able to transition to the next view!  
 
-One hackish thing we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- since the newly rendered button would receive that event (browsers are weird).  But my homie-in-debug wouldn't -- couldn't -- let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. Dude dug his heels in and binary searched the code code up and down `<Page />` --  which is way more busy than I'm showing here -- deleting chunk by chunk until the re-renders stopped. He's a hero. Of course, the fix ends up being dead simple. We moved the invocation of `connectSidebar` and `connectMain` outside of the `Template` export: 
+One hackish thing we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- the newly rendered button could receive that event (browsers are weird).  But my colleague couldn't let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. 
+
+After [binary searching](#two-tales-of-binary-search) the code code up and down `<Page />`, deleting chunk by chunk until the re-renders stopped, we discovered the fix to be fairly straight forward. Just move the invocation of `connectSidebar` and `connectMain` outside of the `Template` export context into the module context. Fixing the 
 
 ```javascript
 // Template.js
@@ -227,11 +231,11 @@ export default (...props) => {
 }
 ```
 
-Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't get constructed through a function invocation -- it's already cached.
+Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function and calling it anew each time. 
 
-Sigh. We likely ended up in this place by not being as careful with nested connectors and subscription boundaries over time. This is a not at all uncommon (read: forgivable) symptom of "bottom-up" programming. (I think David Kourshid's [talk](https://www.youtube.com/watch?v=RqTxtOXcv8Y) about finite state machines introduced me to the "bottom-up"). 
+Sigh. We likely ended up in this place by not being careful with nested connectors and their subscription boundaries. Sometimes you forget that it's just functions all the way down. Like, declaring and assigning a component constructor inside another component constructor would not be how you'd typically compose your functions. I will humbly accept this not uncommon (read: forgivable) symptom of "bottom-up" programming. (See David Kourshid's [talk](https://www.youtube.com/watch?v=RqTxtOXcv8Y) about finite state machines and the sad stories of "bottom-up"). 
 
-Unlike the pristine nirvanic fields of instructive examples, we make our bed in large agile-y UI projects born from large organizations -- cue Conway's law -- where the requirements for the  application accrete in fantastic ways over time. Cue McConnell's oyster farms.  The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
+Unlike the pristine nirvanic fields of instructive examples, we make our bed in large projects born from large organizations -- cue Conway's law. The requirements for the application accrete in fantastic ways over time. Cue McConnell's oyster farms.  The primitives you start with to satisfy embryonic requirements, like a root-level `<Page />` component, may just become one large prop-drilled well. Graph hell.
 
 This means you suddenly find yourself debugging why a click event on a sidebar button is being swallowed. You notice the divs are flashing in the Elements tab of Chrome dev tools, which means the browser is repainting the sidebar on click -- re-renders! 
 
@@ -248,7 +252,9 @@ The customer can't *publish*. Ensue existential [how come???](https://vimeo.com/
 
 After some investigation we realized our JavaScript was erroneously deleting a parent entity too eagerly in some other flow and leaving us with child data stranded in the db. "Publish" didn't know what to do with bad data. 
 
-The code we found responsible for persisting these entities was designed as a kind of sequential *transaction*. When the user clicked "Save", separate POST requests for parent and child/ren would be sent one at a time -- our restful API routes didn't allow us to send merged data. Now, in the scenario that the POST request for the child failed, our JavaScript code would send an immediate destroy request for the parent -- like a roll back. Take a look at the code (simplified for example):
+The code we found responsible for persisting these entities was designed as a kind of sequential "transaction" (heavy scare quotes because this is definitely a loaded term). 
+
+When the user clicked "Save", separate POST requests for parent and child/ren would be sent one at a time -- our restful API routes didn't allow us to send merged data. Now, in the scenario that the POST request for the child failed, our JavaScript code would send an immediate destroy request for the parent -- like a roll back. Take a look at the code (simplified for example):
 
 <script src="https://gist.github.com/rosschapman/2d75d45892720f70672fb0b4f5625a3c.js"></script>
 
@@ -300,14 +306,13 @@ Just this past week I spent a couple days wrestling with a bug where I was very 
 
 I caught [this tweet](https://twitter.com/ruthmalan/status/1141169409609863170?s=20) by Ruth Malan yesterday which references the "tension between continuous evolution and product instability". This is a tension we hold as software engineers daily. It's the source of these "trade-offs" that we often talk about. 
 
-At the start of my career I thought that longer-lived codebases would be more manicured and predictable  than the embryonic Rails app I was working on. I presently work in a legacy codebase (like 10+ years running), and I'm not really sure if it's thaaat much more stable than that 3 year-old startup experiment. Sure, there are fossilized pieces of code in corner tar pits that have run largely unattended for years which we can ignore, and beautiful code abounds. But I find myself often in labored negotiation with code in-between those ends, code that has a mix of pieces written a year or two ago, and then some new additions in the past few months. We might call this code pre-crude pressurized compounds with some new raw material shoveled in -- forming. These are tension points where I struggle with the tension the most. There are just enough layers of abstraction, code reuse, shared responsibilty, etc... -- tensile strength -- that don't make changing the code easy. Any change could destabilize things, like expose bugs, ie break existing functionality. 
+At the start of my career I thought that longer-lived codebases would be more manicured and predictable  than the embryonic Rails app I was working on. I presently work in a legacy codebase (like 10+ years running), and I'm not really sure if it's much more stable than that 3 year-old startup experiment. Sure, there are fossilized pieces of code in corner tar pits that have run largely unattended for years which we can ignore, and beautiful code abounds. But I find myself often in labored negotiation with code in-between those ends, code that has a mix of pieces written a year or two ago, and then some new additions in the past few months. We might call this code pre-crude pressurized compounds with some new raw material shoveled in -- forming. These are tension points where I struggle with the tension the most. There are just enough layers of abstraction, code reuse, shared responsibilty, etc... -- tensile strength -- that don't make changing the code easy. Any change could destabilize things, like expose bugs, ie break existing functionality. 
 
-So the day-to-day discipline in legacy code is wiggle in tension to add/change behavior, but also support all existing behavior. Jessitron quotes in a recent newsletter: 
+So the day-to-day discipline in legacy code is wiggle in tension to add/change behavior, but also support all existing behavior. jessitron quotes in a recent [blog](https://blog.jessitron.com/2019/06/17/feature-interaction/): 
 
 > Every new feature comes with the invisible requirement: “and everything else still works.”
 
 This is a wild task in pre-crude places! 
-
 
 ### Too many imports
 #### Tags: javascript, react, refactoring
@@ -339,7 +344,7 @@ We can refactor this down to a data utility. And though it's not cutting down th
 2.  Creating a reusable abstraction -- which I know can be employed elsewhere
 3.  De-cluttering `render()` which makes integration tests simpler, possibly unnecessary for some cases since logic can be independently unit tested
 
-That last point is important. At least to me. Untidy `render()` blocks are hard to grok, debug, and test. A lot of the figuring out how to construct and compose the things to render can happen in other places: above the component class definition, in class methods, or in another file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
+That last point is important. At least to me. Untidy `render()` blocks are hard to scan, debug, and test. The machinations for constructing and composing the things to render can happen in other places: above the component class definition, in class methods, or in a separate file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
 
 ### Starting a new blog and jumping right into an article I read about dependency injection using function parameters
 #### Tags: python, design patterns 
