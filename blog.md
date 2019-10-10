@@ -210,11 +210,11 @@ export class Page extends Component {
 
 The bug was observed when a user clicks the "Buy on Map" button in the Sidebar. The click was getting swallowed and not transitioning the view. 
 
-<img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
-
 So what was going on? 
 
 When we looked closer we noticed that at the moment of click an unwanted blur event would be triggered on the form field in the `<Main />` component; and its state would be updated. This redux-form state update would then ripple through the component tree and cause the sidebar to be re-rendered, even though none of the props passed to `<Sidebar />` had changed. The result was the sidebar button getting re-rendered *in the middle of the click event*; which meant the click handlers of the newly rendered button were not capturing the click and able to transition to the next view!  
+
+<img src="/assets/images/inline_gotcha_funtimes.jpg" width="600" style="margin: 0 auto; display: block" />
 
 One hackish thing we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- the newly rendered button could receive that event (browsers are weird).  But my colleague couldn't let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing. 
 
