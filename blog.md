@@ -22,11 +22,75 @@
 }
 </style>
 
+### Harmful ways to talk and write about software
+##### 10/10/2019
+
+Dispatch from Soekarno-Hatta International Airport.
+Arrived way too early because of traffic fantasies.
+
+While leafing through my daily software briefs the other day I came across an article that irked me. The article introduces the dependency indirection "injectable factory" design pattern as a cure for "rigid direct dependencies" in unit tests. LOL, the indexical disambiguation science of the Javian OO world is fascinating. A true [kingdom of nouns](https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html). Translated: mocks without dependency injection. Basically avoid writing a service implementation that looks like this: 
+
+```java
+public class OderSericeImpl implement OrderService {
+  private final ShoppingCartService cartService;
+  private final PricingService pricingService;
+  private final InventoryService inventoryService;
+  private final UserSession userSession;
+  private final TimeProvider timeProvider;
+  // ... and many more, this list will keep increasing when more requirements added
+  
+  public OrderService(
+      ShoppingCartService cartService, 
+      PricingService pricingService, 
+      InventoryService inventoryService, 
+      UserSession userSession,
+      TimeProvider timeProvider) {
+    this.cartService = cartService;
+    this.pricingService = pricingService;
+    // .... 
+  }
+  
+  public CreateOrderResponse createOrder(CreateOrderRequest req) {
+    // ...
+  }
+}
+```
+
+I remember a moment, a phase if you will, in my first couple of years working professionally as a softwhere engineer when I thought that understanding OO design patterns was part of our right of passage into...seniority, I guess? At the time I was beginning to write more in the Rails parts of our codebase and as a consequence, began inheriting a pressure, a notion -- from where I'm not sure -- to achieve familiarity with common OO design patterns.
+
+From where, indeed. It's really subtle how this worldview is propogated amongst our ilk but I think I'm starting to see it's often quiet, viral expansion more clearly now that I'm like 6 years in. 
+
+For example, this article about "injectable factory" thats got me irked. When the author finishes the situation and complication setup in the first half of the article, his solution section begins with: 
+
+> The pattern is pretty simple.
+
+Umm great, so it's just a fancy name for something I probably already know about. Then: 
+
+> It’s implemented as a mutable value holder. This pattern is related to the factory, service locator, singleton pattern and ambient context pattern. All these patterns are considered anti-patterns according to most DI articles. But in practice, those patterns, especially singleton, are very handy and useful. They are prevalent in almost every non-trivial project. But they come with caveats. InjectableFactory tries to prevent those caveats at the same time keep the convenience and simplicity of those patterns.
+
+It's so simple I just need to have a solid undertanding of these (what must be other simple) concepts as well:
+
+1) dependency injection
+2) a value holder (probably Java slang for some kind of variable?)
+3) mutable value holder
+4) factory pattern
+5) service locater pattern
+6) singleton pattern
+7) ambient context pattern
+
+This "simple" feels subjective. That's a lot of things to know. I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are used too casually used interchangeably. Simple is objective. Easy is relativistic. This author probably means *easy*, which Hickey relates to spacial *nearness*, as in *easy to go to or get* or near to our understanding. In other words  *familiar*. 
+
+Even if the usage intent is closer to Hickey's *easy*. Easy for whom? Like, what type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and writing Java. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as master, and then patronizingly restrict access to an unitiatied reader without a warning. There are hints of gatekeeping, like: *anybody should be able to grok this easily*. Of course, any problem becomes easy once you've already thought through it. 
+
+Maybe the author means the pattern is simple in implementation, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", less coupled ("interleaved"). I couldn't speak to whether the 60 lines of Java code example accomplishes that. But even with the right tools, writing useful unit tests is anything but easy.
+
+Let's just do away with saying things are "simple," unless you can tell us *exactly how so*. And certainly not weakly qualify like: "pretty simple"--you haven't control-group tested yet, have you? Simple is one of those words like good or bad. When used to describe code they are massive hand-waves over what's really going on -- ie, truth -- and tend to shelter attendant biases. 
+
 ### A better term for unintentional technical debt
 #### Tags: technical debt
 ##### 10/6/2019
 
-The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." Whilst the team was bent over stickies I smacked a note on the whiteboard: *application too big*. The slice of monorepo we toiled in the last two weeks had super bloomed with too many contributions from different teams. It was too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
+The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While the folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we toiled in the last two weeks had super bloomed with too many contributions from different teams. It was too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
 
 > It has many interconnected parts, each full of details. Conditionals abound, forming intricate rules that may surprise us when we read them.
 
