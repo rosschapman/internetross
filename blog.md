@@ -28,7 +28,7 @@
 *Dispatch from Soekarno-Hatta International Airport.*
 *Arrived way too early because of traffic fantasies.*
 
-While leafing through my daily software briefs I came across an article with that dissapointing refrain in our industry: *this should be easy to do*. There's probably no better way to put a reader on the defensive and create an adversarial teaching situation. Suddenly I'm challenged to match the author's intellectual prowess or else remain befuddled and continue writing shitty code. Why put so much pressure on your student?
+While leafing through my daily software briefs I came across an article with that dissapointing refrain in our industry: *this should be easy to do*. There's probably no better way to put a reader on the defensive and create an adversarial teaching situation. Suddenly I'm challenged to match the author's intellectual prowess or else remain befuddled and continue writing shitty code. Why you fuckin with my head???
 
 The article is another offering to the OO world which introduces the dependency indirection "injectable factory" design pattern as a cure for "rigid direct dependencies" in unit tests. Super simple stuff.
 
@@ -86,11 +86,13 @@ It's so simple I just need to have a solid undertanding of these (what must be o
 6) singleton pattern
 7) ambient context pattern
 
-I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we talk about and understand software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
+I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we might truly achieve better software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
 
-Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. (Admittedly, if he had used "easy" I would have been similarly triggered.)
+Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. This pattern is easy because it's a short distance to mentally leap when you're an expert of nouns.
 
-But even if the usage intent is closer to Hickey's *easy*, what about this list of like seven things I need to know. Like, easy for whom? What type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and the Java lang. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as meister amongst a court of meisters, but without warning patronizingly forecloses access for an unitiatied reader. I think this is the gatekeeping emerging, infectiously. Almost too quickly to observe. 
+(Admittedly, if he had used "easy" I would have been similarly triggered.)
+
+But even if the usage intent is closer to Hickey's *easy*, what about this list of like seven things I need to know? Like, easy for whom? What type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and the Java lang. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as meister amongst a court of meisters, but without warning patronizingly forecloses access for an unitiatied reader. I think this is the gatekeeping emerging, infectiously. Almost too quickly to observe. 
 
 Naturally, though our ilk seems to have a hard time admitting this post facto, any problem becomes easy once you've solved it.
 
