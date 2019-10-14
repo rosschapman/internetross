@@ -37,7 +37,7 @@ Also just LOL the indexical disambiguation science of the OO world; fucking rive
 I think the article is just a way of instructing the use of mocks without dependency injection, helping you avoid writing a service implementation for your tests that looks like this: 
 
 ```java
-public class OderSericeImpl implement OrderService {
+public class OrderServiceImpl implement OrderService {
   private final ShoppingCartService cartService;
   private final PricingService pricingService;
   private final InventoryService inventoryService;
