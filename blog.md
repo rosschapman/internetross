@@ -62,6 +62,8 @@ public class OderSericeImpl implement OrderService {
 }
 ```
 
+Ah yeah that looks hairy. I'm flashing to JavaScript files with dozens of `import` statements. 
+
 I remember a moment, a phase if you will, in my first couple of years working professionally as a softwhere engineer when I thought that understanding OO design patterns was part of our right of passage into...seniority, I guess? At the time I was beginning to write more in the Rails parts of our codebase and as a consequence, began inheriting a pressure, a notion -- from where I'm not sure -- to achieve familiarity with common OO design patterns.
 
 From where, indeed. It's really subtle how this worldview is propogated amongst our ilk but I think I'm starting to see, with clear eyes, the quiet, viral expansion. 
