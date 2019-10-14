@@ -96,11 +96,11 @@ But even if the usage intent is closer to Hickey's *easy*, what about this list 
 
 Naturally, though our ilk seems to have a hard time admitting this post facto, any problem becomes easy once you've solved it.
 
-The author probably means the pattern is simple in implementation, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The 60 lines of Java code in the example seems to accomplish that?
+The author probably means the pattern is simple to implement, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). Don't @ me about whether his Java exmaple accomplishes this, but looks pretty good?
 
-It's probably best to avoid "simple" and "easy" in technical writing. Too fuzzy. And lets definitely not weakly qualify them like: "pretty simple."  
+I'm thinking it's probably best to avoid "simple" and "easy" in technical writing. Let's not fuzzy match. And lets definitely not weakly qualify them like: "pretty simple."
 
-This reminds of when the words *good* or *bad* are used when discussing code. Without more objective substance, they just do a big hand-wave over facts and truths of the software's outcomes and the shared understanding of the folks in the conversation. What level of expertise is required, what audience are you interpolating into this discourse of nouns?
+This reminds of when the words *good* or *bad* are used when discussing code. Without more objective substance, *simple* evidence, they just do a big hand-wave over facts and truths of the software's outcomes and the shared understanding of the folks in the conversation. What level of expertise is required, what audience are you interpolating into this discourse of nouns?
 
 ### A better term for unintentional technical debt
 #### Tags: technical debt
