@@ -22,13 +22,19 @@
 }
 </style>
 
-### Harmful ways to talk and write about software
+### Harmful ways to write about software
 ##### 10/10/2019
 
-Dispatch from Soekarno-Hatta International Airport.
-Arrived way too early because of traffic fantasies.
+*Dispatch from Soekarno-Hatta International Airport.*
+*Arrived way too early because of traffic fantasies.*
 
-While leafing through my daily software briefs the other day I came across an article that irked me. The article introduces the dependency indirection "injectable factory" design pattern as a cure for "rigid direct dependencies" in unit tests. LOL, the indexical disambiguation science of the Javian OO world is fascinating. A true [kingdom of nouns](https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html). Translated: mocks without dependency injection. Basically avoid writing a service implementation that looks like this: 
+While leafing through my daily software briefs I came across an article with that dissapointing refrain in our industry: *this should be easy to do*. There's probably no better way to put a reader on the defensive and create an adversarial teaching situation. Suddenly I'm challenged to match the author's intellectual prowess or else remain befuddled and continue writing shitty code. Why put so much pressure on your student?
+
+The article is another offering to the OO world which introduces the dependency indirection "injectable factory" design pattern as a cure for "rigid direct dependencies" in unit tests. Super simple stuff.
+
+Also just LOL the indexical disambiguation science of the OO world; fucking riveting. A true [kingdom of nouns](https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html).
+
+I think the article is just a way of instructing the use of mocks without dependency injection, helping you avoid writing a service implementation for your tests that looks like this: 
 
 ```java
 public class OderSericeImpl implement OrderService {
@@ -58,13 +64,13 @@ public class OderSericeImpl implement OrderService {
 
 I remember a moment, a phase if you will, in my first couple of years working professionally as a softwhere engineer when I thought that understanding OO design patterns was part of our right of passage into...seniority, I guess? At the time I was beginning to write more in the Rails parts of our codebase and as a consequence, began inheriting a pressure, a notion -- from where I'm not sure -- to achieve familiarity with common OO design patterns.
 
-From where, indeed. It's really subtle how this worldview is propogated amongst our ilk but I think I'm starting to see it's often quiet, viral expansion more clearly now that I'm like 6 years in. 
+From where, indeed. It's really subtle how this worldview is propogated amongst our ilk but I think I'm starting to see, with clear eyes, the quiet, viral expansion. 
 
-For example, this article about "injectable factory" thats got me irked. When the author finishes the situation and complication setup in the first half of the article, his solution section begins with: 
+For example, this digesis about "injectable factory" thats got me irked. When the author completes the situation and complication setup, he begins his solution section with: 
 
 > The pattern is pretty simple.
 
-Umm great, so it's just a fancy name for something I probably already know about. Then: 
+Umm great, so what you're proposing is just a fancy name for something I probably already know about? But then: 
 
 > It’s implemented as a mutable value holder. This pattern is related to the factory, service locator, singleton pattern and ambient context pattern. All these patterns are considered anti-patterns according to most DI articles. But in practice, those patterns, especially singleton, are very handy and useful. They are prevalent in almost every non-trivial project. But they come with caveats. InjectableFactory tries to prevent those caveats at the same time keep the convenience and simplicity of those patterns.
 
@@ -78,13 +84,19 @@ It's so simple I just need to have a solid undertanding of these (what must be o
 6) singleton pattern
 7) ambient context pattern
 
-This "simple" feels subjective. That's a lot of things to know. I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are used too casually used interchangeably. Simple is objective. Easy is relativistic. This author probably means *easy*, which Hickey relates to spacial *nearness*, as in *easy to go to or get* or near to our understanding. In other words  *familiar*. 
+I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we talk about and understand software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
 
-Even if the usage intent is closer to Hickey's *easy*. Easy for whom? Like, what type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and writing Java. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as master, and then patronizingly restrict access to an unitiatied reader without a warning. There are hints of gatekeeping, like: *anybody should be able to grok this easily*. Of course, any problem becomes easy once you've already thought through it. 
+Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. (Admittedly, if he had used "easy" I would have been similarly triggered.)
 
-Maybe the author means the pattern is simple in implementation, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", less coupled ("interleaved"). I couldn't speak to whether the 60 lines of Java code example accomplishes that. But even with the right tools, writing useful unit tests is anything but easy.
+But even if the usage intent is closer to Hickey's *easy*, what about this list of like seven things I need to know. Like, easy for whom? What type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and the Java lang. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as meister amongst a court of meisters, but without warning patronizingly forecloses access for an unitiatied reader. I think this is the gatekeeping emerging, infectiously. Almost too quickly to observe. 
 
-Let's just do away with saying things are "simple," unless you can tell us *exactly how so*. And certainly not weakly qualify like: "pretty simple"--you haven't control-group tested yet, have you? Simple is one of those words like good or bad. When used to describe code they are massive hand-waves over what's really going on -- ie, truth -- and tend to shelter attendant biases. 
+Naturally, though our ilk seems to have a hard time admitting this post facto, any problem becomes easy once you've solved it.
+
+The author probably means the pattern is simple in implementation, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The 60 lines of Java code in the example seems to accomplish that?
+
+It's probably best to avoid "simple" and "easy" in technical writing. Too fuzzy. And lets definitely not weakly qualify them like: "pretty simple."  
+
+This reminds of when the words *good* or *bad* are used when discussing code. Without more objective substance, they just do a big hand-wave over facts and truths of the software's outcomes and the shared understanding of the folks in the conversation. What level of expertise is required, what audience are you interpolating into this discourse of nouns?
 
 ### A better term for unintentional technical debt
 #### Tags: technical debt
