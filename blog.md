@@ -78,13 +78,13 @@ Umm great, so what you're proposing is just a fancy name for something I probabl
 
 It's so simple I just need to have a solid undertanding of these (what must be other simple) concepts as well:
 
-1) dependency injection    
-2) a value holder (probably Java slang for some kind of variable?)    
-3) mutable value holder    
-4) factory pattern    
-5) service locater pattern    
-6) singleton pattern    
-7) ambient context pattern    
+1. dependency injection
+1. a value holder (probably Java slang for some kind of variable?)    
+1. mutable value holder    
+1. factory pattern    
+1. service locater pattern    
+1. singleton pattern    
+1. ambient context pattern    
 
 I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we might truly achieve better software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
 
