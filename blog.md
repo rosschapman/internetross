@@ -88,19 +88,33 @@ It's so simple I just need to have a solid undertanding of these (what must be o
 
 I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we might truly achieve better software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
 
-Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. This pattern is easy because it's a short distance to mentally leap when you're an expert of nouns.
+Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. Like a better developer experience:
 
-(Admittedly, if he had used "easy" I would have been similarly triggered.)
+> ...can I get this instantly and start running it in five seconds?
 
-But even if the usage intent is closer to Hickey's *easy*, what about this list of like seven things I need to know? Like, easy for whom? What type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and the Java lang. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as meister amongst a court of meisters, but without warning patronizingly forecloses access for an unitiatied reader. I think this is the gatekeeping emerging, infectiously. Almost too quickly to observe. 
+But he probably also means *"being near to our capabilities"*, the promise of easy.
 
-Naturally, though our ilk seems to have a hard time admitting this post facto, any problem becomes easy once you've solved it.
+Even if the usage intent is closer to Hickey's *easy*, what about this list of like seven things I need to know that may not be near my capabilities? Like, easy for whom? What type of reader is summoned here? Since the author never names his imagined reader/audience we'll never know for sure, but we can infer it's likely folks who are experts in OO and the Java lang. Perhaps that's the transgression that bothers me. This invocation of *simple* to self anoint as meister amongst a court of meisters, but without warning patronizingly forecloses access for an unitiatied reader. I think this is the gatekeeping emerging, infectiously. Almost too quickly to observe. I'm really glad Hickey also finds circumscribing code as *easy* dangerous for our industry's wellbeing:
 
-The author probably means the pattern is simple to implement, which by Hickey's definition would be easy to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). Don't @ me about whether his Java exmaple accomplishes this, but looks pretty good?
+> And we don't like to talk about this because it makes us uncomfortable because what kind of capabilities are we talking about? If we're talking about easy in the case of violin playing or piano playing or mountain climbing or something like that, well, you know, I don't personally feel bad if I don't play the violin well because I don't play the violin at all.
 
-I'm thinking it's probably best to avoid "simple" and "easy" in technical writing. Let's not fuzzy match. And lets definitely not weakly qualify them like: "pretty simple."
+> But the work that we're in is conceptual work, so when we start talking about something being outside of our capability, well, you know, it really starts trampling on our egos in a big way. And so, you know, due to a combination of hubris and insecurity, we never really talk about whether or not something is outside of our capabilities. It ends up that it's not so embarrassing after all because we don't have tremendously divergent abilities in that area.
 
-This reminds of when the words *good* or *bad* are used when discussing code. Without more objective substance, *simple* evidence, they just do a big hand-wave over facts and truths of the software's outcomes and the shared understanding of the folks in the conversation. What level of expertise is required, what audience are you interpolating into this discourse of nouns?
+Sigh. The deleterious effect of gatekeeping.
+
+Though what if...I wonder if the author actually intended to describe injectable factory as *simple* by Hickey's definition? Like, requiring less effort to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The root of the word is *one fold, braid, or twist*. That does seem to be accomplished in the design. Nevertheless, I can't get over the heavy connotation of reader culpability and capability  implied in the (weak) qualification of "pretty simple." Language is weird.
+
+I'm thinking it's probably best to avoid "simple" and "easy" in technical writing. Let's not fuzzy match.
+
+This reminds of when the words *good* or *bad* are used when discussing code. Without more objective substance, *simple* evidence, they just do a big hand-wave over facts and truths of the software's outcomes and the shared understanding of the folks in the conversation. Is the software reliable, easy to change? What level of expertise is required, what audience are you interpolating into this discourse of nouns? 
+
+Is simplicity achieved?:
+
+> There are tons of libraries that look, oh, look, there's different classes; there's separate classes. They call each other in sort of these nice ways, right? Then you get out in the field and you're like, oh, my God! This thing presumes that that thing never returns the number 17. What is that?
+
+Is easiness achieved?:
+
+> ...can I get this instantly and start running it in five seconds?
 
 ### A better term for unintentional technical debt
 #### Tags: technical debt
