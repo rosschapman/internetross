@@ -377,7 +377,7 @@ Even another cool, tangential observation/learning came from understanding the p
 
 I'm just hard reflecting on on how signals of "broken" -- like bad data -- can reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
 
-### Pre-crude development
+### Debugging a test that does nothing
 #### Tags: debugging
 ###### 6/24/2019
 
@@ -389,8 +389,15 @@ Every time we sit down to debug a program we bring a narrow worldview to bear ab
 
 This is natural. It's impossible to throw out all we know at the beginning and re-interrogate every line of code. Ulimately what we really need is patience as we methodically challenge our own worldview.
 
-Just this past week I spent a couple days wrestling with a bug where I was very misdirected by the incorrect assumptions in a failing test itself. In this case I was trying to determine how Selenium's simulated click selection on a dropdown menu was not producing a change in Redux state to activate a purchase button in the page footer. I had made some changes to where the data for the initial values for the dropdown were coming from, so I was tinkering around pretty stuck on figuring out if the data for the dropdown values in the test was wrong. But alas, in the process of reproducing the unexpected behavior and comparing it to the expected behavior on a clean branch, I realized that the dropdown data was fine but there was an incorrect minimum passed to the purchase button component being set farther upstream -- it should have been the minimum from the dropdown values but it was coming from another `minimum` property on the item itself. In this particular scenario, when there is only one item for purchase, the purchase button was supposed to be become activate on load. The test step that selected a value was making an incorrect assumption that selecting a value needed to happen in order to activate the purchase button. While this discovery didn't lead to a solve right away, at the least it corrected my worldview and redirected my attention from the dropdown values to other initial component state and props and how they were affected by changes.
+This past week I spent a good part of two days wrestling with a broken acceptance test where my worldview misled me from the start.
 
+The test was written to observe a state change by simulating a click on the first menu item in a dropdown, which flips the disabled state of a Purchase Button elsewhere in the container component -- but it wasn't doing anything! Because my new code had changed the source of the the initial values for the dropdown, I had set my sights on determining if that source data in the test was wrong. 
+
+Sigh, that wasn't quite it. I spent a bunch of time interrogating these source values in the test setup for the dropdown menu but in the end they were correct -- my initial presumption and assumption (worldview) steering me into a void. Sucked.
+
+Ultimately, after repeatedly playing with the test instructions and comparing to the outcome in the browser, I discovered the click action was doing nothing because the initial state for the Purchase Button was already set through a test setup step which *equaled the first value of the dropdown menu*; so the click action didn't actually change the value in the test, or in the browser. There was no state change to observe. In fact, the test wasn't needed at all. My code change inadvertently exposed a test with a wrong worldview. 
+
+Lol, how much of our software is layer cakes of fallacious worldviews.
 
 ### Pre-crude development
 #### Tags: legacy code 
