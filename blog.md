@@ -420,17 +420,19 @@ const isSoldOut = this.props.statusType == SOLD_OUT
 I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago: 
 > "in 'functional programming', we love and embrace functions! functions everywhere!" -- [@getify](https://twitter.com/getify/status/1123408796276142080)
 
-That's it, that's my out.
+That's it, that's my out. We can refactor this down to a data utility. 
 
 ```javascript
 const isSoldOut = ({status}) => status === SOLD_OUT
+```
 
-// Or we might even abstract this into a general utility if it makes sense
+Or we might even abstract this into a general utility if it makes sense:
 
+```javascript
 const getTicketStatusType = (ticketProps) => STATUS_TYPES_MAP[get(ticketProps, 'status')];
 ```
 
-We can refactor this down to a data utility. And though it's not cutting down the number of imports, I'm perhaps doing a few other useful things:
+While these functions are not decreasing the number of imports, I'm perhaps doing a few other useful things:
 
 1.  Cutting down the number of imports from _different_ files
 2.  Creating a reusable abstraction -- which I know can be employed elsewhere
