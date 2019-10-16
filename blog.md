@@ -120,11 +120,9 @@ Is easiness achieved?:
 #### Tags: technical debt
 ##### 10/6/2019
 
-The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While the folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we toiled in the last two weeks had super bloomed with too many contributions from different teams. It was too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
+The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we had been toiling  in the last two weeks was now a super bloom of contributions from different teams. The code had become hard to reason about making it difficult to safely change. We call this too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
 
 > It has many interconnected parts, each full of details. Conditionals abound, forming intricate rules that may surprise us when we read them.
-
-The code was hard to reason about quickly and, more importantly, to change safely.
 
 In that moment, I was reticent to describe this anchor as "debt" since I'd been thinking more about debt as the future IOW on quality to increase speed in the present. By that measure, you'd be kicking off an amortization plan, hopefully incremental and steady. To think of complicated code emerging from *bit rot* or *cruft* -- or in this case it may have just been not-so-great design -- didn't situate in Cunningham's metaphor for me because it showed up as a surprise. Are we ever really surprised by our credit card bill?  
 
