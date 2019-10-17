@@ -86,9 +86,9 @@ It's so simple I just need to have a solid undertanding of these (what must be o
 1. singleton pattern    
 1. ambient context pattern    
 
-I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which are often used interchangeably. This linguistic casuality creates confusion about how we might truly achieve better software. Hickey recoups a specificity for each word through an etymological tracing. Simple is objective. Easy is relativistic. 
+I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which is a linguistic casuality which creates confusion in our industry about what "simple" or "easy" software really is or achieves.  In the talk Hickey helps recoup a specificity for each word through an etymological tracing. Distilled you take away that *simple* is objective and *easy* is relativistic.
 
-Our Javian knight probably means *easy*, which Hickey relates to a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. Like a better developer experience:
+In consideration of the foregogin, our Javian knight likely means *easy*, which, by Hickey's redefinition (rather reinstatement of acuity), means a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. Like a better developer experience. Like: 
 
 > ...can I get this instantly and start running it in five seconds?
 
