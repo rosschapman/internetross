@@ -100,7 +100,7 @@ Even if the usage intent is closer to Hickey's *easy*, what about this list of l
 
 > But the work that we're in is conceptual work, so when we start talking about something being outside of our capability, well, you know, it really starts trampling on our egos in a big way. And so, you know, due to a combination of hubris and insecurity, we never really talk about whether or not something is outside of our capabilities. It ends up that it's not so embarrassing after all because we don't have tremendously divergent abilities in that area.
 
-Sigh. The deleterious effect of gatekeeping.
+Sigh. The deleterious effect of gatekeeping. Like is there some insecurity at play here for the author that requires he front his meisterness? 
 
 Though what if...I wonder if the author actually intended to describe injectable factory as *simple* by Hickey's definition? Like, requiring less effort to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The root of the word is *one fold, braid, or twist*. That does seem to be accomplished in the design. Nevertheless, I can't get over the heavy connotation of reader culpability and capability  implied in the (weak) qualification of "pretty simple." Language is weird.
 
