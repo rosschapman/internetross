@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 18px;
+  font-weight: lighter;
+  background: black;
+}
+.SmallSizeShow {
+  display: none;
+}
+.BackgroundImages {
+  position: fixed;
+  margin-left: 38.5em;
+}
+.BackgroundImages img {
+  width: 23em;
+  display: block;
+}
+.container {
+  position: absolute;
+  font-family: helvetica;
+  padding: 30px 50px;
+  max-width: 38.5em;
+  background: white;
+}
+img {
+  text-align: center;
+}
+p {
+  line-height: 1.5;
+}
+div p:last-child {
+  margin-bottom: 2em;
+}
+a:focus {
+  position: relative;
+  top: 1px;
+}
+h2 {
+  line-height: 1.3;
+}
+li {
+  margin-bottom: 1em;
+}
+small {
+  width: 100%;
+  display: block;
+  font-family: arial;
+}
+small p {
+  font-size: .8rem;
+  border-left: 2px solid #FC6098;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+  margin: 0;
+}
+small p:last-child {
+  padding-bottom: 0;
+}
+.Me {
+  width: 150px;
+  height: 150px;
+}
+.Space {
+  display: inline-block;
+  width: 1em;
+}
+.CodeTypography {
+  font-family: courier;
+}
+code {
+  background: #f1f1f1;
+  font-size: 13px;
+  color: #FC6098;
+}
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .container {
+      padding: 1em;
+    }
+    .SmallSizeShow {
+      display: block;
+      width: 100%;
+    }
+    small {
+      margin-top: 1em;
+    }
+  }
