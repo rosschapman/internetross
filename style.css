@@ -1,92 +1,128 @@
+/*  RESETS */
+
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Who wants their divs sticking out anyway?? */
 }
+
 body {
-  margin: 0;
-  font-size: 18px;
-  font-weight: lighter;
   background: black;
+  position: relative;
 }
-.SmallSizeShow {
-  display: none;
+
+p:first-child {
+  margin-top: 0;
 }
-.BackgroundImages {
-  position: fixed;
-  margin-left: 38.5em;
-}
-.BackgroundImages img {
-  width: 23em;
-  display: block;
-}
-.container {
-  position: absolute;
-  font-family: helvetica;
-  padding: 30px 50px;
-  max-width: 38.5em;
+
+main {
+  width: 700px;
+  padding: 25px 40px;
   background: white;
+  margin: 0 auto;
+  box-shadow: 6px 7px 1px #656565;
 }
-img {
+
+main p:last-child {
+  margin-top: 0;
+}
+
+main p:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   text-align: center;
 }
-p {
-  line-height: 1.5;
+
+figure {
+  margin: 0 0 20px;
 }
-div p:last-child {
-  margin-bottom: 2em;
+
+figure > img {
+  max-width: inherit;
 }
-a:focus {
-  position: relative;
-  top: 1px;
+
+figcaption {
+  margin-top: 1em;
+  font-size: .6em;
+  color: gray;
 }
-h2 {
-  line-height: 1.3;
-}
-li {
-  margin-bottom: 1em;
-}
-small {
-  width: 100%;
-  display: block;
-  font-family: arial;
-}
+
 small p {
-  font-size: .8rem;
-  border-left: 2px solid #FC6098;
+  border-left: 1em solid #FC6098;
   padding-left: 1em;
-  padding-bottom: 0.5em;
+  padding-bottom: 5px;
   margin: 0;
 }
+
 small p:last-child {
   padding-bottom: 0;
 }
-.Me {
-  width: 150px;
-  height: 150px;
+
+/* 
+  TYPOGRAPHY
+  
+  I know it's unconventional to separate styling by purpose across 
+  classes, but if you're personal website isn't a sandbox then you're
+  doing it wrong I say!
+*/
+
+/* Fancy ampersand method courtesy of Lea Verou in CSS Secrets */
+@font-face {
+  font-family: Ampersand;
+  src:  local('Baskerville'),
+        local('Goudy Old Style'),
+        local('Garamond'),
+        local('Palatino');
+  unicode-range: U+26;
 }
-.Space {
-  display: inline-block;
-  width: 1em;
+
+body {
+  font-variant: common-ligatures;
+  font-size: 18px; /* a little bigger than default */
 }
-.CodeTypography {
-  font-family: courier;
+main {
+  font-family: Ampersand, Helvetica, Arial, sans-serif;
+  hyphens: manual;
+  line-height: 1.5;
 }
-code {
-  background: #f1f1f1;
-  font-size: 13px;
-  color: #FC6098;
+
+small p {
+  font-size: .8em;
 }
+
 @media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    .container {
+  and (min-width: 320px)
+  and (max-width: 699px) {
+    main {
+      width: 100%;
+      max-width: max-content;
       padding: 1em;
     }
-    .SmallSizeShow {
-      display: block;
-      width: 100%;
+
+    h2 {
+      font-size: 1.3em;
+      font-weight: bold;
     }
-    small {
-      margin-top: 1em;
+
+    figure,
+    iframe {
+      max-width: 100%;
     }
   }
+
+  /* body.centered {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  body.centered main {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    resize: vertical;
+    margin: 0 auto;
+  } */

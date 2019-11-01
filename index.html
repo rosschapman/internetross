@@ -3,186 +3,25 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Ross Chapman - Symathecist in the medium of software</title>
-      <meta description="Personal website of Ross Chapman, symathecist in the medium of software">
+      <title>Ross Chapman</title>
+      <meta description="Personal website of Ross Chapman">
       <meta name="viewport" content="width=device-width">
-
-      <style>
-        /*  RESETS */
-        
-        * {
-          box-sizing: border-box; /* Who wants their divs sticking out anyway?? */
-        }
-        
-        body {
-          background: black;
-        }
-
-        p:first-child {
-          margin-top: 0;
-        }
-
-        main {
-          margin: 0 auto;
-          width: 700px;
-          padding: 30px 50px;
-          background: white;
-        }
-
-        figure {
-          text-align: center;
-          width: max-content;
-          margin: auto;
-        }
-
-        figure > img {
-          max-width: inherit;
-        }
-
-        figcaption {
-          margin-top: 1em;
-          font-size: .6em;
-          color: gray;
-        }
-       
-        small p {
-          border-left: 1em solid #FC6098;
-          padding-left: 1em;
-          padding-bottom: 5px;
-          margin: 0;
-        }
-
-        small p:last-child {
-          padding-bottom: 0;
-        }
-
-        /* 
-          TYPOGRAPHY
-          
-          I know it's unconventional to separate styling by purpose across 
-          classes, but if you're personal website isn't a sandbox then you're
-          doing it wrong I say!
-        */
-        
-        /* Fancy ampersand method courtesy of Lea Verou in CSS Secrets */
-        @font-face {
-          font-family: Ampersand;
-          src:  local('Baskerville'),
-                local('Goudy Old Style'),
-                local('Garamond'),
-                local('Palatino');
-          unicode-range: U+26;
-        }
-        
-        body {
-          font-variant: common-ligatures;
-          font-size: 18px; /* a little bigger than default */
-        }
-        main > * {
-          font-family: Ampersand, Helvetica, Arial, sans-serif;
-          font-weight: lighter;
-          hyphens: manual;
-          line-height: 1.5;
-        }
-
-        small p {
-          font-size: .8em;
-        }
-       
-        @media only screen
-          and (min-width: 320px)
-          and (max-width: 699px) {
-            main {
-              width: 100%;
-              max-width: max-content;
-              padding: 1em;
-            }
-
-            h2 {
-              font-size: 1.3em;
-              font-weight: bold;
-            }
-
-            figure,
-            iframe {
-              max-width: 100%;
-            }
-          }
-      </style>
+      <link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/225/person-raising-both-hands-in-celebration_1f64c.png">
+      <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
+  <body class="centered">
     <main>
-      <figure>
-        <img style="border-radius: 50%" src="assets/images/me-old-2.jpg" width="130" height="130">
-        <figcaption>Ross Chapman, a website</a>
-      </figure>
-      <p>Hey all! My name is Ross Chapman and I'm a web developer from San Francisco - the inimitable trillicon valley tech zeitgeist. Currently I'm building interfaces for advanced ticketing products at Eventbrite.</p> 
-
-      <p>My original roots are in the soil of Chicago. I was raised on 90s Bulls and bday parties at Dennis' Place for Games -- a vortex of multiplayer arcade boxes. Buttons our small fingers couldn't press hard enough for eternities that were never long enough. I'm not a huge tech nostalgist, but my life lived before ad-driven internet definitely urges me in front of screens again and again with aspirational feels.</p>
-
-      <figure>
-        <img src="assets/images/dennis-place-for-games.jpg">
-      </figure>
-
-      <figure>
-        <img src="assets/images/bulls-90s.jpg">
-        <figcaption>So much love for this era.</figcaption>
-      </figure> 
       
-      <h2>A little bit more about professional me</h2>
-
-      <p>Why do I do the internet for a living? It likely started with adventurous spreadings through hyperlinked documents in Microsoft Encarta on a friend's computer as a kid; being able to control playback of that bald eagle swoop down for that fish; jump to other pages with even more videos; so cool. Another possibility: it was that deep space of anything goes while the cursor blinked at the DOS prompt on my Dad's Apple IIe. Like, maybe I could really do crazy stuff with this interactive tv. Serious excitement ensued over simple stuff like initializing programs and traversing directory trees. (I also played a ton of <a href="https://en.wikipedia.org/wiki/Bubble_Bobble">Bubble Bobble</a>.) Another key moment may have been ~1999, when I was a senior in high school. I edited an eBay web page during a summer internship. Just changed some font sizes and colors. But it was soooo satisfying to see those changes go live so instantaneously.</p>
-
       <figure>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vgCvjppDwN8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <figcaption>Pretty sure this is the actual video from Encarta.</figcaption>
+        <img src="bitme.jpg" width="110" height="120">
       </figure>
-
-      <p>Alas, I had an artistic side too. And that side just got more love through my teens and the college years. If you had asked me at 12 years old, bent over a sketch book contouring charcoal nudes in one of the seeming infinite halls of the Art Institute: hey kid, what do you want to be when you grow up? I'd probably reply, shyly: a loose t-shirt wearing painter sitting around in European cafes in the 1920s. Shakespeare <span class="amp"></span>& Co. or what have you.</p>
-      
-      <p>Always a bit of a romantic.</p>
-
-      <p>Fast forward a bit to college. Another key moment: the mind explosion when I saw the ILOVEYOU worm corrupt a hard-drive in real-time at a gallery put on by the Watson Institute's <a href="http://www.infopeace.org/ppn/">InfoTechWarPeace project</a> where I interned. You might say I was getting seriously wooed by hacker advances. (And falling a bit, too, for the dashing deutsche curator of that show, Franziska Nori).</p>
-
-      <figure>
-        <img src="assets/images/i-love-you.jpg">
-      </figure>
-
-      <p>Then I touched down in the Yay Area in 2007, a couple years after college with some organic food experience notched to my belt. At this touchpoint of Valley history Twitter was a year launched and the SaaS bookmark service wars were reaching crescendo (do you remember???). It was practically inevitable to jack in during those times. Peeps at a networking function: what can you do [on the computer]? Me: well I've built a couple websites?? The way their eyes would just light up...</p>
-
-      <p>In 2013 I got my first job building web applications at Science Exchange after a few years of IA work and writing a bunch of CSS for the  Zendesk marketing team. Interestingly, before SciEx I was a bit ambivallent about continuing to be paid to give computers instructions. I even went through a product <i>design</i> interview process with another small company at the time called Ripple (now not so small).</p>
-      
-      <p>But fate would have it: at Science Exchange I worked with some amazeball folks who's overall stokedness about web dev wired the boring and hard stuff into my curiosity drive. And then there was joy of software teams: lunch and learns, conference field trips, book club, the spirited architectural design debates. I came to understand that I loves me some ridiculous optimism and enthusiasm and obsession with building castles of air with people. I'm not looking back.</p>
-
-      <p>And so here we are. After some initial clogs, flirts, and fancies with the web, I'm like ~7 years into a professional career designing, developing, and debugging useful web things. Suddenly you look up from Land of Lisp and it's like whoa...this ish is great. I'm totally I/O bound and hanging ten on the info highway. It suits me well as a ravenous learner and (still) romantic optimist about the power of the open web. This is a pleasing livelihood of exponentializing ahas and obsessions and happy wtfs as you go deeper and follow the rhizomatic spread into things that empower so many things. The implicit return? Any given day I'm caring more than I ever thought I would about a big world of web stuff.</p>
-      
-      <p>Like: higher order funcs and how functional is cool but like it feels awkward to say the word "pure" so much, ActiveRecord or DataMapper, tryna use this 418 status code, what to do at the corners of REST, empathetic teams, effing CORS, URLs ARE IMPORTANT, how ad-driven web is a bit sad, sharing state in complex single page apps, the emotional side of technical debt, to Flow?, code reviews for team awesomeness not for speed, battling imposter syndrome, wait is this agile?, parameterized queries, discovering the right metaphors to describe what I'm actually doing, studying Martin Fowler, Aditya Bhargava, Kyle Simpson, Sandi Metz, Lea Verou, and more.</p>
-
-      <figure>
-        <img src="assets/images/internet_kids.jpg" width="500">
-        <figcaption>
-          Remember when the internet was for doing anything?
-        </figcaption>
-      </figure>
-
-      <h2>I do like writing about this journey as a community-taught programmer</h2>
-
-      <p>Learning never stops in the software biz. Technology change is a constant. Our community and industry is really excited about how to get better. Gordon Moore is forcing things along hella fast and you gotta keep up. (Or was it Fred Moore?)</p>
-
-      <p>Many coders fold this learning back into code in the form of side projects; always the bricoleurs. I've found writing to be a satisfying outlet for working over the TILs--though I did <a href="https://github.com/rosschapman/if-ross-wrote-javascript">hack a bit of node</a> recently to spread my JavaScript wings to the server. In many ways I write for me, and that's why some of my phrasing reads like e.e. cummings, or me after a couple pinots. But I do keep you in mind. Although I imagine you as someone who writes some code or helps build web products in some fashion. If you want to keep going, here's a sample of what I might call my professional web dev diary (with the whole rest of the lot <a href="https://medium.com/@internetross">here</a>):</p>
-      
-
-      <ul>
-        <li><a href="https://medium.com/@internetross/dakku-hanto-how-poodr-helped-me-solve-the-case-and-find-the-duck-who-i-named-a-crime-fighting-duck-78e7a74953e7">Dakku Hanto: How POODR helped me solve the case and find the duck who I named a crime fighting duck</a></li>
-        <li><a href="https://medium.com/@internetross/two-years-a-cloudgineer-technical-debt-b60a83e08a97#.9he4koe6q">Two years a cloudgineer: technical debt limbo</a></li>
-        <li><a href="https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583#.wzoddph7h">“do” helper for emphasis in variable naming</a></li>
-        <li><a href="https://medium.com/@internetross/ie-disco-dev-fa37a65703b0#.2za2dt9x3">IE 8: disco dev</a></li>
-        <li><a href="https://medium.com/@internetross/one-year-a-cloudgineer-optimism-b93fa8642173#.hkmlmneee">One year a cloudgineer: Optimism</a></li>
-      </ul>
-      <small>
-        <p>This site was left aligned with CSS2 and transpiled by gofunctionalyourself.js inside an 8-bit TCP switch packet for SEM optimization. Ask my friend Mike, he'll tell you all about it.</p>
-        <p>&copy; MIT/GPL/RZA/GZA/Bill Murray 🛀</p>
-      </small>
+      <h2>Hey all! I'm Ross Chapman <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/232/waving-hand-sign_emoji-modifier-fitzpatrick-type-1-2_1f44b-1f3fb_1f3fb.png" height="25" style="position: relative; top: 3px; margin-right: 5px;"></h2>
+      <p>I'm a software engineer with six years experience in the industry building products end-to-end with a strong focus on rich JavaScript applications.</p> 
+      <p>I have worked in old and new codebases both small and large and enjoy the problems and challenges attendant to each. </p>
+      <p>Recently I started <a href="/blog"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/232/writing-hand_emoji-modifier-fitzpatrick-type-1-2_270d-1f3fb_1f3fb.png" height="25" style="position: relative; top: 3px;"></a> more to reflect on code and being a coder. It's a pretty good <a href="/blog">window</a> into what I'm thinking through at the moment.</p>
+      <p>Looking for a technical mentor? I'd love to help you level up in <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/600px-JavaScript-logo.png" height="18" style="position: relative; top: 3px; margin-right: 5px;">, <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" height="18" style="position: relative; top: 3px; margin-right: 5px;">, <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" height="18" style="position: relative; top: 3px; margin-right: 5px;">, and testing. For 2+ years I've mentored  early-career software engineers both in a formal company setting, and as co-founder of a bi-monthly in-person gathering. </p> 
+      <p><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/225/necktie_1f454.png" height="22" style="position: relative; top: 3px; margin-right: 5px;">Check out my full resume on  <a href="https://www.linkedin.com/in/rosschapman/">LinkedIn</a>.</p>
+      <p><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/220/e-mail-symbol_1f4e7.png" height="25" style="position: relative; top: 5px; margin-right: 5px;">Contact me at rosschapman@gmail.com.</p>
     </main>
   </body>
   <script>

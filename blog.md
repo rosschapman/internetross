@@ -32,9 +32,9 @@ While leafing through my daily software briefs I came across an article with tha
 
 The article is another offering to the OO world which introduces the dependency indirection "injectable factory" design pattern as a cure for "rigid direct dependencies" in unit tests. Super simple stuff.
 
-Also just LOL the indexical disambiguation science of the OO world; fucking riveting. A true [kingdom of nouns](https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html).
+Also just LOL the indexical disambiguation science of the OO world. I'm just in love with Steve Yegge's satire about this. A true [kingdom of nouns](https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html). Frankly it's a deliciously bookish world compared to JS-land where it's function function function function.
 
-I think the article is just a way of instructing the use of mocks without dependency injection, helping you avoid writing a service implementation for your tests that looks like this: 
+If I grokked it right, I think the article is just a way of instructing the use of mocks without dependency injection, helping you avoid writing a service implementation for your tests that looks like this: 
 
 ```java
 public class OrderServiceImpl implement OrderService {
@@ -62,7 +62,7 @@ public class OrderServiceImpl implement OrderService {
 }
 ```
 
-Ah yeah that looks hairy. I'm flashing to JavaScript files with dozens of `import` statements. 
+Ah yeah that looks hairy. I'm flashing to Jest unit tests where small function implementation details are mocked all the way down. 
 
 I remember a moment, a phase if you will, in my first couple of years working professionally as a softwhere engineer when I thought that understanding OO design patterns was part of our right of passage into...seniority, I guess? At the time I was beginning to write more in the Rails parts of our codebase and as a consequence, began inheriting a pressure, a notion -- from where I'm not sure -- to achieve familiarity with common OO design patterns.
 
@@ -79,12 +79,12 @@ Umm great, so what you're proposing is just a fancy name for something I probabl
 It's so simple I just need to have a solid undertanding of these (what must be other simple) concepts as well:
 
 1. dependency injection
-1. a value holder (probably Java slang for some kind of variable?)    
-1. mutable value holder    
-1. factory pattern    
-1. service locater pattern    
-1. singleton pattern    
-1. ambient context pattern    
+2. a value holder (probably Java slang for some kind of variable?)    
+3. mutable value holder    
+4. factory pattern    
+5. service locater pattern    
+6. singleton pattern    
+7. ambient context pattern    
 
 I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which is a linguistic casuality which creates confusion in our industry about what "simple" or "easy" software really is or achieves.  In the talk Hickey helps recoup a specificity for each word through an etymological tracing. Distilled you take away that *simple* is objective and *easy* is relativistic.
 
