@@ -22,8 +22,32 @@
 }
 </style>
 
+### More about anointed princes and gatekeeping culture
+###### 11/7/2019
+
+Ok, gonna brain dump a little because I got excited about some synergy!
+
+Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on  geek culture gatekeeping. This idea of of our "think culture." Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in a blog that made me feel shitty. I feel validated. 
+
+Feels! 
+
+I like that he backtracks the finger-pointing though; like, fire with fire is a a non-helpful meanness here. But also anger first is ok. Anger is clarifying as Fleet Maull once told me many years ago (I interviewed him out in western Mass about life as a Buddhist in prison; a story for another time). Or, like, today during the Human Dimension of Business training at work we practiced the art of the *rant* -- just get all that blame and seething out -- as a bridge step to toward truth and clarity; and as a way to measure and check our extra assumptions against the NVC-like framework ("The facts are...", "I feel...", etc...). 
+ 
+
+There's some interesting stuff in Gee Paw's reflection. I feel armed with richer clues about where gatekeeping culture is inherited from, and inspired again work with it in my own being.
+
+Loneliness, isolation, computer as friend, for some of these guys. I mean these are kind of obvious origin story props that will perpetuate harm and abuse across generations. It also may be a narrative setup for geek thinness that Gee Paw warns us to see for fiction.
+
+But I think, bringing his frame of three gatekeeping behaviors that keep our culture narrowly defined -- "badging, self-blindedness, atemporality" -- to any reading or conversation with the *anointed princes* in our industry will likely save us from feelings of smallness. (Those of us who came in through the side door; ie not academia). And to my fellow white dudes, it will help us break the cycle of abuse. 
+
+Lets freestyle this a **little**:
+
+- Not badging. "I look like an eningeer." "You look like an engineer." Ugh, let's not deploy the informal logical <a href="https://en.wikipedia.org/wiki/No_true_Scotsman">*no true Scotsman*</a> fallacy to move the goal post for what an engineer means. There's so much more to coding than producing code artifacts in a text editor. 
+- Self-awareness. "My story is not the only story." Am I projecting my loneliness and sense of scarcity? Lately I've really been feeling the idea that patriarchy teaches that there is a scarcity of power. If only there was someone capable of wielding the power that's there for the taking, then, then real change could be achieved. Why do we use an authorative voice in technical writing? Software is always so messy. Mastery should not be tied to self-worth.
+- Historical. There used to be more women in tech but men kicked them out. Hidden figures. Our industry was born out of cold war-time fear. Our interview practices were designed to select codebreakers. Our greatest successes have created more work, not less; have created the perfect, legal, capitalistic social engineering appliance for foreign powers to influence our democracy.
+
 ### Harmful ways to write about software
-##### 10/10/2019
+###### 10/10/2019
 
 *Dispatch from Soekarno-Hatta International Airport.*
 *Arrived way too early because of traffic fantasies.*
@@ -118,7 +142,7 @@ Is easiness achieved?:
 
 ### A better term for unintentional technical debt
 #### Tags: technical debt
-##### 10/6/2019
+###### 10/6/2019
 
 The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we had been toiling  in the last two weeks was now a super bloom of contributions from different teams. The code had become hard to reason about making it difficult to safely change. We call this too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
 
