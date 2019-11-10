@@ -254,9 +254,9 @@ Take XOR. Which in more layman terms is "exclusive OR". In JavaScript XOR will r
 
 As it turns out, this happens to be the very logic we need for testing existence between two dependent form fields. 
 
-At Eventbrite our UI library has graphical pickers for both date and time form fields. These are placed next to each other and are both required. Even if we initialize the fields with sensible defaults for current date and time, the user is free to change their values. This means the user could easily end up leaving one field blank -- and not having an exact date and time for ticket sales dates doesn't really make sense. Since we want to give the user some immediate feedback if they put the form in this state, we run an XOR validation on blur of either field. 
+At Eventbrite our UI library has graphical pickers for both date and time form fields. Our designs typically place these individual components next to each other and make them required. The user is free to change their values, though we do provide sensible defaults. One not so surprising possibility is that a user can leave one field blank by accident. Of course, not having an exact date and time for ticket sales dates doesn't really make sense. Therefore, since we want to give the user some immediate feedback if they put the form in this state, we run a validation on blur using XOR logic! 
 
-In order tocheck existence, we don't want to bitwise compare the two sides of the expression directly which could be many kinds of strings. To make the comparison reliable, we cast each side to boolean values with a bang. Then we wrap up the expression in a composable function. The result is a very concise one-liner: 
+Nonetheless, for checking existence, we don't want to bitwise compare the two sides of the expression directly which could be many kinds of strings. To make the comparison reliable, we cast each side to boolean values with a bang. Then we wrap up the expression in a composable function. The result is a very concise one-liner: 
 
 ```
 const isOneTruthyAndTheOtherNot = (a, b) => !a ^ !b;
