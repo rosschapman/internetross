@@ -31,10 +31,9 @@ Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-cul
 
 Feels! 
 
-I like that he backtracks the finger-pointing though; like, fire with fire is a a non-helpful meanness here. But also anger first is ok. Anger is clarifying as Fleet Maull once told me many years ago (I interviewed him out in western Mass about life as a Buddhist in prison; a story for another time). Or, like, today during the Human Dimension of Business training at work we practiced the art of the *rant* -- just get all that blame and seething out -- as a bridge step to toward truth and clarity; and as a way to measure and check our extra assumptions against the NVC-like framework ("The facts are...", "I feel...", etc...). 
+I like that he backtracks the finger-pointing though; like, a fire with fire counter is a non-helpful meanness here. But also, I'd argue some anger first is ok. "Anger is clarifying" -- as Fleet Maull once told me many years ago. Or maybe a tool. Today during the Human Dimension of Business training at work we practiced the art of the *rant* -- privately journal your story of blame -- as a bridge step to toward truth and clarity; and as a way to measure and check our extra assumptions against the NVC-like framework ("The facts are...", "I feel...", etc...). 
  
-
-There's some interesting stuff in Gee Paw's reflection. I feel armed with richer clues about where gatekeeping culture is inherited from, and inspired again work with it in my own being.
+There's some interesting stuff in Gee Paw's reflection. I feel armed with richer clues about where gatekeeping culture is inherited from, and inspired again to  work with it in my own being.
 
 Loneliness, isolation, computer as friend, for some of these guys. I mean these are kind of obvious origin story props that will perpetuate harm and abuse across generations. It also may be a narrative setup for geek thinness that Gee Paw warns us to see for fiction.
 
