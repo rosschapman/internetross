@@ -39,7 +39,7 @@ Loneliness, isolation, computer as friend, for some of these guys. I mean these 
 
 But I think, bringing his frame of three gatekeeping behaviors that keep our culture narrowly defined -- "badging, self-blindedness, atemporality" -- to any reading or conversation with the *anointed princes* in our industry will likely save us from feelings of smallness. (Those of us who came in through the side door; ie not academia). And to my fellow white dudes, it will help us break the cycle of abuse. 
 
-Lets freestyle this a **little**:
+Lets freestyle this a little bit:
 
 - Not badging. "I look like an eningeer." "You look like an engineer." Ugh, let's not deploy the informal logical <a href="https://en.wikipedia.org/wiki/No_true_Scotsman">*no true Scotsman*</a> fallacy to move the goal post for what an engineer means. There's so much more to coding than producing code artifacts in a text editor. 
 - Self-awareness. "My story is not the only story." Am I projecting my loneliness and sense of scarcity? Lately I've really been feeling the idea that patriarchy teaches that there is a scarcity of power. If only there was someone capable of wielding the power that's there for the taking, then, then real change could be achieved. Why do we use an authorative voice in technical writing? Software is always so messy. Mastery should not be tied to self-worth.
