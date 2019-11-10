@@ -17,7 +17,7 @@
     padding: 6px 13px;
     border: inherit;
 }
-.markdown-body h3 {
+.markdown-body h3:not(:first-of-type) {
     border-top: 1px solid #d4d4d4;
     padding-top: 2em;
 }
