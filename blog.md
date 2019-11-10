@@ -77,7 +77,7 @@ What's in a name? Sigh, we don't have the luxury of poetic soliloquy when gettin
 `- <-{@`
 
 ### More about anointed princes and gatekeeping culture
-#### gatekeeping, software industry, gee paw hill
+#### Tags: gatekeeping, software industry, gee paw hill
 ###### 11/7/2019
 
 Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some some of peeps 
@@ -101,6 +101,7 @@ Lets freestyle this a little bit:
 - Historical. There used to be more women in tech but men kicked them out. Hidden figures. Our industry was born out of cold war-time fear. Our interview practices were designed to select codebreakers. Our greatest successes have created more work, not less; have created the perfect, legal, capitalistic social engineering appliance for foreign powers to influence our democracy.
 
 ### Harmful ways to write about software
+#### Tags: gatekeeping, java, oop
 ###### 10/10/2019
 
 *Dispatch from Soekarno-Hatta International Airport.*
