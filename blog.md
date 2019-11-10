@@ -25,9 +25,9 @@
 ### More about anointed princes and gatekeeping culture
 ###### 11/7/2019
 
-Ok, gonna brain dump a little because I got excited about some synergy!
+Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some some of peeps 
 
-Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on  geek culture gatekeeping. This idea of of our "think culture." Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in a blog that made me feel shitty. I feel validated. 
+Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on  geek culture gatekeeping. This idea of our "thin culture." Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in a blog that made me feel shitty. I feel validated. 
 
 Feels! 
 
