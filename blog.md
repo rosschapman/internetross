@@ -22,12 +22,38 @@
 }
 </style>
 
+### “do” helper for emphasis in variable naming 
+##### 11/10/2019
+
+[REPOSTED FROM MEDIUM](https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583) 
+
+However you mental wrap the process of realizing virtual things (writing, accretion, rose gardening), there’s no question literary-ness does imprint at some point on IDE surfaces. In my experience working in the higher stories of the tower (cloudgineering, we so high): up there with web pages, casually cast instructions inRuby and JavaScript, cascades in hierarchical CSS computer notation, and declarative document formatters (XML, HTML); up here you’re definitely notating control flows and arguments that require semblances to English lang. Arguments. Computer languages.
+
+The other day I surprised myself by forming an excited opinion during code review about what a variable should be called. I guess the time had done arrived; I had spent just enough time in Ember and client state management to become OCD about the signifiers being passed around. And so I found myself feeling incomplete when I read over a line of code announcing a state change event that facetChanged. I can’t totally explain it but this wording felt insufficient. I instinctively wanted more. Needed surge troops. Something like…facetDidChange.
+
+The difference is slight, but important.
+
+(It’s hard, y’all. One of two things.)
+
+I researched the grammar to figure out why the variable was letting me down.
+
+Turns out the “do” helping verb isn’t a special thing. But when added to another verb in the preterite, it increases emphatic assertion heaping deeper credibility on the thing that did happen. You can really feel it on your brain tongue, right? The additional slam ofd in the phrase, like doors shutting — the hardness more certain.
+
+Or maybe the reassurance is there because of the influence of the black/southern dialect on modern American english; the Shakespearian-like emphasis where past finality is hammered home when something done happened, or 2x emphasized when someone done did.
+
+The code doth protest too much??
+
+Eh, I didn’t push for a rewrite in the code review. Naming is a bar brawl and sometimes you fight and sometimes you don’t. The author is balancing empathy for their colleagues with their own mental frame of the application at the moment they create the code; and then there are many an english word and conventional abbreviations, degrees of formality and tone. There’s a reason Steve McConnell dedicates 30 pages on The Power of Variable Names. And this section doesn’t even explicitly tackle naming receivers, subscribers, etc…
+
+Just tryna make sense of what these users be doing.
+
 ### More about anointed princes and gatekeeping culture
+#### gatekeeping, software industry, gee paw hill
 ###### 11/7/2019
 
 Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some some of peeps 
 
-Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on  geek culture gatekeeping. This idea of our "thin culture." Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in some other internet writing that made me feel poopy. I feel validated. 
+Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on geek culture gatekeeping (I think we can basically proxy *software industry* for geek culture here). He presents this notion of our geek culture as "thin culture"; boundaried, exclusive. Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in some other internet writing that made me feel poopy. I feel validated. 
 
 Feels! 
 
