@@ -17,6 +17,10 @@
     padding: 6px 13px;
     border: inherit;
 }
+.markdown-body h3 {
+    border-top: 1px solid #d4d4d4;
+    padding-top: 2em;
+}
 .gist .blob-num:hover {
     color: inherit;
 }
