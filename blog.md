@@ -23,11 +23,12 @@
 </style>
 
 ### “do” helper for emphasis in variable naming 
+#### naming
 ##### 11/10/2019
 
 [REPOSTED FROM MEDIUM](https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583) 
 
-However you mental wrap the process of realizing virtual things (writing, accretion, rose gardening), there’s no question literary-ness does imprint at some point on IDE surfaces. In my experience working in the higher stories of the tower (cloudgineering, we so high): up there with web pages, casually cast instructions inRuby and JavaScript, cascades in hierarchical CSS computer notation, and declarative document formatters (XML, HTML); up here you’re definitely notating control flows and arguments that require semblances to English lang. Arguments. Computer languages.
+However you mental wrap the process of realizing virtual things (writing, accretion, [rose gardening](#whats-in-a-name)), there’s no question literary-ness does imprint at some point on IDE surfaces. In my experience working in the higher stories of the tower (cloudgineering, we so high): up there with web pages, casually cast instructions inRuby and JavaScript, cascades in hierarchical CSS computer notation, and declarative document formatters (XML, HTML); up here you’re definitely notating control flows and arguments that require semblances to English lang. Arguments. Computer languages.
 
 The other day I surprised myself by forming an excited opinion during code review about what a variable should be called. I guess the time had done arrived; I had spent just enough time in Ember and client state management to become OCD about the signifiers being passed around. And so I found myself feeling incomplete when I read over a line of code announcing a state change event that facetChanged. I can’t totally explain it but this wording felt insufficient. I instinctively wanted more. Needed surge troops. Something like…facetDidChange.
 
@@ -46,6 +47,20 @@ The code doth protest too much??
 Eh, I didn’t push for a rewrite in the code review. Naming is a bar brawl and sometimes you fight and sometimes you don’t. The author is balancing empathy for their colleagues with their own mental frame of the application at the moment they create the code; and then there are many an english word and conventional abbreviations, degrees of formality and tone. There’s a reason Steve McConnell dedicates 30 pages on The Power of Variable Names. And this section doesn’t even explicitly tackle naming receivers, subscribers, etc…
 
 Just tryna make sense of what these users be doing.
+
+### What's in a name?
+#### naming
+##### 11/10/2019
+
+There's always heated babbling (err…babeling) on the cyberspace to assign metaphor to our embryonic field of building digital things: writing || engineering || accretion. One thing for sure, humans have a religious proclivity to conquistador in the bikeshed when faced with terra incognita. Perhaps, ironically, because it's something of a science and therefore seems to ask for a pinning down. But these guys, some of us, just seem unable to leave it alone to variance; to let it lie under a broad, mercurial atmospheric plane of something like creating.
+I remember when I attended my first Railsconf in 2014. In the opening keynote DHH made a todo about software writing (and more famously that TDD was dead).
+Hello, World!
+Fucking comma in there. You got an author-face bro.
+At that time, 2014 in Chi-city (my place of birth), I was too green building product to really care what you called what I was doing. (Maybe I'll never actually care that much.) It wouldn't have helped me get a quicker handle on the revealing module pattern.
+And then, a couple days later in the closing keynote, Aaron Patterson rebukes the writing metaphor and talks about the advanced engineering of improving Rails 4 query performance. They totally did that on purpose. Those bros.
+What's in a name? Sigh, we don't have the luxury of poetic soliloquy when getting business done and keeping this company afloat. Shitty code smells like shit no matter what you call it. I'm not gonna care too much for now what the pontificators put on the RHS.
+
+`- <-{@`
 
 ### More about anointed princes and gatekeeping culture
 #### gatekeeping, software industry, gee paw hill
