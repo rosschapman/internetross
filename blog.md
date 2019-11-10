@@ -286,7 +286,7 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 > "Performs the XOR operation on each pair of bits. a XOR b yields 1 if a and b are different"
 
-The docs will also introduce you to an algorithmic decision table, which is another useful tool to expose new developers to. We all should be in the habit of writing decision tables more:
+The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
 a |b |a XOR b
 :-----:|:-----:|:-----:
