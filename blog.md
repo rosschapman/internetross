@@ -52,6 +52,8 @@ Just tryna make sense of what these users be doing.
 #### naming
 ##### 11/10/2019
 
+[REPOSTED FROM MEDIUM](https://medium.com/p/a60460494e93/edit)
+
 There's always heated babbling (err…babeling) on the cyberspace to assign metaphor to our embryonic field of building digital things: writing || engineering || accretion. One thing for sure, humans have a religious proclivity to conquistador in the bikeshed when faced with terra incognita. Perhaps, ironically, because it's something of a science and therefore seems to ask for a pinning down. But these guys, some of us, just seem unable to leave it alone to variance; to let it lie under a broad, mercurial atmospheric plane of something like creating.
 I remember when I attended my first Railsconf in 2014. In the opening keynote DHH made a todo about software writing (and more famously that TDD was dead).
 Hello, World!
