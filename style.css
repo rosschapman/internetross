@@ -129,3 +129,12 @@ small {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
+
+.linkedin {
+  position: relative;
+}
+
+.linkedin:hover {
+  font-weight: bold;
+  top: 1px;
+}
