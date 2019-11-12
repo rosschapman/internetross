@@ -81,7 +81,7 @@ small p:last-child {
 
 body {
   font-variant: common-ligatures;
-  font-size: 18px; /* a little bigger than default */
+  font-size: 17px; /* a little bigger than default */
 }
 main {
   font-family: Ampersand, Helvetica, Arial, sans-serif;
