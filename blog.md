@@ -80,7 +80,7 @@ What's in a name? Sigh, we don't have the luxury of poetic soliloquy when gettin
 #### Tags: gatekeeping, software industry, gee paw hill
 ###### 11/7/2019
 
-Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some some of peeps 
+Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some peeps in the trillicon valley zeitgeist. 
 
 Gee Paw Hill published a <a href="https://www.geepawhill.org/2019/11/01/thin-culture-and-stories/">blog</a> a few days ago that retrospects on geek culture gatekeeping (I think we can basically proxy *software industry* for geek culture here). He presents this notion of our geek culture as "thin culture"; boundaried, exclusive. Lo and behold I was pleasantly surprised to see him use the phrase "anointed princes" to describe the folks -- "they're usually men" -- who perpetrate the thinness. Yay because this is nearly identical language I used in my <a href="#harmful-ways-to-write-about-software">last post</a> for analyzing the behavior I saw in some other internet writing that made me feel poopy. I feel validated. 
 
