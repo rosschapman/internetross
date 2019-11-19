@@ -26,6 +26,33 @@
 }
 </style>
 
+### Maybe maybes and cut-rate compose
+#### Tags: naming, fp, javascript
+##### 11/18/2019
+
+Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Betwee persons.
+
+*How do I communicate to the next developer that this function might do one thing, or it might do another?*
+
+The other day I'm refactoring some code and picking apart a function to understand how it works. Let's call this function `saveThing`. It's about 60 lines. Kinda medium-sized but a lot of lines are neat procedural steps of computation. The part that's quizzical to me is a condition that will exit the function if the user is missing a permission. So...sometimes this function won't save a thing. 
+
+This is FUNKY. I want to rename the function to `maybeSaveThing` because the steadfast verbage seemed incorrect. Like, literally it was signaling something wrong to me about it's gist. I think I may have been particularly sensitive because I had already spent two days refactoring a bunch of code in this area and was becoming a bit exasperated with various kinds of misdirection. I really wanted the code to start being straight with me. But it's when we're weakest that we need the code to be *brutally* honest. Fixing critical bugs. Nearing deadlines. When stuff's happening at home. In the world. Ironically, these modes reveal the code's honest readability. 
+
+But this could be a matter of style. I'm not sure. I'm mulling it over. I have colleagues who think `maybeSaveThing` isn't really necessary. The internal conditional is obvious enough once you peer inside. I think I'm going to fight with them more about it. 
+
+I felt validated when a homie from a JS community I hang with on Slack gave me an example of production code from his place of work: 
+
+```
+componentDidUpdate() {
+    this.maybeRedirect();
+    this.updateTitle();
+    this.maybeDoActivation();
+    this.maybeInjectSampleTimelineItems();
+},
+```
+
+I LOVE this. Don't you think it reads nicely? Like, you can really understand the sequence. The *maybes* communicate a true story of many possibilities. I'm imagining refactoring this component transition block. These function names are helping me decide what to care about now or later; to *maybe* deal with them or not.
+
 ### “do” helper for emphasis in variable naming 
 #### Tags: naming
 ##### 11/10/2019
@@ -181,7 +208,7 @@ Even if the usage intent is closer to Hickey's *easy*, what about this list of l
 
 Sigh. The deleterious effect of gatekeeping. Like is there some insecurity at play here for the author that requires he front his meisterness? 
 
-Though what if...I wonder if the author actually intended to describe injectable factory as *simple* by Hickey's definition? Like, requiring less effort to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The root of the word is *one fold, braid, or twist*. That does seem to be accomplished in the design. Nevertheless, I can't get over the heavy connotation of reader culpability and capability  implied in the (weak) qualification of "pretty simple." Language is weird.
+Though what if...I wonder if the author actually intended to describe injectable factory as *simple* by Hickey's definition? As in, requiring less effort to "repurpose, substitute, move, combine, extend", and less coupled ("interleaved"). The root of the word is *one fold, braid, or twist*. That does seem to be accomplished in the design. Nevertheless, I can't get over the heavy connotation of reader culpability and capability implied in the (weak) qualification of "pretty simple." Language is weird.
 
 I'm thinking it's probably best to avoid "simple" and "easy" in technical writing. Let's not fuzzy match.
 
