@@ -26,8 +26,8 @@
 }
 </style>
 
-### Maybe maybes and cut-rate compose
-#### Tags: naming, fp, javascript
+### Maybe maybes
+#### Tags: naming, javascript
 ##### 11/18/2019
 
 Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Betwee persons.
