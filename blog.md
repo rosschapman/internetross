@@ -101,7 +101,6 @@ Maybe(data)
 
 A more basic JS solution might look like: 
 ```javascript
-let formattedKindPeople;
 const data = await fetchAllPeople(...);
 
 if (data) {
