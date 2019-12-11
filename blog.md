@@ -26,7 +26,7 @@
 }
 </style>
 
-### Maybe Eithers
+### Maybe Eithers with Promises
 #### Tags: functional programming, maybe, either, promises
 ##### 12/10/2019
 
