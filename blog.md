@@ -84,7 +84,7 @@ Elliot does an interesting rhetorical jiu jitsu by giving us new options for opt
 I've already been thinking about Maybes a lot recently. My last post was about using "maybe" in function names to battle the unrealistic binary of if/else with better signaling to other developers; like, a function may or may not complete it's designated purpose if an async call fails or an argument is unacceptable. The real word is far too fuzzy. In contrast to the imperatives of JS, FP languages substitute nullable data with algebraic structures that encapsulate possibilities of existence or nothingness. For example, the actual *Maybe* data type represents either a *Just* (truth, success, completion) or *Nothing* (false, error, incompatibility). Data that's wrapped in a Maybe and operated on won't leak a nullable into our program, like the commonly observed `undefined`. Obviously implementations vary across libaries. Here's a simple example from the [Practica](https://github.com/rametta/pratica) library which demonstrates the way that using Maybe can simplify code:
 
 ```javascript
-import { Maybe } from 'pratica'
+import { Maybe } from 'pratica';
 
 const data = await fetchAllPeople(...);
 
