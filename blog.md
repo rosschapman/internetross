@@ -30,7 +30,7 @@
 #### Tags: functional programming, maybe, either, promises
 ##### 12/10/2019
 
-A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that digs into options for handling `null` and `undefined`  in JavaScript. I read it. It lit up my memory. 
+A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that thinks through creative ways we can work with nullables in JavaScript. I read it. It lit up my memory. 
 
 One of the first Lambda Cast episodes I listened to was #6: *Null and Friends*. At this point in time I'm near the start of my FP explorations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's *Functional JavaScript Light*. I was fairly shocked to hear the bros discuss functional languages that are *designed* to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
 
