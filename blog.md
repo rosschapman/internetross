@@ -79,15 +79,53 @@ SyntaxError: expected expression, got '}'
 
 `Null` and `undefined` are optional in JS but they are not illegal. Haskell, on the other time, complains at compile time.
 
-Elliot does an interesting rhetorical jiu jitsu by giving us new options for optional values; in liue of eviscerating null from JS, we can work to push `null` to the edge of our programs with a handful of innovative approaches. Techniques include: constructing state machines -- highly determined object interfaces -- that error without values set to a wanted data type; ie *something*. We can also take advantage of that new new: Optional Chaining. And then there's borrowing from FP. The last I love. 
+Elliot does an interesting rhetorical jiu jitsu by giving us new options for optional values. In liue of eviscerating null from JS, we can work to push `null` to the edge of our programs with a handful of innovative approaches. Techniques include: constructing state machines -- highly determined object interfaces -- that error without values set to a wanted data type; ie *something*. We can also take advantage of that new new: Optional Chaining. And then there's borrowing from FP. The last I love. 
 
-I've already been thinking about Maybes a lot recently. My last post was about using "maybe" in function names to battle the unrealistic binary of if/else. The real word is far too fuzzy. In FP languages that make null illegal, the representation of *nothingness* is replaced by abstract data types like *Maybe* (which encapsulates *Just* and *Nothing*). This comes across to me like a big semantic improvement. Rather than working with uncertain and fuzzy notions of nothing that require exhausting boilerplate like param existence checks, stricter FP environments give us determined values that form the basis for programs to declaratively handle optional values.
+I've already been thinking about Maybes a lot recently. My last post was about using "maybe" in function names to battle the unrealistic binary of if/else with better signaling to other developers; like, a function may or may not complete it's designated purpose if an async call fails or an argument is unacceptable. The real word is far too fuzzy. In contrast to the imperatives of JS, FP languages substitute nullable data with algebraic structures that encapsulate possibilities of existence or nothingness. For example, the actual *Maybe* data type represents either a *Just* (truth, success, completion) or *Nothing* (false, error, incompatibility). Data that's wrapped in a Maybe and operated on won't leak a nullable into our program, like the commonly observed `undefined`. Obviously implementations vary across libaries. Here's a simple example from the [Practica](https://github.com/rametta/pratica) library which demonstrates the way that using Maybe can simplify code:
 
+```javascript
+import { Maybe } from 'pratica'
 
+const data = await fetchAllPeople(...);
+
+Maybe(data)
+  .map(people => people.filter(person => person.cool))
+  .map(people => people.map(getNames))
+  .map(names => name.toUpperCase())
+  .cata({ 
+    Just: transformedData => render(transformedData),
+    Nothing: () => console.log('Womp, no data returned from API.')
+  })
+```
+(Btw, cata stands for catamorphism and simplified means to decompose the Maybe container into simple values. Honestly, I'm not good enough in the category theory yet to confidently distill it, pun intended.)
+
+A more basic JS solution might look like: 
+```javascript
+let formattedKindPeople;
+const data = await fetchAllPeople(...);
+
+if (data) {
+    const coolPeople = people => people.filter(person => person.kind);
+    
+    if (coolPeople.length) {
+        const formattedKindPeople = people => people.map(formatPersonForDisplay);
+        render(formattedKindPeople)
+    } else {
+        console.log('Womp, only unkind people.')
+    }
+} else {
+    console.log('Womp, no data returned from API.')
+}
+```
+The combination ofFP-style data pipelining -- a result of Maybe being a monad, I think -- and control flow encapsulated in the data type itself, we get a semantically rich and easy-to-read solution without nullables and  exhausting boilerplate; ie, param existence checks.
+
+But I digress.
 
 Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's own Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
 
-Maybe and Either are both useful abstractions because they encapsulate two different code paths. Maybes represent one or no value. Eithers represent one or the other, not both. Like a bitwise XOR. Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
+While maybes represent one or no value, Just or Nothing, Either implementations are slightly different in that they represent one *or* the other, but not both. If you're familiar with bitwise XOR, it's the same algorithm. In place of a Nothing or performing a noop, however, Eithers provide a secondary branch for an error case. Let's see it in action. 
+
+Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
 ```javascript
 const exists = x => x !== null;
@@ -98,7 +136,9 @@ const ifExists = value => exists(value) ?
 ifExists(prop.name).then(renderName).catch(log);
 ```
 
-Now basic null checking and *primitive" if/else binaries are replaced with an expressive language for the logical disjunction: proceed this way or that way. Logging an error doesn't get us very far from param checking and early returns. A slightly more interesting example might be something like: 
+Here basic null checking and *primitive" if/else binaries are replaced with a more expressive, semantically rich statement for the logical disjunction: proceed this way if success, or that way. 
+
+Now, logging an error doesn't get us very far from param checking and early returns. A slightly more interesting example might be something like: 
 
 ```javascript
 const inputExists = x => x !== '';
@@ -112,7 +152,32 @@ onInput((prevValue, nextValue) =>
         .catch(trackClearInput(prevValue))
 ```
 
-Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But perhaps used with a tighter set of algaebraic functions -- something like [Crocks](https://crocks.dev/) -- it would shine. 
+It's hard to see the real power of this for a simple resolve/reject example. It just feels like a fancy if/else, right? But if we extrapolate from this base interesting things start to happen. Here's a slightly modified version of example from Practica's docs with an imaginary Either that uses Promises under the hood and implements a `chain` behavior:
+
+```javascript
+const isPerson = p => p.name && p.age
+  ? Promise.resolve(p)
+  : Promise.reject('Not a person')
+
+const isOlderThan2 = p => p.age > 2
+  ? Promise.resolve(p)
+  : Promise.reject('Not older than 2')
+
+const isJason = p => p.name === 'jason'
+  ? Promise.resolve(p)
+  : Promise.reject('Not jason')
+
+const person = awaitfetchPerson(...);
+
+Either(person)
+  .chain(isPerson)
+  .chain(isOlderThan2)
+  .chain(isJason)
+  .then(p => console.log('this person satisfies all the checks'))
+  .catch(msg => console.log(msg)); // if any checks reject, then this function will be called. If isPerson rejects, then isOlderThan2 and isJason functions won't even execute, and the err msg would be 'Not a person'
+```
+
+Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But perhaps used with a tighter set of algaebraic functions -- something like Practica or [Crocks](https://crocks.dev/) -- it would shine. 
 
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
