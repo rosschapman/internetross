@@ -52,7 +52,7 @@ I've got an example from the office.
 
 In our application there is a form field which represents a *potential* maximum limit on the number of holds that can be placed on a type of ticket for an event sale. There are two types of input this input field can receive from a user: an integer or nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds. 
 
-Now, having fields that can be empty is necessary to the product and business logic. It's quite commonplace and a customer would never think twice about the dark alchemy we're performing behind the scenes. What Rashida J. Cumberbun doesn't know is that the `limit` field maps to a db columm that expects an `INT`. Thus, if they were to leave the field empty, or remove a number that was already there, and then submit the form, we need to make sure that that absence of INT is a stringified POST body of `{limit: 0}`. Empty form data must become a number through the magic of sensible defaults: 
+Now, having fields that can be empty is necessary to the product and business logic. It's quite commonplace and a customer would never think twice about the dark alchemy we're performing behind the scenes. What Rashida J. Cumberbun doesn't know is that the `limit` field maps to a db columm that expects an `INT`. Thus, if they were to leave the field empty, or remove a number that was already there, and then submit the form, we need to make sure that that absence of INT is transformed into stringified representation of zero `{limit: 0}` for the POST body. Empty form data must become a number through the magic of sensible defaults and server/client contracts: 
 ```
 limit = formData.limit || 0
 ```
