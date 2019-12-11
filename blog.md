@@ -27,7 +27,7 @@
 </style>
 
 ### Maybe Eithers
-#### Tags: functional programming, either, promises
+#### Tags: functional programming, maybe, either, promises
 ##### 12/10/2019
 
 A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that digs into options for handling `null` and `undefined`  in JavaScript. I read it. It lit up my memory. 
