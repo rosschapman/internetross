@@ -83,6 +83,8 @@ Elliot does an interesting rhetorical jiu jitsu by giving us new options for opt
 
 I've already been thinking about Maybes a lot recently. My last post was about using "maybe" in function names to battle the unrealistic binary of if/else. The real word is far too fuzzy. In FP languages that make null illegal, the representation of *nothingness* is replaced by abstract data types like *Maybe* (which encapsulates *Just* and *Nothing*). This comes across to me like a big semantic improvement. Rather than working with uncertain and fuzzy notions of nothing that require exhausting boilerplate like param existence checks, stricter FP environments give us determined values that form the basis for programs to declaratively handle optional values.
 
+
+
 Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's own Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
 
 Maybe and Either are both useful abstractions because they encapsulate two different code paths. Maybes represent one or no value. Eithers represent one or the other, not both. Like a bitwise XOR. Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
@@ -110,7 +112,9 @@ onInput((prevValue, nextValue) =>
         .catch(trackClearInput(prevValue))
 ```
 
-Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
+Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But perhaps used with a tighter set of algaebraic functions -- something like [Crocks](https://crocks.dev/) -- it would shine. 
+
+Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
 ### Maybe maybes
 #### Tags: naming, javascript
