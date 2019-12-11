@@ -56,7 +56,7 @@ Now, having fields that can be empty is necessary to the product and business lo
 ```
 limit = formData.limit || 0
 ```
-A reverse alchemy happens on when we initialize the form. We hand our form builder an empty object -- in other words a bunch of `undefined`s which it must convert to appropriate defaults. In the case of our limit field, we do another form of short-circuit evaluation to an empty string which our form builder can display as *empty* -- with a helfpul hint of course: 
+A reverse alchemy happens from the other side when our React code initializes the form. We hand our form builder an empty object -- in other words a bunch of key/value pairs with field names as keys and `undefined`s as values; the builder then converts these `undefined`s to appropriate defaults. In the case of our limit field, we do another short-circuit evaluation to produce an empty string which our form builder can render to the user as *blank* -- with a helfpul hint of course: 
 
 ```
 limit = initialData.limit || '';
