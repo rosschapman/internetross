@@ -26,6 +26,94 @@
 }
 </style>
 
+### Maybe either
+#### Tags: fp, either
+##### 11/19/2019
+
+A recent issue of JS Weekly reposted a new piece by Eric Elliot that digs into options for handling `null` and `undefined`  in JavaScript. I read it. It lit up my memory. 
+
+One of the first Lambda Cast episodes I listened to was #6: *Null and Friends*. At this point in time I'm near the start of my FP explorations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's *Functional JavaScript Light*. I was fairly shocked to learn that there were languages designed to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
+
+Elliot characterizes `null` and `undefined` as "optional values". (I'd also throw empty strings into the bunch when they are used to stand in for an unselected value, ie nothing, empty, absence. Gosh even `0`.) All of these are problematic in JavaScript when they represent data that will be passed around in your system because somewhere, some code is going to expect a *real* value with an assigned `String`, `Number`, `Object`, `Function`, `Boolean`, etc... Basically the language lets us get away with answering *I don't know*. 
+
+> FUNCTION A: Alright here's some data, can I have that back nice and neat please before I send it to the customer.    
+> FUNCTION B (inside A): Yeah sure...wait...ermm...I don't think so actually...yeah I don't know.    
+> FUNCTION A: Ok great I'll just show nothing to the user forever or maybe crash the system.
+> FUNCTION B (inside A): 
+ 
+Elliot brings up the case of uninitialized data right away in a list of common sources of null:
+
+> 1. User input
+> 1. Database/network records
+> 1. **Uninitialized state**
+> 1. Functions which could return nothing
+
+I've got an example from the office.
+
+In our application there is a form field which represents a *potential* maximum limit on the number of holds that can be placed on a type of ticket for an event sale. There are two types of input this input field can receive from a user: an integer or nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds. 
+
+Now, having fields that can be empty is necessary to the product and business logic. It's quite commonplace and a customer would never think twice about the dark alchemy we're performing behind the scenes. What Rashida J. Cumberbun doesn't know is that the `limit` field maps to a db columm that expects an `INT`. Thus, if they were to leave the field empty, or remove a number that was already there, and then submit the form, we need to make sure that that absence of INT is a stringified POST body of `{limit: 0}`. Empty form data must become a number through the magic of sensible defaults: 
+```
+limit = formData.limit || 0
+```
+A reverse alchemy happens on when we initialize the form. We hand our form builder an empty object -- in other words a bunch of `undefined`s which it must convert to appropriate defaults. In the case of our limit field, we do another form of short-circuit evaluation to an empty string which our form builder can display as *empty* -- with a helfpul hint of course: 
+
+```
+limit = initialData.limit || '';
+```
+As you can see in this fairly simple, deadly straightforward and commonplace web application code, we are forced to putz around with a notion of *nothingness* for a potential data value and end up with phase-shifting duck typed values. `null`, `''`, or `0`. The last twisting mind eff turn in this case from the office is that, as I mentioned earlier, *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! And so `1 + 1 = 2`. Nothing is not nothing, but we have to use `null` and friends for lack of a better representation of something that is empty.
+
+And to say nothing of the possibility that something might be assigned `null` meaningfully in your codebase. Like, lets just admit it's impossible to truly prevent these *nothings* from entering our JavaScript programs. Like, you can't serialize *nothing* for a value an API response formatted as JSON. 
+```python
+>>> json.dumps({name: }
+  File "<stdin>", line 1
+    json.dumps({name: }
+                     ^
+SyntaxError: invalid syntax
+```
+Or try and stringify an `Object` back up again with the same:
+```javascript
+>> JSON.stringify({name: })
+SyntaxError: expected expression, got '}'
+```
+
+`Null` and `undefined` are optional in JS but they are not illegal. Haskell complains at compile time. 
+
+But back to Elliot.
+
+Elliot does an interesting rhetorical jiu jitsu by giving us new options for optional values; in liue of eviscerating null from JS, we can work to push `null` to the edge of our programs with a handful of innovative approaches. Techniques include: constructing state machines -- highly determined object interfaces -- that error without values set to a wanted data type; ie *something*. We can also take advantage of that new new: Optional Chaining. And then there's borrowing from FP. The last I love. 
+
+I've already been thinking about Maybes a lot recently. My last post was about using "maybe" in function names to battle the unrealistic binary of if/else. The real word is far too fuzzy. In FP languages that make null illegal, the representation of *nothingness* is replaced by abstract data types like *Maybe* or *Nothing*. (There's even more like *Just* but I'm glossing for now.) This comes across to me like a big semantic improvement. Rather than working with uncertain and fuzzy notions of *lack* that require exhausting boilerplate like param existence checks, stricter FP environments give us a determined values that functions can make smart choices about without manual assistance.
+
+Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's own Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
+
+Maybe and Either are both useful abstractions because they encapsulate two different code paths. Maybes represent one or no value. Eithers represent one or the other, not both. Like a bitwise XOR. Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
+
+```javascript
+const exists = x => x !== null;
+const ifExists = value => exists(value) ?
+  Promise.resolve(value) :
+  Promise.reject(`Invalid prop: ${ value }`);
+
+ifExists(prop.name).then(renderName).catch(log);
+```
+
+Now basic null checking and *primitive" if/else binaries are replaced with an expressive language for the logical disjunction: proceed this way or that way. Logging an error doesn't get us very far from param checking and early returns. A slightly more interesting example might be something like: 
+
+```javascript
+const inputExists = x => x !== '';
+const ifInputExists = value => inputExists(value) ?
+  Promise.resolve(value) :
+  Promise.reject(`Input is blank`);
+
+onInput((prevValue, nextValue) => 
+    ifInputExists(nextValue)
+        .then(validate)
+        .catch(trackClearInput(prevValue))
+```
+
+Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations. 
+
 ### Maybe maybes
 #### Tags: naming, javascript
 ##### 11/18/2019
