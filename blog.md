@@ -97,7 +97,7 @@ Maybe(data)
     Nothing: () => console.log('Womp, no data returned from API.')
   })
 ```
-(Btw, cata stands for catamorphism and simplified means to decompose the Maybe container into simple values. Honestly, I'm not good enough in the category theory yet to confidently distill it, pun intended.)
+(Btw, "cata" stands for *catamorphism* and means to decompose the Maybe container into simple values. Honestly, I'm not good enough in the category theory yet to confidently distill it for you completely -- pun intended -- but that's the gist.)
 
 A more basic JS solution might look like: 
 ```javascript
