@@ -176,7 +176,7 @@ Either(person)
   .catch(msg => console.log(msg)); // if any checks reject, then this function will be called. If isPerson rejects, then isOlderThan2 and isJason functions won't even execute, and the err msg would be 'Not a person'
 ```
 
-Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But perhaps used with a tighter set of algaebraic functions -- something like Practica or [Crocks](https://crocks.dev/) -- it would shine. 
+Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how one might construct custom-fit control flow *chains* and layer cakes using thenable types to play nicely with other function composition and pipelining. I'm not always in love with (what feels like) sacrificed readability with chaining over stacked lines of assigned returns or async/await. But seeing it an action using Practica I'm starting to believe more and more in its viabiilty, even in a codebase touched by less experienced or new developers. 
 
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
