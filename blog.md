@@ -28,17 +28,17 @@
 
 ### Maybe Eithers
 #### Tags: functional programming, either, promises
-##### 11/19/2019
+##### 12/10/2019
 
-A recent issue of JS Weekly reposted a new piece by Eric Elliot that digs into options for handling `null` and `undefined`  in JavaScript. I read it. It lit up my memory. 
+A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that digs into options for handling `null` and `undefined`  in JavaScript. I read it. It lit up my memory. 
 
-One of the first Lambda Cast episodes I listened to was #6: *Null and Friends*. At this point in time I'm near the start of my FP explorations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's *Functional JavaScript Light*. I was fairly shocked to learn that there were languages designed to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
+One of the first Lambda Cast episodes I listened to was #6: *Null and Friends*. At this point in time I'm near the start of my FP explorations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's *Functional JavaScript Light*. I was fairly shocked to hear the bros discuss functional languages that are *designed* to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
 
 Elliot characterizes `null` and `undefined` as "optional values". (I'd also throw empty strings into the bunch when they are used to stand in for an unselected value, ie nothing, empty, absence. Gosh even `0`.) All of these are problematic in JavaScript when they represent data that will be passed around in your system because somewhere, some code is going to expect a *real* value with an assigned `String`, `Number`, `Object`, `Function`, `Boolean`, etc... Basically the language lets us get away with answering *I don't know*. 
 
 > FUNCTION A: Alright here's some data, can I have that back nice and neat please before I send it to the customer.    
 > FUNCTION B (inside A): Yeah sure...wait...ermm...I don't think so actually...yeah I don't know.    
-> FUNCTION A: Ok great I'll just show nothing to the user forever or maybe crash the system.
+> FUNCTION A: Ok great I'll just show nothing to the user forever or maybe crash the system.    
 > FUNCTION B (inside A): 
  
 Elliot brings up the case of uninitialized data right away in a list of common sources of null:
@@ -77,9 +77,7 @@ Or try and stringify an `Object` back up again with the same:
 SyntaxError: expected expression, got '}'
 ```
 
-`Null` and `undefined` are optional in JS but they are not illegal. Haskell complains at compile time. 
-
-But back to Elliot.
+`Null` and `undefined` are optional in JS but they are not illegal. Haskell, on the other time, complains at compile time.
 
 Elliot does an interesting rhetorical jiu jitsu by giving us new options for optional values; in liue of eviscerating null from JS, we can work to push `null` to the edge of our programs with a handful of innovative approaches. Techniques include: constructing state machines -- highly determined object interfaces -- that error without values set to a wanted data type; ie *something*. We can also take advantage of that new new: Optional Chaining. And then there's borrowing from FP. The last I love. 
 
@@ -112,7 +110,7 @@ onInput((prevValue, nextValue) =>
         .catch(trackClearInput(prevValue))
 ```
 
-Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations. 
+Eh, that seems weird and contrived. But it's like 10:10pm so I'm not going to stress it too much. Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how control flow *chains* using `.then()` could fit in nicely with other function composition and function pipelining. I'm not always in love with (what feels like) sacrificed readability with chains over stacked lines of assigned returns or async/await. But it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
 ### Maybe maybes
 #### Tags: naming, javascript
