@@ -56,10 +56,9 @@ In our application there is a form field. This field represents a maximum  limit
 Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. What a twisting mind eff: *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing.  Therefore, a sensible default.
 
 ```javascript
-function serializeFormData() {
-  const limit = formData.limit || 0 // the empty input string is nullable!
+function serializeFormData(formData) {
+  const limit = formData.limit || 0; // the empty input string is nullable!
   const nextField = //...
-  
   const body = {
     limit,
     nextField,
@@ -72,14 +71,14 @@ function serializeFormData() {
 Of course, a reverse alchemy must occur from the other direction when our React code initializes the form to begin with. We first hand our form builder an empty object -- key/value pairs with field names as keys and `undefined`s as values. The builder then converts these `undefined`s to appropriate defaults.
 
 ```javascript
-  function getInitialFormData() {
-    const limit = initialData.limit || '';
-    const nextField = //...
-    const initialFormData = {
-      limit,
-      nextField,
-      // ...
-    }
+function getInitialFormData(initialData) {
+  const limit = initialData.limit || '';
+  const nextField = //...
+  const initialFormData = {
+    limit,
+    nextField,
+    // ...
+  }
   
   return initialFormData;
 }
