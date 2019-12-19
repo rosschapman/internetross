@@ -26,6 +26,7 @@
 }
 </style>
 
+
 ### Maybe Eithers with Promises
 #### Tags: functional programming, maybe, either, promises
 ##### 12/10/2019
@@ -52,34 +53,47 @@ I've got an example from the office, bear with me.
 
 In our application there is a form field. This field represents a maximum  limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds.
 
-Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. We use a sensible default.
-```
-const limit = formData.limit || 0 // the empty input string is nullable!
-const body = {
-  limit
-  ... 
+Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. What a twisting mind eff: *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing.  Therefore, a sensible default.
+
+```javascript
+function serializeFormData() {
+  const limit = formData.limit || 0 // the empty input string is nullable!
+  const nextField = //...
+  
+  const body = {
+    limit,
+    nextField,
+    // ... 
+  }
+  
+  return body;
 }
 ```
 Of course, a reverse alchemy must occur from the other direction when our React code initializes the form to begin with. We first hand our form builder an empty object -- key/value pairs with field names as keys and `undefined`s as values. The builder then converts these `undefined`s to appropriate defaults.
 
-```
-const limit = initialData.limit || '';
-const initialFormData = {
-  limit,
-  ...
+```javascript
+  function getInitialFormData() {
+    const limit = initialData.limit || '';
+    const nextField = //...
+    const initialFormData = {
+      limit,
+      nextField,
+      // ...
+    }
+  
+  return initialFormData;
 }
+
 ```
 Looks familiar. 
 
-Thusly the JavaScripter putzes around with a notion of *nothingness* by  phase-shifting duck typed values. 
+Thusly, the JavaScripter putzes around with a notion of *nothingness* by  phase-shifting duck typed values. 
 
 `null` <-> `''` <-> `0`
 
-There's probably cooler mathematical notation for this. 
+(There's probably cooler mathematical notation for this.)
 
-The last twisting mind eff turn in this case from the office is that*the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing. 
-
-But we have to use `null` and friends for lack of a better optional option. Like, for lack of bounding JS with in-language invariants. It's impossible to truly prevent these meaningless *nothings* from entering our JavaScript programs. (Meaningless like may never receive meaning, ambiguous, undecided. Totally `void 0`: what a good euphemism from the grammar.) Like, you can't serialize *nothing* for a value an API response formatted as JSON. 
+Unforch we have to use `null` and friends for lack of a better optional option. Like, for lack of formal invariants in-language. It's impossible to truly prevent these meaningless *nothings* from entering our JavaScript programs. (Meaningless like may never receive meaning, ambiguous, undecided. Totally `void 0`: what a good euphemism from the grammar.) Like, you can't serialize *nothing* for a value an API response formatted as JSON. 
 ```python
 >>> json.dumps({name: }
   File "<stdin>", line 1
