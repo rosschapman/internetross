@@ -34,36 +34,52 @@ A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript
 
 One of the first Lambda Cast episodes I listened to was [#6](https://soundcloud.com/lambda-cast/6-null-and-friends): *Null and Friends*. At this point in time I'm near the start of my FP cultivations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's [*Functional-Light JavaScript*](https://github.com/getify/functional-light-js). I was fairly shocked to hear the bros discuss functional languages that are *designed* to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
 
-Elliot characterizes `null` and `undefined` as "optional values". (I'd also throw empty strings into the bunch when they are used to stand in for an unselected value, ie nothing, empty, absence. Gosh even `0`.) All of these are problematic in JavaScript when they represent data that will be passed around in your system because somewhere, some code is going to expect a *real* value with an assigned `String`, `Number`, `Object`, `Function`, `Boolean`, etc... Basically the language lets us get away with answering *I don't know* without much declarative leverage. 
+Elliot describes `null` and `undefined` as "optional values". Right, makes sense. Like we might have data there or not. 🤷🏻‍♂️ I'd also throw empty strings into the bunch when they are used to stand in for an unselected value, ie nothing, empty, absence. Gosh even `0`. Optional values are problematic in JavaScript because they represent data that some part of your system will choke on. Basically the language lets us get away with answering *I don't know* without any compose-time feedback. Spin up the browser and push play.  
 
-> FUNCTION A: Alright here's some data, can I have that back nice and neat please before I send it to the customer.    
-> FUNCTION B (inside A): Yeah sure...wait...ermm...I don't think so actually...yeah I don't know.    
-> FUNCTION A: Ok great I'll just show nothing to the user forever or maybe crash the system.    
-> FUNCTION B (inside A): 
+> FUNCTION A: Alright here's some data, can I have that back nice and neat please before I send it to the user.    
+> FUNCTION B: Yeah sure...wait...ermm...I don't think so actually...yeah I don't know.    
+> FUNCTION A: Ok great I'll just show nothing to the user forever or maybe crash the system.   
+> FUNCTION B: 
  
-Elliot brings up the case of uninitialized data right away in a list of common sources of null:
+Elliot is also quick to mention the case of uninitialized data. He lists the common progenitors of `null`:
 
 > 1. User input
 > 1. Database/network records
 > 1. **Uninitialized state**
 > 1. Functions which could return nothing
 
-I've got an example from the office.
+I've got an example from the office, bear with me.
 
-In our application there is a form field which represents a *potential* maximum limit on the number of holds that can be placed on a type of ticket for an event sale. There are two types of input this input field can receive from a user: an integer or nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds. 
+In our application there is a form field. This field represents a maximum  limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds.
 
-Now, having fields that can be empty is necessary to the product and business logic. It's quite commonplace and a customer would never think twice about the dark alchemy we're performing behind the scenes. What Rashida J. Cumberbun doesn't know is that the `limit` field maps to a db columm that expects an `INT`. Thus, if they were to leave the field empty, or remove a number that was already there, and then submit the form, we need to make sure that that absence of INT is transformed into stringified representation of zero `{limit: 0}` for the POST body. Empty form data must become a number through the magic of sensible defaults and server/client contracts: 
+Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. We use a sensible default.
 ```
-limit = formData.limit || 0
+const limit = formData.limit || 0 // the empty input string is nullable!
+const body = {
+  limit
+  ... 
+}
 ```
-A reverse alchemy happens from the other side when our React code initializes the form. We hand our form builder an empty object -- in other words a bunch of key/value pairs with field names as keys and `undefined`s as values; the builder then converts these `undefined`s to appropriate defaults. In the case of our limit field, we do another short-circuit evaluation to produce an empty string which our form builder can render to the user as *blank* -- with a helfpul hint of course: 
+Of course, a reverse alchemy must occur from the other direction when our React code initializes the form to begin with. We first hand our form builder an empty object -- key/value pairs with field names as keys and `undefined`s as values. The builder then converts these `undefined`s to appropriate defaults.
 
 ```
-limit = initialData.limit || '';
+const limit = initialData.limit || '';
+const initialFormData = {
+  limit,
+  ...
+}
 ```
-As you can see in this fairly simple, deadly straightforward and commonplace web application code, we are forced to putz around with a notion of *nothingness* for a potential data value and end up with phase-shifting duck typed values. `null`, `''`, or `0`. The last twisting mind eff turn in this case from the office is that, as I mentioned earlier, *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! And so `1 + 1 = 2`. Nothing is not nothing, but we have to use `null` and friends for lack of a better representation of something that is empty.
+Looks familiar. 
 
-And to say nothing of the possibility that something might be assigned `null` meaningfully in your codebase. Like, lets just admit it's impossible to truly prevent these *nothings* from entering our JavaScript programs. Like, you can't serialize *nothing* for a value an API response formatted as JSON. 
+Thusly the JavaScripter putzes around with a notion of *nothingness* by  phase-shifting duck typed values. 
+
+`null` <-> `''` <-> `0`
+
+There's probably cooler mathematical notation for this. 
+
+The last twisting mind eff turn in this case from the office is that*the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing. 
+
+But we have to use `null` and friends for lack of a better optional option. Like, for lack of bounding JS with in-language invariants. It's impossible to truly prevent these meaningless *nothings* from entering our JavaScript programs. (Meaningless like may never receive meaning, ambiguous, undecided. Totally `void 0`: what a good euphemism from the grammar.) Like, you can't serialize *nothing* for a value an API response formatted as JSON. 
 ```python
 >>> json.dumps({name: }
   File "<stdin>", line 1
@@ -77,7 +93,7 @@ Or try and stringify an `Object` back up again with the same:
 SyntaxError: expected expression, got '}'
 ```
 
-`Null` and `undefined` are optional in JS but they are not illegal. Haskell, on the other time, complains at compile time.
+`Null` and `undefined` are optional in JS but they are not illegal. Like in Haskell, which wraps up the ambiguity in a fat Nothing.
 
 Elliot does an interesting rhetorical jiu jitsu by giving us new options for optional values. In liue of eviscerating null from JS, we can work to push `null` to the edge of our programs with a handful of innovative approaches. In a sense we can ignore nullables and declutter areas of code which can just focus on data pipelining and other UI biz logic. Techniques include: constructing state machines -- highly determined object interfaces -- that error without values set to a wanted data type; ie *something*. We can also take advantage of that new new: Optional Chaining. And then there's borrowing from FP. The last I love. 
 
@@ -346,7 +362,7 @@ It's so simple I just need to have a solid undertanding of these (what must be o
 
 I'm reminded of Rich Hickey's 2012 Rails Conf [talk](https://www.youtube.com/watch?v=rI8tNMsozo0) where he disambiguates *simple* from *easy* which is a linguistic casuality which creates confusion in our industry about what "simple" or "easy" software really is or achieves.  In the talk Hickey helps recoup a specificity for each word through an etymological tracing. Distilled you take away that *simple* is objective and *easy* is relativistic.
 
-In consideration of the foregogin, our Javian knight likely means *easy*, which, by Hickey's redefinition (rather reinstatement of acuity), means a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. Like a better developer experience. Like: 
+In consideration of the foregoing, our Javian knight likely means *easy*, which, by Hickey's redefinition (rather reinstatement of acuity), means a spacial relativism of *nearness*. As in *easy to go to or get* or near to our understanding. In other words *familiar*. Like a better developer experience. Like: 
 
 > ...can I get this instantly and start running it in five seconds?
 
