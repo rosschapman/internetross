@@ -81,7 +81,7 @@ But an example like the above cost calculation exits. I saw something like it in
 So I've been thinking a lot about an approach to code, a kind of mental shim, to mitigate the coherence costs across the stack. Even with a fluctuating number of devs with knowledge about the code. Maybe we should just call this predicament *patchy*; patchy coding. Here's what I've got so far with a cute story and *real life* examples:
 
 
-```
+<blockquote>
 Avoid duplicating code across the stack
 
 Consider the following scenario which is based on true events.
@@ -106,7 +106,7 @@ Heuristics:
 
     Will the iOS and Android team's have to implement this too?
         Always remember that the desktop website is just one place where we write code for consumers of our applications. If the feature you are building will likely end up on a device, it's likely the backend code can expose what you need in the API.
-```
+</blockquote>
 
 
 ### Maybe Eithers with Promises
