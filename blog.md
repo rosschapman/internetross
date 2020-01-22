@@ -27,10 +27,10 @@
 pre, xmp, plaintext, listing {
     white-space: pre;
 }
-.markdown-body pre > code {
+pre > code {
     white-space: pre;
 }
-.markdown-body code {
+code {
     white-space: nowrap;
 }
 </style>
@@ -562,7 +562,7 @@ const isOneTruthyAndTheOtherNot = (a, b) => !a ^ !b;
 ```
 
 Which might be passed around in my hypothetical React event handler like: 
-```
+```js
 dateTimeValidator: (dateValue, timeValue) => {
     const hasEmptyField = isOneTruthyAndTheOtherNot(dateValue, timeValue);
     const error = hasEmptyField ? FORM_ERRORS('dateTimeField') : null;
@@ -576,7 +576,7 @@ dateTimeValidator: (dateValue, timeValue) => {
 ```
 
 This could be written in a couple ways without the more arcane XOR:
-```
+```js
 ... = ( foo && !bar ) || ( !foo && bar );
 ... = foo ? !bar : bar
 ```
@@ -641,7 +641,7 @@ We failed spectacularly to bring our academic rigor to bear because we weren't w
 
 Finding problematic inline functions in something like this triviality of Hillel's lament would be much easier: 
 
-```
+```js
 render() {
     return (
         <button onClick={() => this.setState(…)}>
