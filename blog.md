@@ -21,17 +21,11 @@
     border-top: 1px solid #d4d4d4;
     padding-top: 2em;
 }
+.markdown-body pre > code {
+    white-space: pre-wrap;
+}
 .gist .blob-num:hover {
     color: inherit;
-}
-pre, xmp, plaintext, listing {
-    white-space: pre;
-}
-pre > code {
-    white-space: pre;
-}
-code {
-    white-space: nowrap;
 }
 </style>
 
