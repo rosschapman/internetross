@@ -26,6 +26,88 @@
 }
 </style>
 
+### Reduce duplicate code by pushing data munging to the edges
+#### Tags: large applications, large teams, duplication
+##### 1/20/2020
+
+At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication *across* client and api layers. Like, imagine a piece of code that takes an inventory resource and derives a cost based on the status of an order. This calculation could be executed in the api layer and serialized into a response payload alongside the original cost data to look like: 
+```js
+{
+    inventory_items: [
+        {
+            order_id: 1234
+            cost: {
+                major: ...,
+                minor: ...,
+                // etc...
+            },
+            cost_display: 'MXN186.67'
+        }
+    ]
+}
+```
+
+Or, the client could run the calculation after fetching both order and inventory items to build the data for display in the view code:
+```js
+const composeInventoryItemForDisplay = (inventoryItem) {
+    ...inventoryItem,
+    costDisplay: calculateCostForDisplay(inventoryItem);
+}
+
+function calculateCostForDisplay(inventoryItem) {
+    let new cost;
+    const order = lookupOrder(inventoryItem.get('order_id'));
+    const currency = order.get('currency');
+    // etc...
+    // etc...
+    return new cost;
+}
+```
+
+You may have gut intuition about where the logic should go, but that's beside the point. The reality of larger organizations means that frontend and backend engineers may be working to solve a similar problem -- what might even be a simple calculation -- but blind to the other side doing similar work. Frequent team project reassingments, geospatial and organizational distance, depth of expertise, weak cultural value of for curious coders, etc... these types of contention costs create the regrettable yet natural complicatedness that results in kinda scary duplications. Scary because maintaining the integrity of pricing data in your app is ESSENTIAL, and if that logic shows up in two places it could easily become inconsistent. A less-initiated dev -- in experience or time at the company -- may discover the outdate/moded pricing calculation and leverage that in subsequent code. And thus, defects. 
+
+Supplemental thoughts from Coda Hale's [new blog post](https://codahale.com/work-is-work/) going around:
+
+> Contention costs grow superlinearly as new members are added.
+
+> Coherence costs grow quadratically as new members are added. 
+
+> Limit the number of people an individual needs to talk to in order to do their job to a constant factor.
+
+I'm not sure I would have believed this type of thing would happen before I joined a larger company with an engineering group spread across geos; teams flung across the ownership matrix by the high winds of market shift. That investor and wall street casino shit is real. Team pet names stunted protologisms. Like, what happened to the Squirrel team? Oh, they are the *Crib Gto Pomp* team now. Well at least we are consistently circumlocutory at naming teams.
+
+But an example like the above cost calculation exits. I saw something like it in our JavaScript code. Then I asked the the folks who work on backend if the frontend really needed to be doing this work. We shouldn't. And, we literally shouldn't because the computation for this existed in our backend service already. It was like a Python devleoper and a JS developer were completing the same code challenge.
+
+So I've been thinking a lot about an approach to code, a kind of mental shim, to mitigate the coherence costs across the stack. Even with a fluctuating number of devs with knowledge about the code. Maybe we should just call this predicament *patchy*; patchy coding. Here's what I've got so far with a cute story and *real life* examples:
+
+
+```
+Avoid duplicating code across the stack
+
+Consider the following scenario which is based on true events.
+
+One day Team RocketShip is working on a feature for Big Initiative X. They implement some computational logic in Ticket Availability Service which adds a new attribute on TicketClass. The code is great, it ships, customers are elated. But soon after, Team SpaceShip is tasked with another piece of Big Initiative X and needs to display the result of similar computational logic in a React app. However, Team SpaceShip doesn't know about Team RocketShip's previous implementation in TAS, and they decide they can actually write this computational logic into the client code using existing TicketClass data. The code is great, it ships, customers are elated.
+
+Uh oh. Now we have duplicate code on the backend and frontend. Which means code that is very likely to become out-of-sync and result in disruptive maintenance work or bugs in the future. But how do we avoid this situation? Unfortunately, this is one of those social (read: people) problems of software engineering. There's no way to reliably automate prevention with static analysis of the code.
+
+Heuristics:
+
+    There > 1 attributes returned from the API that are similarly named
+        Here's a real life example:
+        TicketClass used to have attributes for auto_hide, hide, auto_hide_before, and auto_hide_after that client code in checkout utilized to compute the ticket's "hidden" status. In other words, client code asked of these associated attributes: should this ticket be unavailable for purchase. However, creating statically derived properties from a mixture of data may be an indication the backend can do this work for you, or already has.
+            Ticket Availability Service already had code that computed this logic. Ultimately the frontend computation was replaced with a new attribute added to the TicketClass API. 
+    There > 1 attributes returned from the API that are related "communicationally," in that they reference similar types of data that are computed differently. 
+        Similar to the example above, the existence of auto_hide and hide attributes seem conceptually related – through "hide" – and can be a clue that there may be logic on the backend that could be reused to for hidden status calculation.
+    I need a static value that won't be impacted by user behavior after first load
+
+Make the backend do the work
+
+Heuristics:
+
+    Will the iOS and Android team's have to implement this too?
+        Always remember that the desktop website is just one place where we write code for consumers of our applications. If the feature you are building will likely end up on a device, it's likely the backend code can expose what you need in the API.
+```
+
 
 ### Maybe Eithers with Promises
 #### Tags: functional programming, maybe, either, promises
