@@ -26,7 +26,7 @@
 }
 </style>
 
-### Reduce duplicate code by pushing data munging to the edges
+### Thinking about heuristics for avoiding code duplication across the stack
 #### Tags: large applications, large teams, duplication
 ##### 1/20/2020
 
