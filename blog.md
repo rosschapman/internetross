@@ -38,7 +38,9 @@ About 11 years ago, two dudes at google, Brian Fitzpatrick and Ben Collins-Sussm
 
 > Women are a very recent invention.  -- Ursula K. Le Guinn
 
-The talk is a pretty good orientation for ingressive types to think congressively about working with other people; despite the gross elision of citation for non-human-men beings, indigenous practice, cooperative economics, liberation theologies, etc...
+The talk is a pretty good orientation for ingressive types to think congressively about working with other people; despite the gross elision of citation for non-human-men beings, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc... Men can't simply call it what it is. Non-mens have to keep rewinding it back. 
+
+> The men who wrote the manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships. -- Hanna Thomas
 
 Tech, like other industries, continues to produce the worst of/from man because the manifest teleology of *Progress* from the industrial revolution is wrong for the precarity of the Anthropocene and a damaged earth. And suffers for it. Racism and sexism are the key ingredients in the alchemy that has transformed "Do no evil" to solving the "hard problems" of controlling the explosion of child porn on Youtube (to name a recent example). Whoops.
 
