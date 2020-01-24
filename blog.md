@@ -28,6 +28,43 @@
     color: inherit;
 }
 </style>
+### Some patriarchal intervention at Google I/O a while back
+#### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing
+##### 1/24/2020
+
+[The Myth of the Genius Programmer](https://www.youtube.com/watch?v=0SARbwvhupQ)
+
+About 11 years ago, two dudes at google, Brian Fitzpatrick and Ben Collins-Sussman, spoke to an audience at Google I/O of mostly dudes about The Myth of the Genius Programmer. Well, what must be mostly dudes since women were still being invented around this time. 
+
+> Women are a very recent invention.  -- Ursula K. Le Guinn
+
+The talk is a pretty good orientation for ingressive types to think congressively about working with other people; despite the gross elision of citation for non-human-men beings, indigenous practice, cooperative economics, liberation theologies, etc...
+
+Tech, like other industries, continues to produce the worst of/from man because the manifest teleology of *Progress* from the industrial revolution is wrong for the precarity of the Anthropocene and a damaged earth. And suffers for it. Racism and sexism are the key ingredients in the alchemy that has transformed "Do no evil" to solving the "hard problems" of controlling the explosion of child porn on Youtube (to name a recent example). Whoops.
+
+An ingressive mindset might help us. Help move us at the speed of trust. It's nice to see some white boys catching on and putting it out there in front of the other boys.
+
+> Ingressive is about going into things and not being waylaid by what people think or by emotions and congressive is about bringing people with you and bringing people together and unifying and making connections between things.... I've come to think that congressive behavior is basically better for society but that ingressive behavior is rewarded more by society because society is based on competition. It's based on how you present yourself so for things like competing for a job, you have to be ingressive to put yourself forward for promotion and to talk about how great you are. Whereas, when you're actually doing some work with people, then it's really helpful to be congressive because then you bring people together, you understand people. -- Eugenia Cheng
+
+Brian and Ben essentially instruct the audience in trust-based collaboration:
+
+- you are unique but not special (meh, reinscribing in sad machismo Tyler Durden reference)
+- individual genius is a myth
+- ego is dangerous
+- stop hero-worshipping, Linus et al
+- coding is social
+- feedback is important
+- getting feedback early and often is good
+- being nice is important
+- code review is necessary
+- failing publicly is ok
+- keeping record of your failing is ok (keep documentation for failed designs)
+- being non-perfect publickly is ok
+- vulnerability at work is a strength
+- tools create a sociality
+- tools can unnecessarily restrict
+ 
+Nonetheless it's really sad to think about how much emotional intelligence training men needed/need/will need; how expensive it is to refactor patriarchy's structural grammar; that the non-human-men bear the burden of maintaining the moral center. Patriarchy, which pits men against the world; against each other in an end game for supreme master and commander; order and peace means the seizing of power; power must be seized by the individual. I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelwayne.com/talks/what-we-know-we-dont-know/) -- which I re-watched this week -- where he warns how our engineering culture will continue to suffer "charisma-driven development" if belief is not replaced by empiricism. Vacuums of truth gouged out by white men's colonial domination language will let the geniuses emerge.
 
 ### Thinking about heuristics for avoiding code duplication across the stack
 #### Tags: large applications, large teams, duplication
