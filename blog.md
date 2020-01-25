@@ -46,8 +46,6 @@ Tech, like other industries, continues to produce the worst of/from man because 
 
 An ingressive mindset might help us. Help move us at the speed of trust. It's nice to see some white boys catching on and putting it out there in front of the other boys.
 
-> Ingressive is about going into things and not being waylaid by what people think or by emotions and congressive is about bringing people with you and bringing people together and unifying and making connections between things.... I've come to think that congressive behavior is basically better for society but that ingressive behavior is rewarded more by society because society is based on competition. It's based on how you present yourself so for things like competing for a job, you have to be ingressive to put yourself forward for promotion and to talk about how great you are. Whereas, when you're actually doing some work with people, then it's really helpful to be congressive because then you bring people together, you understand people. -- Eugenia Cheng
-
 Brian and Ben essentially instruct the audience in trust-based collaboration:
 
 - you are unique but not special (meh, reinscribing in sad machismo Tyler Durden reference)
@@ -65,8 +63,10 @@ Brian and Ben essentially instruct the audience in trust-based collaboration:
 - vulnerability at work is a strength
 - tools create a sociality
 - tools can unnecessarily restrict
+
+> Ingressive is about going into things and not being waylaid by what people think or by emotions and congressive is about bringing people with you and bringing people together and unifying and making connections between things.... I've come to think that congressive behavior is basically better for society but that ingressive behavior is rewarded more by society because society is based on competition. It's based on how you present yourself so for things like competing for a job, you have to be ingressive to put yourself forward for promotion and to talk about how great you are. Whereas, when you're actually doing some work with people, then it's really helpful to be congressive because then you bring people together, you understand people. -- Eugenia Cheng
  
-Nonetheless it's really sad to think about how much emotional intelligence training men needed/need/will need; how expensive it is to refactor patriarchy's structural grammar; that the non-human-men bear the burden of maintaining the moral center. Patriarchy, which pits men against the world; against each other in an end game for supreme master and commander; order and peace means the seizing of power; power must be seized by the individual. I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelwayne.com/talks/what-we-know-we-dont-know/) -- which I re-watched this week -- where he warns how our engineering culture will continue to suffer "charisma-driven development" if belief is not replaced by empiricism. Vacuums of truth gouged out by white men's colonial domination language will let the geniuses emerge.
+Nonetheless it's really sad to think about how much emotional intelligence training men needed/need/will need; how expensive it is to refactor patriarchy's structural grammar; that the non-human-men bear the burden of maintaining the moral center. Patriarchy, which pits men against the world; against each other in an end game for supreme master and commander; order and peace means the seizing of power; power must be seized by the individual. I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelwayne.com/talks/what-we-know-we-dont-know/) -- which I re-watched this week -- where he warns how our engineering culture will continue to suffer "charisma-driven development" if belief is not replaced by empiricism. Vacuums of truth gouged out by white men's colonial domination language will make the geniuses real.
 
 ### Thinking about heuristics for avoiding code duplication across the stack
 #### Tags: large applications, large teams, duplication
