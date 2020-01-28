@@ -34,7 +34,7 @@
 
 [The Myth of the Genius Programmer](https://www.youtube.com/watch?v=0SARbwvhupQ)
 
-About 11 years ago at Google I/O, two dudes, Brian Fitzpatrick and Ben Collins-Sussman, presented The Myth of the Genius Programmer to an audience of mostly dudes. Well, we can surmise at the demographics because women were still being invented around this time. 
+About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Sussman, presented The Myth of the Genius Programmer to an audience of mostly dudes. Well, we can surmise at the demographics because women were still being invented around this time. 
 
 > Women are a very recent invention.  -- Ursula K. Le Guinn
 
