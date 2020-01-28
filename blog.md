@@ -29,7 +29,7 @@
 }
 </style>
 ### Some patriarchal intervention at Google I/O a while back
-#### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing
+#### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
 ##### 1/24/2020
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0SARbwvhupQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
