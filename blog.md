@@ -76,7 +76,7 @@ I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelway
 #### Tags: large applications, large teams, duplication
 ##### 1/20/2020
 
-At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication *across* client and api layers. Like, imagine a piece of code that takes an inventory resource and derives a cost based on the status of an order. This calculation could be executed in the api layer and serialized into a response payload alongside the original cost data to look like: 
+At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication *across* client and api layers. Like, imagine a piece of code that takes a inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into  response body adjacent to the original cost data. Something like: 
 ```js
 {
     inventory_items: [
@@ -93,7 +93,7 @@ At the office I've sprinkled some in-between-project-work labor on a piece of do
 }
 ```
 
-Or, the client could run the calculation after fetching both order and inventory items to build the data for display in the view code:
+Alternatively, the client could execute the calculation in the view code after the fetch completes for both order and inventory items, and subsequently apply formatting:
 ```js
 const composeInventoryItemForDisplay = (inventoryItem) {
     ...inventoryItem,
@@ -110,7 +110,7 @@ function calculateCostForDisplay(inventoryItem) {
 }
 ```
 
-You may have gut intuition about where the logic should go, but that's beside the point. The reality of larger organizations means that frontend and backend engineers may be working to solve a similar problem -- what might even be a simple calculation -- but blind to the other side doing similar work. Frequent team project reassingments, geospatial and organizational distance, depth of expertise, weak cultural value around curious coding, etc... these types of contention costs create the regrettable yet natural complicatedness that results in kinda scary duplications. Scary because maintaining the integrity of pricing data in your app is ESSENTIAL, and if that logic shows up in two places it could easily become inconsistent. A less-initiated dev -- in experience or time at the company -- may discover the outdate/moded pricing calculation and leverage that in subsequent code. And thus, defects. 
+The richness of larger organizations determines that frontend and backend engineers will wind up working on solves for similar problems -- what might even be a simple calculation -- totally  blind to the other side clamoring away. Frequent team project reassingments, geospatial and organizational distance, depth of expertise, weak cultural value around curious coding, etc... these types of contention costs create the regrettable yet natural complicatedness that results in kinda scary duplications. Scary because maintaining the integrity of pricing data in your app is ESSENTIAL, and if that logic shows up in two places it could easily become inconsistent. A less-initiated dev -- in experience or time at the company -- may discover the outdate/moded pricing calculation and leverage that in subsequent code. And thus, defects. 
 
 Supplemental thoughts from Coda Hale's [new blog post](https://codahale.com/work-is-work/) going around:
 
