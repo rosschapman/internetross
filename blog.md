@@ -310,7 +310,7 @@ onInput((prevValue, nextValue) =>
         .catch(trackClearInput(prevValue))
 ```
 
-It's hard to see the real power of this for a simple resolve/reject example. It just feels like a fancy if/else, right? But if we extrapolate from this base interesting things start to happen. Here's a slightly modified version of example from Practica's docs with an imaginary Either that uses Promises under the hood and implements a `chain` behavior:
+It's hard to see the real power of this for a simple resolve/reject example. It just feels like a fancy if/else, right? But if we extrapolate from this base interesting things start to happen. Here's a slightly modified version of an example from Practica's docs with an imaginary Either that uses Promises under the hood and implements a `chain` behavior:
 
 ```javascript
 const isPerson = p => p.name && p.age
@@ -335,7 +335,7 @@ Either(person)
   .catch(msg => console.log(msg)); // if any checks reject, then this function will be called. If isPerson rejects, then isOlderThan2 and isJason functions won't even execute, and the err msg would be 'Not a person'
 ```
 
-Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how one might construct custom-fit control flow *chains* and layer cakes using thenable types to play nicely with other function composition and pipelining. I'm not always in love with (what feels like) sacrificed readability with chaining over stacked lines of assigned returns or async/await. But seeing it an action using Practica I'm starting to believe more and more in its viabiilty, even in a codebase touched by less experienced or new developers. 
+Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You can start to imagine how one might construct custom-fit control flow *chains* and layer cakes using thenable types to play nicely with other function composition and pipelining. I'm not always in love with (what feels like) sacrificed readability with chaining over stacked lines of assigned returns or async/await. But seeing it an action using Practica I'm starting to believe more and more in its viability, even in a codebase touched by less experienced or new developers. 
 
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
@@ -343,7 +343,7 @@ Gripes with FP readability aside, it's eye-opening to look at available JS langu
 #### Tags: naming, javascript
 ##### 11/18/2019
 
-Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Betwee persons.
+Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Between persons.
 
 *How do I communicate to the next developer that this function might do one thing, or it might do another?*
 
