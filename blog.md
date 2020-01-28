@@ -46,7 +46,7 @@ My subtext as I watch: I wish men could  call it what it is. Non-mens have to ke
 
 Tech, like other industries, continues to produce the worst of/from man because the manifest teleology of *Progress* from the industrial revolution is wrong for the precarity of the Anthropocene and a damaged earth. And suffers for it. Racism and sexism are the key ingredients in the alchemy that has transformed "Do no evil" to solving the "hard problems" of controlling the explosion of child porn on Youtube (to name a recent example). Whoops.
 
-An ingressive mindset might help us. Help move us at the speed of trust. It's nice to see some white boys catching on and putting it out there in front of the other boys.
+An ingressive mindset might help us; help move us at the speed of trust. There is some movement; white boys catching on and putting together slide for the other boys.
 
 Brian and Ben essentially instruct the audience in trust-based collaboration:
 
