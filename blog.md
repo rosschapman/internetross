@@ -277,11 +277,11 @@ if (data) {
     console.log('Womp, no data returned from API.')
 }
 ```
-The combination ofFP-style data pipelining -- allowed by Maybe's monadic interface, I think? -- and control flow encapsulated in the data type itself, we get a semantically rich and easy-to-read solution without nullables and exhausting boilerplate; ie, param existence checks.
+The combination of FP-style data pipelining -- allowed by Maybe's monadic interface, I think? -- and control flow encapsulated in the data type itself, we get a semantically rich and easy-to-read solution without nullables and exhausting boilerplate; ie, param existence checks.
 
-Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's own Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
+Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
 
-While maybes represent one or no value, Just or Nothing, Either implementations are slightly different in that they represent one *or* the other, but not both. If you're familiar with bitwise XOR, it's the same algorithm. In place of a Nothing or performing a noop, however, Eithers provide a secondary branch for an error case. Let's see it in action. 
+While maybes represent one or no value, Just or Nothing, Either implementations are slightly different in that they represent one *or* the other, but not both. If you're familiar with bitwise XOR, it's the same algorithm, except that in place of a Nothing or performing a noop, Eithers provide a secondary branch for an error case. Let's see it in action. 
 
 Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
