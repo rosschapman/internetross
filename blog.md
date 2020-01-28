@@ -32,7 +32,7 @@
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing
 ##### 1/24/2020
 
-[The Myth of the Genius Programmer](https://www.youtube.com/watch?v=0SARbwvhupQ)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0SARbwvhupQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Sussman, presented The Myth of the Genius Programmer to an audience of mostly dudes. Well, we can surmise at the demographics because women were still being invented around this time. 
 
