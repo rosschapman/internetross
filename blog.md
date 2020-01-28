@@ -277,7 +277,7 @@ if (data) {
     console.log('Womp, no data returned from API.')
 }
 ```
-The combination ofFP-style data pipelining -- a result of Maybe being a monad, I think -- and control flow encapsulated in the data type itself, we get a semantically rich and easy-to-read solution without nullables and exhausting boilerplate; ie, param existence checks.
+The combination ofFP-style data pipelining -- allowed by Maybe's monadic interface, I think? -- and control flow encapsulated in the data type itself, we get a semantically rich and easy-to-read solution without nullables and exhausting boilerplate; ie, param existence checks.
 
 Where Elliot really surprised me was drawing a line between FP's similar-to-Maybe data type *Either* and JS's own Promise. Tucking `null` away with Promises is super neat. Let's see how that plays out in a sec. 
 
