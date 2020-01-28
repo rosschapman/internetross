@@ -48,7 +48,7 @@ Tech, like other industries, continues to produce the worst of/from man because 
 
 An ingressive mindset might help us; help move us at the speed of trust. There is some movement; white boys catching on and putting together slide for the other boys.
 
-Brian and Ben essentially instruct the audience in trust-based collaboration:
+The talk is an introduction and invitation in trust-based collaboration. Touchstones include:
 
 - you are unique but not special (meh, reinscribing in sad machismo Tyler Durden reference)
 - individual genius is a myth
