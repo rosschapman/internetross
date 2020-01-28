@@ -70,7 +70,7 @@ The talk is an introduction and invitation in trust-based collaboration and vuln
  
 It's devastating to think about the enormity of  emotional intelligence training men needed/need/will need; the colonial violence that has poisoned our souls; how expensive it is to refactor patriarchy's structural grammar; that the non-human-men bear the burden of maintaining the moral center. The undoing of Patriarchy in the talk. Which pits men against the world. Against each other in an end game for supreme master and commander; order and peace means the seizing of power; power must be seized by the individual. 
 
-I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelwayne.com/talks/what-we-know-we-dont-know/) where he warns of the perils of engineering culture which suffers   cock-sure "charisma-driven development": men huffing and puffing. I'm not sure Hillel's Empiricism will save us like Thomas' archeology and Cheng's metonymy. It's certainly a tool. There are a lot of tools here.
+I'm reminded of Hillel Wayne's talk [*What We Don't Know*](https://www.hillelwayne.com/talks/what-we-know-we-dont-know/) where he warns of the perils of engineering culture which suffers   cock-sure "charisma-driven development": men huffing and puffing. I'm not sure Hillel's Empiricism will save us like Thomas' archeology and Cheng's metonymy. It's certainly a tool, albeit neo-classical, neo-liberal.
 
 ### Thinking about heuristics for avoiding code duplication across the stack
 #### Tags: large applications, large teams, duplication
