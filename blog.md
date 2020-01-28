@@ -124,7 +124,7 @@ Supplemental thoughts from Coda Hale's [new blog post](https://codahale.com/work
 
 > Limit the number of people an individual needs to talk to in order to do their job to a constant factor.
 
-I'm not sure I would have believed this type of thing would happen before I joined a larger company with an engineering group spread across geos; teams flung across the ownership matrix by the high winds of market shift. *This investor and wall street casino shit is real.* Team pet names stunted protologisms. Like, what happened to the Squirrel team? Oh, they are the *Crib Gto Pomp* team now. Well at least we are consistently circumlocutory at naming teams.
+I'm not sure I would have believed this type of thing would happen before I joined a larger company with an engineering group spread across geos; teams flung across the ownership matrix by the high winds of market shift. *This investor and wall street casino shit is real.* Team pet names: stunted protologisms. Like, what happened to the Squirrel team? Oh, they are the *Crib Gto Pomp* team now. Well at least we are consistently circumlocutory at naming teams.
 
 But an example like the above cost calculation exits. I saw something like it in our JavaScript code. Then I asked the the folks who work on backend if the frontend really needed to be doing this work. We shouldn't. And, we literally shouldn't because the computation for this existed in our backend service already. It was like a Python devleoper and a JS developer were completing the same code challenge.
 
