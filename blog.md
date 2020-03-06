@@ -28,6 +28,83 @@
     color: inherit;
 }
 </style>
+
+### 
+####
+#####
+
+Lately I've been thinking about productivity. Mine. My team's. My company has continued to invest in new dev centers in the country interior and abroad to cut costs. The lived experience is an obvious added coherence cost. For example, asynchronous code review with Mendoza will easily add 24hrs to achieve a merge.
+
+Not too long into my first software gig my team of 5 engineers organized a book club and tackled The Mythical Man Month. This was my first introduction to the idea that you can't just throw more people at software problems: 
+
+> Adding manpower to a late software project makes it later.
+
+The software symmathesy, no matter how sophisticated, is so *complicated* that command and control thinking can't intervene to establish order: 
+
+> As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.
+
+Why does this happen? Because, despite the spacious, ethereal characterization of our work *only slightly removed from pure thought-stuff*, building *castles in the air* we definitely live through a tangible stickiness, a slog, mid-to-late in the build cycle. (It's a *yes, and...* sitch.) Making code changes gets harder because design decisions have constrained any new possibilites: *sorry homie, we're using Redux*. Or the rush to the finish line produces anxiety that strains communication. You shift from pensive philosopher to tactician, code breaker. Communication quality suffers. Code review quality suffers. For the obvious reason that you need to really dig in and focus on constructing your own code for more hours in the day, which decreases mental capacity to switch context to someone else's. All that great senior leadership out the door. Everyone talks less, shares less about what they're doing in Slack. No matter how high-performing the team, I'm convinced there will be some degradation.
+
+When I read Coda Hale's recent piece *Work Is Work* all of this came up for me again. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism, what Karatani would describe as our "will to architecture," that adds a seductive element for the modern mind struggling in their symmathesies. My poet brain.
+
+> At some point in time, every organization realizes that it’s slowing down. 
+
+Like, Brooks, Hale is dealing with that slog, but with the scope zoomed out to help us understand how to manage and overcome the obstacle of organizational growth. For me he enriches the idea of the mythical man month with: 
+
+> The work capacity of an organization scales, at most, linearly as new members are added.
+
+We're not even talking about geographical spread yet and the "slag" (lag/slog) that I've been feeling on daily basis. 
+
+> Coherence costs grow quadratically as new members are added. 
+
+Our inability to succesfully parallelize more work across teams is just a macrocosm of what us 5 engineers will experience late in a project. Doesn't working in a *company* always feel like your in a late stage of something? At least in a deep middle. Like, the machine is churning.
+
+After Hale I picked up Kojin Karatani's book, *Architecture as Metaphor*. I think it was mentioned on Greater than Code. Which led me back to Christopher Alexander. Which led me to *The City Is Not A Tree.*
+
+Considering that: 
+
+> There are virtually no closed groups of people in modern society. The reality of today's social structure is thick with overlap.
+
+Which totally sounds a symmathesy, a software org to me. Then Hale's advice makes a lot of sense: 
+
+> The only scalable strategy for containing coherence costs is to limit the number of people an individual needs to talk to in order to do their job to a constant factor.
+
+(I'm interpreting "coherence costs" as some kind of price of communication and resource share.)
+
+In the context of a symathesy, a semi-lattice of overlap; where our bounded rationality (not to mention hubris, or inexperience, or ego, or other ingressive tendencies) limits our ability to observe and study the subtlety and richness of the organization, throwing more *men* at the problem is dumb as fuck. Managers can't govern from apart, above: 
+
+> As with heavily layered applications, the more distance between those designing the organization and the work being done, the greater the risk of unmanaged points of contention. Top-down organizational methods can lead to subdivisions which seem like parallel efforts when listed on a slide but which are, in actuality, highly interdependent and interlocking. Staffing highly sequential efforts as if they were entirely parallel leads to catastrophe.
+
+It's all feeling very close to home. For example, the reality is that with an expanding team I am going to have to review more code. In our org we have feature ownership to introduce quality control. 
+
+
+
+
+Kojin Karatani:
+> It is harder to visualize all four sets simultaneously. It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
+    - bounded rationality
+    - it's hard, but we can embrace richness, variety, complicatedness -- it can formally/mathematically proved
+> These ensembles form a unit
+    - mixins
+
+> The semi-lattice has a greater potential of developing into a more complex and subtle structure
+    - in sofware, would allow greater extensibility, feature richness, possibilities
+      - different types of ensembles to emerge
+        - object-oriented, functional, multiple design libraries, small/light endpoints, compositional components (no header= prop!)
+          - Oh, is REST a tree?
+
+> When we observe how organizations actually function, we see that the tree structure is often modified
+
+A city is not a tree:
+> I claim that whatever picture of the city someone has is defined precisely by the subsets he sees as units. 
+    - bounded rationality
+
+> There are virtually no closed groups of people in modern society. The reality of today's social structure is thick with overlap - the systems of friends and acquaintances form a semilattice, not a tree 
+> It must be emphasized, lest the orderly mind shrink in horror from anything that is not clearly articulated and categorized in tree form, that the idea of overlap, ambiguity, multiplicity of aspect and the semilattice are not less orderly than the rigid tree, but more so. They represent a thicker, tougher, more subtle and more complex view of structure. 
+> the mania every simple-minded person has for putting things with the same name into the same basket. 
+> These experiments suggest strongly that people have an underlying tendency, when faced by a complex organization, to reorganize it mentally in terms of non-overlapping units.
+
+
 ### Some patriarchal intervention at Google I/O a while back
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
 ##### 1/24/2020
