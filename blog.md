@@ -135,7 +135,7 @@ And
 
 > What happens when the semilattice is broken?
 
-By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation We are just talking about companies and organizational theory still.
+By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the subtle humdrum of interfacing nodes; like at Hearst and Euclid.
 
 ### Some patriarchal intervention at Google I/O a while back
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
