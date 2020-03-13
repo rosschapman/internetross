@@ -29,100 +29,113 @@
 }
 </style>
 
-### 
-####
-#####
+### The will to better software companies
+#### Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani
+##### 3/12/2020
 
-Lately, I've been thinking about productivity and it's evolutionary **rhythm** change with scale. Namely how easy the cadence ebbs. My company continues to invest in new dev centers in the country interior and abroad to cut costs. My lived experience is a multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our owned codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking at least an additional 24hrs to achieve a merge (what I mean is 24hrs beyond what it might require at home); it's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast. Then I need to own hermitted time understanding what they're code is doing and is supposed to do. The asynchronous communication is maximally smooth -- we're good at it -- but altogether the impact of distance and time spent to "get up to speed" (pun intended) adds a big difference; a differánce even. As if navigating the palimpsest wasn't enough. Multiple personages reading the code text, scribbling comments, changing, re-reading the next day. 
+Lately, I've been thinking about productivity and it's evolutionary **rhythm** with scale. Namely how easy the cadence ebbs. My company continues to invest in new dev centers in the country interior and abroad to cut costs. My lived experience is a multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking at least an additional 24hrs to achieve a merge (what I mean is 24hrs more than what we'd need at home); it's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast. The burden of such a cross-geo async request is that I'm gonna have to hermit down to understand what they're code is doing and is supposed to do. Now, the communication over Slack is maximally smooth -- we're good at it -- but altogether the impact of distance and time spent to "get up to speed" (pun intended) adds a big difference; perhaps a Derridean kind of differánce even. As if navigating the palimpsest wasn't enough. Multiple personages reading and explaining the code text, scribbling comments, changing, re-reading the next day; discovering the truth in the spaces/tabs. 
 
 > Every software project is like a palimpsest where every developer scratches old text, and writes on top of it their perceived new solution, creating a manuscript where a mix off styles and languages reflect different understandings of the world, different world visions.
 
-Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled The Mythical Man Month. This is when I learned that software devs were thought of as easily fungible "resources." It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. Entering an industry is a crash course, y'all. 
+> Différance is the systematic play of differences, of the traces of differences, of the spacing by means of which elements are related to each other. This spacing is the simultaneously active and passive (the a of différance indicates this indecision as concerns activity and passivity, that which cannot be governed by or distributed between the terms of this opposition) production of the intervals without which the "full" terms would not signify, would not function.
+
+Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled The Mythical Man Month. This is when I learned that software devs were reduced to fungible "resources" by management. (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?") It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. 
+
+Oh startup learnings. Entering an industry is a crash course, y'all! 
 
 > Adding manpower to a late software project makes it later.
 
-Because the software symmathesy -- *a learning system of learning parts* -- while sophisticated, is so *complicated* that command and control thinking can't intervene to establish order: 
+If we believe Jessica Kerr and the Jessica Kerrian systems theorists of our ilk, and on this point I do -- software is a symmathesy:  *a learning system of learning parts*. Brooks must have believed something similar I just don't remember his words or if he had a systems-thinking bent. 
+
+What these students of software teach us is that software is so highly sophisticated, so highly *complicated*!, that command and control thinking can't intervene to establish order: 
 
 > As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.
 
-So why does this happen? Like, despite the spacious, ethereal characterization of our work as *only slightly removed from pure thought-stuff* where we build *castles in the air*...we definitely live through a tangible stickiness, a slog, frustrations, waiting; especially mid-to-late in the build cycle. I swear there's something *metalic* about a build failure. 
+So why does this happen? Like, despite the spacious, ethereal characterization of our work as *only slightly removed from pure thought-stuff* where we build *castles in the air*...we definitely live through a tangible stickiness, a slog, frustrations, indeterminate waiting, blockedness; especially mid-to-late in the build cycle. I swear there's something metallic about a build failure. 
 
-Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project gets harder because design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if all render functions are prefixed with `render*` why are you writing a function name of `getItemList`. Because...the rush to the finish line produces anxiety that strains communication. You shift from pensive philosopher to tactician, code breaker. Communication quality suffers. Code review quality suffers. For the obvious reason that you need to dig in on constructing your own code for more hours in the day, which decreases mental capacity to switch context to someone else's. All that great senior leadership out the door. Everyone talks less, shares less about what they're doing in Slack. No matter how high-performing the team, I'm convinced there will be some degradation.
+Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project gets harder because design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if the component handlers should call to the reducer, why are you calling `setState()` directly in the handler? Because...the rush to the finish line produces anxiety that strains communication. You shift from pensive philosopher to tactician; code breaker. Code review quality suffers; if only for the obvious reason that you need to dig in on constructing your own code for more hours in the day, decreasing mental reserves for context switching to someone else's. All that great senior leadership out the door. There's just less talking; less Slack ping pong. No matter how high-performing the team, I'm convinced there will be some communication degradation in the twilight hours.
 
-When I read Coda Hale's recent piece *Work Is Work* all of this pain was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism, what Karatani would describe as our "will to architecture," that adds a seductive element for the modern mind struggling in their unwieldy symmathesies. This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so just like Brooks:
+Here's another way to cut that slog from Jessica Kerr in her seminal reveal of software/symmathesy. Slog derived from complex semilatices:
+
+> In order to change our system, we need a mental model of it. Each developer has a mental model of the software we work on. Each developer’s mental model is necessarily incomplete and out of date. And, they’re each different from everyone else’s. (this is called Woods’ Law, if I recall correctly.) We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
+
+When I read Coda Hale's recent piece *Work Is Work* all of this pain was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism that adds a seductive element for the modern mind struggling in their unwieldy symmathesies. What Karatani would call our "will to architecture". This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so similar to Brooks, but for orgs, Hale says:
 
 > At some point in time, every organization realizes that it’s slowing down. 
 
-Like Brooks, Hale is dealing with that slog. But with the scope zoomed out to help us understand how to manage and overcome the obstacle of big organizations growing. For me he enriches the idea of the mythical man month with with Amdahl's law: 
+Like Brooks, Hale is dealing with that slog. But with the scope zoomed out to help us understand how to manage and overcome the obstacle of big organizations growing at economies of scale. He enriches the idea of the mythical man month with Amdahl's law: 
 
 > The work capacity of an organization scales, at most, linearly as new members are added.
 
-Amdahl's law: I'm still wrapping my head around it! But I believe the gist is: when we try to add more people to parallelize parts of the dev work, we won't get any dramatic (exponentialized) speed gains over the sequential work of the smaller group. Amdahl observed this behavior while throwing additional processors at a computational task in a computer machine. The "parallel fraction" of speed increase when adding *N* new members is only relative to the original group size, and eventually tops out and flattens. Therefore, importantly, *coherence costs* start to grow dramatically. From Hale: 
+Amdahl's law: I'm still wrapping my head around it! But I believe the gist is: when we try to add more people to parallelize parts of the dev work, we won't get any dramatic (exponentialized) speed gains over the sequential work of the smaller group. Amdahl observed this behavior while throwing additional processors at a computational task in a computer machine. The "parallel fraction" of speed increase when adding *N* new members is only relative to the original group size, and eventually tops out and flattens. Rather than the speed boost our command-control leadership wills, we get something a flip side slog: 
 
 > Coherence costs grow quadratically as new members are added. 
 
-Slog = coherence costs! That's a better buttoned up phrase for it. Around the same time I read Hale's piece I was picking up Kojin Karatani's book, *Architecture as Metaphor*. (I think it was mentioned on Greater than Code -- where pretty much everything here comes from). So while I'm sitting with these ahas! about how the frustrating things at work are these somewhat well-understood "coherence costs" that occur on large teams (like mine) which have been studied I'm suddenly finding myself in chapter 4 of *AAM* called the *Natural City* where Karatani continues to build his argument for the ways that theory is entrapped again and again by the architectonic. But the thread for me that's interesting is Karatani's synopsis of Christopher Alexander's The City Is Not A Tree. Of course I should meet Alexander here. He is like one of the father's of *Software Patterns* -- see his 1996 keynote at OOPSLA -- that would inspire all the awesome ThoughtWorks stuff. 
+Slog = coherence costs! That's a sweet little buttoned up phrase for it. 
 
-Alexander proposed mathematically formalized ideas (just like Hale is doing, hmmm) of the "natural city" -- distinguished from the *artificial* city -- as a *semi-lattice*. The opposing form is a command-and-controlish *tree* structure that emerges from the minds of men who don't understand richness, complexity, and subtlety. The definition for a semi-lattice is axiomatically described as: 
+Around the same time I read Hale's piece I was picking up the aforementioned Kojin Karatani book, *Architecture as Metaphor*. So while I'm sitting with these ahas! about how the frustrating things at work are these somewhat well-understood "coherence costs" that occur on large teams like mine which can be observed with rigor from the outside (*etic*)...I'm suddenly finding myself in chapter 4 of *Architecture as Metaphor* called the *Natural City* where Karatani continues to build his argument for the ways that theory is entrapped again and again by the architectonic. But the thread I want to pull on is simply Karatani's synopsis of Christopher Alexander's The City Is Not A Tree. Lol, of course I should meet Alexander here. He is like one of the father's of *Software Patterns* -- see his 1996 keynote at OOPSLA -- that would inspire so much of how our apps are built at scale today.
+
+In the seminal essay The City Is Not A Tree, that would inspire people across fields and perhaps give rise to the concept of bounded rationality, Alexander proposed mathematically based, formal, structural, ideas (just like Hale is doing) to describe the "natural city" as a *semi-lattice*; a concept from Set theory. 
 
 > A collection of sets forms a semilattice if and only if, when two overlapping sets belong to the collection, the set of elements common to both also belongs to the collection.
 
-I believe for the purpose here we can say that a semi-lattice is a collection with overlap while a tree would lack such. My brain keyed on this because it seemed to describe the structure of a software system -- not to mention the cutely convenient lexical overlap of mathematical terms in the definition; like "set" which appear often in our programming.  
+He is thereby able to reveal the "natural city" as something we can think about rationally. Particularly, and importantly, rationally distinct from the nemesis "artificial city" -- a command-and-control style approach to designing cities in a treelike fashion from those who don't appreciate the the richness, subtlety, and complexity in the overlaps that otherwise staves off "coming destruction" and "anarchy."
 
+> When we think in terms of trees we are trading the humanity and richness of the living city for a conceptual simplicity which benefits only designers, planners, administrators and developers. Every time a piece of a city is torn out, and a tree made to replace the semilattice that was there before, the city takes a further step toward dissociation. 
 
+And
 
+> The semilattice...is the structure of a complex fabric; it is the structure of living things, of great paintings and symphonies. 
 
-Karatani concludes the chapter with Alexander's own summation of his article *The City is Not a Tree* which Karatani is situating in his own argument: 
+My brain keyed on semilattices because they seemed to describe the structure of a software system I've been coming to know through Kerr and Bateson (opera, camerata, living) -- not to mention the cutely convenient lexical overlap of mathematical terms in the definition; eg, a "Set" is a common data structure implemented by many high-level programming languages. Mendoza devs putting their text in our text. Some overlap of time zone. Knowledge overlaps as more tenured developers work in more areas of the codebase. Overlap at the coffee station, at the lunch table. Overlapping documentation, nearly duplicate. Also the incomplete lines of connection. The grassroots partnerships and friendships that emerge across teams. The polymorphic ensemble of patterns and style in our web applications: classes called as functions, state reducers and DOM events, REST and GraphQL, compositional components within hard-bound graphs. The semilattice seems very familiar.
 
-> In any organized object, extreme compartmentalization and the dissociation of internal elements are the first signs of coming destruction.
+Therefore, in the context of a symathesy, where Alexander might say our bounded rationality (not to mention hubris, or inexperience, or ego, or other ingressive tendencies) limits our ability to observe and study the subtlety and richness of the organization, throwing more *men* at the problem is short-sighted as fuck. Managers can't govern from apart, at the top of the edifice.
 
-
-
-Which totally sounds a symmathesy, a software org to me. Then Hale's advice makes a lot of sense: 
+Then the advice that Hale starts giving to tackle coherence costs makes a lot of sense: 
 
 > The only scalable strategy for containing coherence costs is to limit the number of people an individual needs to talk to in order to do their job to a constant factor.
 
-(I'm interpreting "coherence costs" as some kind of price of communication and resource share.)
-
-In the context of a symathesy, a semi-lattice of overlap; where our bounded rationality (not to mention hubris, or inexperience, or ego, or other ingressive tendencies) limits our ability to observe and study the subtlety and richness of the organization, throwing more *men* at the problem is dumb as fuck. Managers can't govern from apart, above: 
+Limit the overlap!
 
 > As with heavily layered applications, the more distance between those designing the organization and the work being done, the greater the risk of unmanaged points of contention. Top-down organizational methods can lead to subdivisions which seem like parallel efforts when listed on a slide but which are, in actuality, highly interdependent and interlocking. Staffing highly sequential efforts as if they were entirely parallel leads to catastrophe.
 
-It's all feeling very close to home. For example, the reality is that with an expanding team I am going to have to review more code. In our org we have feature ownership to introduce quality control. 
-****
-> We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
+And
 
-We're not even talking about geographical spread yet and the "slag" (lag/slog) that I've been feeling on daily basis. 
+> As an organization hires more employees, work on productivity improvements must be a constant priority. Internal tooling, training, and services must be developed and fielded to ensure that all members are able to work on problems of continuously increasing impact. The ceaseless pursuit of force multipliers is the only possible route to superlinear productivity improvements as an organization grows.
 
+In an essay I assume Hale drew from, and to which Jessica Kerr's above quote references, Michael Nygard in *Coherence Penalty for Humans* making a similar suggestion:
 
+> ...take a look at your architecture, language, tools, and team. See where you spend time re-establishing coherence when people make changes to the system's model of the world...take a look at your architecture, language, tools, and team. See where you spend time re-establishing coherence when people make changes to the system's model of the world. 
 
+I love all this. Of course, it's hard. Alexander tested folks, experimented to discover that the tendency was to "reorganize" the mental model into a treelike structure (though perhaps he only interviewed a group of limited white men, or folks embedded in white supremacist society?) But I suspect some of the hardness has to do with:
 
+1) Our inability to see the costs (ie the complexity, constrained by our ); for leadership looking at the org we can also probably say that their "mental model is necessarily incomplete and out of date".
 
+> It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
 
+2) An ignorance that we have a semilattice at all. Who out there amongst leadership are systems thinkers? Embracers and students of variety, incompleteness, ambiguity, multiplicity? Who can embrace these, split things, and double down on rewiring the learning (neuronic) threads? Ensembles over A/agile. Feminism over A/agile. More of that interspecies contamination, contaminated diversity that Anna Tsing talks about. Mushrooms and the dying earth can help.
 
-Kojin Karatani:
-> It is harder to visualize all four sets simultaneously. It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
-    - bounded rationality
-    - it's hard, but we can embrace richness, variety, complicatedness -- it can formally/mathematically proved
-> These ensembles form a unit
-    - mixins
+> Where a matrix indicates a high-touch relationship between two groups (e.g., a group of engineers working on a feature and the lawyers trying to ensure the legal compliance of that feature), efforts should be made to reduce the cost of that interaction by colocating their members (e.g., embed a lawyer with the engineers).
 
-> The semi-lattice has a greater potential of developing into a more complex and subtle structure
-    - in sofware, would allow greater extensibility, feature richness, possibilities
-      - different types of ensembles to emerge
-        - object-oriented, functional, multiple design libraries, small/light endpoints, compositional components (no header= prop!)
-          - Oh, is REST a tree?
+Management or whatever version of leadership you have must stay on top of this shit. For examples from my daily life, if more and more communication about Stories and Bugs happens in Slack, we need to figure out better integration with JIRA so that we don't have to duplicate and cross post that conversation. If Slack and Github code review are primary sites of communication for developers, why don't we put more helpful context into profiles? Years at the company, specialties, manager and PM infos. For example, at one point well into a code review with another developer in Argentina I was noticing they didn't seem to grasp the context of one of my comments. I had to freakin google around to finally discover this person had only been at the company under a year. LinkedIn is simply an easier resource than Slack/WorkDay/etc... I can avail myself of.
 
-> When we observe how organizations actually function, we see that the tree structure is often modified
+Why am I meeting new team members who have an interest in my codebase once a feature-add is already in code review? I swear our documentation isn't that good. 
 
-A city is not a tree:
-> I claim that whatever picture of the city someone has is defined precisely by the subsets he sees as units. 
-    - bounded rationality
+Why after two years of working with my "high performing" team do I know next to nothing about how any of them actually approach problem solving? Or wish to approach it? Lol, am I wondering who their heroes are? Maybe. Maybe there's not much else that's material to know beyond what's bobbing on the surface. Maybe I'm projecting my own desire to connect to my own brain/heart more. Like, operating atop this professional veneer is nice I guess, but what profound productivity are we sacrificing for fear of facilitated, intentional, purposeful team building?
 
-> There are virtually no closed groups of people in modern society. The reality of today's social structure is thick with overlap - the systems of friends and acquaintances form a semilattice, not a tree 
-> It must be emphasized, lest the orderly mind shrink in horror from anything that is not clearly articulated and categorized in tree form, that the idea of overlap, ambiguity, multiplicity of aspect and the semilattice are not less orderly than the rigid tree, but more so. They represent a thicker, tougher, more subtle and more complex view of structure. 
-> the mania every simple-minded person has for putting things with the same name into the same basket. 
-> These experiments suggest strongly that people have an underlying tendency, when faced by a complex organization, to reorganize it mentally in terms of non-overlapping units.
+Are our conference rooms wired with enterprise-level video conferencing? Have we trained devs in how to effectively schedule and facilitate meetings? I remember I was met with quite a bit of resistance suggesting that we create a meeting support team that would just be available to take notes for meetings they were not invited to. I don't think devs understand the importance of their meeting communication as a document of ideas and decision-making; and similarly how hard it is to accurately and correctly document after the fact; or document during, for that matter, for someone is also trying to act as participant.
+
+######  Postscript:
+
+I should not have kept reading Karatani while writing this essay. I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makese sense in Karatani's argument because he wants to reveal the problem of formalizations.
+
+> Despite its appearance, [the semilattice] is orderly and centered. 
+
+And
+
+> What happens when the semilattice is broken?
+
+By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation We are just talking about companies and organizational theory still.
 
 ### Some patriarchal intervention at Google I/O a while back
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
