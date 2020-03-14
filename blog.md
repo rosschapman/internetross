@@ -111,7 +111,7 @@ In an essay I assume Hale drew from, and to which Jessica Kerr's above quote ref
 
 I love all this. Of course, it's hard. Alexander tested folks, experimented to discover that the tendency was to "reorganize" the mental model into a treelike structure (though perhaps he only interviewed a group of limited white men, or folks embedded in white supremacist society?) But I suspect some of the hardness has to do with:
 
-1) Our inability to see the costs (ie the complexity, constrained by our ); for leadership looking at the org we can also probably say that their "mental model is necessarily incomplete and out of date".
+1) Our inability to see the costs (ie the complexity, simply constrained by our brain's inherent limitation to expansively see/hold it all); for leadership looking at the org we can also probably say that their "mental model is necessarily incomplete and out of date".
 
 > It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
 
