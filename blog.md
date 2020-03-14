@@ -41,7 +41,7 @@ And
 
 > Différance is the systematic play of differences, of the traces of differences, of the spacing by means of which elements are related to each other. This spacing is the simultaneously active and passive (the a of différance indicates this indecision as concerns activity and passivity, that which cannot be governed by or distributed between the terms of this opposition) production of the intervals without which the "full" terms would not signify, would not function.
 
-Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled The Mythical Man Month. This is when I learned that software devs were reduced to fungible "resources" by management. (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?") It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. 
+Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled *The Mythical Man Month*. This is when I learned that software devs were reduced to fungible "resources" by management. (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?") It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. 
 
 Oh startup learnings. Entering an industry is a crash course, y'all! 
 
@@ -89,7 +89,7 @@ And
 
 > The semilattice...is the structure of a complex fabric; it is the structure of living things, of great paintings and symphonies. 
 
-My brain keyed on semilattices because they seemed to describe the structure of a software system I've been coming to know through Kerr and Bateson (opera, camerata, living) -- not to mention the cutely convenient lexical overlap of mathematical terms in the definition; eg, a "Set" is a common data structure implemented by many high-level programming languages. Mendoza devs putting their text in our text. Some overlap of time zone. Knowledge overlaps as more tenured developers work in more areas of the codebase. Overlap at the coffee station, at the lunch table. Overlapping documentation, nearly duplicate. Also the incomplete lines of connection. The grassroots partnerships and friendships that emerge across teams. The polymorphic ensemble of patterns and style in our web applications: classes called as functions, state reducers and DOM events, REST and GraphQL, compositional components within hard-bound graphs. The semilattice seems very familiar.
+My brain keyed on semilattices because they seemed to describe the structure of a software system I've been coming to know through Kerr and Bateson (opera, camerata, living) -- not to mention the cutely convenient lexical overlap of mathematical terms in the definition; eg, a "Set" is a common data structure implemented by many high-level programming languages. Mendoza devs putting their text in our text. Some overlap of time zone. Knowledge overlaps as more tenured developers work in more areas of the codebase. Overlap at the coffee station, at the lunch table. Overlapping documentation, nearly duplicate. Also the incomplete lines of connection. The grassroots partnerships and friendships that emerge across teams. The polymorphic ensemble of patterns and style in our web applications: classes called as functions, state reducers and DOM events, REST with GraphQL, compositional components within hard-bound graphs. Microservices databases implementing Order and User over and over again. The semilattice seems very familiar.
 
 Therefore, in the context of a symathesy, where Alexander might say our bounded rationality (not to mention hubris, or inexperience, or ego, or other ingressive tendencies) limits our ability to observe and study the subtlety and richness of the organization, throwing more *men* at the problem is short-sighted as fuck. Managers can't govern from apart, at the top of the edifice.
 
@@ -115,7 +115,7 @@ I love all this. Of course, it's hard. Alexander tested folks, experimented to d
 
 > It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
 
-2) An ignorance that we have a semilattice at all. Who out there amongst leadership are systems thinkers? Embracers and students of variety, incompleteness, ambiguity, multiplicity? Who can embrace these, split things, and double down on rewiring the learning (neuronic) threads? Ensembles over A/agile. Feminism over A/agile. More of that interspecies contamination, contaminated diversity that Anna Tsing talks about. Mushrooms and the dying earth can help.
+2) An ignorance that we have a semilattice at all. Who out there amongst leadership are systems thinkers? Embracers and students of variety, incompleteness, ambiguity, multiplicity? Who can embrace these, split things, and double down on rewiring the learning (neuronic) threads? Ensembles over A/agile. More of that interspecies contamination, contaminated diversity that Anna Tsing talks about. Mushrooms and the dying earth can help.
 
 > Where a matrix indicates a high-touch relationship between two groups (e.g., a group of engineers working on a feature and the lawyers trying to ensure the legal compliance of that feature), efforts should be made to reduce the cost of that interaction by colocating their members (e.g., embed a lawyer with the engineers).
 
@@ -129,7 +129,7 @@ Are our conference rooms wired with enterprise-level video conferencing? Have we
 
 ######  Postscript:
 
-I should not have kept reading Karatani while writing this essay. I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makese sense in Karatani's argument because he wants to reveal the problem of formalizations.
+I should not have kept reading Karatani while writing this essay. I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makese sense in Karatani's argument because he wants to problematize architectonic thinking.
 
 > Despite its appearance, [the semilattice] is orderly and centered. 
 
@@ -137,7 +137,7 @@ And
 
 > What happens when the semilattice is broken?
 
-By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the subtle humdrum of interfacing nodes; like at Hearst and Euclid.
+By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the subtle humdrum of overlapping domains; like at Hearst and Euclid. 
 
 ### Some patriarchal intervention at Google I/O a while back
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
