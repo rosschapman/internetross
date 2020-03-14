@@ -129,7 +129,7 @@ Are our conference rooms wired with enterprise-level video conferencing? Have we
 
 ######  Postscript:
 
-I should not have kept reading Karatani while writing this essay. I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makese sense in Karatani's argument because he wants to problematize architectonic thinking.
+Why did I keep trudging through Karatani while writing this essay?? I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makese sense in Karatani's argument because he wants to problematize architectonic thinking.
 
 > Despite its appearance, [the semilattice] is orderly and centered. 
 
@@ -137,7 +137,7 @@ And
 
 > What happens when the semilattice is broken?
 
-By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the subtle humdrum of overlapping domains; like at Hearst and Euclid. 
+By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the gentle swish of overlapping domains; like at Hearst and Euclid. 
 
 ### Some patriarchal intervention at Google I/O a while back
 #### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
