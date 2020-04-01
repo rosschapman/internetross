@@ -69,7 +69,7 @@ Lately, I've been thinking about productivity and it's evolutionary rhythm with 
 And
 
 > Différance is the systematic play of differences, of the traces of differences, of the spacing by means of which elements are related to each other. This spacing is the simultaneously active and passive (the a of différance indicates this indecision as concerns activity and passivity, that which cannot be governed by or distributed between the terms of this opposition) production of the intervals without which the "full" terms would not signify, would not function.    
-> <small><cite>Cf. Jacques Derrida, "Interview with Julia Kristeva" in "Positions" (The University of Chicago Press, 1981), pp. 21</cite></small>
+> <small><cite>Cf. Jacques Derrida, Positions</cite></small>
 
 Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled *The Mythical Man Month*. This is when I learned that software devs were reduced to fungible "resources" by management. (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?") It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. 
 
@@ -83,7 +83,7 @@ If we believe Jessica Kerr and the Jessica Kerrian systems theorists of our ilk,
 What these students of software teach us is that software is so highly sophisticated, so highly *complicated*!, that command and control thinking can't intervene to establish order: 
 
 > As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.    
-> <small><cite>Frederick P. Brooks, Jr. The Mythical Man-Month</cite></small>
+> <small><cite>Ibid.</cite></small>
 
 So why does this happen? Like, despite the spacious, ethereal characterization of our work as *only slightly removed from pure thought-stuff* where we build *castles in the air*...we definitely live through a tangible stickiness, a slog, frustrations, indeterminate waiting, blockedness; especially mid-to-late in the build cycle. I swear there's something metallic about a build failure. 
 
@@ -158,7 +158,7 @@ I love all this. Of course, it's hard. Alexander tested folks, experimented to d
 
 1) Our inability to see the costs (ie the complexity, simply constrained by our brain's inherent limitation to expansively see/hold it all); for leadership looking at the org we can also probably say that their "mental model is necessarily incomplete and out of date".
 
-> It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.
+> It is similarly difficult to visualize the semi-lattice structure -- where multiple sets overlap--of the natural city, and thus we tend to reduce it to a tree, the only structure we can visualize.    
 > <small><cite>A City is Not a Tree, Christopher Alexander</cite></small>
 
 
