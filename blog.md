@@ -475,7 +475,7 @@ Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
 ### Maybe maybes
-Tags: *naming, javascript
+Tags: *naming, javascript*    
 **11/18/2019**
 
 Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Between persons.
@@ -502,7 +502,7 @@ componentDidUpdate() {
 I LOVE this. Don't you think it reads nicely? Like, you can really understand the sequence. The *maybes* communicate a true story of many possibilities. I'm imagining refactoring this component transition block. These function names are helping me decide what to care about now or later; to *maybe* deal with them or not.
 
 ### “do” helper for emphasis in variable naming 
-Tags: *variables, naming*
+Tags: *variables, naming*   
 **11/10/2019**
 
 [Reposted from medium](https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583)    
@@ -671,7 +671,7 @@ Is easiness achieved?:
 > ...can I get this instantly and start running it in five seconds?
 
 ### A better term for unintentional technical debt
-Tags: *technical debt
+Tags: *technical debt*    
 **10/6/2019**
 
 The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we had been toiling  in the last two weeks was now a super bloom of contributions from different teams. The code had become hard to reason about making it difficult to safely change. We call this too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
@@ -773,7 +773,7 @@ a |b |a XOR b
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
 ### White theft, white entrepreneurship
-Tags: *racism
+Tags: *racism*     
 **9/9/2019**
 
 I've been reading two texts this week. Side-by-side they offer another reveal of the tragic double standard of black and white life in our America. I really felt that truth descend upon reaching 90 pages into *Shoe Dog*, Phil Knight's memoir about starting Nike. On the one hand: a story about a white Christian rich kid manifesting a new destiny for himself away from mediocrity using military connections to build a business with a recently conquered nation. 1964: the year Knight starts Blue Ribbon Sports. On the other hand: I'm half-way through the drudge of Vann R. Newkirk II's long-form in the Atlantic, *The Great Land Robbery*, about the vast land theft and wealth transfer *during the civil rights era* from blacks to whites in Mississipi. 1964: by this year almost 800,000 acres of land have transfered from blacks to whites as a result of *legal* discriminatory (racist) federal farm loan programs and private lenders.
