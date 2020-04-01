@@ -674,21 +674,27 @@ Is easiness achieved?:
 Tags: *technical debt*    
 **10/6/2019**
 
-The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we had been toiling  in the last two weeks was now a super bloom of contributions from different teams. The code had become hard to reason about making it difficult to safely change. We call this too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
+The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." We were hunched over stickies and milling about thoughtfully. Suddenly I leaped from my chair and smacked a note on the whiteboard: *application too big*. *The rent is too damn high!* 
+
+This damn slice of monorepo in which we had been toiling over the course of the last sprint had blind-sided us as a super bloom of contributions from different teams. The code was getting hard reason about; we were hostage to the out-of-bounds-ness. It was getting too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
 
 > It has many interconnected parts, each full of details. Conditionals abound, forming intricate rules that may surprise us when we read them.
 
-In that moment, I was reticent to describe this anchor as "debt" since I'd been thinking more about debt as the future IOW on quality to increase speed in the present. By that measure, you'd be kicking off an amortization plan, hopefully incremental and steady. To think of complicated code emerging from *bit rot* or *cruft* -- or in this case it may have just been not-so-great design -- didn't situate in Cunningham's metaphor for me because it showed up as a surprise. Are we ever really surprised by our credit card bill?  
+Now, I was reticent to describe this *anchor* I threw on the boards as any kind of "debt" since I'd been thinking more about debt as the future IOW on quality to increase speed in the present. By that narrow definition, if this nuanced latticework were debt, we'd be able to rustle up the ledger and observe the amortization plan, hopefully incremental and steady. To think of complicated code emerging from a combination of variegated knowledge  across teams, and the teleologic weight of entropy (bit rot, cruft, and so forth) didn't situate in Cunningham's metaphor for me because it showed up as a stunning surprise. Are we ever really surprised by our credit card bill?  
 
-There are other sources of debt people talk about. Procrastination, neglecting architectural work, neglecting tests. I truly believe the teams working in this code were doing it well, so those felt like an empty net. Then there's the whole category of "unintentional" debt. That also felt wrong. There is an aspect of stuff out of our control but the intent/unintent dichotomy feels unsatisfying if software is a complex system of people, code, automations, feedbacks...I don't know. Language is hard. I guess I'm gliding at the edges of a linguistic constraint.  A *weak* Sapir–Whorfian [confusion](https://en.wikipedia.org/wiki/Linguistic_relativity) that I can't peak around. 
+There are other sources of debt people talk about that related negligence. Procrastination, not revisiting architecture, postponing test-writing. I truly believe the teams working in this code were doing it well, so that flavor wouldn't help situation this present monorepo madness for me. 
 
-Nonetheless, I conceded this was *a form* of technical debt. While it may not have been a result of a conscious decision, now that we observed it we could choose to deal with it as debt. Debt is debt whether it arrives by forethought or magical inertia. 
+Well, there's the whole category of "unintentional" debt. But that also felt wrong, too. There is an aspect of stuff out of our control but the intent/unintent dichotomy feels unsatisfying if software is a rich system of people, code, automations, feedbacks...I don't know. Language is hard. I guess I'm gliding at the edges of a linguistic constraint with the lexicon that was tossed around the table by my colleagues.  Some sort of *weak* Sapir–Whorfian [confusion](https://en.wikipedia.org/wiki/Linguistic_relativity) that I can't peak around. 
+
+Nonetheless, I conceded to my fellow engineers of wares that are soft: ok, this debt that so cunningly creeped with bold surprise was, in fact, a (indefinite) form of technical debt. In fact again, the frame I particularly appreciated was this: while it may not have been a result of a conscious decision, now that we observed this mucky muck we could *choose* to deal with it as debt. Ok, debt is debt whether it arrives by forethought or entropy. 
 
 Luckily, as I was catching up on my daily doses of software newsletters this morning, jessitron (who I can't stop quoting) hyperlinked her latest [blog](https://blog.jessitron.com/2019/10/05/dont-just-keep-trying-report-your-limits/) to another [post](https://blog.atomist.com/whats-lurking/) from the Atomist site that gives us what I think is a more accurate language for this very type of technical debt. Frankly, any optimistic (re)casting of language in our field is welcome; we're so prone to a feeling of unfinished, incomplete, overwhelmed. 
 
 > Technology drift is a form of technical debt that comes from progress. As our target architecture advances, it leaves a trail of projects in all its momentary incarnations. As repositories proliferate, the accumulation holds us back. We have many technologies and many versions of each. We have the risks of all of them.
 
-Technical drift! I can get down with that. 
+<mark>TECHNICAL DRIFT</mark>
+
+Fuck yeah, let's use that!
 
 ### Two tales of Binary Search
 Tags: *JavaScript, interviews*    
