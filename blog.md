@@ -27,6 +27,10 @@
 .gist .blob-num:hover {
     color: inherit;
 }
+.markdown-boy h1, h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+}
 </style>
 
 <h2>Table of Contents</h2>
@@ -53,7 +57,7 @@
 
 <hr>
   
-### The will to better software companies
+# The will to better software companies
 Tags: *Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani*    
 **3/12/2020**
 
@@ -163,7 +167,7 @@ And
 
 By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the gentle swish of overlapping domains; like at Hearst and Euclid. But the rhizomatic network requires consideration soon. I'm urged that way anyway -- see my hints above about interspecies contamination and the anthropocene. I think the ensemble moves toward assemblage soon.
 
-### Some patriarchal intervention at Google I/O a while back
+# Some patriarchal intervention at Google I/O a while back
 Tags: *feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas*    
 **1/24/2020**
 
@@ -211,7 +215,7 @@ I'm reminded of another talk.
 
 Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-driven development" we suffer in engineering culture. We might say another symptom of cock-sure genius arising. I love this talk. Recognizing the artifice of loudness and leaning, he looks at the data and calls bullshit on men. The data is good. It's a tool.  Nonetheless, I'm not sure Hillel's Empiricism will be as powerfully feminist as interventions like Thomas' archeology. Cheng's metonymic replacements are interesting in that they make it easier to implicate women's complicit was in patriarchy. Hot take: overall let's be skeptical of the neo-classical -- logic can win -- and neo-liberal -- we can reach across the aisle tactics.
 
-### Thinking about heuristics for avoiding code duplication across the stack
+# Thinking about heuristics for avoiding code duplication across the stack
 Tags: *large applications, large teams, duplication*
 **1/20/2020**
 
@@ -294,7 +298,7 @@ Heuristics:
 ```
 
 
-### Maybe Eithers with Promises
+# Maybe Eithers with Promises
 Tags: *functional programming, maybe, either, promises*
 **12/10/2019**
 
@@ -474,7 +478,7 @@ Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You
 
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
-### Maybe maybes
+# Maybe maybes
 Tags: *naming, javascript*    
 **11/18/2019**
 
@@ -501,7 +505,7 @@ componentDidUpdate() {
 
 I LOVE this. Don't you think it reads nicely? Like, you can really understand the sequence. The *maybes* communicate a true story of many possibilities. I'm imagining refactoring this component transition block. These function names are helping me decide what to care about now or later; to *maybe* deal with them or not.
 
-### “do” helper for emphasis in variable naming 
+# “do” helper for emphasis in variable naming 
 Tags: *variables, naming*   
 **11/10/2019**
 
@@ -528,7 +532,7 @@ Eh, I didn’t push for a rewrite in the code review. Naming is a bar brawl and 
 
 Just tryna make sense of what these users be doing.
 
-### What's in a name?
+# What's in a name?
 Tags: *naming, variablew, Shakespeare*    
 **11/10/2019**
 
@@ -551,7 +555,7 @@ What's in a name? Sigh, we don't have the luxury of poetic soliloquy when gettin
 
 `- <-{@`
 
-### More about anointed princes and gatekeeping culture
+# More about anointed princes and gatekeeping culture
 Tags: *gatekeeping, software industry, gee paw hill*    
 **11/7/2019**
 
@@ -575,7 +579,7 @@ Lets freestyle this a little bit:
 - Self-awareness. "My story is not the only story." Am I projecting my loneliness and sense of scarcity? Lately I've really been feeling the idea that patriarchy teaches that there is a scarcity of power. If only there was someone capable of wielding the power that's there for the taking; then, then real change could be achieved. Why do we use an authorative voice in technical writing? Software is always so messy. Mastery should not be tied to self-worth.
 - Historical. There used to be more women in tech but men kicked them out. Hidden figures. Our industry was born out of cold war-time fear. Our interview practices were designed to select codebreakers. Our greatest successes have created more work, not less; have created the perfect, legal, capitalistic social engineering appliance for foreign powers to influence our democracy.
 
-### Harmful ways to write about software
+# Harmful ways to write about software
 Tags: *gatekeeping, java, oop*    
 **10/10/2019**
 
@@ -670,7 +674,7 @@ Is easiness achieved?:
 
 > ...can I get this instantly and start running it in five seconds?
 
-### A better term for unintentional technical debt
+# A better term for unintentional technical debt
 Tags: *technical debt*    
 **10/6/2019**
 
@@ -696,7 +700,7 @@ Luckily, as I was catching up on my daily doses of software newsletters this mor
 
 Fuck yeah, let's use that!
 
-### Two tales of Binary Search
+# Two tales of Binary Search
 Tags: *JavaScript, interviews*    
 **10/1/2019**
 
@@ -721,7 +725,7 @@ When fixing a bug without a useful stack trace, triangulating the problematic co
 When we learn the meaning behind these CS concepts, we may actually discover more creative ways to use them. Or how they are already part of our toolkit. For example, *git-bisect*!
 
 
-### Deep(er) software concepts showing up in UI problems
+# Deep(er) software concepts showing up in UI problems
 Tags: *JavaScript, bitwise operators*   
 **9/16/2019**
 
@@ -778,7 +782,7 @@ a |b |a XOR b
   
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
-### White theft, white entrepreneurship
+# White theft, white entrepreneurship
 Tags: *racism*     
 **9/9/2019**
 
@@ -788,7 +792,7 @@ Knight's pop fantasy of himself and the pursuit of a vision to make life about "
 
 Overall I enjoy Knight's story. But the American dream is still available for a white ruling class only -- and those they selectively permit. Holding that heavy. 
 
-### React inline function gotcha, but in a non-obvious way
+# React inline function gotcha, but in a non-obvious way
 Tags: *react, DOM, performance*    
 **7/31/2019**
 
@@ -894,7 +898,7 @@ This means you suddenly find yourself debugging why a click event on a sidebar b
 Ok, so instructive examples won't necessarily help you. But I'll also asterisk this post and append they aren't worthless either. *Post facto* I can properly identify and classify this bug as a commonly known React problem -- that is, a problem with React composition not a problem inherent to React -- because the instructive examples are out there contouring a problem space and a shared vocabulary. I can then use this shared language when communicating the *what* or *what caused this...* during a retrospective or or incident report. But I suspect I could have arrived to that similar conclusion if I'd read articles that had more persuasive examples.
 
 
-### 499 closed connections
+# 499 closed connections
 Tags: *nginx, debugging, 499, promises, async/await*     
 **7/13/2019**
 
@@ -937,7 +941,7 @@ Even another cool, tangential observation/learning came from understanding the p
 
 I'm just hard reflecting on on how signals of "broken" -- like bad data -- can reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
 
-### Debugging a test that does nothing
+# Debugging a test that does nothing
 Tags: *debugging*    
 **6/24/2019**
 
@@ -965,7 +969,7 @@ After repeatedly playing with the test instructions and comparing to the outcome
 
 Lol, how much of our software is layer cakes of fallacious worldviews???
 
-### Pre-crude development
+# Pre-crude development
 Tags: *legacy code*    
 **6/19/2019**
 
@@ -979,7 +983,7 @@ So the day-to-day discipline in legacy code is wiggle in tension to add/change b
 
 This is a wild task in pre-crude places! 
 
-### Too many imports
+# Too many imports
 Tags: *javascript, react, refactoring*     
 **5/11/2019**
 
@@ -1013,7 +1017,7 @@ While these functions are not decreasing the number of imports, I'm perhaps doin
 
 That last point is important. At least to me. Untidy `render()` blocks are hard to scan, debug, and test. The machinations for constructing and composing the things to render can happen in other places: above the component class definition, in class methods, or in a separate file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
 
-### Starting a new blog and jumping right into an article I read about dependency injection using function parameters
+# Starting a new blog and jumping right into an article I read about dependency injection using function parameters
 Tags: *python, design patterns*    
 **4/10/2019**
 
