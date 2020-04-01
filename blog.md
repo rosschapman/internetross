@@ -27,7 +27,7 @@
 .gist .blob-num:hover {
     color: inherit;
 }
-.markdown-boy h1, h2 {
+.markdown-body h1, h2 {
     border-bottom: none;
     padding-bottom: 0;
 }
