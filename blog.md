@@ -29,9 +29,33 @@
 }
 </style>
 
+<h2>Table of Contents</h2>
+
+- [The will to better software companies](#the-will-to-better-software-companies)
+- [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
+- [Thinking about heuristics for avoiding code duplication across the stack](#thinking-about-heuristics-for-avoiding-code-duplication-across-the-stack)
+- [Maybe Eithers with Promises](#maybe-eithers-with-promises)
+- [Maybe maybes](#maybe-maybes)
+- [“do” helper for emphasis in variable naming](#do-helper-for-emphasis-in-variable-naming)
+- [What's in a name?](#whats-in-a-name)
+- [More about anointed princes and gatekeeping culture](#more-about-anointed-princes-and-gatekeeping-culture)
+- [Harmful ways to write about software](#harmful-ways-to-write-about-software)
+- [A better term for unintentional technical debt](#a-better-term-for-unintentional-technical-debt)
+- [Two tales of Binary Search](#two-tales-of-binary-search)
+- [Deep(er) software concepts showing up in UI problems](#deeper-software-concepts-showing-up-in-ui-problems)
+- [White theft, white entrepreneurship](#white-theft-white-entrepreneurship)
+- [React inline function gotcha, but in a non-obvious way](#react-inline-function-gotcha-but-in-a-non-obvious-way)
+- [499 closed connections](#499-closed-connections)
+- [Debugging a test that does nothing](#debugging-a-test-that-does-nothing)
+- [Pre-crude development](#pre-crude-development)
+- [Too many imports](#too-many-imports)
+- [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
+
+<hr>
+  
 ### The will to better software companies
-#### Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani
-##### 3/12/2020
+Tags: *Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani*    
+**3/12/2020**
 
 Lately, I've been thinking about productivity and it's evolutionary rhythm with scale. Namely, how easy the cadence ebbs. My company continues to invest in new dev centers in the country interior and abroad to cut costs. My lived experience is a multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking at least an additional 24hrs to achieve a merge (what I mean is 24hrs more than what we'd need at home); it's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast. The burden of such a cross-geo async request is that I'm gonna have to hermit down to understand what they're code is doing and is supposed to do. Now, the communication over Slack ok, but it seems like closing the gap in understanding the code changes is not so silky. Altogether the impact of distance and time spent to "get up to speed" (pun intended) adds a big difference that doesn't feel satisfyingly addressed by top brass. Perhaps a Derridean kind of differánce even. As if navigating the palimpsest wasn't enough. Multiple personages reading and explaining the code text, scribbling comments, changing, re-reading the next day; discovering the truth in the spaces/tabs. 
 
@@ -127,7 +151,7 @@ Why after two years of working with my "high performing" team do I know next to 
 
 Are our conference rooms wired with enterprise-level video conferencing? Have we trained devs in how to effectively schedule and facilitate meetings? I remember I was met with quite a bit of resistance suggesting that we create a meeting support team that would just be available to take notes for meetings they were not invited to. I don't think devs understand the importance of their meeting communication as a document of ideas and decision-making; and similarly how hard it is to accurately and correctly document after the fact; or document during, for that matter, for someone is also trying to act as participant.
 
-######  Postscript:
+** Postscript:**
 
 Why did I keep trudging through Karatani while writing this essay?? I should have known better: a few chapters later I'm cry-laughing because I bump into that hopeful schizo theory which blew my mind like 20 years ago in undergrad. And now I'm like damn because Karatani is saying that the semilattice is probably not the ideal (post)structure I want to imagine upon my software company. Of course, this makes sense in Karatani's argument because he wants to problematize architectonic thinking.
 
@@ -140,8 +164,8 @@ And
 By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the gentle swish of overlapping domains; like at Hearst and Euclid. But the rhizomatic network requires consideration soon. I'm urged that way anyway -- see my hints above about interspecies contamination and the anthropocene. I think the ensemble moves toward assemblage soon.
 
 ### Some patriarchal intervention at Google I/O a while back
-#### Tags: feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas
-##### 1/24/2020
+Tags: *feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas*    
+**1/24/2020**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0SARbwvhupQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -188,8 +212,8 @@ I'm reminded of another talk.
 Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-driven development" we suffer in engineering culture. We might say another symptom of cock-sure genius arising. I love this talk. Recognizing the artifice of loudness and leaning, he looks at the data and calls bullshit on men. The data is good. It's a tool.  Nonetheless, I'm not sure Hillel's Empiricism will be as powerfully feminist as interventions like Thomas' archeology. Cheng's metonymic replacements are interesting in that they make it easier to implicate women's complicit was in patriarchy. Hot take: overall let's be skeptical of the neo-classical -- logic can win -- and neo-liberal -- we can reach across the aisle tactics.
 
 ### Thinking about heuristics for avoiding code duplication across the stack
-#### Tags: large applications, large teams, duplication
-##### 1/20/2020
+Tags: *large applications, large teams, duplication*
+**1/20/2020**
 
 At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication *across* client and api layers. Like, imagine a piece of code that takes a inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into  response body adjacent to the original cost data. Something like: 
 ```js
@@ -271,8 +295,8 @@ Heuristics:
 
 
 ### Maybe Eithers with Promises
-#### Tags: functional programming, maybe, either, promises
-##### 12/10/2019
+Tags: *functional programming, maybe, either, promises*
+**12/10/2019**
 
 A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that thinks through creative ways we can work with nullables in JavaScript. I read it. It lit up my memory. 
 
@@ -451,8 +475,8 @@ Suffice to say I'm quite tickled by the re-purposing of Promises as Eithers. You
 Gripes with FP readability aside, it's eye-opening to look at available JS language features and see them in a different light. Also, aside from the clever use of Promises, just getting the null check into an abstraction `exists(...)` already has us using an FP mindset to build strong declarative (function-first) foundations.
 
 ### Maybe maybes
-#### Tags: naming, javascript
-##### 11/18/2019
+Tags: *naming, javascript
+**11/18/2019**
 
 Migrating my content from Medium was due, but this past week became a particularly opportune time to repost some old content on the subject of naming. Because I'm in one of those feels again, y'll. And it's about one of the two hard things enshrined by Phil Karlton. Really we just float in a crisis of language trying to speak correct enough to make some money. Between thought and action. Between computer and person. Between persons.
 
@@ -478,8 +502,8 @@ componentDidUpdate() {
 I LOVE this. Don't you think it reads nicely? Like, you can really understand the sequence. The *maybes* communicate a true story of many possibilities. I'm imagining refactoring this component transition block. These function names are helping me decide what to care about now or later; to *maybe* deal with them or not.
 
 ### “do” helper for emphasis in variable naming 
-#### Tags: naming
-##### 11/10/2019
+Tags: *variables, naming*
+**11/10/2019**
 
 [Reposted from medium](https://medium.com/@internetross/positive-emphasis-in-variable-naming-34b12a9ca583)    
 Originally published: 9/19/2015
@@ -505,8 +529,8 @@ Eh, I didn’t push for a rewrite in the code review. Naming is a bar brawl and 
 Just tryna make sense of what these users be doing.
 
 ### What's in a name?
-#### Tags: naming
-##### 11/10/2019
+Tags: *naming, variablew, Shakespeare*    
+**11/10/2019**
 
 [Reposted from medium](https://medium.com/@internetross/what-s-in-a-name-a60460494e93)    
 Originally published: 9/19/2015
@@ -528,8 +552,8 @@ What's in a name? Sigh, we don't have the luxury of poetic soliloquy when gettin
 `- <-{@`
 
 ### More about anointed princes and gatekeeping culture
-#### Tags: gatekeeping, software industry, gee paw hill
-###### 11/7/2019
+Tags: *gatekeeping, software industry, gee paw hill*    
+**11/7/2019**
 
 Ok, gonna brain dump a little because I got excited about some synergy! Maybe I'm just really starting to find some peeps in the trillicon valley zeitgeist. 
 
@@ -552,8 +576,8 @@ Lets freestyle this a little bit:
 - Historical. There used to be more women in tech but men kicked them out. Hidden figures. Our industry was born out of cold war-time fear. Our interview practices were designed to select codebreakers. Our greatest successes have created more work, not less; have created the perfect, legal, capitalistic social engineering appliance for foreign powers to influence our democracy.
 
 ### Harmful ways to write about software
-#### Tags: gatekeeping, java, oop
-###### 10/10/2019
+Tags: *gatekeeping, java, oop*    
+**10/10/2019**
 
 *Dispatch from Soekarno-Hatta International Airport.*
 *Arrived way too early because of traffic fantasies.*
@@ -647,8 +671,8 @@ Is easiness achieved?:
 > ...can I get this instantly and start running it in five seconds?
 
 ### A better term for unintentional technical debt
-#### Tags: technical debt
-###### 10/6/2019
+Tags: *technical debt
+**10/6/2019**
 
 The other day I got into a small argument with coworkers during the Sailboat exercise about the meaning of "technical debt." While folks were hunched over stickies and milling about I leaped from my chair and smacked a note on the whiteboard: *application too big*. The slice of monorepo we had been toiling  in the last two weeks was now a super bloom of contributions from different teams. The code had become hard to reason about making it difficult to safely change. We call this too [complicated](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/):
 
@@ -667,8 +691,8 @@ Luckily, as I was catching up on my daily doses of software newsletters this mor
 Technical drift! I can get down with that. 
 
 ### Two tales of Binary Search
-#### Tags: JavaScript, interviews
-###### 10/1/2019
+Tags: *JavaScript, interviews*    
+**10/1/2019**
 
 I still have lingering rage from two years ago when an interviewer said to me: "I could probably implement this in about 20 minutes." Seriously crushing words to utter offhand during a facetime code screen for someone who has been programming and building web apps professionally for 3+ years.
 
@@ -692,8 +716,8 @@ When we learn the meaning behind these CS concepts, we may actually discover mor
 
 
 ### Deep(er) software concepts showing up in UI problems
-#### Tags: JavaScript, bitwise operators
-###### 9/16/2019
+Tags: *JavaScript, bitwise operators*   
+**9/16/2019**
 
 I've got three posts in my brain backlog now about more complex software concepts showing up in UI work. Here's the first!
 
@@ -749,8 +773,8 @@ a |b |a XOR b
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
 ### White theft, white entrepreneurship
-#### Tags: racism
-###### 9/9/2019
+Tags: *racism
+**9/9/2019**
 
 I've been reading two texts this week. Side-by-side they offer another reveal of the tragic double standard of black and white life in our America. I really felt that truth descend upon reaching 90 pages into *Shoe Dog*, Phil Knight's memoir about starting Nike. On the one hand: a story about a white Christian rich kid manifesting a new destiny for himself away from mediocrity using military connections to build a business with a recently conquered nation. 1964: the year Knight starts Blue Ribbon Sports. On the other hand: I'm half-way through the drudge of Vann R. Newkirk II's long-form in the Atlantic, *The Great Land Robbery*, about the vast land theft and wealth transfer *during the civil rights era* from blacks to whites in Mississipi. 1964: by this year almost 800,000 acres of land have transfered from blacks to whites as a result of *legal* discriminatory (racist) federal farm loan programs and private lenders.
 
@@ -759,8 +783,8 @@ Knight's pop fantasy of himself and the pursuit of a vision to make life about "
 Overall I enjoy Knight's story. But the American dream is still available for a white ruling class only -- and those they selectively permit. Holding that heavy. 
 
 ### React inline function gotcha, but in a non-obvious way
-#### Tags: react, DOM, performance
-###### 7/31/2019
+Tags: *react, DOM, performance*    
+**7/31/2019**
 
 I think a lot about Hillel Wayne's blog post [*INSTRUCTIVE AND PERSUASIVE EXAMPLES*](https://www.hillelwayne.com/post/persuasive-examples/) where he does this interpolative critque of a best practice article on unit testing.
 
@@ -865,8 +889,8 @@ Ok, so instructive examples won't necessarily help you. But I'll also asterisk t
 
 
 ### 499 closed connections
-#### Tags: nginx, debugging, 499, promises, async/await
-###### 7/13/2019
+Tags: *nginx, debugging, 499, promises, async/await*     
+**7/13/2019**
 
 Bugs reveal. We look, observe. I learn things. I just experienced another one. 
 
@@ -908,8 +932,8 @@ Even another cool, tangential observation/learning came from understanding the p
 I'm just hard reflecting on on how signals of "broken" -- like bad data -- can reveal many interesting things about the system. Just think about how much our JavaScript promise handling hid potentialialities.  
 
 ### Debugging a test that does nothing
-#### Tags: debugging
-###### 6/24/2019
+Tags: *debugging*    
+**6/24/2019**
 
 This weekend I spotted Julia Evans posting some tips about debugging -- of course a zine followed -- and it resonated deeeply because it touches on one aspect of debugging that I often struggle with. It's comforting to know this is a common kind of struggle!
 
@@ -936,8 +960,8 @@ After repeatedly playing with the test instructions and comparing to the outcome
 Lol, how much of our software is layer cakes of fallacious worldviews???
 
 ### Pre-crude development
-#### Tags: legacy code 
-###### 6/19/2019
+Tags: *legacy code*    
+**6/19/2019**
 
 I caught [this tweet](https://twitter.com/ruthmalan/status/1141169409609863170?s=20) by Ruth Malan yesterday which references the "tension between continuous evolution and product instability". This is a tension we hold as software engineers daily. It's the source of these "trade-offs" that we often talk about. 
 
@@ -950,8 +974,8 @@ So the day-to-day discipline in legacy code is wiggle in tension to add/change b
 This is a wild task in pre-crude places! 
 
 ### Too many imports
-#### Tags: javascript, react, refactoring
-###### 5/11/2019
+Tags: *javascript, react, refactoring*     
+**5/11/2019**
 
 There are too many imports in this file. I'm staring down like 50 lines of imports. External libraries (React, Lodash, etc...), to our own internal libraries, to components, to helpers, to constants. The last bothers me the most because they feel like implementation details I want hidden away in these other components or helpers.
 And as am I'm looking at this statement inside a `render()` block:
@@ -984,7 +1008,7 @@ While these functions are not decreasing the number of imports, I'm perhaps doin
 That last point is important. At least to me. Untidy `render()` blocks are hard to scan, debug, and test. The machinations for constructing and composing the things to render can happen in other places: above the component class definition, in class methods, or in a separate file. The first options is one I quite like because abstractions don't have to be all that general. It's great if they are localized to the component at hand.
 
 ### Starting a new blog and jumping right into an article I read about dependency injection using function parameters
-#### Tags: python, design patterns 
-###### 4/10/2019
+Tags: *python, design patterns*    
+**4/10/2019**
 
 Read [Ensuring Clean Code: A Look at Python, Parameterized](https://www.toptal.com/python/python-parameterized-design-patterns) this morning. Parameters as DI! So yeah, now that we have default parameters in JavaScript -- as of ES6 -- we can think of parameterized DI for JS too; right there in our function declarations. This is super familiar if you're coming from JS where funcs are first class.
