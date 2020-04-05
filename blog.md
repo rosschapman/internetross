@@ -79,35 +79,7 @@ As the developer I might think, this doesn't seem all that hard! I already had t
 
 Whereby I try: 
 
-```JSX
-handleCampaignClick = (campaign, actionName) => {
-    if (actionName === 'activate') {
-        const activatedCount = this.props.campaigns.filter(c => c.activated);
-        
-        if (activatedCount === 0) {
-            dispatchUpdatesCampaign({
-                id: campaign.id,
-                value: true
-            });
-            dispatchUpdateFeaturedCampaigns({
-                id: campaign.id,
-            });
-        } else {
-            dispatchUpdatesCampaign({
-                id: campaign.id,
-                value: true
-            });
-        }
-
-    }
-
-    if (actionName === 'makeFeatured') {
-        dispatchUpdateFeaturedCampaigns({
-            id: campaign.id,
-        });
-    }
-}
-```
+<script src="https://gist.github.com/rchapman-eb/8f1e82a0da74578cfb2d563212d2e926.js"></script>
 
 I mean, that's the right logic. All my test mocks are reusable. We are sailing along. 
 
@@ -128,32 +100,7 @@ Software is weird. Code like this could last forever without problems. But the d
 
 Let's try rewriting our component-level action handler to incorporate the new happy path of Product requirements into the lexicon -- the Actions, the names of things "that depend on when they are called or how many times they are called" -- of our code:
 
-```JSX
-handleCampaignClick = (campaign, actionName) => {
-    if (actionName === 'activate') {
-        const activatedCount = this.props.campaigns.filter(c => c.activated);
-        
-        if (activatedCount === 0) {
-            dispatchUpdatesCampaignAndUpdateFeaturedCampaigns({
-                id: campaign.id,
-                activated: true
-            });
-        } else {
-            dispatchUpdatesCampaign({
-                id: campaign.id,
-                activated: true
-            });
-        }
-
-    }
-
-    if (actionName === 'makeFeatured') {
-        dispatchUpdateFeaturedCampaigns({
-            id: campaign.id,
-        });
-    }
-}
-```
+<script src="https://gist.github.com/rchapman-eb/5f30b82388047382c7f0b19c05b4b526.js"></script>
 
 What I've done here is simply add a new Action creator that represents a *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case. The payload doesn't even change. Our container can notify the store and effect a mutation in a single pass. This design gives us increased confidence that this display component -- our presentational leaf node(s) -- are more narrowly responsible for render and event notification. 
 
