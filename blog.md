@@ -35,6 +35,7 @@
 
 <h2>Table of Contents</h2>
 
+- [Preferring repetitive Action creators over reuse](#preferring-repetitive-action-creators-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
 - [Thinking about heuristics for avoiding code duplication across the stack](#thinking-about-heuristics-for-avoiding-code-duplication-across-the-stack)
@@ -56,7 +57,130 @@
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
-  
+
+# Preferring repetitive Action creators over reuse
+Tags: *React, data, actions, code duplication, DRY*    
+**4/1/2020**
+
+Have you ever noticed yourself going to unnecessary lengths to avoid repetition in your  code despite the fact that requirements actually represent a complicated world? I swear the longer I write code in the industry the more DRY feels like a leaky ideological imposition that drifts from "knowledge" duplication into code/documentation -- ie text artifact -- duplication. Sigh. This is a nuance we lose too easily by the repetitive  peddling (pun intended, irony not) of the shorthand DRY; which I suppose also reveals the danger of the supremacist tendency of the axiomatic; axioms all-to-easily claim ontological root. Especially in the minds of early career folks or folks emerging from industry founding fathers cargo cults. 
+
+> Every piece of ***knowledge*** must have a single, unambiguous, authoritative representation within a system.    
+> <cite><small>The Pragmatic Programmer, [emphasis mine]</small><cite>
+
+What often appears in our text editors as repetition at first is often the precise  nuance our applications need to create the richness of these membranes we build between people and machines. Here's an example slightly altered. 
+
+Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event. 1) They can activate the campaign, and 2) they can select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
+
+```javascript
+handleCampaignClick = (campaign, actionName) => {
+    if (actionName === 'activate') {
+        dispatchUpdatesCampaign({
+            id: campaign.id,
+            value: true,
+        });
+    }
+
+    if (actionName === 'makeFeatured') {
+        dispatchUpdateFeaturedCampaigns({
+            id: campaign.id,
+        });
+    }
+}
+
+render() {
+    <CampaignCard>
+        <Button onClick=(this.handleCampaignClick.bind(null, campaign, 'makeFeatured')) />
+        <Button onClick=(this.handleCampaignClick.bind(null, campaign, 'activate')) />
+    </CampaignCard>
+}
+```
+
+Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trgooigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
+
+As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to orchestrate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another bracch; and I can reuse the current dispatchers. I'm a fucking oracle.
+
+Whereby I try: 
+
+```javascript
+handleCampaignClick = (campaign, actionName) => {
+    if (actionName === 'activate') {
+        const activatedCount = this.props.campaigns.filter(c => c.activated);
+        
+        if (activatedCount === 0) {
+            dispatchUpdatesCampaign({
+                id: campaign.id,
+                value: true
+            });
+            dispatchUpdateFeaturedCampaigns({
+                id: campaign.id,
+            });
+        } else {
+            dispatchUpdatesCampaign({
+                id: campaign.id,
+                value: true
+            });
+        }
+
+    }
+
+    if (actionName === 'makeFeatured') {
+        dispatchUpdateFeaturedCampaigns({
+            id: campaign.id,
+        });
+    }
+}
+```
+
+I mean, that's the right logic. All my test mocks are reusable. We are sailing along. 
+
+Sort of. 
+
+Then something nags at me looking at this code. It's subtle, but there's a somewhat risky assumption in here. Inside the interior `if-then` branch under the conditional expression `activatedCount === 0`, we are sending a sequence of two distinct *mutative* messages to our data store; and the second depends on the first to complete successfully. Now, we might test this code in the browser and it works every time. Our tests pass. 
+
+But.    
+For how long?
+
+This code lives downstream of our next indirection -- the container -- that shepherds these messages to the store. So I'm trying to coordinate a subroutine of *effectful* functions -- Actions -- 3, perhaps more?, layers away from the store itself.
+
+While the actions I'm calling are synchronous, how confident am I in the inner workings of my component framework's render engine and algorithm -- particularly it's collaboration with my data layer (ie Redux)? I might be forcing additional renders here.  More importantly, how much can I trust other developers to maintain the correct sequencing in the container? Will a test help? Will a comment help? Will either of these prevent mistakes when additional behavior needs to be added.
+
+100% maybe. 
+
+Software is weird. Code like this could last forever without problems. But the dormant risk is not ideal. We can do better. Part of this *better* is letting our mental model become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. This code is not lack for defensive guards and documentation, but an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. 
+
+Let's try rewriting our component-level action handler to incorporate the new happy path of Product requirements into the lexicon -- the Actions, the names of things "that depend on when they are called or how many times they are called" -- of our code:
+
+```javascript
+handleCampaignClick = (campaign, actionName) => {
+    if (actionName === 'activate') {
+        const activatedCount = this.props.campaigns.filter(c => c.activated);
+        
+        if (activatedCount === 0) {
+            dispatchUpdatesCampaignAndUpdateFeaturedCampaigns({
+                id: campaign.id,
+                activated: true
+            });
+        } else {
+            dispatchUpdatesCampaign({
+                id: campaign.id,
+                activated: true
+            });
+        }
+
+    }
+
+    if (actionName === 'makeFeatured') {
+        dispatchUpdateFeaturedCampaigns({
+            id: campaign.id,
+        });
+    }
+}
+```
+
+What I've done here is simply add a new Action creator that represents a *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case. The payload doesn't even change. Our container can notify the store and effect a mutation in a single pass. This design gives us increased confidence that this display component -- our presentational leaf node(s) -- are more narrowly responsible for render and event notification. 
+
+Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.
+
 # The will to better software companies
 Tags: *Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani*    
 **3/12/2020**
