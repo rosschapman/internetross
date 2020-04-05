@@ -71,7 +71,7 @@ What often appears in our text editors as repetition at first is often the preci
 
 Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event. 1) They can activate the campaign, and 2) they can select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
 
-```javascript
+```JSX
 handleCampaignClick = (campaign, actionName) => {
     if (actionName === 'activate') {
         dispatchUpdatesCampaign({
@@ -101,7 +101,7 @@ As the developer I might think, this doesn't seem all that hard! I already had t
 
 Whereby I try: 
 
-```javascript
+```JSX
 handleCampaignClick = (campaign, actionName) => {
     if (actionName === 'activate') {
         const activatedCount = this.props.campaigns.filter(c => c.activated);
@@ -150,7 +150,7 @@ Software is weird. Code like this could last forever without problems. But the d
 
 Let's try rewriting our component-level action handler to incorporate the new happy path of Product requirements into the lexicon -- the Actions, the names of things "that depend on when they are called or how many times they are called" -- of our code:
 
-```javascript
+```JSX
 handleCampaignClick = (campaign, actionName) => {
     if (actionName === 'activate') {
         const activatedCount = this.props.campaigns.filter(c => c.activated);
