@@ -71,29 +71,7 @@ What often appears in our text editors as repetition at first is often the preci
 
 Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event. 1) They can activate the campaign, and 2) they can select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
 
-```JSX
-handleCampaignClick = (campaign, actionName) => {
-    if (actionName === 'activate') {
-        dispatchUpdatesCampaign({
-            id: campaign.id,
-            value: true,
-        });
-    }
-
-    if (actionName === 'makeFeatured') {
-        dispatchUpdateFeaturedCampaigns({
-            id: campaign.id,
-        });
-    }
-}
-
-render() {
-    <CampaignCard>
-        <Button onClick=(this.handleCampaignClick.bind(null, campaign, 'makeFeatured')) />
-        <Button onClick=(this.handleCampaignClick.bind(null, campaign, 'activate')) />
-    </CampaignCard>
-}
-```
+<script src="https://gist.github.com/rchapman-eb/7219b26397e162f5125565c21ec8490a.js"></script>
 
 Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trgooigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
 
