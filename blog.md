@@ -35,7 +35,7 @@
 
 <h2>Table of Contents</h2>
 
-- [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-creators-over-reuse)
+- [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
 - [Thinking about heuristics for avoiding code duplication across the stack](#thinking-about-heuristics-for-avoiding-code-duplication-across-the-stack)
@@ -58,7 +58,7 @@
 
 <hr>
 
-# Preferring repetitive Action notifiers over reuse
+# Preferring repetitive Action notifications over reuse
 Tags: *React, data, actions, code duplication, DRY*    
 **4/1/2020**
 
