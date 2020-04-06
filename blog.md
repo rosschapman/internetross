@@ -35,7 +35,7 @@
 
 <h2>Table of Contents</h2>
 
-- [Preferring repetitive Action creators over reuse](#preferring-repetitive-action-creators-over-reuse)
+- [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-creators-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
 - [Thinking about heuristics for avoiding code duplication across the stack](#thinking-about-heuristics-for-avoiding-code-duplication-across-the-stack)
@@ -58,7 +58,7 @@
 
 <hr>
 
-# Preferring repetitive Action creators over reuse
+# Preferring repetitive Action notifiers over reuse
 Tags: *React, data, actions, code duplication, DRY*    
 **4/1/2020**
 
@@ -71,7 +71,7 @@ What often appears in our text editors as repetition at first is often the preci
 
 Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event. 1) They can activate the campaign, and 2) they can select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
 
-<script src="https://gist.github.com/rchapman-eb/7219b26397e162f5125565c21ec8490a.js"></script>
+<script src="https://gist.github.com/rosschapman/ed540e7ff31ae56690db02bc4f7712cc.js"></script>
 
 Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trgooigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
 
@@ -79,32 +79,31 @@ As the developer I might think, this doesn't seem all that hard! I already had t
 
 Whereby I try: 
 
-<script src="https://gist.github.com/rchapman-eb/8f1e82a0da74578cfb2d563212d2e926.js"></script>
+<script src="https://gist.github.com/rosschapman/86259031a2442315f6201771b557ec4d.js"></script>
 
 I mean, that's the right logic. All my test mocks are reusable. We are sailing along. 
 
 Sort of. 
 
-Then something nags at me looking at this code. It's subtle, but there's a somewhat risky assumption in here. Inside the interior `if-then` branch under the conditional expression `activatedCount === 0`, we are sending a sequence of two distinct *mutative* messages to our data store; and the second depends on the first to complete successfully. Now, we might test this code in the browser and it works every time. Our tests pass. 
+Then something nags at me looking at this code. It's subtle, but there's a risky assumption embedded here. Inside the interior `if-then` branch under the conditional expression `activatedCount === 0`, we are sending a sequence of two distinct *mutative* notifications to our data store; moreover, the second depends on the first to complete successfully. Now, we might test this code in the browser and it works every time. Our tests pass. 
 
 But.    
+
 For how long?
 
-This code lives downstream of our next indirection -- the container -- that shepherds these messages to the store. So I'm trying to coordinate a subroutine of *effectful* functions -- Actions -- 3, perhaps more?, layers away from the store itself.
+This code lives downstream of our next indirection -- the container -- that shepherds these messages to the store. So this code is trying to coordinate a subroutine of *effectful* functions (Actions) three (perhaps more) layers away from the store itself.
 
-While the actions I'm calling are synchronous, how confident am I in the inner workings of my component framework's render engine and algorithm -- particularly it's collaboration with my data layer (ie Redux)? I might be forcing additional renders here.  More importantly, how much can I trust other developers to maintain the correct sequencing in the container? Will a test help? Will a comment help? Will either of these prevent mistakes when additional behavior needs to be added.
+Which begs some questions. For example, although the action notifiers I'm calling are synchronous, how confident am I in the inner workings of my component framework's render engine and algorithm -- particularly it's collaboration with my data layer (ie Redux)? I might be forcing additional renders here.  More importantly, how much can I trust other developers to maintain the correct sequencing in the container? Will a test help? Will a comment help? Will either of these prevent mistakes when additional behavior needs to be added.
 
 100% maybe. 
 
-Software is weird. Code like this could last forever without problems. But the dormant risk is not ideal. We can do better. Part of this *better* is letting our mental model become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. This code is not lack for defensive guards and documentation, but an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. 
+Software is weird. Code like this could last forever without problems. But dormant risks, if recognized, must be avoided. We can do better, though part of reaching this *better* is yielding our mental model to become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. My observation is that the code is not lack for defensive guards and documentation, but lack for an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. 
 
-Let's try rewriting our component-level action handler to incorporate the new happy path of Product requirements into the lexicon -- the Actions, the names of things "that depend on when they are called or how many times they are called" -- of our code:
+Let's try rewriting our component-level event handler to incorporate the new happy path of Product requirements into the lexicon -- the Action notifiers, the names of things "that depend on when they are called or how many times they are called" -- of our code:
 
-<script src="https://gist.github.com/rchapman-eb/5f30b82388047382c7f0b19c05b4b526.js"></script>
+<script src="https://gist.github.com/rosschapman/0812df06a1d25138de0fa9ed5ddcc763.js"></script>
 
-What I've done here is simply add a new Action creator that represents a *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case. The payload doesn't even change. Our container can notify the store and effect a mutation in a single pass. This design gives us increased confidence that this display component -- our presentational leaf node(s) -- are more narrowly responsible for render and event notification. 
-
-Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.
+What I've done here is simply add a new Action notifier that represents a *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case. In other words, I've "narrowed" attention on the new case by leveraging semantics -- expanding the number of Action notifiers -- and what Zachary Tellman might describe as a too "natural" yet still "consistent" name. Regarding the semantics, note the payload doesn't even change; therefore our container will require similarly modest adjustments.  Further, our container now is capable of dispatching messages to the store and effecting a mutation in just a single pass. This design gives us increased confidence that this display component -- our presentational leaf node(s) -- are more precisely responsible for render and event notification. (Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.)
 
 # The will to better software companies
 Tags: *Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani*    
