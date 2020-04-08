@@ -102,7 +102,7 @@ Which begs some questions. For example, although the action notifiers I'm callin
 
 100% maybe. 
 
-Software is weird. Code like this could last forever without problems. But dormant risks, if recognized, must be avoided. We can do better, though part of reaching this *better* is yielding our mental model to become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. My observation is that the code is not lack for defensive guards and documentation, but lack for an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. 
+Software is weird. Code like this could last forever without problems. But dormant risks, if recognized, must be avoided. We can do better, though part of reaching this *better* is yielding our mental model to become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. My observation is that the code is not lack for defensive guards and documentation, but lack for an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. In other words, an expanded *model* -- expressed in code -- that *models* more precisely the desired possibilities of what a user can do.
 
 Let's try rewriting our component-level event handler to incorporate the new happy path of Product requirements into the lexicon -- the Action notifiers, the names of things "that depend on when they are called or how many times they are called" -- of our code:
 
