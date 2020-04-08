@@ -65,7 +65,7 @@ Tags: *React, data, actions, code duplication, DRY*
 Have you ever noticed yourself going to unnecessary lengths to avoid repetition in your  code despite the fact that requirements actually represent a complicated world? I swear the longer I write code in the industry the more DRY feels like a leaky ideological imposition that drifts from "knowledge" duplication into code/documentation -- ie text artifact -- duplication. Sigh. This is a nuance we lose too easily by the repetitive  peddling (pun intended, irony not) of the shorthand DRY; which I suppose also reveals the danger of the supremacist tendency of the axiomatic; axioms all-to-easily claim ontological root. Especially in the minds of early career folks or folks emerging from industry founding fathers cargo cults. 
 
 > Every piece of ***knowledge*** must have a single, unambiguous, authoritative representation within a system.    
-> <footer><small><cite>The Pragmatic Programmer<cite></small>[emphasis mine]</footer>
+> <footer><small><cite>The Pragmatic Programmer</cite></small>[emphasis mine]</footer>
 
 What often appears in our text editors as repetition at first is often the precise  nuance our applications need to create the richness of these membranes we build between people and machines. Here's an example slightly altered. 
 
