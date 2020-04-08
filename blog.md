@@ -69,7 +69,12 @@ Have you ever noticed yourself going to unnecessary lengths to avoid repetition 
 
 What often appears in our text editors as repetition at first is often the precise  nuance our applications need to create the richness of these membranes we build between people and machines. Here's an example slightly altered. 
 
-Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event. 1) They can activate the campaign, and 2) they can select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
+Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event: 
+
+1) Activate the campaign.
+2) Select the campaign to be  "featured" -- this places the campaign into a larger sitewide collection of campaigns that are *featured* in certain areas of the product. 
+
+A sketch of the stateless component in our graph might look like so (just relevant JSX and event handler): 
 
 <script src="https://gist.github.com/rosschapman/ed540e7ff31ae56690db02bc4f7712cc.js"></script>
 
