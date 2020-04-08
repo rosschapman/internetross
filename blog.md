@@ -103,9 +103,9 @@ Let's try rewriting our component-level event handler to incorporate the new hap
 
 <script src="https://gist.github.com/rosschapman/0812df06a1d25138de0fa9ed5ddcc763.js"></script>
 
-The modifications in this third example add a new Action notifier that represents the  *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case that *narrows* attention -- of the developer *and* program -- on the new case by leveraging semantics (ie expanding the number of Action notifiers). I fantasize that Zachary Tellman might describe the renaming as a too "natural" yet still "consistent" name (see <cite><a href="https://elementsofclojure.com/">Elements of Clojure</a></cite>). 
+The modifications in this third example add a new Action notifier (handler) that represents the  *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case that *narrows* attention -- of the developer *and* program -- on the new case by leveraging a semantic, structural, change to the number of container handlers. (Side note: I fantasize that Zachary Tellman might describe the new handler name as a too "natural" yet still "consistent" name (see <cite><a href="https://elementsofclojure.com/">Elements of Clojure</a></cite>). 
 
-Furthermore, let's note that the payload semantics remain the same. Therefore our data layer comprised of the container and actions, only requires similarly modest adjustments. Lastly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass. 
+Furthermore, let's observe that the payload semantics remain the same. Which means our data layer comprised of the container and action dispatching, only requires similarly modest adjustments to shepherd the same data. Lastly, though quite importantly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass if we wish it. 
 
 Overall this design provides increased confidence that this display component, our presentational leaf node, is more precisely responsible for render and event notification. Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.
 
