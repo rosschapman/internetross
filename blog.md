@@ -168,7 +168,7 @@ Oh startup learnings. Entering an industry is a crash course y'all!
 
 If we believe Jessica Kerr and the Jessica Kerrian systems theorists of our ilk, and on this point I do -- software is a symmathesy:  *a learning system of learning parts*. Brooks must have believed something similar I just don't remember his words or if he had a systems-thinking bent.
 
-What these symmathesists teach us is that software is so highly sophisticated, so highly *complicated*!, that command and control thinking can't intervene to establish order: 
+Brooks' insights feel situated as early symmathecist thinking. Software is so highly sophisticated, so highly *complicated*!, that command and control thinking can't intervene to establish order: 
 
 > As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.    
 > <footer><small><cite>Ibid.</cite></small></footer>
