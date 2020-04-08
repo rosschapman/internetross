@@ -125,6 +125,7 @@ updateCampaignAndUpdateFeaturedCampaigns(data) {
         {
             id: payload.id, 
             activated: true
+            // other fields...
         }
     },
     featuredCampaigns: [
