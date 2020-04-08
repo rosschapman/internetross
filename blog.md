@@ -117,7 +117,7 @@ Lately, I've been thinking about productivity and it's evolutionary rhythm with 
 And
 
 > Différance is the systematic play of differences, of the traces of differences, of the spacing by means of which elements are related to each other. This spacing is the simultaneously active and passive (the a of différance indicates this indecision as concerns activity and passivity, that which cannot be governed by or distributed between the terms of this opposition) production of the intervals without which the "full" terms would not signify, would not function.    
-> <footer><small><cite>Positions</cite>, Jacques Derrida, </small>
+> <footer><small><cite>Positions</cite></small>
 
 Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. LOL, apparently that's what men in the industry used to think! Not too long into my first software gig my team of 5 engineers organized a book club and tackled *The Mythical Man Month*. This is when I learned that software devs were reduced to fungible "resources" by management. (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?") It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains. 
 
