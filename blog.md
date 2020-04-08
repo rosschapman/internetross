@@ -105,7 +105,7 @@ Let's try rewriting our component-level event handler to incorporate the new hap
 
 The modifications in this third example add a new Action notifier that represents the  *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case that *narrows* attention -- of the developer *and* program -- on the new case by leveraging semantics (ie expanding the number of Action notifiers). I fantasize that Zachary Tellman might describe the renaming as a too "natural" yet still "consistent" name (see <cite><a href="https://elementsofclojure.com/">Elements of Clojure</a></cite>). 
 
-Furthermore, regarding the semantics, let's note that the payload doesn't even change. Therefore our container only requires similarly modest adjustments.  Lastly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass. 
+Furthermore, let's note that the payload semantics remain the same. Therefore our data layer comprised of the container and actions, only requires similarly modest adjustments. Lastly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass. 
 
 Overall this design provides increased confidence that this display component, our presentational leaf node, is more precisely responsible for render and event notification. Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.
 
