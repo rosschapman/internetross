@@ -85,7 +85,7 @@ I mean, that's the right logic. All my test mocks are reusable. We are sailing a
 
 Sort of. 
 
-Then something nags at me looking at this code. It's subtle, but there's a risky assumption embedded here. Inside the interior `if-then` branch under the conditional expression `activatedCount === 0`, we are sending a sequence of two distinct *mutative* notifications to our data store; moreover, the second depends on the first to complete successfully. Now, we might test this code in the browser and it works every time. Our tests pass. 
+Then something nags at me looking at this code. It's subtle, but there's a risky assumption embedded here. Inside the interior `if-then` branch under the conditional expression `hasNoActivated`, we are sending a sequence of two distinct *mutative* notifications to our data store; moreover, the second depends on the first to complete successfully. Now, we might test this code in the browser and it works every time. Our tests pass. 
 
 But.    
 
