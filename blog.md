@@ -147,6 +147,8 @@ It's late afternoon in Argentina wine country when I'm just digging my heals int
 
 The compounded burden of a cross-geo async request rquires I hunker down to understand what they're code is doing and what it's supposed to do -- without direct assistance. While async communication over Slack is ok, closing the mental gap in understanding the code changes is tough. What's unforutnate is that the impact of distance and time spent to "get up to speed" (pun intended) is a delta that doesn't always feel satisfyingly grasped or addressed by top brass. It's costly. We are facing a kind of Derridean differánce. As if navigating the palimpsest wasn't enough. Multiple personages reading and explaining the code text, scribbling comments, changing, re-reading the next day; discovering the truth in the spaces/tabs. Reading software is really tough stuff.
 
+Does this sound like what you do for work?:
+
 > Every software project is like a palimpsest where every developer scratches old text, and writes on top of it their perceived new solution, creating a manuscript where a mix off styles and languages reflect different understandings of the world, different world visions.   
 > <footer><small><cite><a href="https://medium.com/@old_sound/code-is-a-palimpsest-c4fd0ebcd90c">Code is a Palimpsest</a></cite></small></footer>
 
