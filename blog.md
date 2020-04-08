@@ -73,9 +73,9 @@ Let's say we are working with an events management system where a new feature is
 
 <script src="https://gist.github.com/rosschapman/ed540e7ff31ae56690db02bc4f7712cc.js"></script>
 
-Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trgooigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
+Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
 
-As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to orchestrate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another bracch; and I can reuse the current dispatchers. I'm a fucking oracle.
+As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to orchestrate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another branch; and I can reuse the current dispatchers. I'm a fucking oracle.
 
 Whereby I try: 
 
@@ -103,7 +103,11 @@ Let's try rewriting our component-level event handler to incorporate the new hap
 
 <script src="https://gist.github.com/rosschapman/0812df06a1d25138de0fa9ed5ddcc763.js"></script>
 
-What I've done here is simply add a new Action notifier that represents a *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case. In other words, I've "narrowed" attention on the new case by leveraging semantics -- expanding the number of Action notifiers -- and what Zachary Tellman might describe as a too "natural" yet still "consistent" name. Regarding the semantics, note the payload doesn't even change; therefore our container will require similarly modest adjustments.  Further, our container now is capable of dispatching messages to the store and effecting a mutation in just a single pass. This design gives us increased confidence that this display component -- our presentational leaf node(s) -- are more precisely responsible for render and event notification. (Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.)
+The modifications in this third example add a new Action notifier that represents the  *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case that *narrows* attention -- of the developer *and* program -- on the new case by leveraging semantics (ie expanding the number of Action notifiers). I fantasize that Zachary Tellman might describe the renaming as a too "natural" yet still "consistent" name (see <cite><a href="https://elementsofclojure.com/">Elements of Clojure</a></cite>). 
+
+Furthermore, regarding the semantics, let's note that the payload doesn't even change. Therefore our container only requires similarly modest adjustments.  Lastly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass. 
+
+Overall this design provides increased confidence that this display component, our presentational leaf node, is more precisely responsible for render and event notification. Perhaps the subtweet here is keeping events and messages 1:1, even if you wind up with similar or duplicate lines of code.
 
 # The will to better software companies
 Tags: *Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani*    
