@@ -112,7 +112,7 @@ updateCampaignAndUpdateFeaturedCampaigns(data) {
     dispatch(updateCampaigns(data));
 }
 
-// Whereby our reducer might return the state object composed as:
+// Whereby our reducer might return the state mutations composed as:
 
 {
     campaigns: {
