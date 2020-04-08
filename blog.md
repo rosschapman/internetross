@@ -105,14 +105,14 @@ Let's try rewriting our component-level event handler to incorporate the new hap
 
 The modifications in this third example add a new Action notifier (handler) that represents the  *distinct* type of mutation we want to effect against the store. In other words, a function that satisfies the new Product case that *narrows* attention -- of the developer *and* program -- on the new case by leveraging a semantic, structural, change to the number of container handlers. (Side note: I fantasize that Zachary Tellman might describe the new handler name as a too "natural" yet still "consistent" name (see <cite><a href="https://elementsofclojure.com/">Elements of Clojure</a></cite>). 
 
-Furthermore, let's observe that the payload semantics remain the same. Which means our data layer comprised of the container and action dispatching, only requires similarly modest adjustments to shepherd the same data. Lastly, though quite importantly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass if we wish it.
+Furthermore, let's observe that the payload semantics remain the same. Which means our data layer comprised of the container and action dispatching, only requires similarly modest adjustments to shepherd the same data. Lastly, though quite importantly, our container is now capable of dispatching messages to the store and effecting a mutation in just a single pass if we wish it. For example:
 
 ```javascript
 updateCampaignAndUpdateFeaturedCampaigns(data) {
     dispatch(updateCampaigns(data));
 }
 
-// Whereby our reducer might return state object composed as:
+// Whereby our reducer might return the state object composed as:
 
 {
     campaigns: {
