@@ -33,6 +33,9 @@
 }
 </style>
 
+<h2>Foreword</h2>
+Just over a year ago I started this journal as an outlet to brain dump the thought stuff that drifts in and out of my mind and workspaces while career-ing as a professional software engineer. There are teases, fancies, adventures, inquisitions, pretenses, punditry, delves. The blog as sympathetic ear for an epistemophile winding his way through the labyrinth; I suppose. There's just so much to consider in and around the code. How to read it, write it, execute it, change it, share it. It's fucking wild.
+
 <h2>Table of Contents</h2>
 
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
@@ -62,7 +65,7 @@
 Tags: *React, data, actions, code duplication, DRY*    
 **4/1/2020**
 
-Have you ever noticed yourself going to unnecessary lengths to avoid repetition in your  code despite the fact that requirements actually represent a complicated world? I swear the longer I write code in the industry the more DRY feels like a leaky ideological imposition that drifts from "knowledge" duplication into code/documentation -- ie text artifact -- duplication. Sigh. This is a nuance we lose too easily by the repetitive  peddling (pun intended, irony not) of the shorthand DRY; which I suppose also reveals the danger of the supremacist tendency of the axiomatic; axioms all-to-easily claim ontological root. Especially in the minds of early career folks or folks emerging from industry founding fathers cargo cults. 
+Have you ever noticed yourself going to unnecessary lengths to avoid repetition in your  code despite the fact that requirements actually represent a complicated world? I swear the longer I write code in the industry the more DRY feels like a leaky ideological imposition that drifts from "knowledge" duplication into code/documentation -- ie text artifact -- duplication. Sigh. This is a nuance we lose too easily by the ad nauseum peddling of the shorthand DRY; which I suppose also reveals the danger of the supremacist tendency of the axiomatic; axioms all-to-easily claim ontological root. Especially in the minds of early career folks or folks emerging from industry founding fathers cargo cults. 
 
 > Every piece of ***knowledge*** must have a single, unambiguous, authoritative representation within a system.    
 > <footer><small><cite>The Pragmatic Programmer</cite>, [emphasis mine]</small></footer>
@@ -288,14 +291,15 @@ Tags: *feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hann
 
 About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Sussman, presented The Myth of the Genius Programmer to an audience of mostly dudes. Well, we can surmise at the demographics because women were still being invented around this time. 
 
-> Women are a very recent invention.  -- Ursula K. Le Guinn
+> Women are a very recent invention.
+> <footer><small>Ursula K. Le Guinn</small></footer>
 
 Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.  
 
 👆🏻That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
 
 > The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships. 
-> <footer><small>Hanna Thomas<small><footer>
+> <footer><small><cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite>, Hanna Thomas</small><footer>
 
 Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of *Progress* (what Donna Haraway calls "Euclidean tales...of tragic detumescence", the "prick tale." ) -- sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth. For richness of our symmathesies. We all suffer for it. 
 
@@ -324,7 +328,7 @@ The talk is an introduction and invitation in trust-based collaboration and vuln
 From the progenitor of the terms "ingressive" and "congressive" that I've been flinging about wildly: 
 
 > Ingressive is about going into things and not being waylaid by what people think or by emotions and congressive is about bringing people with you and bringing people together and unifying and making connections between things.... I've come to think that congressive behavior is basically better for society but that ingressive behavior is rewarded more by society because society is based on competition. It's based on how you present yourself so for things like competing for a job, you have to be ingressive to put yourself forward for promotion and to talk about how great you are. Whereas, when you're actually doing some work with people, then it's really helpful to be congressive because then you bring people together, you understand people. 
-> <footer><small>Eugenia Cheng</small></footer>
+> <footer><small><cite><a href="https://www.greaterthancode.com/category-theory-for-normal-humans">Episode 038: Category Theory for Normal Humans with Dr. Eugenia Cheng</a></cite>, Greater than Code</small></footer>
  
 It's devastating to think about the enormity of emotional intelligence training men needed/need/will need; how expensive it is to refactor patriarchy's structural grammar; that ambition which pits men against one another in an end game for supreme master and commander. In this ever-war even order and peace means the seizing of power; power must be assumed by the individual. It is not shared. 
 
