@@ -447,7 +447,7 @@ Elliot is also quick to mention the case of uninitialized data. He lists the com
 
 I've got an example from the office, bear with me.
 
-In our application there is a form field. This field represents a maximum limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds.
+In our application there is a form field. This field represents a maximum limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be left empty). The latter signifies that the user desires to unrestrict the number of holds.
 
 Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. What a twisting mind eff: *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing.  Therefore, a sensible default.
 
