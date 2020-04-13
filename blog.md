@@ -292,13 +292,16 @@ About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Su
 
 Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.  
 
-That's my subtext as I watch: I wish men could  call it what it is. Non-mens have to keep rewinding it back.
+👆🏻That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
 
-> The men who wrote the manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships. -- Hanna Thomas
+> The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships. 
+> <footer><small>Hanna Thomas<small><footer>
 
-Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of *Progress* -- drawn and sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth; for the richness of our symmathesies. And suffers for it. Racism and sexism are the key ingredients in the alchemy that has transformed "Don't be evil" to solving the *hard problems* of "Controlling the explosion of child porn on the platform" (Youtube, to name a recent example). Whoops.
+Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of *Progress* (what Donna Haraway calls "Euclidean tales...of tragic detumescence", the "prick tale." ) -- sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth. For richness of our symmathesies. We all suffer for it. 
 
-An ingressive mindset can help us; help move us at the speed of trust. There is some movement here, a decade ago. Radical muds seeping into the granite of hard dick culture; white boys catching each other and putting together slides for the other boys.
+Racism and sexism are the key ingredients in the alchemy that has transformed "Don't be evil" to solving the *hard problems* of "Controlling the explosion of child porn on the platform" (Youtube, to name a recent example. The darkest of whoops).
+
+What these guys are hinting at is that an ingressive mindset can help us move us at the speed of trust, and therefore build better software together. So, yep, there was some movement going on a decade ago. Radical muds seeping into the granite of hard dick culture; white boys catching each other and putting together slides for the other boys.
 
 The talk is an introduction and invitation in trust-based collaboration and vulnerability. Touchstones include:
 
