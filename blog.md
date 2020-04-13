@@ -34,7 +34,7 @@
 </style>
 
 <h2>Foreword</h2>
-Just over a year ago I started this journal as an outlet to brain dump the thought stuff that drifts in and out of my mind and workspaces while career-ing as a professional software engineer. There are teases, fancies, adventures, inquisitions, pretenses, punditry, delves. The blog as sympathetic ear for an epistemophile winding his way through the labyrinth; I suppose. There's just so much to consider in and around the code. How to read it, write it, execute it, change it, share it. It's fucking wild.
+Just over a year ago I started this journal as an outlet to brain dump the thought stuff that drifts in and out of my mind and workspaces while career-ing as a professional software engineer. There are teases, fancies, adventures, inquisitions, pretenses, punditry, delves. The blog as sympathetic ear, I suppose, for an epistemophile winding his way through the labyrinth. There's just so much to consider in and around the code. How to read it, write it, execute it, change it, share it. It's fucking wild.
 
 <h2>Table of Contents</h2>
 
