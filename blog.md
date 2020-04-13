@@ -427,11 +427,11 @@ Heuristics:
 Tags: *functional programming, maybe, either, promises*
 **12/10/2019**
 
-A recent issue of JS Weekly reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot that thinks through creative ways we can work with nullables in JavaScript. I read it. It lit up my memory. 
+I want take some bits process a recent issue of JS Weekly that reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot about optional values in JavaScript. I read it. It lit up my memory. 
 
 One of the first Lambda Cast episodes I listened to was [#6](https://soundcloud.com/lambda-cast/6-null-and-friends): *Null and Friends*. At this point in time I'm near the start of my FP cultivations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's [*Functional-Light JavaScript*](https://github.com/getify/functional-light-js). I was fairly shocked to hear the bros discuss functional languages that are *designed* to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
 
-Elliot describes `null` and `undefined` as "optional values". Right, makes sense. Like we might have data there or not. 🤷🏻‍♂️ I'd also throw empty strings into the bunch when they are used to stand in for an unselected value, ie nothing, empty, absence. Gosh even `0`. Optional values are problematic in JavaScript because they represent data that some part of your system will choke on. Basically the language lets us get away with answering *I don't know* without any compose-time feedback. Spin up the browser and push play.  
+Because of JavaScript's weak type system optional values represent data that will likely cause problems somewhere in your software system. Basically the language lets us get away with answering *I don't know* without any compose-time feedback. Spinning up the browser and pushing play is sometimes your only recourse.  
 
 > FUNCTION A: Alright here's some data, can I have that back nice and neat please before I send it to the user.    
 > FUNCTION B: Yeah sure...wait...ermm...I don't think so actually...yeah I don't know.    
@@ -447,7 +447,7 @@ Elliot is also quick to mention the case of uninitialized data. He lists the com
 
 I've got an example from the office, bear with me.
 
-In our application there is a form field. This field represents a maximum  limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds.
+In our application there is a form field. This field represents a maximum limit on the number of holds for your event ticket. There are two types of input this field can receive from a user: 1) an integer or 2) nothing (ie, be lefty empty). The latter signifies that the user desires to unrestrict the number of holds.
 
 Nullable fields! These are quite commonplace and a user would never think twice about the dark alchemy we're performing behind the scenes. What the user doesn't know is that this field maps to a database columm that expects an integer (`INT`). Thus, when the user leaves the field empty and then submits the form, we need to make sure that a "no INT" is mutated into a stringified representation of zero to slot in the POST body: `{limit: 0}`. What a twisting mind eff: *the zero means unlimited*. Leaving the field blank is not a *lack*, but bountiful! `1 x 0 = FUN`. Nothing is not nothing.  Therefore, a sensible default.
 
