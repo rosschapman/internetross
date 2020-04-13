@@ -152,7 +152,7 @@ blockquote:before {
   font-size: 2em;
   line-height: 1em;
   position: absolute;
-  left: 0.2em;
+  left: 0.3em;
 }
 
 blockquote footer {
