@@ -107,7 +107,7 @@ Which begs some questions. For example, although the action notifiers I'm callin
 
 Software is weird. Code like this could become a productive, yet forgotten, corner of entropy. But silent risks, if recognized, must be avoided. We can do better, although part of reaching this *better* is yielding our mental model to become more *reactive* -- to adapt, to embrace nuance, to become loose as the requirements become more complicated. My observation is that the code is not lack for defensive guards and documentation, but lack for an expanded set -- *single, unambiguous, authoritative* -- of blessed possibilities with distinct articulations. In other words, an expanded *model* -- expressed in code -- that *models* more precisely the desired possibilities of what a user can do.
 
-Let's try rewriting our component-level event handler to incorporate the new happy path of Product requirements into the lexicon if our code: the Action notifiers, the names of things "that depend on when they are called or how many times they are called" (see <cite><a href="https://www.manning.com/books/grokking-simplicity">Grokking Simplicity</a></cite>).
+Let's try rewriting our component-level event handler to incorporate the new happy path into our domain's lexicon: the Action notifiers, the names of things "that depend on when they are called or how many times they are called" (see <cite><a href="https://www.manning.com/books/grokking-simplicity">Grokking Simplicity</a></cite>).
 
 <script src="https://gist.github.com/rosschapman/0812df06a1d25138de0fa9ed5ddcc763.js"></script>
 
