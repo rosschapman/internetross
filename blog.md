@@ -110,7 +110,7 @@ We can use Leo Brodie's application of "Structured Design" principles to interro
 
 Basically all four apply in some dimension and therefore qualify as types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." From the context in the book I think he means *weak* as in a less successful realization of the software.  
 
-> <img src="/assets/images/weak-binding.png" width="600" style="margin: 0 auto; display: block" />
+> <img src="/assets/images/weak-binding-tf.png" width="600" style="margin: 0 auto; display: block" />
 > <footer><small>Ibid.</small></footer>
   
 Weak doesn't necessarily mean broken or bad, but it can help us de-correlate the act of grouping related things as successful separation. 
