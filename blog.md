@@ -95,7 +95,7 @@ Leaving the technicalities of xState aside for the moment, I had to let this cri
 I'm finding myself persuaded that mathematically reductive -- code that follows *deductive* reasoning as Zachary Tellman would say -- is how we end up with embarrassing bugs despite complete unit test coverage.
 
 > Many early computer scientists were trained as physicists, and it shows.... Since then, practical use of software has exploded, and deductive models have given way to inductive ones.
-> <footer><cite>Elements of Clojure</cite>, p74</footer>
+> <footer><small><cite>Elements of Clojure</cite>, p74</small></footer>
 
 An example that might seem familiar out in the wild is the lack of orchestration when coordinating the sub-routines in client code after a form submission. I've seen a perfectly reasonable sequence of behaviors encoded in a submit event callback like the following:
 
@@ -109,7 +109,7 @@ We can use Leo Brodie's application of "Structured Design" principles to interro
 > 2. Does it use words involving time, such as “first,” “next,” “then,” etc.?
 > 3. Does it use a general or nonspecific object following the verb?
 > 4. Does it use words like “initialize” which imply a lot of different functions being done at the same time?
-> <footer><cite>THINKING FORTH<cite>, p18</footer>
+> <footer><small><cite>THINKING FORTH<cite>, p18</small></footer>
 
 Basically all four apply in some dimension and therefore qualify as types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." From the context in the book I think he means *weak* as in a less successful realization of the software.  
 
