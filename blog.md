@@ -334,7 +334,7 @@ I'm reminded of another talk.
 Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-driven development" we suffer in engineering culture. We might say another symptom of cock-sure genius arising. I love this talk. Recognizing the artifice of loudness and leaning, he looks at the data and calls bullshit on men. The data is good. It's a tool.  Nonetheless, I'm not sure Hillel's Empiricism will be as powerfully feminist as interventions like Thomas' archeology. Of course, Cheng's metonymic replacements are interesting in that they make it easier to implicate women's complicit was in patriarchy. Hot take: overall let's be skeptical of the neo-classical -- logic can win -- and neo-liberal -- we can reach across the aisle tactics.
 
 # Thinking about heuristics for avoiding code duplication across the stack
-Tags: *large applications, large teams, duplication*
+Tags: *large applications, large teams, duplication*    
 **1/20/2020**
 
 At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication *across* client and api layers. Like, imagine a piece of code that takes a inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into  response body adjacent to the original cost data. Something like: 
