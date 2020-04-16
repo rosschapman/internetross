@@ -65,7 +65,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 What we know is that for these very large applications that don't get a handle on what their app does by putting their code in the middle, and using the framework for the things they shouldn't be writing, it's impossible to know what your app does. How are you going to port that and take advantage of a new language or technology?...I'm really terrified of the framework being in charge of invoking my own code. 30:45
 
 # Orchestration > Separation of Concerns Part 1
-Tags: *react, xState, user-interface-control-model*    
+Tags: *react, redux, xState, architecture, user-interface-control-model*    
 04/16/2020
 
 There's an architectural pattern that Ian Horrocks describes in his 1999 book *Constructing the User Interface with Statecharts* as the "user interface-control-model." UCM will exhibit a familiar symmetry for anyone that has worked with React/Redux for any substantial period of time. From Horrocks:
