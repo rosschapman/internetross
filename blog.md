@@ -38,7 +38,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [Orchestration > Separation of Concerns](#orchestration--separation-of-concerns)
+- [Orchestration > Separation of Concerns Part 1](#orchestration--separation-of-concerns-part-1)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
@@ -62,7 +62,9 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# Orchestration > Separation of Concerns    
+What we know is that for these very large applications that don't get a handle on what their app does by putting their code in the middle, and using the framework for the things they shouldn't be writing, it's impossible to know what your app does. How are you going to port that and take advantage of a new language or technology?...I'm really terrified of the framework being in charge of invoking my own code. 30:45
+
+# Orchestration > Separation of Concerns Part 1
 Tags: *react, xState, user-interface-control-model*    
 04/16/2020
 
