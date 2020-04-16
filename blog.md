@@ -83,7 +83,7 @@ A sketch of the stateless component in our graph might look like so (just releva
 
 Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trigger marking that campaign with the special "featured" flag *if* that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
 
-As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to orchestrate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another branch; and I can reuse the current dispatchers. I'm a fucking oracle.
+As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to coordinate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another branch; and I can reuse the current dispatchers. I'm a fucking oracle.
 
 Whereby I try: 
 
