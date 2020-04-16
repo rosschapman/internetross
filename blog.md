@@ -105,22 +105,13 @@ This design attempts to create a meaningful abstraction by lifting a group of as
 
 We can use Leo Brodie's application of "Structured Design" principles to interrogate this function's "strength": 
 
-> 1. Does the description have to be a compound sentence?
-> 2. Does it use words involving time, such as “first,” “next,” “then,” etc.?
-> 3. Does it use a general or nonspecific object following the verb?
-> 4. Does it use words like “initialize” which imply a lot of different functions being done at the same time?
+> <img src="/assets/images/struct-des-quest.png" width="600" style="margin: 0 auto; display: block" />
 > <footer><small><cite>THINKING FORTH<cite>, p18</small></footer>
 
 Basically all four apply in some dimension and therefore qualify as types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." From the context in the book I think he means *weak* as in a less successful realization of the software.  
 
-> Logical binding: (the module has several related functions and re- quires a flag or parameter to decide which particular function to perform)    
-> 
-> Temporal binding: (the module contains a group of statements that happen at the same time, such as initialization but have no other relationship)    
-> 
-> Communicational binding: (the module contains a group of state- ments that all refer to the same set of data)
-> 
-> Sequential binding: (where the output of one statement serves as input for the next statement)
-> > <footer><small>Ibid.</small></footer>
+> <img src="/assets/images/weak-binding.png" width="600" style="margin: 0 auto; display: block" />
+> <footer><small>Ibid.</small></footer>
   
 Weak doesn't necessarily mean broken or bad, but it can help us de-correlate the act of grouping related things as successful separation. 
 
@@ -132,7 +123,12 @@ And say we were to pull on the thread a bit more. What, pray tell, does separati
 
 What kind of assurance does the 👆🏻provide other than introducing a kind of needless check of implementation details. What Kent Dodds calls a <a href="https://kentcdodds.com/blog/avoid-the-test-user">Test User</a>.
 
-For simple applications and toy examples this level of existentialism is overkill. We only need to introduce the conductor when things get too big for one person's head. But at that juncture, for example when we achieve market validation for some feature, it's time for the business logic to be liberated, lifted, from within callbacks to achieve an abstraction that sits above the store and our dispatch sequence. xState is an option. But I'd like to offer a simplistic version of our conductor built entirely in React in the next post.
+For simple applications and toy examples this level of existentialism is overkill. But:
+
+> Doing the easy thing over and over again leads to the thing that's not simple.
+> <footer><small>Sandi Metz, <cite><a href="https://maintainable.fm/episodes/sandi-metz-making-is-easy-mending-is-a-challenge">Maintainable Podcast</a>, 28:18<cite></small></footer>
+
+We only need to introduce the conductor when things get too big for one person's head. At that juncture, for example when we achieve market validation for some feature, it's time for the business logic to be liberated, lifted, from within callbacks to achieve an abstraction that sits above the store and our dispatch sequence. xState is an option. But I'd like to offer a simplistic version of our conductor built entirely in React in the next post.
 
 # Preferring repetitive Action notifications over reuse
 Tags: *React, data, actions, code duplication, DRY*    
