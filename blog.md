@@ -75,6 +75,7 @@ There's an architectural pattern that Ian Horrocks describes in his 1999 book *C
 > The control object maintains the state of the user interface as a whole. When a control object receives a message from a user interface object, the message and the current state of the control object are used to determine the actions that will be executed and possibly update the state information maintained by the control object.... 
 > 
 > The control layer provides a user interface with an explicit state that can be used to determine the different contexts in which events occur. 
+> <footer><small><cite>Constructing the User Interface with Statecharts</cite>, p 27-28</small></footer>
 
 <img src="/assets/images/ucm.png" width="600" style="margin: 0 auto; display: block" />
 
@@ -88,7 +89,8 @@ What if I try and take a stab a heuristic that describes at least one characteri
 
 By using "orchestration" here I'm invoking a recent tweet by David Kourshid where he condemns the overuse of "separation of concerns."
 
-> Been thinking about this a lot. The common principle of "separation of concerns" is often blindly applied and leads to fragile architecture. *Orchestration* is the missing part. <small>[emphasis mine]</small>
+> Been thinking about this a lot. The common principle of "separation of concerns" is often blindly applied and leads to fragile architecture. *Orchestration* is the missing part. 
+> <footer><small><cite><a href="https://twitter.com/DavidKPiano/status/1243938073009889281">https://twitter.com/DavidKPiano/status/1243938073009889281</a></cite>, [emphasis mine]</small></footer>
 
 Kourshid is leaning on the accomplishment of xState which *executes* a finite state machine and state chart as an *actor* -- in the heritage of the Actor model -- resulting in an exemplary example of a deterministic orchestration *machine*. 
 
@@ -113,7 +115,7 @@ We can use Leo Brodie's application of "Structured Design" principles to interro
 Basically all four apply in some dimension and therefore qualify as types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." From the context in the book I think he means *weak* as in a less successful realization of the software.  
 
 > <img src="/assets/images/weak-binding-tf.png" width="600" style="margin: 0 auto; display: block" />
-> <footer><small>Ibid.</small></footer>
+> <footer><small>Ibid. p19</small></footer>
   
 Weak doesn't necessarily mean broken or bad, but it can help us de-correlate the act of grouping related things as successful separation. 
 
