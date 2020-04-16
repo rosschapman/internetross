@@ -38,7 +38,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [Beyond sheets](#beyond-sheets)
+- [Orchestration > Separation of Concerns](#orchestration--separation-of-concerns)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
@@ -62,9 +62,9 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# Beyond sheets    
-Tags: *data grids, data tables, react*    
-///
+# Orchestration > Separation of Concerns    
+Tags: *react, xState, user-interface-control-model*    
+04/16/2020
 
 There's an architectural pattern that Ian Horrocks describes in his 1999 book *Constructing the User Interface with Statecharts* as the "user interface-control-model." UCM will exhibit a familiar symmetry for anyone that has worked with React/Redux for any substantial period of time. From Horrocks:
 
@@ -80,7 +80,7 @@ The indirection provided by the "control object" described above is analogous to
 
 A colleague of mine describes this type of event and state system as "Simple Flow." The *Three Principles of Redux* represent another incantation of this flow. It's everywhere. It's certainly nothing new.
 
-What if I try and take a stab a heuristic that describes at least one characterstic of this pattern:
+What if I try and take a stab a heuristic that describes at least one characteristic of this pattern:
         
 **Centralized orchestration of actions**    
 
