@@ -1065,23 +1065,25 @@ Tags: *debugging*
 
 This weekend I spotted Julia Evans posting some tips about debugging -- of course a zine followed -- and it resonated deeeply because it touches on one aspect of debugging that I often struggle with. It's comforting to know this is a common kind of struggle!
 
-[<img src="https://pbs.twimg.com/media/D9wWNfFXoAcsUqq?format=jpg" />](https://twitter.com/b0rk/status/1142812831420768257)
+<img src="https://pbs.twimg.com/media/D9wWNfFXoAcsUqq?format=jpg" width="600" style="margin: 0 auto; display: block" />
 
-Every time we sit down to debug a program we bring a narrow worldview to bear about how the program *should* work. Oftentimes this assumption is what makes the debugging process laborious. It becomes a heated, lasting tango between your worldview and your proofs against the current environment, with expected data inputs, in a certain test harness, etc... 
+Every time we sit down to debug a program we bring a narrow worldview to bear about how the program *should* work. Oftentimes this assumption is what makes the debugging process laborious. Each fit and start becomes a heated, lasting tango between your worldview and your proofs against the current reality. While this dialectic ensues you begin to receive feedback, often surprising, which may expands the dance to different hypotheses. Or it may contract when you foreclose a set of possibilities. You unlearn, go back, change course. The tango lasts. 
 
-While this dialectic ensues you're also receiving feedback, often surprising, which may expands the dance may expand to test out different hypothesis. Or it may contract when you foreclose a set of possibilities. You unlearn, go back, change course. The tango lasts. 
+***
 
-Though frustrating, this is natural. It's impossible to throw out all we know at the beginning and re-interrogate every line of code. 
+It's impossible to throw out all we know at the beginning and re-interrogate every line of code. 
 
 > ...you just have to pick one and start checking.
 
 Patience is what we need, as we methodically unpack our worldview from the inside out.
 
+***
+
 This past week I spent a good part of two days wrestling with a broken acceptance test in a somewhat unfamiliar part of code where my initial assumptions misled me from the start.
 
-The test was written to observe a state change by simulating a click on the first menu item in a dropdown, which flips the disabled state of a Purchase Button elsewhere in the container component! That assertion was no longer passing. Because my new code had changed the source of the the initial values for the dropdown, I had set my sights on determining if that source data in the test was wrong. 
+The test was written to observe a state change by simulating a click on the first menu item in a dropdown, which would flip the disabled state of a Purchase Button elsewhere in the container component. That assertion was no longer passing. Because my new code had changed the source of the the initial values for the dropdown, I had set my sights on determining if that source data in the test was wrong. 
 
-Sigh, that wasn't quite it. I spent a bunch of time interrogating these source values in the test setup for the dropdown menu but in the end they were correct -- my initial presumption and assumption (worldview) steering me into a void. Sucked.
+Sigh, that was an incorrect assumption. I spent a bunch of time interrogating these source values in the test setup for the dropdown menu but in the end they were correct -- my initial presumption and assumption (worldview) steering me into a void. Sucked.
 
 After repeatedly playing with the test instructions and comparing to the outcome in the browser, I discovered the click action was doing nothing because the initial state for the Purchase Button was already set through a test setup step which *equaled the first value of the dropdown menu*; so the click action didn't actually change the value in the test (I was finally able to repro this in the browser). There was no state change to observe. In fact, and this is the best part, the test wasn't needed at all. My code change inadvertently exposed a test that was applying false assumptions to the code. 
 
