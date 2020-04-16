@@ -120,6 +120,7 @@ Basically all four apply in some dimension and therefore qualify as types of "we
 > Communicational binding: (the module contains a group of state- ments that all refer to the same set of data)
 > 
 > Sequential binding: (where the output of one statement serves as input for the next statement)
+> > <footer><small>Ibid.</small></footer>
   
 Weak doesn't necessarily mean broken or bad, but it can help us de-correlate the act of grouping related things as successful separation. 
 
