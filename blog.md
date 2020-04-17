@@ -96,7 +96,7 @@ Kourshid is leaning on the accomplishment of xState which *executes* a finite st
 
 Leaving the technicalities of xState aside for the moment, I had to let this critique sit with me a bit -- but I think I like it. Separation of concerns oversimplifies the idea that clarity and reasonability emerge solely from separation. Even if we keep our models -- a group of functions and data -- small and distinct, we have to make sure they are not only bounded by relative assumptions about their context, but composed in a way that makes them adaptable to change and portable for reuse: two cornerstones of software for practical world building. The tendency in separation alone is risking a mathematical reductionism. I think that's the spirit of Kourshid's distinction.
 
-I'm finding myself persuaded that mathematically reductive -- code that follows *deductive* reasoning as Zachary Tellman would say -- is how we end up with embarrassing bugs despite complete unit test coverage.
+I'm finding myself persuaded that mathematically reductive code -- code that follows *deductive* reasoning as Zachary Tellman would say -- is how we end up with embarrassing bugs despite complete unit test coverage.
 
 > Many early computer scientists were trained as physicists, and it shows.... Since then, practical use of software has exploded, and deductive models have given way to inductive ones.
 > <footer><small><cite>Elements of Clojure</cite>, p74</small></footer>
