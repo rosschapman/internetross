@@ -38,7 +38,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [Orchestration > Separation of Concerns Part 1](#orchestration--separation-of-concerns-part-1)
+- [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-1)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
 - [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
@@ -62,7 +62,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# Orchestration > Separation of Concerns Part 1
+# Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1 
 Tags: *react, redux, xState, architecture, user-interface-control-model*    
 04/16/2020
 
@@ -103,7 +103,7 @@ An example that might seem familiar out in the wild is the lack of orchestration
 
 <script src="https://gist.github.com/rosschapman/9fec302abe53ff94faa4501231a137d9.js"></script>
 
-This design attempts to create a meaningful abstraction by lifting a group of associated  functions to `postEntityForm`. There are immediate developer benefits, like liberating the sequence from render to decouple the callback logic from the presentational component; which in turn simplifies unit testing. But something is irksome. 
+This design attempts to create a meaningful abstraction by lifting a group of associated  action creators/thunks to `postEntityForm`. There are immediate developer benefits, like liberating the sequence from render to decouple the callback logic from the presentational component; which in turn simplifies unit testing. But something is irksome. 
 
 We can use Leo Brodie's application of "Structured Design" principles to interrogate this function's "strength": 
 
