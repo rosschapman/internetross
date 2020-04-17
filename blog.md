@@ -79,7 +79,7 @@ There's an architectural pattern that Ian Horrocks describes in his 1999 book *C
 
 The indirection provided by the "control object" described above is analogous to the *store*-like object we've come to see in most JavaScript data libraries. Just like our hate-to-love, love-to-hate breadwinner Redux. 
 
-A colleague of mine describes this type of event and state system as "Simple Flow." The *Three Principles of Redux* represent another incantation of this flow. It's everywhere. It's certainly nothing new.
+A colleague of mine enshrines this patterning of event and state system as "Simple Flow." The Three Principles of Redux represent another incantation of this flow. It's everywhere. It's certainly nothing new, but there are many flavors with subtle differences.
 
 What if I try and take a stab a heuristic that describes at least one characteristic of this pattern:
         
@@ -110,20 +110,20 @@ We can use Leo Brodie's application of "Structured Design" principles to interro
 > <img src="/assets/images/struct-des-quest.png" width="600" style="margin: 0 auto; display: block" />
 > <footer><small><cite>THINKING FORTH<cite>, p18</small></footer>
 
-Basically all four apply in some dimension and therefore qualify as types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." From the context in the book I think he means *weak* as in a less successful realization of the software.  
+Basically all four apply in some dimension and therefore the function can be further described as exhibiting types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." My pen educated induction about Brodie’s intent in the book is that he wields the idea of “weak” to signify a less successful realization of the software.  
 
 > <img src="/assets/images/weak-binding-tf.png" width="600" style="margin: 0 auto; display: block" />
 > <footer><small>Ibid. p19</small></footer>
   
-Weak doesn't necessarily mean broken or bad, but it can help us de-correlate the act of grouping related things as successful separation. 
+In other words, weak doesn't necessarily mean broken or bad, but it is a classification to help programmers de-correlate the act of grouping related things from successful separation. 
 
-What else do we observe? `postEntityForm`'s weak bindings encode a fixed outcome for a fixed set of operations, which is  very hierarchical; we're really dealing with an array-like structure. The encapsulation semantics merely create a thin veil between stateless renderers and the store. Meanwhile the store can only respond the best it can to the sequence of effects, enacting a kind of merciless mutation bombardment on the renderers. There's not a *sense* that anything in the code is really in full control except notionally in the programmers' heads. The result is that developers begin to hold a superstitious mental model of the software and an inability to safely re-sequence this code without a heavy amount of documentation or in-person discussion with the last dev to blame; it's too easy to gunfoot. (Again, imagine there are further effects nested inside of each of these functions.) It's an incomplete plan.
+What else do we observe? postEntityForm's weak bindings encode a fixed outcome for a fixed set of operations, which is very hierarchical; we're really dealing with an array-like structure. The encapsulation semantics merely create a thin veil between stateless renderers and the store. Meanwhile the store can only respond the best it can to the sequence of effects, enacting a kind of merciless mutation bombardment on the renderers. There's not a sense that anything in the code is really in full control except in the notional machine in the programmers' heads. The result is that developers develop a superstitious mental model of the software and an inability to safely re-sequence this code without a heavy amount of documentation or in-person discussion with the last dev to blame. There is increased risk and liability at the code-level and a non-trivial consolidation of power for certain engineers who will (often subconsciously) lord this expertise in non-cooperative ways. This sounds kind of dramatic because we are used to frustrating encounters with code. We know we signed up for this. But ideally we can eliminate more and more of the frustration that results from overly exercised dogma with better abstractions, and spend more energy on the tough problems of our ever-changing domain logic. 
 
-And say we were to pull on the thread a bit more. What, pray tell, does separation really achieve for testing?
+And just to pull on the earlier thread a bit more about testing. What, pray tell, does separation really achieve for testing?
 
 <script src="https://gist.github.com/rosschapman/a2e4e321239a1f0267ab43492137078a.js"></script>
 
-What kind of assurance does the 👆🏻provide other than introducing a kind of needless check of implementation details. What Kent Dodds calls a <a href="https://kentcdodds.com/blog/avoid-the-test-user">Test User</a>.
+What kind of assurance does the 👆🏻provide other than introducing a kind of needless check of implementation details. I'll hand wave a bit here but I believe this is what Kent Dodds calls a <a href="https://kentcdodds.com/blog/avoid-the-test-user">Test User</a>.
 
 For simple applications and toy examples this level of existentialism is overkill. But:
 
