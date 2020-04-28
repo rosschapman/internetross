@@ -66,86 +66,14 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 4/26/2020
 
-I'm trying out dev.to, so check the second -- and I believe last -- in this short series: <a href="https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo">https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo</a>
+Check out the second -- and I believe last -- in this short series: <a href="https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo">https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo</a>
 
 # Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1
 
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 04/16/2020
 
-There's an architectural pattern that Ian Horrocks describes in his 1999 book _Constructing the User Interface with Statecharts_ as the "user interface-control-model." UCM will exhibit a familiar symmetry for anyone that has worked with React/Redux for any substantial period of time. From Horrocks:
-
-> The event handlers associated with user interface objects are simply used to forward events supplied by the user to the appropriate control object....
->
-> The control object maintains the state of the user interface as a whole. When a control object receives a message from a user interface object, the message and the current state of the control object are used to determine the actions that will be executed and possibly update the state information maintained by the control object....
->
-> The control layer provides a user interface with an explicit state that can be used to determine the different contexts in which events occur.
->
-> <footer><small><cite>Constructing the User Interface with Statecharts</cite>, p 27-28</small></footer>
-
-<img src="/assets/images/ucm.png" width="600" style="margin: 0 auto; display: block" />
-
-The indirection provided by the "control object" described above is analogous to the _store_-like object we've come to see in most JavaScript data libraries. Just like our hate-to-love, love-to-hate breadwinner Redux.
-
-A colleague of mine enshrines this patterning of event and state system as "Simple Flow." The Three Principles of Redux represent another incantation of this flow. It's everywhere. It's certainly nothing new, but there are many flavors with subtle differences.
-
-What if I try and take a stab a heuristic that describes at least one characteristic of this pattern:
-
-**Centralized orchestration of actions**
-
-By using "orchestration" here I'm invoking a recent tweet by David Kourshid where he condemns the overuse of "separation of concerns."
-
-> Been thinking about this a lot. The common principle of "separation of concerns" is often blindly applied and leads to fragile architecture. _Orchestration_ is the missing part.
->
-> <footer><small><cite><a href="https://twitter.com/DavidKPiano/status/1243938073009889281">https://twitter.com/DavidKPiano/status/1243938073009889281</a></cite>, [emphasis mine]</small></footer>
-
-Kourshid is leaning on the accomplishment of xState which _executes_ a finite state machine and state chart as an _actor_ -- in the heritage of the Actor model -- resulting in an exemplary example of a deterministic orchestration _machine_.
-
-Leaving the technicalities of xState aside for the moment, I had to let this critique sit with me a bit -- but I think I like it. Separation of concerns oversimplifies the idea that clarity and reasonability emerge solely from separation. Even if we keep our models -- a group of functions and data -- small and distinct, we have to make sure they are not only bounded by relative assumptions about their context, but composed in a way that makes them adaptable to change and portable for reuse: two cornerstones of software for practical world building. The tendency in separation alone is risking a mathematical reductionism. I think that's the spirit of Kourshid's distinction.
-
-I'm finding myself persuaded that mathematically reductive code -- code that follows _deductive_ reasoning as Zachary Tellman would say -- is how we end up with embarrassing bugs despite complete unit test coverage.
-
-> Many early computer scientists were trained as physicists, and it shows.... Since then, practical use of software has exploded, and deductive models have given way to inductive ones.
->
-> <footer><small><cite>Elements of Clojure</cite>, p74</small></footer>
-
-An example that might seem familiar out in the wild is the lack of orchestration when coordinating the sub-routines in client code after a form submission. I've seen a perfectly reasonable sequence of behaviors encoded in a submit event callback like the following:
-
-<script src="https://gist.github.com/rosschapman/9fec302abe53ff94faa4501231a137d9.js"></script>
-
-This design attempts to create a meaningful abstraction by lifting a group of associated action creators/thunks to `postEntityForm`. There are immediate developer benefits, like liberating the sequence from render to decouple the callback logic from the presentational component; which in turn simplifies unit testing. But something is irksome.
-
-We can use Leo Brodie's application of "Structured Design" principles to interrogate this function's "strength":
-
-> <img src="/assets/images/struct-des-quest.png" width="600" style="margin: 0 auto; display: block" />
-> <footer><small><cite>THINKING FORTH<cite>, p18</small></footer>
-
-Basically all four apply in some dimension and therefore the function can be further described as exhibiting types of "weaker" binding, the most salient being "temporal" and "sequential" and to a lesser extent "logical" and "communicational." My pen educated induction about Brodie’s intent in the book is that he wields the idea of “weak” to signify a less successful realization of the software.
-
-> <img src="/assets/images/weak-binding-tf.png" width="600" style="margin: 0 auto; display: block" />
-> <footer><small>Ibid. p19</small></footer>
-
-In other words, weak doesn't necessarily mean broken or bad, but it is a classification to help programmers de-correlate the act of grouping related things from successful separation.
-
-What else do we observe? postEntityForm's weak bindings encode a fixed outcome for a fixed set of operations, which is very hierarchical; we're really dealing with an array-like structure. The encapsulation semantics merely create a thin veil between stateless renderers and the store. Meanwhile the store can only respond the best it can to the sequence of effects, enacting a kind of merciless mutation bombardment on the renderers. There's not a sense that anything in the code is really in full control except in the notional machine in the programmers' heads. The result is that developers will have a _superstitious_ mental model of the software and an inability to safely re-sequence this code without a heavy amount of documentation or in-person discussion with the last dev to blame. There is increased risk and liability at the code-level and a non-trivial consolidation of power for certain engineers who will (often subconsciously) lord this expertise in non-cooperative ways. This sounds kind of dramatic because we are used to frustrating encounters with code. We know we signed up for this. But ideally we can eliminate more and more of the frustration that results from overly exercised dogma with better abstractions, and spend more energy on the tough problems of our ever-changing domain logic.
-
-> Confidence requires understanding. If we cannot understand our software, it becomes _oracular_.
->
-> <footer><small><cite>Elements of Clojure</cite>, p74, [emphasis mine]</small></footer>
-
-And just to pull on the earlier thread a bit more about testing. What, pray tell, does separation really achieve for testing?
-
-<script src="https://gist.github.com/rosschapman/a2e4e321239a1f0267ab43492137078a.js"></script>
-
-What kind of assurance does the 👆🏻provide other than introducing a kind of needless check of implementation details. I'll hand wave a bit here but I believe this is what Kent Dodds calls a <a href="https://kentcdodds.com/blog/avoid-the-test-user">Test User</a>.
-
-For simple applications and toy examples this level of existentialism is overkill. But:
-
-> Doing the easy thing over and over again leads to the thing that's not simple.
->
-> <footer><small>Sandi Metz, <cite><a href="https://maintainable.fm/episodes/sandi-metz-making-is-easy-mending-is-a-challenge">Maintainable Podcast</a>, 28:18<cite></small></footer>
-
-We only need to introduce the conductor when things get too big for one person's head. At that juncture, for example when we achieve market validation for some feature, it's time for the business logic to be liberated, lifted, from within callbacks to achieve an abstraction that sits above the store and our dispatch sequence. xState is an option. But I'd like to offer a simplistic version of our conductor built entirely in React in the next post.
+I'm emerging from the shadows, a bit, and trying out dev.to. Check out this first in a two part series: <a href="https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410">https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410</a>
 
 # Preferring repetitive Action notifications over reuse
 
