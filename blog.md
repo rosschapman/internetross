@@ -47,7 +47,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Maybe Eithers with Promises](#maybe-eithers-with-promises)
 - [Maybe maybes](#maybe-maybes)
 - [“do” helper for emphasis in variable naming](#do-helper-for-emphasis-in-variable-naming)
-- [What's in a name?](#whats-in-a-name)
+- [What's in a name?](#whats-in-aname)
 - [More about anointed princes and gatekeeping culture](#more-about-anointed-princes-and-gatekeeping-culture)
 - [Harmful ways to write about software](#harmful-ways-to-write-about-software)
 - [A better term for unintentional technical debt](#a-better-term-for-unintentional-technical-debt)
@@ -86,7 +86,7 @@ Have you ever noticed yourself going to unnecessary lengths to avoid repetition 
 >
 > <footer><small><cite>The Pragmatic Programmer</cite>, [emphasis mine]</small></footer>
 
-What often appears in our text editors as repetition at first is often the precise nuance our applications need to create the richness of these membranes we build between people and machines. Here's an example slightly altered.
+As we're tapping along in an editor, the code that bears some resemblance to other code is, in fact, the precise nuance our applications need to create the richness of these membranes we build between people and machines. Here's an example slightly altered.
 
 Let's say we are working with an events management system where a new feature is being built to allow event organizers to administer marketing campaigns on their events. In the current world, an event organizer can do two things to a campaign once it's added to the event:
 
