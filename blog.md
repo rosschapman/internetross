@@ -99,7 +99,7 @@ A sketch of the stateless component in our graph might look like so (just releva
 
 Then Product decides to add a new nicety whereby an event organizer, when activating a marketing campaign, will automatically trigger marking that campaign with the special "featured" flag _if_ that campaign happens to be the only active marketing campaign on the event. This is effectively a third flow; of course to the user it's just a list item with a couple check boxes (simple stuff, right?).
 
-As the developer I might think, this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to coordinate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another branch; and I can reuse the current dispatchers. I'm a fucking oracle.
+As the developer I might think: _this doesn't seem all that hard! I already had the foresight to implement a flexible indirection -- a consolidated event handler to coordinate the store notifications for user interactions in one place. This means all I have to do is flavor the conditional will another branch; and I can reuse the current dispatchers. I'm a fucking oracle._
 
 Whereby I try:
 
@@ -412,7 +412,7 @@ function calculateCostForDisplay(inventoryItem) {
 }
 ```
 
-There are many nodes in the system working toward similar ends; which means that front and back ends will end up working on solves for similar problems -- what might even be a simple calculation -- totally blind to the other side clamoring away. Frequent team project reassignments, geospatial and organizational distance, depth of expertise, weak cultural value around curious coding, etc... these types of contention costs create the regrettable yet natural complicatedness that results in risky duplications. Risky because inconsistency for essential parts like pricing data becomes explosive if the computation logic for that same data is maintained in more than one place. For example, a less-initiated dev may discover the outdated/moded pricing calculation and leverage that in subsequent code. And thus, defects.
+In a software system there are many nodes (teams, software that's running, software that's being worked on, etc...) working toward similar ends. It won't be uncommon for a front and back end team to write some code to solve a similar problem -- what might even be a simple calculation -- while totally blind to the other side tapping away. Frequent team project reassignments, geospatial and organizational distance, depth of expertise, weak cultural value around curious coding, etc... these types of contention costs create the regrettable (though yet natura) complicatedness that results in risky duplications. Especially risky for inconsitencies that might develop inside essential software modules like pricing computations.
 
 Supplemental thoughts from Coda Hale's [new blog post](https://codahale.com/work-is-work/) going around:
 
@@ -422,9 +422,9 @@ Supplemental thoughts from Coda Hale's [new blog post](https://codahale.com/work
 
 > Limit the number of people an individual needs to talk to in order to do their job to a constant factor.
 
-I'm not sure I would have believed this type of thing would happen before I joined a larger company with an engineering group spread across geos; teams flung across the ownership matrix by the high winds of market shift. _This investor and wall street casino shit is real._ Team pet names: stunted protologisms. Like, what happened to the Squirrel team? Oh, they are the _Crib Gto Pomp_ team now. Well, at least we are consistently circumlocutory at naming teams.
+I'm not sure I would have believed this type of thing would happen before I joined a larger company with an engineering group spread across geos; teams flung across the ownership matrix by the high winds of market shift. _This investor and wall street casino shit drives tough team decisions._ Lol team pet names: stunted protologisms. Like, what happened to the Squirrel team? Oh, they are the _Crib Gto Pomp_ team now. Well, at least we are consistently circumlocutory at naming teams.
 
-But lo and behold, such an example like the above cost calculation _exists_. I saw something like it in our JavaScript code. Then I asked the folks who work on backend if the frontend really needed to be doing this work. We shouldn't. And, we literally shouldn't because the computation for this existed in our backend service already. It was like a Python developer and a JS developer were completing the same code challenge.
+But lo and behold, such an example like the above cost calculation _exists_. I saw something like it in our JavaScript code. Then I asked the folks who work on backend if the frontend really needed to be doing this work. We shouldn't. We literally shouldn't because the computation for this existed in our backend service already. This is one reason we can't have nice things.
 
 So I've been thinking a lot about an approach to code, a kind of mental shim, to mitigate the coherence costs across the stack. Even with a fluctuating number of devs with knowledge about the code. Maybe we should just call this predicament _patchy_; patchy coding. Here's what I've got so far with a cute story and _real life_ examples:
 
