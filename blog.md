@@ -375,7 +375,9 @@ Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-
 Tags: _large applications, large teams, duplication_  
 **1/20/2020**
 
-At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication _across_ client and api layers. Like, imagine a piece of code that takes a inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into response body adjacent to the original cost data. Something like:
+At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication _across_ client and api layers. I kept seeing this type of repetition occur and it was creating too much maintenance risk in the code.
+
+Here's an example. Imagine a piece of code that takes inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into response body adjacent to the original cost data. Something like:
 
 ```js
 {
@@ -387,13 +389,13 @@ At the office I've sprinkled some in-between-project-work labor on a piece of do
                 minor: ...,
                 // etc...
             },
-            cost_display: 'MXN186.67'
+            cost_display: 'MXN186.67' // <== augmented data
         }
     ]
 }
 ```
 
-Alternatively, the client could execute the calculation in the view code after the fetch completes for both order and inventory items, and subsequently apply formatting:
+This is a totally reasonable API design. However, a client developer could decide to do the calculation in the view code with a more raw serialization of the inventory item and order objects, and then merge that data:
 
 ```js
 const composeInventoryItemForDisplay = (inventoryItem) {
@@ -402,12 +404,11 @@ const composeInventoryItemForDisplay = (inventoryItem) {
 }
 
 function calculateCostForDisplay(inventoryItem) {
-    let new cost;
+    let newCost;
     const order = lookupOrder(inventoryItem.get('order_id'));
     const currency = order.get('currency');
-    // etc...
-    // etc...
-    return new cost;
+    // subsequent processing steps...
+    return newCost;
 }
 ```
 
