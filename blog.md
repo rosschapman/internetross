@@ -460,7 +460,7 @@ Heuristics:
 Tags: _functional programming, maybe, either, promises_
 **12/10/2019**
 
-I want take some bits process a recent issue of JS Weekly that reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot about optional values in JavaScript. I read it. It lit up my memory.
+I want take some bits to process a recent issue of JS Weekly that reposted a [new piece](https://medium.com/javascript-scene/handling-null-and-undefined-in-javascript-1500c65d51ae) by Eric Elliot about optional values in JavaScript. I read it. It lit up my memory.
 
 One of the first Lambda Cast episodes I listened to was [#6](https://soundcloud.com/lambda-cast/6-null-and-friends): _Null and Friends_. At this point in time I'm near the start of my FP cultivations, sometime mid- last year I think. It's probably around the time I was finishing Kyle Simpson's [_Functional-Light JavaScript_](https://github.com/getify/functional-light-js). I was fairly shocked to hear the bros discuss functional languages that are _designed_ to keep null out of your programs. I could feel myself starting to consider the FP language hype, especially the hype around eliminating uncertainty.
 
