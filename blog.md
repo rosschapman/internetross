@@ -68,27 +68,33 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: software theory, derrida, 
 6/8/2020
 
-In which Frederica Frabetti locates the "points of opacity" -- malfunction -- in/of software through study of the Garmisch (Germany) report -- a foundational text of software from the first Conference on Software Engineering in 1968 organized by the NATO Science Committee. 
+In which Frederica Frabetti locates the "points of opacity" -- malfunction -- in/of software through study of the Garmisch (Germany) report -- a foundational text of software from the first Conference on Software Engineering in 1968 organized by the NATO Science Committee. (Also careful you don't mince the word "Garmisch" into Gramsci.)
 
 > "...these two aspects...the necessity of calculating incalculable risks, and of attributing responsibility for them...is a point where software engineering 'undoes itself' precisely at the moment of its constitution." -p75
 
-> "...software engineering performs an impossible expulsion of consititutive failure from technology, with this move establishing itself as a discipline." -p76
+As in discovering responsibility outside of the software: in the likeness of user demands, society's problems, ever-increasing demands on existing software from users.
+
+> "...there are problems *out there* that software helps to solve." -p79
 
 > "...the system and it's development are never clearly separated" -78
 
 > "...they must acknowledge that such a process is not in fact linear, but at the same time they have to avoid backward steps at all cost." -p78
 
-And how professionalization, as in the planning and management of software development over time -- or formalism, or "linearization"; where we literally write many things to organize time (external and internal design specs, JIRA stories, prototypes, etc...) -- relegates software to the realm of instrumentality and further destabilizes what software is; albeit by attempting to create an interiorized structure that skirts isolation. Thus the evergreen frustrations of the business side.
+And how professionalization, as in the planning and management of software development over time -- or formalism, or "linearization"; where we literally write many things to organize time (external and internal design specs, JIRA stories, prototypes, then finally the code (I guess) etc...) -- relegates software to the realm of instrumentality and further destabilizes what software is; albeit by attempting to create an interiorized structure that skirts isolation. Thus the evergreen frustrations of the business side.
 
 > "...this appeal to the lineraization of time is part of the general attempt to 'control' software -- that is, to think of software in instrumental terms."
 
-> "...there are problems *out there* that software helps to solve." -p79
-
 > "...software is both a problem and a solution -- indeed, it emerges at the point where the distinction between the two becomes undone and it exists only as the precarious stabilization of this distinction." -p81
 
-Hence our continued, common problematic to characterize when commercial software development *happens*. Is it when you change all *var* to *let*? The moment your brain begins to mull over a requirement presented by your PM in sprint planning? The final inscription of the company's mission statement? During a whiteboarding design exercise? The moments of realization you have in the shower, during a lunch conversation. The presentation of an idea you copy/steal from your last job without attribution? The deletion of unused code? The moment you decide to delete the unused code?
+Software development is a fleeting discipline. I guess a line of flight in the rhizome. So maybe we're hearding rats not cats. This partly explains, for me, why I can iterate again and again over a simple "implementation." Because we're never done, we're always undone.
 
-And further what software development *is*. Because it couldn't just be about formalizing the process, right? Because how do we account for the incalculability of costs/time between problem and solution?
+Hence our continued, common problematic to characterize when commercial software development *happens*. Is it when you change all *var* to *let*? The moment your brain begins to mull over a requirement presented by your PM in sprint planning? The final inscription of the company's mission statement? During a whiteboarding design exercise? The moments of realization you have in the shower, during a lunch conversation? The isncription of an idea you copy/steal from your last job without attribution? The deletion of unused code? The moment you decide to delete the unused code?
+
+Or perhaps the moment we recognize it is bound to break, malfunction, fail:
+
+> "...software engineering performs an impossible expulsion of consititutive failure from technology, with this move establishing itself as a discipline." -p76
+
+And further, what else software development *is*. Because it couldn't just be about formalizing the process, right? Because how do we account for the incalculability of costs/time between problem and solution?
 
 > "Thus, Dijkstra resorts to individual creativeity -- or, as Derrida would have it, 'genius' -- as an explanation for what is in excess of a procedural method and constitutes a leap beyond the programmable." -p82
 
