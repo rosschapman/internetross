@@ -38,6 +38,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [Book quotes and commentary: *Software Theory* by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-1)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
@@ -62,6 +63,48 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# Book quotes and commentary: *Software Theory* by Federica Frabetti
+Tags: software theory, derrida, 
+4/26/2020
+
+In which Frederica Frabetti locates the "points of opacity" -- malfunction -- in/of software through study of the Garmisch (Germany) report -- a foundational text of software from the first Conference on Software Engineering in 1968 organized by the NATO Science Committee. 
+
+> "...these two aspects...the necessity of calculating incalculable risks, and of attributing responsibility for them...is a point where softare engineering 'undoes itself' precisely at the moment of its constitution." -p75
+
+> "...software engineering performs an impossible expulsion of consititutive failure from technology, with this move establishing itself as a discipline." -p76
+
+> "...the system and it's development are never clearly separated" -78
+
+> "...they must acknowledge taht such a process is not in fact linear, but at the same time they have to avoid backward steps at all cost." -p78
+
+And how professionalization, as in the planning and management of software development over time -- or formalism, or "linearization"; where we literally write many things to organize time (external and internal design specs, JIRA stories, prototypes, etc...) -- relegates software to the realm of instrumentality and further destabilizes what software is; albeit by attempting to create an interiorized structure that skirts isolation. Thus the evergreen frustrations of the business side.
+
+> "...this appeal to the lineraization of time is part of the genral attempt to 'control' software -- that is, to think of softare in instrumental terms."
+
+> "...there are problems *out there* that software helps to solve." -p79
+
+> "...software is both a problem and a solution -- indeed, it emerges at the point where the distinction between the two becomes undone and it exists only as the precarious stabilization of this distinction." -p81
+
+Hence our continued, common problematic to characterize when commercial software development *happens*. Is it when you change all *var* to *let*? The moment your brain begins to mull over a requirement presented by your PM in sprint planning? The final inscription of the company's mission statement? During a whiteboarding design exercise? The moments of realization you have in the shower, during a lunch conversation. The presentation of an idea you copy/steal from your last job without attribution? The deletion of unused code? The moment you decide to delete the unused code?
+
+And further what software development *is*. Because it couldn't just be about formalizing the process, right? Because how do we account for the incalculability of costs/time between problem and solution?
+
+> "Thus, Dijkstra resorts to individual creativeity -- or, as Derrida would have it, 'genius' -- as an explanation for what is in excess of a procedural method and constitutes a leap beyond the programmable." -p82
+
+But others from the conference warn about the cult of genius. Interesting earlier this year I was mulling over a similar [intervention](#(#some-patriarchal-intervention-at-google-io-a-while-back)) four decades later:
+
+> "The 'exessive' creativity of the 'system type'  is in turn portrayed as 'bad' unexpected--something that exceeds teh management of the project and threatens it." -p84
+
+Replace "system type" with our modern-day *10x programmer* or *rockstar* and it's comforting to think that 50 years ago computer scientists were already weary of the danger this person posed to software development. It certainly seems like Frabetti is jabbing at that here.
+
+Software resists instrumentality, to be merely called "code"; it follows, then, that engineers resist becoming fungible resources in a complicated domain space. Software's  realization is a co-consititutive process of increasing understanding of the problem and the solving of the problem itself. I like the way this passage sums it up:
+
+> "How can something based on the lack of knowledge be realized successfully? This paradox clarifies the particular unders  tanding of time that programmers develop in their interation with software. Not only does one find out what the system does only by constructing it; the original ignorance of what the system does is *constitutive of* the system...Infelicity is constitutive of the possibility of felicty...One always starts albeit one does not know what will be." -p90
+
+Of course, the solution is never an end. Or have you ever built software that should not be extensible? 
+
+
 # Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 4/26/2020
@@ -949,12 +992,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|  a  |  b  | a XOR b |
-| :-: | :-: | :-----: |
-|  0  |  0  |    0    |
-|  0  |  1  |    1    |
-|  1  |  0  |    1    |
-|  1  |  1  |    0    |
+|   a   |   b   | a XOR b |
+| :---: | :---: | :-----: |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
