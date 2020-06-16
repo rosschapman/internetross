@@ -38,6 +38,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [A realization about Leetcode, thoughts about JS interview questions](#a-realization-about-leetcode-thoughts-about-js-interview-questions)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
 - [Book quotes and commentary: _Software Theory_ by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
@@ -64,6 +65,8 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# A realization about Leetcode, thoughts about JS interview questions
 
 # Debugging TS in VSCode and Russel Ackhoff's Problem Treatments
 
@@ -120,7 +123,7 @@ I had a serious moment of angst this morning about whether I could achieve debug
 And voila, pausing on breakpoint in a basic router I wrote while running a node server:
 
 <video controls style="padding-bottom: 1em">
-    <source src="/media/vscode-ts-debug.mp4">
+    <source src="/assets/media/vscode-ts-debug.mp4">
     Sorry, your browser doesn't support embedded videos.
 </video>
 
@@ -138,6 +141,7 @@ To list and paraphrase them:
 
    This feels like a pretty standard principle for building product considering some of the typical aspects of commercial software work:  
     a) Your team will never have a complete understanding of how your software will express itself once "running" or "used" by customers. Therefore perfection, completeness, wholeness are not desirable or ever, actually, achievable.
+
    b) Deadlines and other external stakeholder pressures will force you to sacrifice however your team defines "great" or "better" software
 
 1. Solution - Finding an optimal solution with experimentation or research
