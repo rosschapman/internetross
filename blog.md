@@ -38,7 +38,8 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [Book quotes and commentary: *Software Theory* by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
+- [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
+- [Book quotes and commentary: _Software Theory_ by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-1)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
@@ -64,8 +65,92 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# Book quotes and commentary: *Software Theory* by Federica Frabetti
-Tags: software theory, derrida, 
+# Debugging TS in VSCode and Russel Ackhoff's Problem Treatments
+
+Tags: _vscode, typescript, Russel Ackhoff_  
+6/16/2020
+
+When I'm drifting between jobs -- say, during a global pandemic and massive civil rights upheaval -- I tease away some time from protest and anti-racist organizing to study programming basics and plunge below the membranes of web frameworks. Of course, the first thing you realize after a few key clacks is the brutal lack of a full-featured dev environment. I think my industry folks who don't spend free time on side projects can relate.
+
+I had a serious moment of angst this morning about whether I could achieve debugging for TypeScript files in VSCode within a reasonable amount of time -- that is, an amount of time that wouldn't deplete all my creative energy before writing any code. To my very pleasant surprise this was much easier than expected. You need two things.
+
+1. Add a task to run the compiler in watch mode (this is totally boilerplate):
+
+```js
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "option": "watch",
+      "problemMatcher": ["$tsc-watch"],
+      "group": "build",
+      "label": "tsc: watch - tsconfig.json"
+    }
+  ]
+}
+```
+
+1. Add your outfiles (dist) target glob to your launch.json file:
+
+```js
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch server.js via nodemon",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "program": "${file}",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeArgs": ["--experimental-modules"],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"] // <-- ADD YOUR OUTFILES GLOB HERE
+    }
+  ]
+}
+```
+
+And voila, pausing on breakpoint in a basic router I wrote while running a node server:
+
+<video controls style="padding-bottom: 1em">
+    <source src="/media/vscode-ts-debug.mp4">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+
+_Ok new topic..._
+
+During episode 138 of the [> Code podcast](https://www.greaterthancode.com/how-we-learn) with guest Vaidehi Joshi (of BaseCS podcast fame amongst many other things), the discussion veers into the topic of problem solving (~20:30). Jamey and Vaidehi riff about that condition we all know and love -- and never appreciate enough -- whereby solutions come to you while away from the computer; while your brain is "percolating" (Jamey) or in a "mental marinade" (Vaidehi). Jacob Stoebel expands on that by describing another common mental turnabout we programmers do: where we often catch ourselves down a rabbit hole trying to -- big "S" -- \*solve" the problem with our first instinct; but that increasingly deeper and muddier slog causes us to pause and shake off the adrenaline and climb back out of the hole and we find ourselves asking oursleves how do I get rid of this problem. Rein, per usual, picks up the thread and introduces the panel/listeners to a theorist named Russell Ackoff who minted a classification for approaches to problems called "Problem Treatments."
+
+To list and paraphrase them:
+
+1. Absolution - Ignore the problem and hope it goes away
+
+   It's easy to joke about this one, but Rein actually provided a compelling case for this. For example, security engineers often make the tradeoff to ignore a security loophole if the threat isn't great enough.
+
+1. Resolution - Doing something something "good enough"
+
+   This feels like a pretty standard principle for building product considering some of the typical aspects of commercial software work:  
+    a) Your team will never have a complete understanding of how your software will express itself once "running" or "used" by customers. Therefore perfection, completeness, wholeness are not desirable or ever, actually, achievable.
+   b) Deadlines and other external stakeholder pressures will force you to sacrifice however your team defines "great" or "better" software
+
+1. Solution - Finding an optimal solution with experimentation or research
+
+   There are touchstone moments in the development of software where this happens. When choosing a framework. When designing a styleguide. When choosing a caching strategy. When designing a game plan to migrate code.
+
+1. Dissolution - Redesigning the system so that the problem no longer exists
+
+   This is what Jacob was hinting at. That pure land you inhabit when refactoring code to circumvent an immediate impasse in the software by reframing the problem. I fondly remember dissolving a particularly tricky conditional statement in a web client by working with a backend engineer to implement an enum for a resource type. This removed a bunch of object introspetion (Law of Demeter violations, etc...) in favor of a simple switch statement.
+
+# Book quotes and commentary: _Software Theory_ by Federica Frabetti
+
+Tags: _software theory, derrida_  
 6/8/2020
 
 In which Frederica Frabetti locates the "points of opacity" -- malfunction -- in/of software through study of the Garmisch (Germany) report -- a foundational text of software from the first Conference on Software Engineering in 1968 organized by the NATO Science Committee. (Also careful you don't mince the word "Garmisch" into Gramsci.)
@@ -74,7 +159,7 @@ In which Frederica Frabetti locates the "points of opacity" -- malfunction -- in
 
 As in discovering responsibility outside of the software: in the likeness of user demands, society's problems, ever-increasing demands on existing software from users.
 
-> "...there are problems *out there* that software helps to solve." -p79
+> "...there are problems _out there_ that software helps to solve." -p79
 
 > "...the system and it's development are never clearly separated" -78
 
@@ -88,29 +173,30 @@ And how professionalization, as in the planning and management of software devel
 
 Software development is a fleeting discipline. I guess a line of flight in the rhizome. So maybe we're hearding rats not cats. This partly explains, for me, why I can iterate again and again over a simple "implementation." Because we're never done, we're always undone.
 
-Hence our continued, common problematic to characterize when commercial software development *happens*. Is it when you change all *var* to *let*? The moment your brain begins to mull over a requirement presented by your PM in sprint planning? The final inscription of the company's mission statement? During a whiteboarding design exercise? The moments of realization you have in the shower, during a lunch conversation? The isncription of an idea you copy/steal from your last job without attribution? The deletion of unused code? The moment you decide to delete the unused code?
+Hence our continued, common problematic to characterize when commercial software development _happens_. Is it when you change all _var_ to _let_? The moment your brain begins to mull over a requirement presented by your PM in sprint planning? The final inscription of the company's mission statement? During a whiteboarding design exercise? The moments of realization you have in the shower, during a lunch conversation? The isncription of an idea you copy/steal from your last job without attribution? The deletion of unused code? The moment you decide to delete the unused code?
 
 Or perhaps the moment we recognize it is bound to break, malfunction, fail:
 
 > "...software engineering performs an impossible expulsion of consititutive failure from technology, with this move establishing itself as a discipline." -p76
 
-And further, what else software development *is*. Because it couldn't just be about formalizing the process, right? Because how do we account for the incalculability of costs/time between problem and solution?
+And further, what else software development _is_. Because it couldn't just be about formalizing the process, right? Because how do we account for the incalculability of costs/time between problem and solution?
 
 > "Thus, Dijkstra resorts to individual creativeity -- or, as Derrida would have it, 'genius' -- as an explanation for what is in excess of a procedural method and constitutes a leap beyond the programmable." -p82
 
-But others from the conference warn about the cult of genius. Interesting earlier this year I was mulling over a similar [intervention](#(#some-patriarchal-intervention-at-google-io-a-while-back)) four decades later:
+But others from the conference warn about the cult of genius. Interesting earlier this year I was mulling over a similar [intervention](<#(#some-patriarchal-intervention-at-google-io-a-while-back)>) four decades later:
 
-> "The 'exessive' creativity of the 'system type'  is in turn portrayed as 'bad' unexpected--something that exceeds the management of the project and threatens it." -p84
+> "The 'exessive' creativity of the 'system type' is in turn portrayed as 'bad' unexpected--something that exceeds the management of the project and threatens it." -p84
 
-Replace "system type" with our modern-day *10x programmer* or *rockstar* and it's comforting to think that 50 years ago computer scientists were already weary of the danger this person posed to software development. It certainly seems like Frabetti is jabbing at that here.
+Replace "system type" with our modern-day _10x programmer_ or _rockstar_ and it's comforting to think that 50 years ago computer scientists were already weary of the danger this person posed to software development. It certainly seems like Frabetti is jabbing at that here.
 
-Software resists instrumentality, to be merely called "code"; it follows, then, that engineers resist becoming fungible resources in a complicated domain space. Software's  realization is a co-consititutive process of increasing understanding of the problem and the solving of the problem itself. I like the way this passage sums it up:
+Software resists instrumentality, to be merely called "code"; it follows, then, that engineers resist becoming fungible resources in a complicated domain space. Software's realization is a co-consititutive process of increasing understanding of the problem and the solving of the problem itself. I like the way this passage sums it up:
 
-> "How can something based on the lack of knowledge be realized successfully? This paradox clarifies the particular understanding of time that programmers develop in their interaction with software. Not only does one find out what the system does only by constructing it; the original ignorance of what the system does is *constitutive of* the system...Infelicity is constitutive of the possibility of felicity...One always starts albeit one does not know what will be." -p90
+> "How can something based on the lack of knowledge be realized successfully? This paradox clarifies the particular understanding of time that programmers develop in their interaction with software. Not only does one find out what the system does only by constructing it; the original ignorance of what the system does is _constitutive of_ the system...Infelicity is constitutive of the possibility of felicity...One always starts albeit one does not know what will be." -p90
 
-Of course, the solution is never an end. Or have you ever built software that should not be extensible? 
+Of course, the solution is never an end. Or have you ever built software that should not be extensible?
 
 # Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2
+
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 4/26/2020
 
@@ -997,12 +1083,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
