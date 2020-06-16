@@ -31,6 +31,11 @@
     border-bottom: none;
     padding-bottom: 0;
 }
+video { 
+   width:100%;
+   max-width:1012px;
+   height:auto;
+}
 </style>
 
 <h2>Foreword</h2>
@@ -122,7 +127,7 @@ I had a serious moment of angst this morning about whether I could achieve debug
 
 And voila, pausing on breakpoint in a basic router I wrote while running a node server:
 
-<video controls style="padding-bottom: 1em">
+<video controls style="padding-bottom: 1em" >
     <source src="/assets/media/vscode-ts-debug.mp4">
     Sorry, your browser doesn't support embedded videos.
 </video>
