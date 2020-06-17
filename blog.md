@@ -43,7 +43,8 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [A realization about Leetcode, thoughts about JS interview questions](#a-realization-about-leetcode-thoughts-about-js-interview-questions)
+- [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
+- [Musings about Leetcode](#musings-about-leetcode)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
 - [Book quotes and commentary: _Software Theory_ by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
@@ -71,7 +72,42 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# A realization about Leetcode, thoughts about JS interview questions
+# The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others
+
+Tags: _javascript, interviews_  
+6/16/20
+
+Yesterday I was running through some of these with an ex-colleague and started thinking about how the explanations might better serve less-experienced JS developers -- even more experienced devs who might need review. Ugh, I don't know if I'm not understanding it right. Perhaps the design of JS Objects is just a bit wack-a-doodle.
+
+I decided to open up some discussion on Question 12 which tests your knowledge of the differntiated effects of using the `new` operator before a function call:
+
+https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140
+
+Definitely called for a little trip over to YDKJS!
+
+I also feel like I need some clarifcation on Question 14. What do we call the very root object in JS that all objects delegate to?
+
+https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195
+
+Coming up with examples is hard. I think Question 11 could probably use a bit of rework too because there is a `this` scope issue that kind of overloads the focus of the problem. Here I go again:
+
+https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354
+
+# Musings about Leetcode
+
+Tags: _leetcode, interviews_  
+6/16/2020
+
+For the past couple weeks I've been diving into algorithm and data structure fundamentals. Back on that bullshit, y'all! This time around I'm paying for Leetcode in the hopes of getting good enough to execute during these standardized tests well-enough under time pressure. _All the trauma of standardized tests of my childhood come flooding back._ (Unfortunately, I work in an industry that 1) doesn't trust your actual work experience, and 2) confuses (overemphasizes) one dimension of computer science -- algorithms and data structures -- with other (often more important) foundational web development knowledge. Meep.)
+
+Though Leetcode is largely a monetization of bad interview policy and supremacist control over the industry by the legacy of cold-war era interview practice and Gayle McDowell, it's what many companies seem to be reluctantly resigned to. I had a pretty sad conversation with an interlocutor the other day who bemoaned the use of these types of tests -- especially for JavaScript client engineers -- but had convinced himself they were a best of evils. 😢
+
+All that said, I have some minor realizations to share. Namely that learning how to actually get what you want out of Leetcode effectively is part of the process. I learn best by waiting to master one type of problem set before moving on to the next -- like super gradual. Unfortunately, Leetcode's problem bucketing and taxonomy is tough to navigate if you feel like you're starting from the beginning. This took me some days to orient. Trying to tackle Top Interview Questions at the jump was not necessarily ideal, in retrospect. This is because Array/Strings/Linked List/Trees etc... can contain sub-genres of problems. I'm discovering the Tag filter list to be more representative of related problem types I can work through in sequence: Array, Hash Table, Linked List, Math, Two Pointers -- discovering this technique was a revelation, String, Binary Search, Divid and Conquer, Dynamic Programming, Backtracking, etc... there are 10s of these. It's absurd to expect the same level of competence in all these techniques for a commercial developer who uses a minimal amount day-to-day -- if any.
+
+Also:
+
+- Looking at the Solution tab -- aka "cheating" -- is totally fine and desirable. There's no magic to this. Memorization is whats up. At first I confused why "Easy" problems seemed so hard; why they didn't just _come to me_. I'm no longer wasting my time trying to cultivate an innate _sense_ for this type of problem.
+- I've switched to writing the code in VSCode with live debugging. Fuck trying to do loops with a non-existent console. Most of the array, string, and tree problems I've worked on so far use loops. Personally I get lost trying to write control logic in loops VERY easily without breakpoints. Why do we insist on torturing ourselves writing code without interactive IDEs?
 
 # Debugging TS in VSCode and Russel Ackhoff's Problem Treatments
 
