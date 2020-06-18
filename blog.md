@@ -77,21 +77,23 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _javascript, interviews_  
 6/16/20
 
-Yesterday I was running through some of these with an ex-colleague and started thinking about how the explanations might better serve less-experienced JS developers -- even more experienced devs who might need review. Ugh, I don't know if I'm not understanding it right. Perhaps the design of JS Objects is just a bit wack-a-doodle.
+Lydia Hallie's list of JS interview questions are extensive and probably one of the better resources out there -- the questions are asked in a systematic order that builds knowledge progressively, so it appears some modicum of pedagogy is involved; therefore avoiding that vacancy of substance of the typical listicle.
+
+Yesterday I was running through a chunk with an ex-colleague and started thinking about how the explanations might better serve less-experienced JS developers -- even more experienced devs who might need review. Ugh, I don't know if I'm not understanding it right. Perhaps the design of JS Objects is just a bit wack-a-doodle.
 
 I decided to open up some discussion on Question 12 which tests your knowledge of the differntiated effects of using the `new` operator before a function call:
 
-https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140
+[https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140](https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140)
 
 Definitely called for a little trip over to YDKJS!
 
 I also feel like I need some clarifcation on Question 14. What do we call the very root object in JS that all objects delegate to?
 
-https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195
+[https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195](https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195)
 
 Coming up with examples is hard. I think Question 11 could probably use a bit of rework too because there is a `this` scope issue that kind of overloads the focus of the problem. Here I go again:
 
-https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354
+[https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354](https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354)
 
 # Musings about Leetcode
 
