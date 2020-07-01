@@ -1,4 +1,4 @@
-<style type="text/css">
+****<style type="text/css">
 /* https://github.com/lonekorean/gist-syntax-themes */
 @import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css');
 
@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [Notes: *End of Policing* by Alex Vitale](#notes-end-of-policing-by-alex-vitale)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
 - [Musings about Leetcode](#musings-about-leetcode)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
@@ -71,6 +72,45 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# Notes: *End of Policing* by Alex Vitale
+
+Tags: _racism, white fragility, police brutality, state violence_  
+
+> "Crime control is a small part of policing, and it always has been."
+
+Police scholar David Bayley: 
+
+> “The police do not prevent crime. This is one of the best kept secrets of modern life. Experts know it, the police know it, but the public does not know it. Yet the police pretend that they are society’s best defense against crime and continually argue that if they are given more resources, especially personnel, they will be able to protect communities against crime. This is a myth."
+
+>“For liberals, police reform is always a question of taking steps to restore that legitimacy. That is what separates the police of a liberal democracy from those of a dictatorship.”
+
+Is reform another expression of deeply engrained white supremacist fantasy? Of making the police great again? What is the "legitimacy" white society/liberal society seeks? What, then, is our fantasy of this society ordered by police; kept orderly. Property protected, saftey maintained. Protected from who? Safe from what? Perhaps "ordered" as it was always designed. A caste system created and maintained by supremacist inventions of "race" and racial difference.
+
+Liberals will acknowledge that the police *"sometimes violate their principles, but see this as an individual failing to be dealt with [through reform]..."* We can see that impossible rationale of individualism/universalism surface here. Cops are human, therefore can err. But that individualistic/humanistic focus elides the special powers they are granted: the right to kill, to decide who's criminal, to remove from democratic participation, to cage. It elides how that license is empowered by a white power system and has dangerous, life-long effects on the punished; how the over-agressions of a single cop will let other members of the *force* both distance themselves that behavior or unrepentantly excuse it; an incredible impunity in which to thrive.
+
+What do the police even do, really: 
+> “the police exist primarily as a system for managing and even producing inequality by suppressing social movements and tightly managing the behaviors of poor and nonwhite people”
+
+> “What was needed was a force that could both maintain political control and help produce a new economic order of industrial capitalism.”
+
+Testimony from 1915 that state police forces brought in to quell protest (labor strikes) increase violence and decrease public safety. We have known this for 100 years, y'all: 
+> “On the contrary, violence seems to increase rather than diminish when the constabulary is brought into an industrial dispute, the legal and civil rights of the workers have on numerous occasions been violated.” [->](http://explorepahistory.com/hmarker.php?markerId=1-A-3BB)
+
+The parallel rise of our capitalism and policing, the intertwinement. After slavery was abolished, except for as it applied to those that broke the law:
+
+“The main concern of this period was not so much preventing rebellion as forcing newly freed blacks into subservient economic and political roles.”
+
+“Anyone on the roads without proof of employment was quickly subjected to police action. ”
+
+Modern day policing: 
+
+“While individual officers may not harbor deep biases—though many do—the institution’s ultimate purpose has always been one of managing the poor and non-white, rather than producing anything resembling true justice.”
+
+Neo-liberal austerity 
+
+
+
 
 # The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others
 
@@ -1134,12 +1174,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|  a  |  b  | a XOR b |
-| :-: | :-: | :-----: |
-|  0  |  0  |    0    |
-|  0  |  1  |    1    |
-|  1  |  0  |    1    |
-|  1  |  1  |    0    |
+|   a   |   b   | a XOR b |
+| :---: | :---: | :-----: |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
