@@ -78,8 +78,6 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _javascript, recursion_  
 7/5/20
 
-Also appears on: <a href="https://dev.to/rosschapman/a-recursive-validation-function-with-user-defined-exceptions-1j93" rel="syndication">Dev.to</a>
-
 Every time I use a recursive function for something practical in commercial software my notional machine of it's behavior is refined. This amounts to a small list of heuristics amassing in my mental pocket:
 
 1. "It's a function that calls itself."
@@ -151,35 +149,35 @@ export function validate(data, schema) {
 }
 ```
 
-Using recursion feels unbounded - you are handing over control to the JS engine in a matter that's reminiscent to higher order functions for operating with Array and Object collections. For example, `forEach` is a powerful and declarative alternative to `for` and `for..of/in` loops until you find yourself needing to skip over an iteration or break out of the loop. Keywords like `continue` and `break` are unavailable in Array and Object collection methods.
+Using recursion is more like a leap of faith - you are handing over control to the JS engine over an unbounded data set; it's quite reminiscent to the manner in which higher order functions operate with Array and Object collections. For example, `forEach` is a powerful and declarative alternative to `for` and `for..of/in` loops until you find yourself needing to skip over an iteration or break out of the loop. Keywords like `continue` and `break` are unavailable in Array and Object collection methods -- these are _closed_ iterators.
 
-Your only recourse in a recursive function requires relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer. So capturing and emitting an error from your recursive function might look like this:
+Your only recourse in a recursive function is relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer. So capturing and emitting an error from your recursive function might look like this:
 
 ```javascript
-export function validate(data, schema, hasError) {
-  if (hasError) return false;
-
+export function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
       let required = rule.required;
 
-      if (required && !field) return validate(_, _, true);
+      if (required && !field) {
+        errors.push(error);
+      }
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema, hasError);
+        validate(field, schema, errors);
       }
     }
   }
 
-  return true;
+  return errors;
 }
 ```
 
-While this function may give us the result we want, there's a potential cost of unnecessary runs while a large call stack is cleared for our unbounded data set. Though we love to see companies grow, that growth threatens our product if we implement the above algorithm.
+While this function may give us a result array we can further parse for bad data, there's a potential cost of unnecessary runs while a large call stack is cleared for our unbounded data set. This function would be serviceable if we wanted a complete picture of bad data throughout the input.
 
-Ultimately, the solution to finding our way out of a recursive function is rather elegant and simple, but counter-intuitive. Rather than returning (false, an error, etc...), you have to _throw_, thereby forcibly halting the engine's execution of the code. Here's an example with `throw`:
+To solve validation with an early break, the solution that helps us find our way out of a recursive function ends up being rather elegant and simple, though counter-intuitive. Rather than returning (false, an error list, etc...), you can _throw_ and thereby forcibly halt the engine's execution of the code. Here's an example with `throw`:
 
 ```javascript
 export function validate(data, schema) {
@@ -203,11 +201,11 @@ export function validate(data, schema) {
 }
 ```
 
-Day in, day out we work constantly with blown call stacks to debug errors in our code. In many client applications throwing only happens when we have bugs. But we can take advantage of this standard JavaScript behavior:
+Day in, day out we work constantly with client applications that only trhow as a result of unintended bugs in the program. But we can take advantage of this standard JavaScript behavior and erect an appropriate error boundary. Remember:
 
-> Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. [->](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
+> Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. [🔗](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
 
-We can rename and wrap our recursive function that throws, and put it inside a `try/catch` to achieve that early break we want. This even comes with the added advantage of declaring the content of our _user-defined exception_ at throw site; eg, utilizing meaningful error constructors or factories like `missingFieldError()`.
+Therefore we can rename and wrap our recursive function that throws, and put it inside an error boundary to achieve that early break we want. This approach even comes with the added advantage of declaring the content of our _user-defined exception_ at throw site; eg, utilizing meaningful error constructors or factories like `missingFieldError()`.
 
 ```javascript
 export function validate(data, schema) {
