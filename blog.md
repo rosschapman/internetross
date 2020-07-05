@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
 - [Musings about Leetcode](#musings-about-leetcode)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
@@ -72,6 +73,156 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
+# A Recursive Validation Function with User-Defined Exceptions
+
+Tags: _javascript, recursion_  
+7/5/20
+
+Also appears on: <a href="https://dev.to/rosschapman/a-recursive-validation-function-with-user-defined-exceptions-1j93" rel="syndication">Dev.to</a>
+
+Every time I use a recursive function for something practical in commercial software my notional machine of it's behavior is refined. This amounts to a small list of heuristics amassing in my mental pocket:
+
+1. "It's a function that calls itself."
+1. "You make your list of tasks first then start from the last and work your way back up" or "It's like unpacking a box with other, smaller boxes, with other smaller boxes, with other...and then only start looking at the boxes from the smallest to the largest, one at a time" (🎩👌 Aditya Bhargava's _grokking algorithms_)
+1. "It's good for building up a list or value, kind of like reduce"
+1. "It can be less code but less performant."
+
+After working on another problem recently that involved deep-diving a nested JavaScript object and executing validations against each level I'm adding:
+
+> "Recursion is awkward if you need to break early."
+
+In my particular case I needed to validate a recursive data structure that represented an org chart with Employee objects _but also break out early_ if I came across an Employee with bad data -- extra fields, missing required fields, fields of the wrong type, etc....
+
+Breaking out from a recursive function is not quite as straightforward as you'd think. Also, historically I was used to seeing recursive employed for tasks that needed the call stack to execute to completion.
+
+For a simple example, flattening an array:
+
+```javascript
+function flatten(nestedArray, result = []) {
+  for (let element of nestedArray) {
+    if (Array.isArray(element)) {
+      flatten(element, result);
+    } else {
+      result.push(element);
+    }
+  }
+
+  return result;
+}
+```
+
+Or, fetching a complete set of data from a remote source in chunks:
+
+```javascript
+async function fetchAll(params, all = []) {
+  let chunk = await fetch(params);
+  let nextPage = chunk.nextPage;
+  all = all.concat(chunk.data);
+
+  if (nextPage) {
+    let nextParams = { ...params, page: nextPage };
+    return await fetchAll(nextParams, all);
+  }
+
+  return all;
+}
+```
+
+What I quickly discovered is that just trying to capture and emit an error from a recursive call stack is already a bit funky. Simply returning `false` in your function doesn't work because calls lower on the stack may return `true`; and since we're (kind of) "building a value" it only matters what the final call returns. This approach won't work:
+
+```javascript
+// Will only return false if the last call in the stack returns false
+export function validate(data, schema) {
+  for (let item of data) {
+    for (let rule of schema) {
+      let field = item[rule.name];
+      let required = rule.required;
+
+      if (required && !field) return false;
+
+      // Recurse
+      if (Array.isArray(field)) {
+        validate(field, schema);
+      }
+    }
+  }
+
+  return true;
+}
+```
+
+Using recursion feels unbounded - you are handing over control to the JS engine in a matter that's reminiscent to higher order functions for operating with Array and Object collections. For example, `forEach` is a powerful and declarative alternative to `for` and `for..of/in` loops until you find yourself needing to skip over an iteration or break out of the loop. Keywords like `continue` and `break` are unavailable in Array and Object collection methods.
+
+Your only recourse in a recursive function requires relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer. So capturing and emitting an error from your recursive function might look like this:
+
+```javascript
+export function validate(data, schema, hasError) {
+  if (hasError) return false;
+
+  for (let item of data) {
+    for (let rule of schema) {
+      let field = item[rule.name];
+      let required = rule.required;
+
+      if (required && !field) return validate(_, _, true);
+
+      // Recurse
+      if (Array.isArray(field)) {
+        validate(field, schema, hasError);
+      }
+    }
+  }
+
+  return true;
+}
+```
+
+While this function may give us the result we want, there's a potential cost of unnecessary runs while a large call stack is cleared for our unbounded data set. Though we love to see companies grow, that growth threatens our product if we implement the above algorithm.
+
+Ultimately, the solution to finding our way out of a recursive function is rather elegant and simple, but counter-intuitive. Rather than returning (false, an error, etc...), you have to _throw_, thereby forcibly halting the engine's execution of the code. Here's an example with `throw`:
+
+```javascript
+export function validate(data, schema) {
+  for (let item of data) {
+    for (let rule of schema) {
+      let field = item[rule.name];
+      let required = rule.required;
+
+      // It's even one less character to write! 🤣
+      // Also now we have total control over the exception content
+      if (required && !field) throw new MissingFieldError(item, rule);
+
+      // Recurse
+      if (Array.isArray(field)) {
+        validate(field, schema);
+      }
+    }
+  }
+
+  return true;
+}
+```
+
+Day in, day out we work constantly with blown call stacks to debug errors in our code. In many client applications throwing only happens when we have bugs. But we can take advantage of this standard JavaScript behavior:
+
+> Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. [->](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
+
+We can rename and wrap our recursive function that throws, and put it inside a `try/catch` to achieve that early break we want. This even comes with the added advantage of declaring the content of our _user-defined exception_ at throw site; eg, utilizing meaningful error constructors or factories like `missingFieldError()`.
+
+```javascript
+export function validate(data, schema) {
+  try {
+    validateInner(data, schema);
+  } catch (error) {
+    // returns new MissingFieldError()!
+    return error;
+  }
+  return true;
+}
+```
+
+Even more, the elegance of this design with an outer try/catch allows for separate testing of our validation business logic -- the rules against which bad data throw -- and error handling -- what errors we emit for certain cases.
+
 # The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others
 
 Tags: _javascript, interviews_  
@@ -100,13 +251,13 @@ Coming up with examples is hard. I think Question 11 could probably use a bit of
 Tags: _leetcode, interviews_  
 6/16/2020
 
-For the past couple weeks I've been diving back into algorithm and data structure fundamentals. Back on that bullshit. This time around I'm paying the Leetcode gods to try and level up again quickly for the barage of upcoming timed standardized tests. _All the trauma of standardized testing in my childhood comes flooding back._ Sigh, unfortunately, I work in an industry that 1) doesn't trust your actual work experience, and 2) confuses (overemphasizes) one dimension of computer science -- algorithms and data structures -- with other (often more important) foundational web development knowledge. 
+For the past couple weeks I've been diving back into algorithm and data structure fundamentals. Back on that bullshit. This time around I'm paying the Leetcode gods to try and level up again quickly for the barage of upcoming timed standardized tests. _All the trauma of standardized testing in my childhood comes flooding back._ Sigh, unfortunately, I work in an industry that 1) doesn't trust your actual work experience, and 2) confuses (overemphasizes) one dimension of computer science -- algorithms and data structures -- with other (often more important) foundational web development knowledge.
 
 And though Leetcode is a piece of a new cottage industry that monetizes the legacy and supremacy of cold-war era interview practice (down through Gayle McDowell), it's what many companies still are reluctantly resigned to; I guess. I had a pretty sad conversation with an interlocutor the other day who bemoaned the use of these types of tests -- especially for JavaScript client engineers -- but had convinced himself they were a best of evils. 😢
 
-All that said, there is stuff to learn. And I have some minor realizations to share. Namely that learning how to actually get what you want out of Leetcode effectively is, itself, a thing. 
+All that said, there is stuff to learn. And I have some minor realizations to share. Namely that learning how to actually get what you want out of Leetcode effectively is, itself, a thing.
 
-I learn best by waiting to master one type of problem set before moving on to the next -- like super gradual. Unfortunately, Leetcode's problem bucketing and taxonomy is tough to navigate if you're like me and kinda starting from the beginning each interview season. Trying to tackle Top Interview Questions at the jump was not ideal, in retrospect. Because, what you'll discover, is that the Array/Strings/Linked List/Trees buckets into which these questions are placed somewhat hide the techniques you should be studying: eg, Hash Table, Two Pointers, Binary Search, Divid and Conquer, Dynamic Programming, Backtracking. You can filter by these terms in the Tag list. 
+I learn best by waiting to master one type of problem set before moving on to the next -- like super gradual. Unfortunately, Leetcode's problem bucketing and taxonomy is tough to navigate if you're like me and kinda starting from the beginning each interview season. Trying to tackle Top Interview Questions at the jump was not ideal, in retrospect. Because, what you'll discover, is that the Array/Strings/Linked List/Trees buckets into which these questions are placed somewhat hide the techniques you should be studying: eg, Hash Table, Two Pointers, Binary Search, Divid and Conquer, Dynamic Programming, Backtracking. You can filter by these terms in the Tag list.
 
 But damn, how wild to expect the same level of competence in all these techniques for a commercial developer who uses a minimal amount day-to-day. Interviewing often feels like a crapshoot.
 
@@ -251,14 +402,14 @@ Of course, the solution is never an end. Or have you ever built software that sh
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 4/26/2020
 
-Check out the second -- and I believe last -- in this short series: <a href="https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo">https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo</a>
+Check out the second -- and I believe last -- in this short series: <a href="https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo" rel="syndication">https://dev.to/internetross/let-s-talk-about-orchestration-vs-separation-of-concerns-react-redux-edition-part-2-imo</a>
 
 # Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1
 
 Tags: _react, redux, xState, architecture, user-interface-control-model_  
 04/16/2020
 
-I'm emerging from the shadows, a bit, and trying out dev.to. Check out this first in a two part series: <a href="https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410">https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410</a>
+I'm emerging from the shadows, a bit, and trying out dev.to. Check out this first in a two part series: <a href="https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410" rel="syndication">https://dev.to/internetross/let-s-privilege-orchestration-over-separation-of-concerns-4410</a>
 
 # Preferring repetitive Action notifications over reuse
 
