@@ -7,7 +7,7 @@
 
 - [React Patterns](https://reactpatterns.com/)
 
-  It's like the Gang of Four but for React, but written with less an air of thought-leadery importance. I wrote React for almost two years without finding this site and I feel great _saudade_ for that time.
+  It's like the Gang of Four but for React, and written with less an air of thought-leadery importance. I wrote React for almost two years without finding this site and I feel great _saudade_ for that time.
 
 - [Testing Implementation Details](<(https://kentcdodds.com/blog/testing-implementation-details)>)
 
