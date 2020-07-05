@@ -130,7 +130,7 @@ What I quickly discovered is that just trying to capture and emit an error from 
 
 ```javascript
 // Will only return false if the last call in the stack returns false
-export function validate(data, schema) {
+function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
@@ -156,7 +156,7 @@ Your only recourse in a recursive function is relying on outer calls -- since th
 ```javascript
 let errors = [];
 
-export function validate(data, schema, errors) {
+function validate(data, schema, errors) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
@@ -182,7 +182,7 @@ While this function may give us a result array we can further parse for bad data
 To solve validation with an early break, the solution that helps us find our way out of a recursive function ends up being rather elegant and simple, though counter-intuitive. Rather than returning (false, an error list, etc...), you can _throw_ and thereby forcibly halt the engine's execution of the code. Here's an example with `throw`:
 
 ```javascript
-export function validate(data, schema) {
+function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
@@ -210,7 +210,7 @@ Day in, day out we work constantly with client applications that only trhow as a
 Therefore we can rename and wrap our recursive function that throws, and put it inside an error boundary to achieve that early break we want. This approach even comes with the added advantage of declaring the content of our _user-defined exception_ at throw site; eg, utilizing meaningful error constructors or factories like `missingFieldError()`.
 
 ```javascript
-export function validate(data, schema) {
+function validate(data, schema) {
   try {
     validateInner(data, schema);
   } catch (error) {
