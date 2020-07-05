@@ -151,10 +151,12 @@ export function validate(data, schema) {
 
 Using recursion is more like a leap of faith - you are handing over control to the JS engine over an unbounded data set; it's quite reminiscent to the manner in which higher order functions operate with Array and Object collections. For example, `forEach` is a powerful and declarative alternative to `for` and `for..of/in` loops until you find yourself needing to skip over an iteration or break out of the loop. Keywords like `continue` and `break` are unavailable in Array and Object collection methods -- these are _closed_ iterators.
 
-Your only recourse in a recursive function is relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer. So capturing and emitting an error from your recursive function might look like this:
+Your only recourse in a recursive function is relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer within a closure. So capturing and emitting an error from your recursive function might look like this:
 
 ```javascript
-export function validate(data, schema, errors = []) {
+let errors = [];
+
+export function validate(data, schema, errors) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
