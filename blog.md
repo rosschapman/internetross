@@ -76,7 +76,8 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 # A Recursive Validation Function with User-Defined Exceptions
 
 Tags: _javascript, recursion_  
-7/5/20
+7/5/20  
+Syndicated: [dev.to](https://dev.to/rosschapman/a-recursive-validation-function-with-user-defined-exceptions-1j93)
 
 Every time I use a recursive function for something practical in commercial software my notional machine of it's behavior is refined. This amounts to a small list of heuristics amassing in my mental pocket:
 
@@ -89,11 +90,11 @@ After working on another problem recently that involved deep-diving a nested Jav
 
 > "Recursion is awkward if you need to break early."
 
-In my particular case I needed to validate a recursive data structure that represented an org chart with Employee objects _but also break out early_ if I came across an Employee with bad data -- extra fields, missing required fields, fields of the wrong type, etc....
+In my particular case I needed to validate a recursive data structure representing an org chart of Employees _and return invalid immediately_ if the code traversed an Employee with bad data -- extra fields, missing required fields, fields of the wrong type, etc....
 
-Breaking out from a recursive function is not quite as straightforward as you'd think. Also, historically I was used to seeing recursive employed for tasks that needed the call stack to execute to completion.
+Breaking out from a recursive function is not quite as straightforward as you'd think. Also, historically I was used to seeing recursive code employed for tasks that wanted the call stack to build up all the way through the data.
 
-For a simple example, flattening an array:
+Like, flattening an array:
 
 ```javascript
 function flatten(nestedArray, result = []) {
@@ -151,12 +152,10 @@ function validate(data, schema) {
 
 Using recursion is more like a leap of faith - you are handing over control to the JS engine over an unbounded data set; it's quite reminiscent to the manner in which higher order functions operate with Array and Object collections. For example, `forEach` is a powerful and declarative alternative to `for` and `for..of/in` loops until you find yourself needing to skip over an iteration or break out of the loop. Keywords like `continue` and `break` are unavailable in Array and Object collection methods -- these are _closed_ iterators.
 
-Your only recourse in a recursive function is relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer within a closure. So capturing and emitting an error from your recursive function might look like this:
+Your only recourse in a recursive function is relying on outer calls -- since the call stack is LIFO - to set that flag and pass it through each stack layer. So capturing and emitting an error from your recursive function might look like this:
 
 ```javascript
-let errors = [];
-
-function validate(data, schema, errors) {
+function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
       let field = item[rule.name];
@@ -177,9 +176,9 @@ function validate(data, schema, errors) {
 }
 ```
 
-While this function may give us a result array we can further parse for bad data, there's a potential cost of unnecessary runs while a large call stack is cleared for our unbounded data set. This function would be serviceable if we wanted a complete picture of bad data throughout the input.
+If our program requirements suggest we want to parse the entire org chart for bad data, this function will give us a result array we can further process to report errors. But for my purpose, there's too big a potential cost of unnecessary runs while a large call stack is cleared for a large org chart.
 
-To solve validation with an early break, the solution that helps us find our way out of a recursive function ends up being rather elegant and simple, though counter-intuitive. Rather than returning (false, an error list, etc...), you can _throw_ and thereby forcibly halt the engine's execution of the code. Here's an example with `throw`:
+In order to stop processing the org chart and return an _invalid_ result early, we need a solution that stops execution entirely when the invalid check is entered in the outermost call. Alas, the solution ends up being rather elegant and simple, though counter-intuitive. Rather than returning (false, an error list, etc...), you can _throw_ and thereby forcibly halt the engine's execution of the code. Here's an example with `throw`:
 
 ```javascript
 function validate(data, schema) {
