@@ -46,7 +46,6 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
 - [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
-- [Musings about Leetcode](#musings-about-leetcode)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
 - [Book quotes and commentary: _Software Theory_ by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
@@ -269,26 +268,6 @@ I also feel like I need some clarifcation on Question 14. What do we call the ve
 Coming up with examples is hard. I think Question 11 could probably use a bit of rework too because there is a `this` scope issue that kind of overloads the focus of the problem. Here I go again:
 
 [https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354](https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354)
-
-# Musings about Leetcode
-
-Tags: _leetcode, interviews_  
-6/16/2020
-
-For the past couple weeks I've been diving back into algorithm and data structure fundamentals. Back on that bullshit. This time around I'm paying the Leetcode gods to try and level up again quickly for the barage of upcoming timed standardized tests. _All the trauma of standardized testing in my childhood comes flooding back._ Sigh, unfortunately, I work in an industry that 1) doesn't trust your actual work experience, and 2) confuses (overemphasizes) one dimension of computer science -- algorithms and data structures -- with other (often more important) foundational web development knowledge.
-
-And though Leetcode is a piece of a new cottage industry that monetizes the legacy and supremacy of cold-war era interview practice (down through Gayle McDowell), it's what many companies still are reluctantly resigned to; I guess. I had a pretty sad conversation with an interlocutor the other day who bemoaned the use of these types of tests -- especially for JavaScript client engineers -- but had convinced himself they were a best of evils. 😢
-
-All that said, there is stuff to learn. And I have some minor realizations to share. Namely that learning how to actually get what you want out of Leetcode effectively is, itself, a thing.
-
-I learn best by waiting to master one type of problem set before moving on to the next -- like super gradual. Unfortunately, Leetcode's problem bucketing and taxonomy is tough to navigate if you're like me and kinda starting from the beginning each interview season. Trying to tackle Top Interview Questions at the jump was not ideal, in retrospect. Because, what you'll discover, is that the Array/Strings/Linked List/Trees buckets into which these questions are placed somewhat hide the techniques you should be studying: eg, Hash Table, Two Pointers, Binary Search, Divid and Conquer, Dynamic Programming, Backtracking. You can filter by these terms in the Tag list.
-
-But damn, how wild to expect the same level of competence in all these techniques for a commercial developer who uses a minimal amount day-to-day. Interviewing often feels like a crapshoot.
-
-Other things to consider.
-
-- Looking at the Solution tab -- aka "cheating" -- is totally fine and desirable. There's no magic to this. Despite my resistance to it, I believe a certain amount of memorization is just necessary. At first I confused why "Easy" problems seemed so hard; why they didn't just _come to me_. I'm no longer wasting my time trying to cultivate an innate _sense_ for this type of problem. I will not be Dijkstra's genius.
-- I've switched to working on problems in VSCode with live breakpoint debugging. There is simply no other way to write loops and keep your sanity.
 
 # Debugging TS in VSCode and Russel Ackhoff's Problem Treatments
 
