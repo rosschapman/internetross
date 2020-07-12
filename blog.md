@@ -79,7 +79,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _javascript, recursion, react, UI, interviews_
 7/11/20
 
-The other day I was challenged to build a UI for a recursive data set of a document graph -- a page menu. Despite recently spending some serious time thinking about recursion and even writing about it a week ago...I totally got stumped on this. I hadn't slept much the night before and was nervous performing in front of people -- not that totally explains why I couldn't call forth my dope skillz more readily. I got a nudge, and quickly realized the solution is a shockingly simple algorithm; especially when paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data:
+When paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data. Brutalist Dada:
 
 ```javascript
 function List({ items }) {
