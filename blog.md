@@ -80,8 +80,8 @@ Tags: _javascript, recursion, react, UI, interviews_
 7/11/20
 
 <figure>
-<img src="./assets/images/made-for-a-party.jpg" width="600" style="margin: 0 auto; display: block">
- <figcaption><small><center>Hannah Höch, Für ein Fest gemacht (Made for a Party), 1936
+  <img src="./assets/images/made-for-a-party.jpg" width="600" style="margin: 0 auto; display: block">
+  <figcaption><center><small>Hannah Höch, Für ein Fest gemacht (Made for a Party), 1936
 Collage</small></center></figcaption>
 </figure>
 
