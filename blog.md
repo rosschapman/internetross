@@ -79,6 +79,12 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _javascript, recursion, react, UI, interviews_
 7/11/20
 
+<figure>
+<img src="./assets/images/made-for-a-party.jpg" width="600" style="margin: 0 auto; display: block">
+ <figcaption><small><center>Hannah Höch, Für ein Fest gemacht (Made for a Party), 1936
+Collage</small></center></figcaption>
+</figure>
+
 When paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data. Brutalist Dada:
 
 ```javascript
