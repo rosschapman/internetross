@@ -92,8 +92,6 @@ function List({ items }) {
 }
 ```
 
-Now that the initial wash of imposter syndrome and shame is subsiding I'm positive recursion in a UI context will stick well. Ror reasons a behavioral or psychological expert might better understan, my recall tends to impprove drastically for ideas I work through during a traumatic experience.
-
 # A Recursive Validation Function with User-Defined Exceptions
 
 Tags: _javascript, recursion_  
