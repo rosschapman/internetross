@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
 - [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
 - [Musings about Leetcode](#musings-about-leetcode)
@@ -72,6 +73,26 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# Recursion is too easy for writing nested menus in UI
+
+Tags: _javascript, recursion, react, UI, interviews_
+7/11/20
+
+The other day I was challenged to build a UI for a recursive data set of a document graph -- a page menu. Despite recently spending some serious time thinking about recursion and even writing about it a week ago...I totally got stumped on this. I hadn't slept much the night before and was nervous performing in front of people -- not that totally explains why I couldn't call forth my dope skillz more readily. I got a nudge, and quickly realized the solution is a shockingly simple algorithm; especially when paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data:
+
+```javascript
+function List({ items }) {
+  return items.map((item) => (
+    <ul key={item.id}>
+      <li>{item.name}</li>
+      {item.children && <List expanded={expanded} items={item.children} />}
+    </ul>
+  ));
+}
+```
+
+Now that the initial wash of imposter syndrome and shame is subsiding I'm positive recursion in a UI context will stick well. Ror reasons a behavioral or psychological expert might better understan, my recall tends to impprove drastically for ideas I work through during a traumatic experience.
 
 # A Recursive Validation Function with User-Defined Exceptions
 
@@ -1210,7 +1231,7 @@ Fuck yeah, let's use that!
 
 # Two tales of Binary Search
 
-Tags: _JavaScript, interviews_  
+Tags: _javascript, interviews_  
 **10/1/2019**
 
 I still have lingering rage from two years ago when an interviewer said to me: "I could probably implement this in about 20 minutes." Seriously crushing words to utter offhand during a facetime code screen for someone who has been programming and building web apps professionally for 3+ years.
@@ -1235,7 +1256,7 @@ When we learn the meaning behind these CS concepts, we may actually discover mor
 
 # Deep(er) software concepts showing up in UI problems
 
-Tags: _JavaScript, bitwise operators_  
+Tags: _javascript, bitwise operators_  
 **9/16/2019**
 
 I've got three posts in my brain backlog now about more complex software concepts showing up in UI work. Here's the first!
