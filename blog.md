@@ -74,6 +74,68 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
+#
+
+Tags:
+7/11/20
+
+Back in February, my entire notion of _expertise_ and decision-making was drastically shifted after listening to episode 169 of the _Greater than Code_ podcast. (At least I think this was the episode). If you had asked me beforehand to define what "expertise" is brought to bare for decision-making I would have said something like:
+
+> The indexing of things that should happen or what they should look like to solve problems (stored in the brain, I guess?) that is combined with a rigorous and precise scientifically methodological approach (improved over time, probably also stored in the brain?) that is used to retrieve, rearrange, and replay experience agains the new problem phenomena. In other words, make an "informed decision."
+
+During the episode a different notion of expertise is put forth -- particularly when it's exercised in high pressure situations -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase:
+
+> Expertise is an act of rapid mental simulation without formal analysis based on previous experience. It's more akin to "instinct" than a cartesian scientific methodology.
+
+Informed but not informaled!
+
+I found this extremely comforting as it applies to my perception of myself at work. It means that one can face spontaneously emerging decision-making moments in the workplace with confidence; one can trust our own immediate insight. It beseeches us to expel myths like: Principal and Staff technologists have reached their eminent station by putting in the time to refine their powers of inspection, analysis, interpretation, evaluation; they've amassed all the good frameworks, methodologies, and systems into their memory bank; and decisions they make are conclusive (foreclosing, narrowly, the scope of possibilty) because of this special toolkit which is wielded daftly.
+
+In other words, a "mid-level" engineer like yours truly can feel empowered to make a decision and be accountable without fabricating some kind of linear transaction of my thought process or having sat squarely in this problem-position before. I am enough.
+And my innate powers of interpretation, or however Klein would characterize the evolution of insight from within -- in that moment it can be excellent.
+
+I did some additional reflection with the Greater than Code community in their Slack on why I was feeling relieved by Klein's ideas (Jessica Kerr hearted this so I'm feeling proud to share!):
+
+> Thanks. This really struck me because I think I have internalized some idea that experts have these academically rigorous approaches to problems where they draw on frameworks and data and tools blah blah to come to conclusions.
+
+Then Rein chimes in:
+
+> Yeah, the analytic decision-making mode is what we are taught, but it's not what people actually use, especially in high-pressure situations.
+
+The me again:
+
+> Oh right that was the other piece. [Making decisions under] high pressure. Which in corporate culture feels like all the time a lot.
+
+Then some other folks tried to pivot the conversation to talk about how web tech is not really that high "pressure" because bad decisions don't kill people or necessarily tank the business immediately. So I continue:
+
+> I understand where y’all went with that idea of “high pressure.” But even without the kinds of excess you describe — which I’m grateful not to feel at my (fairly spread out) 1000 person company — I still feel like I’m caught up in a heavy stream; not in a surprising or terribly uncomfortable way; but like a tireless machine of ambient conversation between me and my work and my coworkers that is always humming. So maybe “high pressure” in the sense of constant. Day to day I feel coerced into what feels like quick/on-the-spot decision-making, and always on guard for such; and that’s definitely challenging for me.
+
+> Like, I’m a developer, and I have to make a ton of small decisions all day long when coding. Even medium-sized decisions. (Like the other day deciding whether to coordinate on a revision of a standard component with a team in Spain with similar needs, vs plowing ahead myself because I knew that process may take weeks and I needed output in days). And often these decisions have to happen within a matter of minutes because of the above normal buzz. I think I remember there was another episode where folks talked about how developers make more decisions than CEOs on any given day?
+
+> I was finding comfort in this idea from Gary Klein because I can consider whatever my instinct draws on in that moment to be a practice of expertise. I can feel like an expert; and without any added insecurity for a lack of analytical rigor, if I had to explain my decision. I usually have confidence in my decisions, but I didn’t have a framing of it as expertness. A framing I was likely lacking, as Rein said, because I’ve been taught a dichotomy between analytical thinking and instinct, where there actually isn’t one; at least as I understand the idea without having read the book yet. But as someone relatively new in the industry — just around 6 years building web — being able to come into expertise or see it forming in my behavior is really nice.
+
+Earlier today, delving through _Software Development and Reality Construction_, I was delighted to discover another rebuke to my previous notion that part of expertise means memorizing and/or cataloguing phenomena that are presented during experience; and then how they are poked and prodded to produce ways forward, insights, decisions. It smacked of Klein and I wonder if Reinhard Keil-Slawik is influenced by Klein or conversely or rather they swarm with each other in that world of systems thinking, cybernetics, constructivism, etc...
+
+From Keil-Slawik's essay _Artifacts in Software Design_:
+
+<p><img src="./assets/images/reinhard-keil-slawik-insight.png" width="600" style="margin: 0 auto; display: block"></p>
+
+I'm nowhere near good enough a philosopher or familiar with the full discourse of these folks, but lets attempt some parsing.
+
+Perhaps Klein is saying expertise -- ie "insight" -- is like an enrichening of your understanding. Our understanding being a cognitive structure derived from the encounter with our envionrment which includes phenomena (physical, etc...) and circumstance. Arriving at a conclusion about the moment does not involve some kind of a manual random access from a _brain-as-database_ that has been populated with a arrangements of stuff from "out there" - outside ourself/mind -- (previous cognitive structures); as if insight is just a result of recall or trial and error from an initial recall.
+
+Rather it's:
+
+<p><img src="./assets/images/reinhard-keil-slawik-insight-2.png" width="600" style="margin: 0 auto; display: block"></p>
+
+1 constructive structure vs many, I guess?
+
+I'm tempted to believe this because the thought of unbounded accumulation of stuff in the brain, and lookup at exponential runtime, doesn't seem like the way I arrive at decisions quickly; or, to the point about brain-as-database, that confronting a problem is recalling a familiar arrangement of phenomena and then a making a _guess-as-trial_. I mean, why do we feel so sure sometimes and the frequency we are right or "close enough" improves as we write more and more software.
+
+Keil-Slawik and kin are proposing the idea of human expertise as an individual construction of meaning as well as a co-constitutive emergence of our own body/mind wisdom and the "external memory" of symbols and tools we work with. The latter being turing machines, algebra, languages, frameworks, etc.... This affords us the benefit of a tradeoff: speed of resolution over perfectness. The example Keil-Slawik gives is of the ape who, if taught once to put sticks together to reach a banana, will subsequently devise similar means of combining objects to get the banana "without any hesitation...and any similar situation."
+
+I appreciate the implications that our software tools are this insight enshrined.
+
 # Recursion is too easy for writing nested menus in UI
 
 Tags: _javascript, recursion, react, UI, interviews_
