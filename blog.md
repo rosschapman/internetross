@@ -84,7 +84,7 @@ Tags: _javascript, recursion, react, UI, interviews_
 Collage</small></center></figcaption>
 </figure>
 
-When paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data. Brutalist Dada:
+When paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data. Such brutalist Dada.
 
 ```javascript
 function List({ items }) {
