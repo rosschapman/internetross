@@ -251,21 +251,21 @@ Even more, the elegance of this design with an outer try/catch allows for separa
 Tags: _javascript, interviews_  
 6/16/20
 
-Lydia Hallie's list of JS interview questions are extensive and probably one of the better resources out there -- the questions are asked in a systematic order that builds knowledge progressively, so it appears some modicum of pedagogy is involved; therefore avoiding that vacancy of substance of the typical listicle.
+Lydia Hallie's list of JS interview questions are extensive and probably one of the most comprehensive resources out there. You get a laundry list of questions that run the gamut from basic to esoteric language featuers, and each are asked in a systematic order that builds knowledge progressively. It appears some modicum of pedagogy is involved, which thereofre therefore avoids that vacancy of substance typical of your JS interview questions listicle.
 
-Yesterday I was running through a chunk with an ex-colleague and started thinking about how the explanations might better serve less-experienced JS developers -- even more experienced devs who might need review. Ugh, I don't know if I'm not understanding it right. Perhaps the design of JS Objects is just a bit wack-a-doodle.
+Yesterday I was running through a block of questions with an ex-colleague and we noticed that some of the answers were a bit inchoate. It's so easy for meaning to drift when talking about language features especially when it comes to JS. Consider navigating the following taxonomy -- related to creating objects in JS -- for readers of all skill levels without specious reasoning (the kind of short-hand _you get the point_ or _close-enough_ superstitious explanation we sometimes use; which, by the way, I think greatly hindered my early career development): object, constructor, function, class, prototype, instance, static, method, `new`, `this`. It's quite hard but really worth being as correct as interpreting ECMAScript affords us.
 
-I decided to open up some discussion on Question 12 which tests your knowledge of the differntiated effects of using the `new` operator before a function call:
+I decided to open up some discussion on Question 12 which tests one's knowledge of the differntiated effects of using the `new` operator before a function call:
 
 [https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140](https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140)
 
-Definitely called for a little trip over to YDKJS!
+Definitely called for a little revisit of YDKJS, no doubt.
 
 I also feel like I need some clarifcation on Question 14. What do we call the very root object in JS that all objects delegate to?
 
 [https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195](https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195)
 
-Coming up with examples is hard. I think Question 11 could probably use a bit of rework too because there is a `this` scope issue that kind of overloads the focus of the problem. Here I go again:
+Coming up with examples is hard. I think Question 11 could use a bit of rework too because there is a `this` scope issue that somewhat overloads the focus of the problem. Here I go again:
 
 [https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354](https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354)
 
