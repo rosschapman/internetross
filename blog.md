@@ -251,7 +251,7 @@ Even more, the elegance of this design with an outer try/catch allows for separa
 Tags: _javascript, interviews_  
 6/16/20
 
-Lydia Hallie's list of JS interview questions are extensive and probably one of the most comprehensive resources out there. You get a laundry list of questions that run the gamut from basic to esoteric language featuers, and each are asked in a systematic order that builds knowledge progressively. It appears some modicum of pedagogy is involved, which thereofre therefore avoids that vacancy of substance typical of your JS interview questions listicle.
+Lydia Hallie's list of JS interview questions are extensive and probably one of the most comprehensive resources out there. The laundry list of questions runs the gamut from basic to esoteric language features, each of which progress you though various themes in what seem like meaningful sequences. It appears some modicum of pedagogy is involved, which therefore avoids that oft vacancy of substance typical of a listicle.
 
 Yesterday I was running through a block of questions with an ex-colleague and we noticed that some of the answers were a bit inchoate. It's so easy for meaning to drift when talking about language features especially when it comes to JS. Consider navigating the following taxonomy -- related to creating objects in JS -- for readers of all skill levels without specious reasoning (the kind of short-hand _you get the point_ or _close-enough_ superstitious explanation we sometimes use; which, by the way, I think greatly hindered my early career development): object, constructor, function, class, prototype, instance, static, method, `new`, `this`. It's quite hard but really worth being as correct as interpreting ECMAScript affords us.
 
