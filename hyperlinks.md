@@ -1,4 +1,4 @@
-<h3>Categories</h2>
+<h3>Categories</h3>
 
 [Functional Programming](#functional-programming) |
 [React](#react) |
