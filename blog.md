@@ -79,12 +79,12 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _software development, bugs_
 7/15/20
 
-The rush to fix bugs to recoup customer satisfaction is absolutely necessary when writing for capital. I just worry that without the proper retrospection we won't actually increase our understanding of the software, and therefore the recidivism rate of error will remain constant; or likely increase in the tail wind of growing complexity and entropy.
-
 > ...bugs are interesting and important in themselves: they define the boundary between what is understood and what is not. Hence, they show us where our weaknees are, and provide opportunities for us to learn and grow.
 >
 > <footer><small><cite>Software Development and Reality Construction</cite></small></footer>
 > <footer><small>Ch 5.1: The Denial of Error,  Joseph A Goguen</small></footer>
+
+The rush to fix bugs to recoup customer satisfaction is absolutely necessary when writing for capital. I just worry that without the proper retrospection we won't actually increase our understanding of the software, and therefore the recidivism rate of error will remain constant; or likely increase in the tail wind of growing complexity and entropy.
 
 # Recursion is too easy for writing nested menus in UI
 
