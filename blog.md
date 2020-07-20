@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [What's a bug?](#whats-a-bug)
 - [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
 - [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
@@ -72,6 +73,18 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# What's a bug?
+
+Tags: _software development, bugs_
+7/15/20
+
+> ...bugs are interesting and important in themselves: they define the boundary between what is understood and what is not. Hence, they show us where our weaknees are, and provide opportunities for us to learn and grow.
+>
+> <footer><small><cite>Software Development and Reality Construction</cite></small></footer>
+> <footer><small>Ch 5.1: The Denial of Error,  Joseph A Goguen</small></footer>
+
+The rush to fix bugs to recoup customer satisfaction is absolutely necessary when writing for capital. I just worry that without the proper retrospection we won't actually increase our understanding of the software, and therefore the recidivism rate of error will remain constant; or likely increase in the tail wind of growing complexity and entropy.
 
 # Recursion is too easy for writing nested menus in UI
 
