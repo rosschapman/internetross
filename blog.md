@@ -669,7 +669,7 @@ Or, rather, *re*invented since they had been denied participation in Western STE
 
 Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.
 
-👆🏻That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
+That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
 
 > The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships.
 >
