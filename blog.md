@@ -93,7 +93,7 @@ function List({ items }) {
       <li>{item.name}</li>
       {item.children && <List expanded={expanded} items={item.children} />}
     </ul>
-  ));
+  ))
 }
 ```
 
@@ -124,13 +124,13 @@ Like, flattening an array:
 function flatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      flatten(element, result);
+      flatten(element, result)
     } else {
-      result.push(element);
+      result.push(element)
     }
   }
 
-  return result;
+  return result
 }
 ```
 
@@ -138,16 +138,16 @@ Or, fetching a complete set of data from a remote source in chunks:
 
 ```javascript
 async function fetchAll(params, all = []) {
-  let chunk = await fetch(params);
-  let nextPage = chunk.nextPage;
-  all = all.concat(chunk.data);
+  let chunk = await fetch(params)
+  let nextPage = chunk.nextPage
+  all = all.concat(chunk.data)
 
   if (nextPage) {
-    let nextParams = { ...params, page: nextPage };
-    return await fetchAll(nextParams, all);
+    let nextParams = { ...params, page: nextPage }
+    return await fetchAll(nextParams, all)
   }
 
-  return all;
+  return all
 }
 ```
 
@@ -158,19 +158,19 @@ What I quickly discovered is that just trying to capture and emit an error from 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
-      if (required && !field) return false;
+      if (required && !field) return false
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema);
+        validate(field, schema)
       }
     }
   }
 
-  return true;
+  return true
 }
 ```
 
@@ -182,21 +182,21 @@ Your only recourse in a recursive function is relying on outer calls -- since th
 function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
       if (required && !field) {
-        errors.push(error);
+        errors.push(error)
       }
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema, errors);
+        validate(field, schema, errors)
       }
     }
   }
 
-  return errors;
+  return errors
 }
 ```
 
@@ -208,21 +208,21 @@ In order to stop processing the org chart and return an _invalid_ result early, 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
       // It's even one less character to write! 🤣
       // Also now we have total control over the exception content
-      if (required && !field) throw new MissingFieldError(item, rule);
+      if (required && !field) throw new MissingFieldError(item, rule)
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema);
+        validate(field, schema)
       }
     }
   }
 
-  return true;
+  return true
 }
 ```
 
@@ -235,12 +235,12 @@ Therefore we can rename and wrap our recursive function that throws, and put it 
 ```javascript
 function validate(data, schema) {
   try {
-    validateInner(data, schema);
+    validateInner(data, schema)
   } catch (error) {
     // returns new MissingFieldError()!
-    return error;
+    return error
   }
-  return true;
+  return true
 }
 ```
 
@@ -659,7 +659,13 @@ About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Su
 
 > Women are a very recent invention.
 >
-> <footer><small>Ursula K. Le Guinn</small></footer>
+> <footer><small>Ursula K. Le Guinn, <em>The Wave in the Mind</em></small></footer>
+
+Or, rather, *re*invented since they had been denied participation in Western STEM since at least the middle 1700s:
+
+> Women lost their security clearances very early in the stories of leading-edge science.
+>
+> <footer><small>Donna Haraway, <em>Modest Witness</em></small></footer>
 
 Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.
 
@@ -930,13 +936,13 @@ While maybes represent one or no value, Just or Nothing, Either implementations 
 Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
 ```javascript
-const exists = (x) => x !== null;
+const exists = (x) => x !== null
 const ifExists = (value) =>
   exists(value)
     ? Promise.resolve(value)
-    : Promise.reject(`Invalid prop: ${value}`);
+    : Promise.reject(`Invalid prop: ${value}`)
 
-ifExists(prop.name).then(renderName).catch(log);
+ifExists(prop.name).then(renderName).catch(log)
 ```
 
 Here basic null checking and \*primitive" if/else binaries are replaced with a more expressive, semantically rich statement for the logical disjunction: proceed this way if success, or that way.
@@ -1395,13 +1401,13 @@ After [binary searching](#two-tales-of-binary-search) the code code up and down 
 
 ```javascript
 // Template.js
-const Sidebar = connectSidebar(Sidebar);
-const Main = connectMain(Main);
+const Sidebar = connectSidebar(Sidebar)
+const Main = connectMain(Main)
 
 export default (...props) => {
   // ...
-  return <Layout sidebar={Sidebar} main={Main} />;
-};
+  return <Layout sidebar={Sidebar} main={Main} />
+}
 ```
 
 Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function and calling it anew each time.
@@ -1515,7 +1521,7 @@ There are too many imports in this file. I'm staring down like 50 lines of impor
 And as am I'm looking at this statement inside a `render()` block:
 
 ```javascript
-const isSoldOut = this.props.statusType == SOLD_OUT;
+const isSoldOut = this.props.statusType == SOLD_OUT
 ```
 
 I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago:
@@ -1525,14 +1531,14 @@ I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago
 That's it, that's my out. We can refactor this down to a data utility.
 
 ```javascript
-const isSoldOut = ({ status }) => status === SOLD_OUT;
+const isSoldOut = ({ status }) => status === SOLD_OUT
 ```
 
 Or we might even abstract this into a general utility if it makes sense:
 
 ```javascript
 const getTicketStatusType = (ticketProps) =>
-  STATUS_TYPES_MAP[get(ticketProps, "status")];
+  STATUS_TYPES_MAP[get(ticketProps, 'status')]
 ```
 
 While these functions are not decreasing the number of imports, I'm perhaps doing a few other useful things:
