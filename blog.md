@@ -686,7 +686,7 @@ That's my subtext as I watch. I just wish men were erudite enough to understand 
 
 > The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships.
 >
-> <footer><small><cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite>, Hanna Thomas</small><footer>
+> <footer><small>Hanna Thomas, <cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite></small><footer>
 
 Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of _Progress_ (what Donna Haraway calls "Euclidean tales...of tragic detumescence", the "prick tale." ) -- sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth. For richness of our symmathesies. We all suffer for it.
 
