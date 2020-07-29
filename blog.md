@@ -131,13 +131,13 @@ In my particular case I needed to validate a recursive data structure representi
 
 Breaking out from a recursive function is not quite as straightforward as you'd think. Also, historically I was used to seeing recursive code employed for tasks that wanted the call stack to build up all the way through the data.
 
-Like, flattening an array:
+Like, (deep) flattening an array:
 
 ```javascript
-function flatten(nestedArray, result = []) {
+function deepFlatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      flatten(element, result)
+      deepFlatten(element, result)
     } else {
       result.push(element)
     }
