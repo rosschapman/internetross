@@ -1,5 +1,7 @@
 <h3>Categories</h3>
 
+[What is Software](#what-is-software) |
+[State Machines](#state-machines) |
 [Functional Programming](#functional-programming) |
 [React](#react) |
 [Testing](#testing)
