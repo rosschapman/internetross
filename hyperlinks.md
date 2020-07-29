@@ -22,7 +22,7 @@
 
 ### State Machines
 
-- [David Khourshid: Simplifying Complex UIs with Finite Automata & Statecharts | JSConf Iceland 2018](https://www.youtube.com/watch?v=RqTxtOXcv8Y)
+- [David Khourshid: Simplifying Complex UIs with Finite Automata & Statecharts:  JSConf Iceland 2018](https://www.youtube.com/watch?v=RqTxtOXcv8Y)
 
   This was my initial intro into finite state automata in UI and marks a somewhat profound evolution in my thinking around getting a handle on complex UI state for web clients.
 
