@@ -12,11 +12,11 @@
 
 - [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 
-  No Clojure experience required. But open to a deep dive into what software "simplicity" really means and into the hazardous semantic mistakes we constantly make with terms like "simple," "easy," "complex," "hard," when discussing our software preferences. 
+  No Clojure experience actually required for this deep dive into what software "simplicity" really means and the hazardous semantic mistakes we constantly make with terms like "simple," "easy," "complex," "hard," when discussing our software preferences. 
 
 - [From complicated to complex](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/)
 
-  Being precise with our language when *describing* software is really helpful to maintain a steady notion of the world we are working in. "Complicated" and "complex" may first appear as interchangeable terms, but the distinction jessitron offers contours a really helpful boundary for categorizing different types of big software systems; and thereby encourging us to conscript more correct approaches to understanding and managing constructing them.
+  Being precise with our language when *describing* software is key to maintaining a steady notion of the world we are working in. "Complicated" and "complex" may first appear isomorphic, but the distinction jessitron offers contours a necessary taxonomic boundary for types of big software systems; and thereby encourges us to conscript more correct approaches to understanding and constructing software systems.
 
 - [Instructive and Persuasive Examples](https://www.hillelwayne.com/post/persuasive-examples/)  
   
@@ -26,7 +26,7 @@
 
 - [David Khourshid: Simplifying Complex UIs with Finite Automata & Statecharts:  JSConf Iceland 2018](https://www.youtube.com/watch?v=RqTxtOXcv8Y)
 
-  This was my initial intro into finite state automata in UI and marks a somewhat profound evolution in my thinking around getting a handle on complex UI state for web clients.
+  This was my initial intro into finite state automata in UI, thus marking a non-trivial  evolution in my thinking for getting a handle on complex UI state for web clients.
 
 ### Functional Programming
 
