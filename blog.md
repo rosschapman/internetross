@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
 - [What's a bug?](#whats-a-bug)
 - [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
 - [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
@@ -74,10 +75,75 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
+# Byzantine algorithm studies: Using math to reverse an integer
+
+Tags: _javascript, algorithms, integers_  
+8/6/2020
+
+Making code do something requires exactness but that doesn't necessarily mean programmers will express grammars with any particular concision or ease. Code is an outcome of social construction, background, perhaps aesthetic desire. Toy code problems reveal the apparatus, for sure. If you ask me to reverse an integer I'll build a world of arrays -- because I like them. Directionality makes me think of traversal, therefore arrays. I also recall the `reverse()` convenience immediately. But then, I'm forced to deploy morphological contortions; which might feel icky for someone deriving themselves inside an algorithmic hermitage.
+
+```js
+function reverseInt(int) {
+  // STEP 1 - morph
+  let intAsArrayOfStrings = int.toString().split('')
+}
+```
+
+Reversal is now nearby:
+
+```js
+function reverseInt(int) {
+  // let intAsArrayOfStrings = int.toString().split('')
+
+  // STEP 2 - traverse, recombine
+  let reversedIntString = intAsArrayOfStrings.reverse().join('')
+}
+```
+
+All that remains is a second transmogrification back to the initial type and signing:
+
+```js
+function reverseInt(int) {
+  // let intAsArrayOfStrings = int.toString().split('')
+  // let reversedIntString = intAsArrayOfStrings.reverse().join('')
+
+  // STEP 3 - Sign
+  let result = Number(reversedIntString) * Math.sign(num)
+}
+```
+
+But it has come to my attention that a mathy person prefers preservation, whereby the the input is worked over again and again with division, multiplication, and recombination (which I also deploy).
+
+```js
+function reverseInt(int) {
+  let remainder = 0
+  let result = 0
+
+  while (int) {
+    remainder = int % 10
+    result = result * 10 + remainder
+    int = parseInt(int / 10)
+  }
+  return result
+}
+```
+
+But there's no translation from integer to array. No shift. Grammar school level maths instead. I guess this solution exalts type consistency. Perhaps belies an obsession with `10`? The base binary pair. I can't imagine the benefit of doing that in a commercial software project so it could only be an academic fancy, benchmarked under extreme conditions. It's really clever, though.
+
+Also, been thinking about `slice` a lot today. Never stop dreaming:
+
+```js
+let intAsStr = int.toString()
+new Array(intAsStr.length)
+  .fill(null)
+  .map((_, idx) => intAsStr.slice(-(idx + 1))[0])
+  .join('')
+```
+
 # What's a bug?
 
-Tags: _software development, bugs_
-7/15/20
+Tags: _software development, bugs_  
+7/15/2020
 
 > ...bugs are interesting and important in themselves: they define the boundary between what is understood and what is not. Hence, they show us where our weaknees are, and provide opportunities for us to learn and grow.
 >
@@ -88,8 +154,8 @@ The rush to fix bugs to recoup customer satisfaction is absolutely necessary whe
 
 # Recursion is too easy for writing nested menus in UI
 
-Tags: _javascript, recursion, react, UI, interviews_
-7/11/20
+Tags: _javascript, recursion, react, UI, interviews_  
+7/11/2020
 
 <figure>
   <img src="./assets/images/made-for-a-party.jpg" width="600" style="margin: 0 auto; display: block">
@@ -1307,12 +1373,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
