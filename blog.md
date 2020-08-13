@@ -54,7 +54,6 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 1](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-1)
 - [Preferring repetitive Action notifications over reuse](#preferring-repetitive-action-notifications-over-reuse)
 - [The will to better software companies](#the-will-to-better-software-companies)
-- [Some patriarchal intervention at Google I/O a while back](#some-patriarchal-intervention-at-google-io-a-while-back)
 - [Thinking about heuristics for avoiding code duplication across the stack](#thinking-about-heuristics-for-avoiding-code-duplication-across-the-stack)
 - [Maybe Eithers with Promises](#maybe-eithers-with-promises)
 - [Maybe maybes](#maybe-maybes)
@@ -727,73 +726,6 @@ And
 
 By Delueze and Guattari of course. Whatever, I still think the semilattice is a good formal representation of why coherence costs emerge in the indeterminate, rich encounters of the software symmathesy; the gentle swish of overlapping domains; like at Hearst and Euclid. But the rhizomatic network requires consideration soon. I'm urged that way anyway -- see my hints above about interspecies contamination and the anthropocene. I think the ensemble moves toward assemblage soon.
 
-# Some patriarchal intervention at Google I/O a while back
-
-Tags: _feminism, patriarchy, ursula k. le guinn, eugenia cheng, anna tsing, hannah thomas_  
-**1/24/2020**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0SARbwvhupQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Sussman, presented The Myth of the Genius Programmer to an audience of mostly dudes. Well, we can surmise at the demographics because women were still being invented around this time.
-
-> Women are a very recent invention.
->
-> <footer><small>Ursula K. Le Guinn, <em>The Wave in the Mind</em></small></footer>
-
-Or, rather, *re*invented since they had been denied participation in Western STEM since at least the middle 1700s:
-
-> Women lost their security clearances very early in the stories of leading-edge science.
->
-> <footer><small>Donna Haraway, <em>Modest Witness</em></small></footer>
-
-Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.
-
-That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
-
-> The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships.
->
-> <footer><small>Hanna Thomas, <cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite></small><footer>
-
-Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of _Progress_ (what Donna Haraway calls "Euclidean tales...of tragic detumescence", the "prick tale." ) -- sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth. For richness of our symmathesies. We all suffer for it.
-
-Racism and sexism are the key ingredients in the alchemy that has transformed "Don't be evil" to solving the _hard problems_ of "Controlling the explosion of child porn on the platform" (Youtube, to name a recent example. The darkest of whoops).
-
-What these guys are hinting at is that an ingressive mindset can help us move us at the speed of trust, and therefore build better software together. So, yep, there was some movement going on a decade ago. Radical muds seeping into the granite of hard dick culture; white boys catching each other and putting together slides for the other boys.
-
-The talk is an introduction and invitation in trust-based collaboration and vulnerability. Touchstones include:
-
-- you are unique but not special (meh, reinscribing in sad machismo Tyler Durden reference)
-- individual genius is a myth
-- ego is dangerous
-- stop hero-worshipping, Linus et al
-- coding is social
-- feedback is important
-- getting feedback early and often is good
-- being nice is important
-- code review is necessary
-- failing publicly is ok
-- keeping record of your failing is ok (keep documentation for failed designs)
-- being non-perfect publickly is ok
-- vulnerability at work is a strength
-- tools create a sociality
-- tools can unnecessarily restrict
-
-From the progenitor of the terms "ingressive" and "congressive" that I've been flinging about wildly:
-
-> Ingressive is about going into things and not being waylaid by what people think or by emotions and congressive is about bringing people with you and bringing people together and unifying and making connections between things.... I've come to think that congressive behavior is basically better for society but that ingressive behavior is rewarded more by society because society is based on competition. It's based on how you present yourself so for things like competing for a job, you have to be ingressive to put yourself forward for promotion and to talk about how great you are. Whereas, when you're actually doing some work with people, then it's really helpful to be congressive because then you bring people together, you understand people.
->
-> <footer><small><cite><a href="https://www.greaterthancode.com/category-theory-for-normal-humans">Episode 038: Category Theory for Normal Humans with Dr. Eugenia Cheng</a></cite>, Greater than Code</small></footer>
-
-It's devastating to think about the enormity of emotional intelligence training men needed/need/will need; how expensive it is to refactor patriarchy's structural grammar; that ambition which pits men against one another in an end game for supreme master and commander. In this ever-war even order and peace means the seizing of power; power must be assumed by the individual. It is not shared.
-
-Sure, there is a drip of undoing of Patriarchy when disenfranchisng the myth of genius; but the non-human-men bear the major brunt of burden for maintaining the moral center and possible salvation.
-
-I'm reminded of another talk.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WELBnE33dpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-driven development" we suffer in engineering culture. We might say another symptom of cock-sure genius arising. I love this talk. Recognizing the artifice of loudness and leaning, he looks at the data and calls bullshit on men. The data is good. It's a tool. Nonetheless, I'm not sure Hillel's Empiricism will be as powerfully feminist as interventions like Thomas' archeology. Of course, Cheng's metonymic replacements are interesting in that they make it easier to implicate women's complicit was in patriarchy. Hot take: overall let's be skeptical of the neo-classical -- logic can win -- and neo-liberal -- we can reach across the aisle tactics.
-
 # Thinking about heuristics for avoiding code duplication across the stack
 
 Tags: _large applications, large teams, duplication_  
@@ -1373,12 +1305,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|  a  |  b  | a XOR b |
-| :-: | :-: | :-----: |
-|  0  |  0  |    0    |
-|  0  |  1  |    1    |
-|  1  |  0  |    1    |
-|  1  |  1  |    0    |
+|   a   |   b   | a XOR b |
+| :---: | :---: | :-----: |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
