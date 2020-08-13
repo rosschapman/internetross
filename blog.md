@@ -1408,7 +1408,7 @@ When we looked closer we noticed that at the moment of click an unwanted blur ev
 
 One hack we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- the newly rendered button could receive that event (browsers are weird). But my colleague couldn't let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing.
 
-After [binary searching](#two-tales-of-binary-search) the code code up and down `<Page />`, deleting chunk by chunk until the re-renders stopped, we discovered the fix to be fairly straight forward. Just move the invocation of `connectSidebar` and `connectMain` outside of the `Template` function context into the module context. Fixing the
+After [binary searching](#two-tales-of-binary-search) the code code up and down `<Page />`, deleting chunk by chunk until the re-renders stopped, we discovered the fix to be fairly straight forward. Just move the invocation of `connectSidebar` and `connectMain` outside of the `Template` function context into the module context.
 
 ```javascript
 // Template.js
@@ -1421,7 +1421,7 @@ export default (...props) => {
 }
 ```
 
-Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function and calling it anew each time.
+Now, when `<Layout />` was rendered, the child component passed as the prop `sidebar` wouldn't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function in memory and executing it fresh every time.
 
 Sigh. We likely ended up in this place by not being careful with nested connectors and their subscription boundaries. Sometimes you forget that it's just functions all the way down. Like, declaring and assigning a component constructor inside another component constructor would not be how you'd typically compose your functions. I will humbly accept this not uncommon (read: forgivable) symptom of "bottom-up" programming. (See David Kourshid's [talk](https://www.youtube.com/watch?v=RqTxtOXcv8Y) about finite state machines and the sad stories of "bottom-up").
 
