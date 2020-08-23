@@ -578,13 +578,15 @@ Overall this design provides increased confidence that this display component, o
 Tags: _Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani_  
 **3/12/2020**
 
-Lately I've been thinking about productivity and it's evolutionary rhythm with scale. Like, how easy the cadence ebbs. My lived experience is often multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking timezone crossing to achieve a merge.
+Lately I've been thinking about productivity and it's evolutionary rhythms at scale. Particularly, how easy the cadence can ebb because my lived experience is often combinatory slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking timezone crossing to achieve a merge.
 
-It's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast.
+It's _after office_ in Argentina wine country, chairs slide back to make room for the asado's descending penumbra; but I'm slamming my first turmeric-dashed perk.
 
-The compounded burden of a cross-geo async request requires I hunker down to understand what they're code is doing and what it's supposed to do -- without direct assistance from the author. While async communication over Slack is ok, closing the mental gap in understanding the code changes is tough. We are facing a kind of Derridean differánce. As if navigating the palimpsest wasn't enough. Multiple personages reading and explaining the code text, scribbling comments, changing, re-reading the next day; discovering the truth in the spaces/tabs. Reading software is really tough stuff. This impact of distance and time spent to "get up to speed" (pun intended) is a delta that doesn't always feel satisfyingly addressed by organizational planning.
+The compounded burden of a cross-geo async request requires I hunker down to understand what they're code is doing and what it's supposed to do without assistance from the author. I'm not averse to async communication over Slack, but what if there is urgency: a bug, a block. Closing the mental gap in code changes is tough. Reading correctly is hard without speaking (with them). Perhaps we face a kind of Derridean differánce in these moments. As if navigating the palimpsest wasn't enough. The layers are also time and culture (roadmap) dilated, not simply stylistic antagonists. The verbs left by these folks are tough.
 
-Does this sound like what you do for work?:
+I guess what I'm discovering is that the distance and time spent to "get up to speed" is a material disruption that doesn't always feel satisfyingly addressed by organizational planning.
+
+Does this sound like what you do for work?
 
 > Every software project is like a palimpsest where every developer scratches old text, and writes on top of it their perceived new solution, creating a manuscript where a mix off styles and languages reflect different understandings of the world, different world visions.
 >
@@ -596,35 +598,35 @@ And
 >
 > <footer><small><cite>Positions</cite></small>
 
-Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. But apparently that's what men in the industry used to think.
+Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. Though apparently that's what men in the industry used to think.
 
-Not too long into my first software gig my team of 5 engineers organized a book club and tackled _The Mythical Man Month_. That's when I really learned how dev teams became reduced to fungible "resources." (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?" So I apparently it's a quite current theme.) It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains.
+_---_
 
-Oh startup learnings. Entering an industry is a crash course y'all!
+Not too long into my first software gig my team of 5 engineers organized a book club and tackled _The Mythical Man Month_. That's when I really learned how dev teams became reduced to fungible "resources." (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?" So I apparently it's a historically recurrent theme.) It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains.
 
 > Adding manpower to a late software project makes it later.
 >
 > <footer><small><cite>The Mythical Man-Month</cite></small></footer>
 
-If we believe Jessica Kerr and the Jessica Kerrian systems theorists of our ilk, and on this point I do -- software is a symmathesy: _a learning system of learning parts_. Brooks must have believed something similar I just don't remember his words or if he had a systems-thinking bent.
+If we believe Jessica Kerr and the other cyberneticians of our ilk, and on this point I might -- software is a symmathesy: _a learning system of learning parts_. Brooks must have believed something similar I just don't remember his exact words.
 
-Brooks' insights feel situated as early symmathecist thinking. Software is so highly sophisticated, so highly _complicated_!, that command and control thinking can't intervene to establish order:
+Nonetheless, I interpolate. Brooks' insights feel situated as early symmathecist thinking. Software is so highly sophisticated, so highly _complicated_!, that command and control thinking can't intervene to establish order:
 
 > As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.
 >
 > <footer><small><cite>Ibid.</cite></small></footer>
 
-So why does this happen? Like, despite Brooks' spacious, ethereal characterization of our work as _only slightly removed from pure thought-stuff_ where we build _castles in the air_ (words I do remember wonderingly)...we definitely live through a tangible stickiness, a slog, frustrations, indeterminate waiting, blockedness; especially mid-to-late in the build cycle. I swear there's something metallic about a build failure.
+So why does this happen? Like, despite Brooks' spacious, ethereal characterization of our work as _only slightly removed from pure thought-stuff_ where we build _castles in the air_ (words I do remember wonderingly)...we definitely live through a tangible stickiness, queues, waiting rooms; especially mid-to-late in the build cycle. Things get really hard. I swear there's something even metallic about a build failure.
 
-Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project gets harder because design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if the component handlers should call to the reducer, why are you calling `setState()` directly in the handler? Because...the rush to the finish line produces anxiety that strains communication. You shift from pensive philosopher to tactician; code breaker. Code review quality suffers; if only for the obvious reason that you need to dig in on constructing your own code for more hours in the day, decreasing mental reserves for context switching to someone else's. All that great senior leadership out the door. There's just less talking; less Slack ping pong. No matter how high-performing the team, I'm convinced there will be some communication degradation in the twilight hours.
-
-Here's another way to cut that slog from Jessica Kerr in her seminal reveal of software/symmathesy. Slog derived from complex semilatices:
-
-> In order to change our system, we need a mental model of it. Each developer has a mental model of the software we work on. Each developer’s mental model is necessarily incomplete and out of date. And, they’re each different from everyone else’s. (this is called Woods’ Law, if I recall correctly.) We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
+> In order to change our system, we need a mental model of it. Each developer has a mental model of the software we work on. Each developer’s mental model is necessarily incomplete and out of date. And, they’re each different from everyone else’s. (This is called Woods’ Law, if I recall correctly.) We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
 >
 > <footer><small><cite><a href="https://medium.com/@old_sound/code-is-a-palimpsest-c4fd0ebcd90c">the Origins of Opera and the Future of Programming</a></cite></small></footer>
 
-When I read Coda Hale's recent piece _Work Is Work_ all of this pain was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism that adds a seductive element for the modern mind struggling in their unwieldy symmathesies. What Karatani would call our "will to architecture". This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so similar to Brooks, but for orgs, Hale says:
+Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project becomes increasingly difficult because previous design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if the component handlers should call to the reducer, why are you calling `setState()` directly in the handler? Because...the rush to the finish line produces anxiety that strains communication (within the already polynomial channeling). You shift from pensive philosopher to tactician; code breaker. Code review quality suffers; if only for the obvious reason that you need to double down on crafting and glueing code for more hours in the day. This, in turn, decreasing mental reserves for context switching to someone else's code. All that great senior leadership out the door. There's simply less consensus building. Public Slack channels are quieter. Regardless how high-performing the team, I'm convinced there will be some communication degradation in the twilight hours.
+
+_---_
+
+When I read Coda Hale's recent piece _Work Is Work_ all of this ugh was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism that adds a seductive element for the modern SWE struggling in their unwieldy symmathesies; what Karatani would call our "will to architecture". This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so similar to Brooks, but for orgs, Hale says:
 
 > At some point in time, every organization realizes that it’s slowing down.
 >
@@ -1305,12 +1307,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
