@@ -111,7 +111,7 @@ function reverseInt(int) {
 }
 ```
 
-But it has come to my attention that a mathy person prefers preservation, whereby the the input is worked over again and again with division, multiplication, and recombination (which I also deploy).
+But it has come to my attention that a mathy person prefers preservation, whereby the input is worked over again and again with division, multiplication, and recombination (which I also deploy).
 
 ```js
 function reverseInt(int) {
