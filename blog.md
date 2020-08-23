@@ -79,7 +79,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _javascript, algorithms, integers_  
 8/6/2020
 
-Making code do something requires exactness but that doesn't necessarily mean programmers will express grammars with any particular concision or ease. Code is an outcome of social construction, background, perhaps aesthetic desire. Toy code problems reveal the apparatus, for sure. If you ask me to reverse an integer I'll build a world of arrays -- because I like them. Directionality makes me think of traversal, therefore arrays. I also recall the `reverse()` convenience immediately. However, as a result, I'm forced to deploy morphological contortions; which might feel icky for someone deriving themselves inside an algorithmic hermitage.
+Making code do something requires exactness but that doesn't necessarily mean programmers will express grammars with any particular concision or ease. Code is an outcome of social construction, background, perhaps aesthetic desire. Toy code problems reveal the apparatus, for sure. If you ask me to reverse an integer I'll build a world of arrays -- because I like them. Directionality makes me think of traversal, therefore arrays. I also recall the `reverse()` convenience immediately. However, as a result, I'm forced to deploy morphological contortions; which might feel icky for someone derived within an algorithmic hermitage, auto-recursively deriving pleasure therein.
 
 ```js
 function reverseInt(int) {
