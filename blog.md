@@ -84,7 +84,7 @@ Making code do something requires exactness but that doesn't necessarily mean pr
 ```js
 function reverseInt(int) {
   // STEP 1 - morph
-  let intAsArrayOfStrings = int.toString().split('')
+  let intAsArrayOfChars = int.toString().split('')
 }
 ```
 
@@ -92,10 +92,10 @@ Reversal is now nearby:
 
 ```js
 function reverseInt(int) {
-  // let intAsArrayOfStrings = int.toString().split('')
+  // let intAsArrayOfChars = int.toString().split('')
 
   // STEP 2 - traverse, recombine
-  let reversedIntString = intAsArrayOfStrings.reverse().join('')
+  let reversedIntString = intAsArrayOfChars.reverse().join('')
 }
 ```
 
@@ -103,8 +103,8 @@ All that remains is a second transmogrification back to the initial type and sig
 
 ```js
 function reverseInt(int) {
-  // let intAsArrayOfStrings = int.toString().split('')
-  // let reversedIntString = intAsArrayOfStrings.reverse().join('')
+  // let intAsArrayOfChars = int.toString().split('')
+  // let reversedIntString = intAsArrayOfChars.reverse().join('')
 
   // STEP 3 - Sign
   let result = Number(reversedIntString) * Math.sign(num)
