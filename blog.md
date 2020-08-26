@@ -85,7 +85,7 @@ Making code do something requires exactness but that doesn't necessarily mean pr
 ```js
 function reverseInt(int) {
   // STEP 1 - morph
-  let intAsArrayOfChars = int.toString().split('')
+  let intAsArrayOfStrings = int.toString().split("");
 }
 ```
 
@@ -96,7 +96,7 @@ function reverseInt(int) {
   // let intAsArrayOfChars = int.toString().split('')
 
   // STEP 2 - traverse, recombine
-  let reversedIntString = intAsArrayOfChars.reverse().join('')
+  let reversedIntString = intAsArrayOfStrings.reverse().join("");
 }
 ```
 
@@ -108,7 +108,7 @@ function reverseInt(int) {
   // let reversedIntString = intAsArrayOfChars.reverse().join('')
 
   // STEP 3 - Sign
-  let result = Number(reversedIntString) * Math.sign(num)
+  let result = Number(reversedIntString) * Math.sign(num);
 }
 ```
 
@@ -116,15 +116,15 @@ But it has come to my attention that a mathy person prefers preservation, whereb
 
 ```js
 function reverseInt(int) {
-  let remainder = 0
-  let result = 0
+  let remainder = 0;
+  let result = 0;
 
   while (int) {
-    remainder = int % 10
-    result = result * 10 + remainder
-    int = parseInt(int / 10)
+    remainder = int % 10;
+    result = result * 10 + remainder;
+    int = parseInt(int / 10);
   }
-  return result
+  return result;
 }
 ```
 
@@ -133,11 +133,11 @@ But there's no translation from integer to array. No shift. Grammar school level
 Also, been thinking about `slice` a lot today. Never stop dreaming:
 
 ```js
-let intAsStr = int.toString()
+let intAsStr = int.toString();
 new Array(intAsStr.length)
   .fill(null)
   .map((_, idx) => intAsStr.slice(-(idx + 1))[0])
-  .join('')
+  .join("");
 ```
 
 # What's a bug?
@@ -172,7 +172,7 @@ function List({ items }) {
       <li>{item.name}</li>
       {item.children && <List expanded={expanded} items={item.children} />}
     </ul>
-  ))
+  ));
 }
 ```
 
@@ -203,13 +203,13 @@ Like, (deep) flattening an array:
 function deepFlatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      deepFlatten(element, result)
+      deepFlatten(element, result);
     } else {
-      result.push(element)
+      result.push(element);
     }
   }
 
-  return result
+  return result;
 }
 ```
 
@@ -217,16 +217,16 @@ Or, fetching a complete set of data from a remote source in chunks:
 
 ```javascript
 async function fetchAll(params, all = []) {
-  let chunk = await fetch(params)
-  let nextPage = chunk.nextPage
-  all = all.concat(chunk.data)
+  let chunk = await fetch(params);
+  let nextPage = chunk.nextPage;
+  all = all.concat(chunk.data);
 
   if (nextPage) {
-    let nextParams = { ...params, page: nextPage }
-    return await fetchAll(nextParams, all)
+    let nextParams = { ...params, page: nextPage };
+    return await fetchAll(nextParams, all);
   }
 
-  return all
+  return all;
 }
 ```
 
@@ -237,19 +237,19 @@ What I quickly discovered is that just trying to capture and emit an error from 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
-      if (required && !field) return false
+      if (required && !field) return false;
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema)
+        validate(field, schema);
       }
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -261,21 +261,21 @@ Your only recourse in a recursive function is relying on outer calls -- since th
 function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
       if (required && !field) {
-        errors.push(error)
+        errors.push(error);
       }
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema, errors)
+        validate(field, schema, errors);
       }
     }
   }
 
-  return errors
+  return errors;
 }
 ```
 
@@ -287,21 +287,21 @@ In order to stop processing the org chart and return an _invalid_ result early, 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
       // It's even one less character to write! 🤣
       // Also now we have total control over the exception content
-      if (required && !field) throw new MissingFieldError(item, rule)
+      if (required && !field) throw new MissingFieldError(item, rule);
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema)
+        validate(field, schema);
       }
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -314,12 +314,12 @@ Therefore we can rename and wrap our recursive function that throws, and put it 
 ```javascript
 function validate(data, schema) {
   try {
-    validateInner(data, schema)
+    validateInner(data, schema);
   } catch (error) {
     // returns new MissingFieldError()!
-    return error
+    return error;
   }
-  return true
+  return true;
 }
 ```
 
@@ -579,15 +579,15 @@ Overall this design provides increased confidence that this display component, o
 Tags: _Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani_  
 **3/12/2020**
 
-Lately I've been thinking about productivity and it's evolutionary rhythms at scale. Particularly, how easy the cadence can ebb because my lived experience is often combinatory slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking timezone crossing to achieve a merge.
+<img src="/assets/images/semilattice.png" width="600" style="margin: 0 auto; display: block" />
 
-It's _after office_ in Argentina wine country, chairs slide back to make room for the asado's descending penumbra; but I'm slamming my first turmeric-dashed perk.
+Lately I've been thinking about productivity and it's evolutionary rhythm with scale. Like, how easy the cadence ebbs. My lived experience is often multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking timezone crossing to achieve a merge.
 
-The compounded burden of a cross-geo async request requires I hunker down to understand what they're code is doing and what it's supposed to do without assistance from the author. I'm not averse to async communication over Slack, but what if there is urgency: a bug, a block. Closing the mental gap in code changes is tough. Reading correctly is hard without speaking (with them). Perhaps we face a kind of Derridean differánce in these moments. As if navigating the palimpsest wasn't enough. The layers are also time and culture (roadmap) dilated, not simply stylistic antagonists. The verbs left by these folks are tough.
+It's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast.
 
-I guess what I'm discovering is that the distance and time spent to "get up to speed" is a material disruption that doesn't always feel satisfyingly addressed by organizational planning.
+The compounded burden of a cross-geo async request requires I hunker down to understand what they're code is doing and what it's supposed to do -- without direct assistance from the author. While async communication over Slack is ok, closing the mental gap in understanding the code changes is tough. We are facing a kind of Derridean differánce. As if navigating the palimpsest wasn't enough. Multiple personages reading and explaining the code text, scribbling comments, changing, re-reading the next day; discovering the truth in the spaces/tabs. Reading software is really tough stuff. This impact of distance and time spent to "get up to speed" (pun intended) is a delta that doesn't always feel satisfyingly addressed by organizational planning.
 
-Does this sound like what you do for work?
+Does this sound like what you do for work?:
 
 > Every software project is like a palimpsest where every developer scratches old text, and writes on top of it their perceived new solution, creating a manuscript where a mix off styles and languages reflect different understandings of the world, different world visions.
 >
@@ -1017,13 +1017,13 @@ While maybes represent one or no value, Just or Nothing, Either implementations 
 Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
 ```javascript
-const exists = (x) => x !== null
+const exists = (x) => x !== null;
 const ifExists = (value) =>
   exists(value)
     ? Promise.resolve(value)
-    : Promise.reject(`Invalid prop: ${value}`)
+    : Promise.reject(`Invalid prop: ${value}`);
 
-ifExists(prop.name).then(renderName).catch(log)
+ifExists(prop.name).then(renderName).catch(log);
 ```
 
 Here basic null checking and \*primitive" if/else binaries are replaced with a more expressive, semantically rich statement for the logical disjunction: proceed this way if success, or that way.
@@ -1482,13 +1482,13 @@ After [binary searching](#two-tales-of-binary-search) the code code up and down 
 
 ```javascript
 // Template.js
-const Sidebar = connectSidebar(Sidebar)
-const Main = connectMain(Main)
+const Sidebar = connectSidebar(Sidebar);
+const Main = connectMain(Main);
 
 export default (...props) => {
   // ...
-  return <Layout sidebar={Sidebar} main={Main} />
-}
+  return <Layout sidebar={Sidebar} main={Main} />;
+};
 ```
 
 Now, when `<Layout />` was rendered, the child component passed as the prop `sidebar` wouldn't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function in memory and executing it fresh every time.
@@ -1602,7 +1602,7 @@ There are too many imports in this file. I'm staring down like 50 lines of impor
 And as am I'm looking at this statement inside a `render()` block:
 
 ```javascript
-const isSoldOut = this.props.statusType == SOLD_OUT
+const isSoldOut = this.props.statusType == SOLD_OUT;
 ```
 
 I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago:
@@ -1612,14 +1612,14 @@ I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago
 That's it, that's my out. We can refactor this down to a data utility.
 
 ```javascript
-const isSoldOut = ({ status }) => status === SOLD_OUT
+const isSoldOut = ({ status }) => status === SOLD_OUT;
 ```
 
 Or we might even abstract this into a general utility if it makes sense:
 
 ```javascript
 const getTicketStatusType = (ticketProps) =>
-  STATUS_TYPES_MAP[get(ticketProps, 'status')]
+  STATUS_TYPES_MAP[get(ticketProps, "status")];
 ```
 
 While these functions are not decreasing the number of imports, I'm perhaps doing a few other useful things:
