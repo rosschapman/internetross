@@ -801,6 +801,8 @@ Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-
 Tags: _large applications, large teams, duplication_  
 **1/20/2020**
 
+<img src="/assets/images/doublemint.jpg" width="600" style="margin: 0 auto; display: block" />
+
 At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication _across_ client and api layers. I kept seeing this type of repetition occur and it was creating too much maintenance risk in the code.
 
 Here's an example. Imagine a piece of code that takes inventory data from an order and derives a cost based on the order status. This calculation could be executed in the api layer, where it would be serialized into response body adjacent to the original cost data. Something like:
