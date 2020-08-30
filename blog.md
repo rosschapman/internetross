@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4](#the-awkwardsness-of-downloading-concurrent-asynchronous-academic-threads-around-20034)
 - [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
 - [What's a bug?](#whats-a-bug)
 - [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
@@ -74,6 +75,19 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4
+
+Tags: _feminism, racism, academia, memory_  
+8/30/2020
+
+Halfway through _Companions in Conversation_ and I'm having this memory of being in college -- clacking away code points on the cheap silicons of a Micron computer -- practicing new knowledges in my class essays just like Haraway admits while writing the _Cyborg Manifesto_: "trying out some of the knowledges that hadn’t been mine that I was getting from my colleagues _[professors (in my case)]_ and the graduate students in the program." I remember deploying the token "implosion." I probably got it from Haraway.
+
+And yet -- perhaps a small singe of regret in my tummy neuronics, and deja vu -- this word play was happening while I was coming to grips with the nightmare material of Black and Brown people in America through black feminist and black feminist incarceration studies. Our class journalled, and so I produced heartbroken journaling about the new Jim Crow (pre Michelle Alexander), taking some liberties with text. I wonder, now, if the linguistic turns in those reflections foreclosed, too soon, real collaborative feeling; like community, or, because it's hard to resist, kinship and worlding. Like, was it annoying and arrogant production as a white man (albeit barely emerged from childhoo)? I regret a final project that was a bit too stylistic and "discursive." I'm remembering a kind of safe feeling in postructuralism. But perhaps that was just the safety of academia which easily postpones praxis and _doing something_ while chatting in well-funded monuments to robber barons. Because, like, I'm also remembering that the materiality was a welcome call to action. Perhaps I wielded it -- some subconscious desire for participation in social movemnet -- as an antidote to the fist two years of cultural studies and dorm-room politics. It's hard to remember exactly if I was that wise; maybe the blunt horrors of the Bush regime's colonialism/imperialism was enough of a catalytic flow through the student bodies progressive consciousness.
+
+Still, interesting to wonder, now, about the concurrent postructural deluge of neologisms and deconstructuring of gender, race, class opressions, cyborg multiplicities back then; while faced with newly understood, centuries old urgencies of white supramcist capitalist patriarchy and Black holocaust. I'm at the same place now, returned, recurred. Which is somewhat shocking and all to expected in America.
+
+That said, the second time around, considering how Haraway's work traveled and continues to travel in the last 15-20 years, I'm excited to be hailed again, thinking with her. While moving duckets to organizing, talking to white brothers about racism. Worlding assemblages seems really relevant still as the complexes of racial capitalism and white psychosis have become wider, deeper, and micronic.
 
 # Byzantine algorithm studies: Using math to reverse an integer
 
