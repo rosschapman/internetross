@@ -81,6 +81,8 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _feminism, racism, academia, memory_  
 8/30/2020
 
+<img src="/assets/images/manifestly_haraway.jpg" width="600" style="margin: 0 auto; display: block" />
+
 Halfway through _Companions in Conversation_ and I'm having this memory of being in college -- clacking away code points on the cheap silicons of a Micron computer -- practicing new knowledges in my class essays just like Haraway admits while writing the _Cyborg Manifesto_: "trying out some of the knowledges that hadn’t been mine that I was getting from my colleagues _[professors (in my case)]_ and the graduate students in the program." I remember deploying the token "implosion." I probably got it from Haraway.
 
 And yet -- perhaps a small singe of regret in my tummy neuronics, and deja vu -- this word play was happening while I was coming to grips with the nightmare material of Black and Brown people in America through black feminist and black feminist incarceration studies. Our class journalled, and so I produced heartbroken journaling about the new Jim Crow (pre Michelle Alexander), taking some liberties with text. I wonder, now, if the linguistic turns in those reflections foreclosed, too soon, real collaborative feeling; like community, or, because it's hard to resist, kinship and worlding. Like, was it annoying and arrogant production as a white man (albeit barely emerged from childhoo)? I regret a final project that was a bit too stylistic and "discursive." I'm remembering a kind of safe feeling in postructuralism. But perhaps that was just the safety of academia which easily postpones praxis and _doing something_ while chatting in well-funded monuments to robber barons. Because, like, I'm also remembering that the materiality was a welcome call to action. Perhaps I wielded it -- some subconscious desire for participation in social movemnet -- as an antidote to the fist two years of cultural studies and dorm-room politics. It's hard to remember exactly if I was that wise; maybe the blunt horrors of the Bush regime's colonialism/imperialism was enough of a catalytic flow through the student bodies progressive consciousness.
@@ -93,8 +95,6 @@ That said, the second time around, considering how Haraway's work traveled and c
 
 Tags: _javascript, algorithms, integers_  
 8/6/2020
-
-<img src="/assets/images/manifestly_haraway.jpg" width="600" style="margin: 0 auto; display: block" />
 
 Making code do something requires exactness but that doesn't necessarily mean programmers will express grammars with any particular concision or ease. Code is an outcome of social construction, background, perhaps aesthetic desire. Toy code problems reveal the apparatus, for sure. If you ask me to reverse an integer I'll build a world of arrays -- because I like them. Directionality makes me think of traversal, therefore arrays. I also recall the `reverse()` convenience immediately. However, as a result, I'm forced to deploy morphological contortions; which might feel icky for someone derived within an algorithmic hermitage, auto-recursively deriving pleasure therein.
 
