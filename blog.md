@@ -89,7 +89,7 @@ And yet -- perhaps a small singe of regret in my tummy neuronics, and deja vu --
 
 Still, interesting to wonder, now, about the concurrent postructural deluge of neologisms and deconstructuring of gender, race, class opressions, cyborg multiplicities back then; while faced with newly understood, centuries old urgencies of white supramcist capitalist patriarchy and Black holocaust. I'm at the same place now, returned, recurred. Which is somewhat shocking and all too expected in America.
 
-That said, the second time around, considering how Haraway's work traveled and continues to travel in the last 15-20 years, I'm excited to be hailed again, thinking with her. While moving duckets to organizing, talking to white brothers about racism. Worlding assemblages seems really relevant still as the complexes of racial capitalism and white psychosis have become wider, deeper, and micronic.
+That said, the second time around, considering how Haraway's work traveled and continues to travel in the last 15-20 years, I'm excited to be hailed again, thinking with her. While moving duckets to organizing, talking to white brothers about racism. Worlding assemblages seems really relevant still as the complexes of racial capitalism and white psychosis have become wider, deeper, and more micronic.
 
 # Byzantine algorithm studies: Using math to reverse an integer
 
