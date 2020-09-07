@@ -85,7 +85,7 @@ Tags: _decision-making, Gary Klein, >Code, recognition primed decision_
 <figure>
 <img src="./assets/images/the-loss-of-sexual-innocence-1999.jpg" width="600" style="margin: 0 auto; display: block">
 
-<figcaption><center><small>Femi Ogunbanjo & Hanne Klintoe, 1999, *The Loss of Sexual Innocence*</small></center></figcaption>
+<figcaption><center><small>Femi Ogunbanjo & Hanne Klintoe, 1999, <em>The Loss of Sexual Innocence</em></small></center></figcaption>
 </figure>
 
 Back in February, my entire notion of _expertise_ and who experts make decisions was shifted after listening to episode 169 of the _Greater than Code_ podcast. If interrogated about experts and decisions I would have previously hazarded a guess that experts -- how/whom-ever defined -- bring a deeply refined and studied analysis to bear. Like, after 20 years of programming, a person can query their extensive psycho-somatic memory database using a rigor only gained through extensive tutelage, study, and practice.
