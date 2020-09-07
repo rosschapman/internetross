@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [The loss of logical purity primacy](#the-loss-of-logical-purity-primacy)
 - [The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4](#the-awkwardsness-of-downloading-concurrent-asynchronous-academic-threads-around-20034)
 - [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
 - [What's a bug?](#whats-a-bug)
@@ -76,6 +77,75 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
+# The loss of logical purity primacy
+
+Tags: _decision-making, Gary Klein, >Code, recognition primed decision_  
+9/7/20
+
+<figure>
+<img src="./assets/images/the-loss-of-sexual-innocence-1999.jpg" width="600" style="margin: 0 auto; display: block">
+
+<figcaption><center><small>Femi Ogunbanjo & Hanne Klintoe, 1999, *The Loss of Sexual Innocence*</small></center></figcaption>
+</figure>
+
+Back in February, my entire notion **of** _expertise_ and who experts make decisions was shifted after listening to episode 169 of the _Greater than Code_ podcast. If interrogated about experts and decisions I would have previously hazarded a guess that experts -- how/whom-ever defined -- bring a deeply refined and studied analysis to bear. Like, after 20 years of programming, a person can query their extensive psycho-somatic memory database using a rigor only gained through extensive tutelage, study, and practice.
+
+After finishing that sentence I'm struck by how cyberpunk-capitalist fantasy that sounds: the false equation of the brain with a persistent data store; the privileging of a narrative that expertise is tied to accumulation. The time-value of memory, perhaps!
+
+It's kind of wild: wondering about what sort of instinct decision-making _is_ in concrete terms. Especially for yours truly who has no real erudition of the inner-workings of the brain or human beings on a psychological or physiologiccal level.
+
+Thankfully we have the >Code crew to help us amateurs consider Decision Theory from the saftey of our own home. In contrast to my dreamscape, episode 169 >Code panelists offered a different notion of expertise -- particularly when it's exercised in time pressure situations, ie corporate business environs -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase Rein's paraphrasing of Gary Klein:
+
+> Expertise is an act of rapid mental simulation without formal analysis based on previous experience. It's more akin to "instinct" than a cartesian scientific methodology.
+
+Informed, not overly formal; certainly not grooved to Western patriarchal maths; but not totally informaled! Gary Klein calls this model for quick decision making the "recognition primed decision." _RPD_.
+
+I find RPD comforting as a way to rethink my role as an expert on the software job despite fewer than a decade practicing my trade -- a trifling "mid-level" engineer! While RPD does reveal the distinctions between less experienced and more experienced people -- notably their alacrity to come up with a first course of action -- the fact that decision-making is more like pattern matching, recognizing the least dangerous choice, or mentally modeling outcomes (see [Variations](https://en.wikipedia.org/wiki/Recognition_primed_decision#Variations)) -- the way I see it, RPD ramifies a permission for folks with less years of experience to face spontaneously emerging decision-making moments in the workplace without existential angst. That is, we should trust our gut if we come up with something. RPD also beseeches us to expel myths like (quickly riffing): _Principal and Staff technologists have reached their eminent station by putting in the time to refine their powers of inspection, analysis, interpretation, evaluation; they've amassed all the good frameworks, methodologies, and systems into their memory bank; and decisions they make are conclusive (foreclosing, narrowly, the scope of possibilty) because of this special toolkit which is wielded with reason._
+
+Reason and logic might factor into the mental simulation that occurs, but there's a primacy of imagination and _knowing deep down_; maybe strenght of will, even?
+
+I am enough. My powers to decide can be excellent.
+
+Of course, that doesn't mean my first guess won't be totally wrong. But hopefully no one is asked to fix something urgent that far exceeds their notions of that universe and has harmful ramifications on people if the mark is missed.
+
+I did some additional reflection with the >Code community in their Slack on why I was feeling relieved by Klein's ideas (Jessica Kerr hearted this so I'm feeling proud to share!):
+
+> Thanks. This really struck me because I think I have internalized some idea that experts have these academically rigorous approaches to problems where they draw on frameworks and data and tools blah blah to come to conclusions.
+
+Then Rein chimes in:
+
+> Yeah, the analytic decision-making mode is what we are taught, but it's not what people actually use, especially in high-pressure situations.
+
+The me again:
+
+> Oh right that was the other piece. [Making decisions under] high pressure. Which in corporate culture feels like all the time a lot.
+
+Then some other folks tried to pivot the conversation to talk about how web tech is not really that high "pressure" because bad decisions don't kill people or necessarily tank the business immediately. So I continue:
+
+> I understand where y’all went with that idea of “high pressure.” But even without the kinds of excess you describe — which I’m grateful not to feel at my (fairly spread out) 1000 person company — I still feel like I’m caught up in a heavy stream; not in a surprising or terribly uncomfortable way; but like a tireless machine of ambient conversation between me and my work and my coworkers that is always humming. So maybe “high pressure” in the sense of constant. Day to day I feel coerced into what feels like quick/on-the-spot decision-making, and always on guard for such; and that’s definitely challenging for me.
+
+> Like, I’m a developer, and I have to make a ton of small decisions all day long when coding. Even medium-sized decisions. (Like the other day deciding whether to coordinate on a revision of a standard component with a team in Spain with similar needs, vs plowing ahead myself because I knew that process may take weeks and I needed output in days). And often these decisions have to happen within a matter of minutes because of the above normal buzz. I think I remember there was another episode where folks talked about how developers make more decisions than CEOs on any given day?
+
+> I was finding comfort in this idea from Gary Klein because I can consider whatever my instinct draws on in that moment to be a practice of expertise. I can feel like an expert; and without any added insecurity for a lack of analytical rigor, if I had to explain my decision. I usually have confidence in my decisions, but I didn’t have a framing of it as expertness. A framing I was likely lacking, as Rein said, because I’ve been taught a dichotomy between analytical thinking and instinct, where there actually isn’t one; at least as I understand the idea without having read the book yet. But as someone relatively new in the industry — just around 6 years building web — being able to come into expertise or see it forming in my behavior is really nice.
+
+Earlier today, delving through _Software Development and Reality Construction_, I was delighted to discover another rebuke to my previous ideas of expertise as analyitical reason meets a database. It smacked of Klein and I wonder if Reinhard Keil-Slawik is influenced by Klein -- or conversely -- or perhaps they swarm with each other in that world of systems thinking, cybernetics, constructivism, etc...
+
+From Keil-Slawik's essay _Artifacts in Software Design_:
+
+<p><img src="./assets/images/reinhard-keil-slawik-insight.png" width="600" style="margin: 0 auto; display: block"></p>
+
+Klein seems to intone that expertise -- ie "insight" -- is an enrichening of "understanding." Understanding being a cognitive structure derived from the encounter with our envionrment which mashes up phenomena (physical, etc...) and circumstance. It's not random access from a _brain-as-database_ that has been populated with arrangements of stuff from "out there" - outside ourself/mind -- (previous cognitive structures); as if insight is _just_ a result of recall or trial; that smacks of an easy slippage slide into decision paralysis.
+
+Rather it's:
+
+<p><img src="./assets/images/reinhard-keil-slawik-insight-2.png" width="600" style="margin: 0 auto; display: block"></p>
+
+This notion seems to gel well with RPD. I wonder if Klein would welcome this cognitive science to explain how we _do_ decisions.
+
+I'm tempted to accept this explanation pro-tem since the thought of unbounded accumulation of stuff in the brain, and lookup at exponential runtime, doesn't satisfactorily explain the reliable guesses of experts under time pressure.
+
+Keil-Slawik and kin are proposing the idea of human expertise as an individual construction of meaning, as well as a co-constitutive emergence of our own body/mind wisdom and the "external memory" of symbols and tools we work with. The latter is an important point because it reinserts the imporatnce of mneumonic s being turing machines, algebra, languages, frameworks, etc.... This affords us the benefit of a tradeoff: speed of resolution over perfectness. The example Keil-Slawik gives is of the ape who, if taught once to put sticks together to reach a banana, will subsequently devise similar means of combining objects to get the banana "without any hesitation...and any similar situation."
+
 # The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4
 
 Tags: _feminism, racism, academia, memory_  
@@ -101,7 +171,7 @@ Making code do something requires exactness but that doesn't necessarily mean pr
 ```js
 function reverseInt(int) {
   // STEP 1 - morph
-  let intAsArrayOfStrings = int.toString().split("");
+  let intAsArrayOfStrings = int.toString().split('')
 }
 ```
 
@@ -112,7 +182,7 @@ function reverseInt(int) {
   // let intAsArrayOfChars = int.toString().split('')
 
   // STEP 2 - traverse, recombine
-  let reversedIntString = intAsArrayOfStrings.reverse().join("");
+  let reversedIntString = intAsArrayOfStrings.reverse().join('')
 }
 ```
 
@@ -124,7 +194,7 @@ function reverseInt(int) {
   // let reversedIntString = intAsArrayOfChars.reverse().join('')
 
   // STEP 3 - Sign
-  let result = Number(reversedIntString) * Math.sign(num);
+  let result = Number(reversedIntString) * Math.sign(num)
 }
 ```
 
@@ -132,15 +202,15 @@ But it has come to my attention that a mathy person prefers preservation, whereb
 
 ```js
 function reverseInt(int) {
-  let remainder = 0;
-  let result = 0;
+  let remainder = 0
+  let result = 0
 
   while (int) {
-    remainder = int % 10;
-    result = result * 10 + remainder;
-    int = parseInt(int / 10);
+    remainder = int % 10
+    result = result * 10 + remainder
+    int = parseInt(int / 10)
   }
-  return result;
+  return result
 }
 ```
 
@@ -149,11 +219,11 @@ But there's no translation from integer to array. No shift. Grammar school level
 Also, been thinking about `slice` a lot today. Never stop dreaming:
 
 ```js
-let intAsStr = int.toString();
+let intAsStr = int.toString()
 new Array(intAsStr.length)
   .fill(null)
   .map((_, idx) => intAsStr.slice(-(idx + 1))[0])
-  .join("");
+  .join('')
 ```
 
 # What's a bug?
@@ -219,7 +289,7 @@ Like, (deep) flattening an array:
 function deepFlatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      deepFlatten(element, result);
+      deepFlatten(element, result)
     } else {
       result.push(element)
     }
