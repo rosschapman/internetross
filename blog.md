@@ -79,11 +79,15 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags:
 7/11/20
 
-Back in February, my entire notion of _expertise_ and decision-making was drastically shifted after listening to episode 169 of the _Greater than Code_ podcast. (At least I think this was the episode). If you had asked me beforehand to define what "expertise" is brought to bare for decision-making I would have said something like:
+---
 
-> The indexing of things that should happen or what they should look like to solve problems (stored in the brain, I guess?) that is combined with a rigorous and precise scientifically methodological approach (improved over time, probably also stored in the brain?) that is used to retrieve, rearrange, and replay experience agains the new problem phenomena. In other words, make an "informed decision."
+Back in February, my entire notion **of** _expertise_ and decision-making was drastically shifted after listening to episode 169 of the _Greater than Code_ podcast. If you had asked me beforehand to describe how expertise functions for a human when making decisions I would hazard a guess like:
 
-During the episode a different notion of expertise is put forth -- particularly when it's exercised in high pressure situations -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase:
+_The brain indexes things after overcoming challenges and problems alonside things learnt from case study. Then a rigorous and precise methodological approach -- like a learned framework you got from a smart person -- is used to query, arrange, and replay these indexed scenarios against the current problem phenomena to land on an appropriate response. In other words, the result is a kind of synthesis of material knowledges._
+
+Which, as I'm writing this, strikes me as a kind of cyberpunk-capitalist fantasy that falsey equates the brain with a persistent data store and privileges a story of life as accumulation -- the time-value of memory, perhaps. And yet, wondering about what sort of instinct decision-making _is_ in concrete terms for someone who has no real erudition of the inner-workings of the brain or human beings on a psychological or physiologicla level was a fun little exercise -- considering I had never really thought about it earnestly before...ultimately, 'tis pretentious.
+
+Thankfully we have the >Code crew. In contrast, >Code episode panelists offered a different notion of expertise -- particularly when it's exercised in high pressure situations, ie corporate business environs -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase:
 
 > Expertise is an act of rapid mental simulation without formal analysis based on previous experience. It's more akin to "instinct" than a cartesian scientific methodology.
 
@@ -150,7 +154,7 @@ function List({ items }) {
       <li>{item.name}</li>
       {item.children && <List expanded={expanded} items={item.children} />}
     </ul>
-  ));
+  ))
 }
 ```
 
@@ -183,13 +187,13 @@ Like, flattening an array:
 function flatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      flatten(element, result);
+      flatten(element, result)
     } else {
-      result.push(element);
+      result.push(element)
     }
   }
 
-  return result;
+  return result
 }
 ```
 
@@ -197,16 +201,16 @@ Or, fetching a complete set of data from a remote source in chunks:
 
 ```javascript
 async function fetchAll(params, all = []) {
-  let chunk = await fetch(params);
-  let nextPage = chunk.nextPage;
-  all = all.concat(chunk.data);
+  let chunk = await fetch(params)
+  let nextPage = chunk.nextPage
+  all = all.concat(chunk.data)
 
   if (nextPage) {
-    let nextParams = { ...params, page: nextPage };
-    return await fetchAll(nextParams, all);
+    let nextParams = { ...params, page: nextPage }
+    return await fetchAll(nextParams, all)
   }
 
-  return all;
+  return all
 }
 ```
 
@@ -217,19 +221,19 @@ What I quickly discovered is that just trying to capture and emit an error from 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
-      if (required && !field) return false;
+      if (required && !field) return false
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema);
+        validate(field, schema)
       }
     }
   }
 
-  return true;
+  return true
 }
 ```
 
@@ -241,21 +245,21 @@ Your only recourse in a recursive function is relying on outer calls -- since th
 function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
       if (required && !field) {
-        errors.push(error);
+        errors.push(error)
       }
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema, errors);
+        validate(field, schema, errors)
       }
     }
   }
 
-  return errors;
+  return errors
 }
 ```
 
@@ -267,21 +271,21 @@ In order to stop processing the org chart and return an _invalid_ result early, 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name];
-      let required = rule.required;
+      let field = item[rule.name]
+      let required = rule.required
 
       // It's even one less character to write! 🤣
       // Also now we have total control over the exception content
-      if (required && !field) throw new MissingFieldError(item, rule);
+      if (required && !field) throw new MissingFieldError(item, rule)
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema);
+        validate(field, schema)
       }
     }
   }
 
-  return true;
+  return true
 }
 ```
 
@@ -294,12 +298,12 @@ Therefore we can rename and wrap our recursive function that throws, and put it 
 ```javascript
 function validate(data, schema) {
   try {
-    validateInner(data, schema);
+    validateInner(data, schema)
   } catch (error) {
     // returns new MissingFieldError()!
-    return error;
+    return error
   }
-  return true;
+  return true
 }
 ```
 
@@ -1009,13 +1013,13 @@ While maybes represent one or no value, Just or Nothing, Either implementations 
 Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
 ```javascript
-const exists = (x) => x !== null;
+const exists = (x) => x !== null
 const ifExists = (value) =>
   exists(value)
     ? Promise.resolve(value)
-    : Promise.reject(`Invalid prop: ${value}`);
+    : Promise.reject(`Invalid prop: ${value}`)
 
-ifExists(prop.name).then(renderName).catch(log);
+ifExists(prop.name).then(renderName).catch(log)
 ```
 
 Here basic null checking and \*primitive" if/else binaries are replaced with a more expressive, semantically rich statement for the logical disjunction: proceed this way if success, or that way.
@@ -1474,13 +1478,13 @@ After [binary searching](#two-tales-of-binary-search) the code code up and down 
 
 ```javascript
 // Template.js
-const Sidebar = connectSidebar(Sidebar);
-const Main = connectMain(Main);
+const Sidebar = connectSidebar(Sidebar)
+const Main = connectMain(Main)
 
 export default (...props) => {
   // ...
-  return <Layout sidebar={Sidebar} main={Main} />;
-};
+  return <Layout sidebar={Sidebar} main={Main} />
+}
 ```
 
 Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function and calling it anew each time.
@@ -1594,7 +1598,7 @@ There are too many imports in this file. I'm staring down like 50 lines of impor
 And as am I'm looking at this statement inside a `render()` block:
 
 ```javascript
-const isSoldOut = this.props.statusType == SOLD_OUT;
+const isSoldOut = this.props.statusType == SOLD_OUT
 ```
 
 I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago:
@@ -1604,14 +1608,14 @@ I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago
 That's it, that's my out. We can refactor this down to a data utility.
 
 ```javascript
-const isSoldOut = ({ status }) => status === SOLD_OUT;
+const isSoldOut = ({ status }) => status === SOLD_OUT
 ```
 
 Or we might even abstract this into a general utility if it makes sense:
 
 ```javascript
 const getTicketStatusType = (ticketProps) =>
-  STATUS_TYPES_MAP[get(ticketProps, "status")];
+  STATUS_TYPES_MAP[get(ticketProps, 'status')]
 ```
 
 While these functions are not decreasing the number of imports, I'm perhaps doing a few other useful things:
