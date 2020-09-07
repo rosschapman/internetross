@@ -43,10 +43,12 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4](#the-awkwardsness-of-downloading-concurrent-asynchronous-academic-threads-around-20034)
+- [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
+- [What's a bug?](#whats-a-bug)
 - [Recursion is too easy for writing nested menus in UI](#recursion-is-too-easy-for-writing-nested-menus-in-ui)
 - [A Recursive Validation Function with User-Defined Exceptions](#a-recursive-validation-function-with-user-defined-exceptions)
 - [The explanation of Question 12 of Lydia Hallie's awesome list of JS interview questions, and others](#the-explanation-of-question-12-of-lydia-hallies-awesome-list-of-js-interview-questions-and-others)
-- [Musings about Leetcode](#musings-about-leetcode)
 - [Debugging TS in VSCode and Russel Ackhoff's Problem Treatments](#debugging-ts-in-vscode-and-russel-ackhoffs-problem-treatments)
 - [Book quotes and commentary: _Software Theory_ by Federica Frabetti](#book-quotes-and-commentary-software-theory-by-federica-frabetti)
 - [Let's talk about Orchestration vs Separation of Concerns: React/Redux Edition: Part 2](#lets-talk-about-orchestration-vs-separation-of-concerns-reactredux-edition-part-2)
@@ -74,78 +76,110 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-#
+# The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4
 
-Tags:
-7/11/20
+Tags: _feminism, racism, academia, memory_  
+8/30/2020
 
----
+<img src="/assets/images/manifestly_haraway.jpg" width="600" style="margin: 0 auto; display: block" />
 
-Back in February, my entire notion **of** _expertise_ and decision-making was drastically shifted after listening to episode 169 of the _Greater than Code_ podcast. If you had asked me beforehand to describe how expertise functions for a human when making decisions I would hazard a guess like:
+Halfway through _Companions in Conversation_ and I'm having this memory of being in college -- clacking away code points on the cheap silicons of a Micron computer -- practicing new knowledges in my class essays just like Haraway admits while writing the _Cyborg Manifesto_: "trying out some of the knowledges that hadn’t been mine that I was getting from my colleagues _[professors (in my case)]_ and the graduate students in the program." I remember deploying the token "implosion." I probably got it from Haraway.
 
-_The brain indexes things after overcoming challenges and problems alonside things learnt from case study. Then a rigorous and precise methodological approach -- like a learned framework you got from a smart person -- is used to query, arrange, and replay these indexed scenarios against the current problem phenomena to land on an appropriate response. In other words, the result is a kind of synthesis of material knowledges._
+And yet -- perhaps a small singe of regret in my tummy neuronics, and deja vu -- this word play was happening while I was coming to grips with the nightmare material of Black and Brown people in America through black feminist and black feminist incarceration studies. Our class journalled, and so I produced heartbroken journaling about the new Jim Crow (before Michelle Alexander would be able to corrupt the nation), taking some liberties with text. I wonder, now, if the linguistic turns in those reflections foreclosed, too soon, real collaborative feeling; like community (or, because it's hard to resist, kinship and worlding). All these students toiling away in separate rooms and library cublices, synthesizing separately. Autopoietic onanisms. Needed more sympoiesis. I still regret a final project that was a bit too stylistic and "discursive" -- performing the film student, trying to dazzle a little with Final Cut Pro; but some good calories lost. The art folks I admired made it hard for me to distinguish between medium and message, or situate with them with grace. (Not that Haraway was successful for everyone. But she kept playing whilst under the microscope.) I'm remembering a kind of safe feeling in postructuralism. But perhaps that was just the safety of academia which easily postpones praxis and _doing something_ while chatting in the corridors of monuments to robber barons. Because, like, I'm also remembering that the materiality was a welcome call to action. Perhaps I wielded it -- some subconscious desire for participation in activist and join movement(s) for climate, economic, gender, racial justice -- as an antidote to the fist two years of cultural studies and dorm-chair politics. It's hard to remember exactly if I was that wise; maybe the blunt horrors of the Bush regime's colonialism/imperialism was enough of a catalytic flow through the student bodies progressive consciousness.
 
-Which, as I'm writing this, strikes me as a kind of cyberpunk-capitalist fantasy that falsey equates the brain with a persistent data store and privileges a story of life as accumulation -- the time-value of memory, perhaps. And yet, wondering about what sort of instinct decision-making _is_ in concrete terms for someone who has no real erudition of the inner-workings of the brain or human beings on a psychological or physiologicla level was a fun little exercise -- considering I had never really thought about it earnestly before...ultimately, 'tis pretentious.
+Still, interesting to wonder, now, about the concurrent postructural deluge of neologisms and deconstructuring of gender, race, class opressions, cyborg multiplicities back then; while faced with newly understood, centuries old urgencies of white supramcist capitalist patriarchy and Black holocaust. I'm at the same place now, returned, recurred. Which is somewhat shocking and all too expected in America.
 
-Thankfully we have the >Code crew. In contrast, >Code episode panelists offered a different notion of expertise -- particularly when it's exercised in high pressure situations, ie corporate business environs -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase:
+That said, the second time around, considering how Haraway's work traveled and continues to travel in the last 15-20 years, I'm excited to be hailed again, thinking with her. While moving duckets to organizing, talking to white brothers about racism. Worlding assemblages seems really relevant still as the complexes of racial capitalism and white psychosis have become wider, deeper, and more micronic.
 
-> Expertise is an act of rapid mental simulation without formal analysis based on previous experience. It's more akin to "instinct" than a cartesian scientific methodology.
+# Byzantine algorithm studies: Using math to reverse an integer
 
-Informed but not informaled!
+Tags: _javascript, algorithms, integers_  
+8/6/2020
 
-I found this extremely comforting as it applies to my perception of myself at work. It means that one can face spontaneously emerging decision-making moments in the workplace with confidence; one can trust our own immediate insight. It beseeches us to expel myths like: Principal and Staff technologists have reached their eminent station by putting in the time to refine their powers of inspection, analysis, interpretation, evaluation; they've amassed all the good frameworks, methodologies, and systems into their memory bank; and decisions they make are conclusive (foreclosing, narrowly, the scope of possibilty) because of this special toolkit which is wielded daftly.
+Making code do something requires exactness but that doesn't necessarily mean programmers will express grammars with any particular concision or ease. Code is an outcome of social construction, background, perhaps aesthetic desire. Toy code problems reveal the apparatus, for sure. If you ask me to reverse an integer I'll build a world of arrays -- because I like them. Directionality makes me think of traversal, therefore arrays. I also recall the `reverse()` convenience immediately. However, as a result, I'm forced to deploy morphological contortions; which might feel icky for someone derived within an algorithmic hermitage, auto-recursively deriving pleasure therein.
 
-In other words, a "mid-level" engineer like yours truly can feel empowered to make a decision and be accountable without fabricating some kind of linear transaction of my thought process or having sat squarely in this problem-position before. I am enough.
-And my innate powers of interpretation, or however Klein would characterize the evolution of insight from within -- in that moment it can be excellent.
+```js
+function reverseInt(int) {
+  // STEP 1 - morph
+  let intAsArrayOfStrings = int.toString().split("");
+}
+```
 
-I did some additional reflection with the Greater than Code community in their Slack on why I was feeling relieved by Klein's ideas (Jessica Kerr hearted this so I'm feeling proud to share!):
+Reversal is now nearby:
 
-> Thanks. This really struck me because I think I have internalized some idea that experts have these academically rigorous approaches to problems where they draw on frameworks and data and tools blah blah to come to conclusions.
+```js
+function reverseInt(int) {
+  // let intAsArrayOfChars = int.toString().split('')
 
-Then Rein chimes in:
+  // STEP 2 - traverse, recombine
+  let reversedIntString = intAsArrayOfStrings.reverse().join("");
+}
+```
 
-> Yeah, the analytic decision-making mode is what we are taught, but it's not what people actually use, especially in high-pressure situations.
+All that remains is a second transmogrification back to the initial type and signing:
 
-The me again:
+```js
+function reverseInt(int) {
+  // let intAsArrayOfChars = int.toString().split('')
+  // let reversedIntString = intAsArrayOfChars.reverse().join('')
 
-> Oh right that was the other piece. [Making decisions under] high pressure. Which in corporate culture feels like all the time a lot.
+  // STEP 3 - Sign
+  let result = Number(reversedIntString) * Math.sign(num);
+}
+```
 
-Then some other folks tried to pivot the conversation to talk about how web tech is not really that high "pressure" because bad decisions don't kill people or necessarily tank the business immediately. So I continue:
+But it has come to my attention that a mathy person prefers preservation, whereby the input is arithmetically recombinated with the help of division and multiplication.
 
-> I understand where y’all went with that idea of “high pressure.” But even without the kinds of excess you describe — which I’m grateful not to feel at my (fairly spread out) 1000 person company — I still feel like I’m caught up in a heavy stream; not in a surprising or terribly uncomfortable way; but like a tireless machine of ambient conversation between me and my work and my coworkers that is always humming. So maybe “high pressure” in the sense of constant. Day to day I feel coerced into what feels like quick/on-the-spot decision-making, and always on guard for such; and that’s definitely challenging for me.
+```js
+function reverseInt(int) {
+  let remainder = 0;
+  let result = 0;
 
-> Like, I’m a developer, and I have to make a ton of small decisions all day long when coding. Even medium-sized decisions. (Like the other day deciding whether to coordinate on a revision of a standard component with a team in Spain with similar needs, vs plowing ahead myself because I knew that process may take weeks and I needed output in days). And often these decisions have to happen within a matter of minutes because of the above normal buzz. I think I remember there was another episode where folks talked about how developers make more decisions than CEOs on any given day?
+  while (int) {
+    remainder = int % 10;
+    result = result * 10 + remainder;
+    int = parseInt(int / 10);
+  }
+  return result;
+}
+```
 
-> I was finding comfort in this idea from Gary Klein because I can consider whatever my instinct draws on in that moment to be a practice of expertise. I can feel like an expert; and without any added insecurity for a lack of analytical rigor, if I had to explain my decision. I usually have confidence in my decisions, but I didn’t have a framing of it as expertness. A framing I was likely lacking, as Rein said, because I’ve been taught a dichotomy between analytical thinking and instinct, where there actually isn’t one; at least as I understand the idea without having read the book yet. But as someone relatively new in the industry — just around 6 years building web — being able to come into expertise or see it forming in my behavior is really nice.
+But there's no translation from integer to array. No shift. Grammar school level maths instead. I guess this solution exalts type consistency. Perhaps belies an obsession with `10`? The base binary pair. I can't imagine the benefit of doing that in a commercial software project so it could only be an academic fancy, benchmarked under extreme conditions. It's really clever, though.
 
-Earlier today, delving through _Software Development and Reality Construction_, I was delighted to discover another rebuke to my previous notion that part of expertise means memorizing and/or cataloguing phenomena that are presented during experience; and then how they are poked and prodded to produce ways forward, insights, decisions. It smacked of Klein and I wonder if Reinhard Keil-Slawik is influenced by Klein or conversely or rather they swarm with each other in that world of systems thinking, cybernetics, constructivism, etc...
+Also, been thinking about `slice` a lot today. Never stop dreaming:
 
-From Keil-Slawik's essay _Artifacts in Software Design_:
+```js
+let intAsStr = int.toString();
+new Array(intAsStr.length)
+  .fill(null)
+  .map((_, idx) => intAsStr.slice(-(idx + 1))[0])
+  .join("");
+```
 
-<p><img src="./assets/images/reinhard-keil-slawik-insight.png" width="600" style="margin: 0 auto; display: block"></p>
+# What's a bug?
 
-I'm nowhere near good enough a philosopher or familiar with the full discourse of these folks, but lets attempt some parsing.
+Tags: _software development, bugs_  
+7/15/2020
 
-Perhaps Klein is saying expertise -- ie "insight" -- is like an enrichening of your understanding. Our understanding being a cognitive structure derived from the encounter with our envionrment which includes phenomena (physical, etc...) and circumstance. Arriving at a conclusion about the moment does not involve some kind of a manual random access from a _brain-as-database_ that has been populated with a arrangements of stuff from "out there" - outside ourself/mind -- (previous cognitive structures); as if insight is just a result of recall or trial and error from an initial recall.
+> ...bugs are interesting and important in themselves: they define the boundary between what is understood and what is not. Hence, they show us where our weaknees are, and provide opportunities for us to learn and grow.
+>
+> <footer><small><cite>Software Development and Reality Construction</cite></small></footer>
+> <footer><small>Ch 5.1: The Denial of Error,  Joseph A Goguen</small></footer>
 
-Rather it's:
-
-<p><img src="./assets/images/reinhard-keil-slawik-insight-2.png" width="600" style="margin: 0 auto; display: block"></p>
-
-1 constructive structure vs many, I guess?
-
-I'm tempted to believe this because the thought of unbounded accumulation of stuff in the brain, and lookup at exponential runtime, doesn't seem like the way I arrive at decisions quickly; or, to the point about brain-as-database, that confronting a problem is recalling a familiar arrangement of phenomena and then a making a _guess-as-trial_. I mean, why do we feel so sure sometimes and the frequency we are right or "close enough" improves as we write more and more software.
-
-Keil-Slawik and kin are proposing the idea of human expertise as an individual construction of meaning as well as a co-constitutive emergence of our own body/mind wisdom and the "external memory" of symbols and tools we work with. The latter being turing machines, algebra, languages, frameworks, etc.... This affords us the benefit of a tradeoff: speed of resolution over perfectness. The example Keil-Slawik gives is of the ape who, if taught once to put sticks together to reach a banana, will subsequently devise similar means of combining objects to get the banana "without any hesitation...and any similar situation."
-
-I appreciate the implications that our software tools are this insight enshrined.
+The rush to fix bugs to recoup customer satisfaction is absolutely necessary when writing for capital. I just worry that without the proper retrospection we won't actually increase our understanding of the software, and therefore the recidivism rate of error will remain constant; or likely increase in the tail wind of growing complexity and entropy.
 
 # Recursion is too easy for writing nested menus in UI
 
-Tags: _javascript, recursion, react, UI, interviews_
-7/11/20
+Tags: _javascript, recursion, react, UI, interviews_  
+7/11/2020
 
-The other day I was challenged to build a UI for a recursive data set of a document graph -- a page menu. Despite recently spending some serious time thinking about recursion and even writing about it a week ago...I totally got stumped on this. I hadn't slept much the night before and was nervous performing in front of people -- not that totally explains why I couldn't call forth my dope skillz more readily. I got a nudge, and quickly realized the solution is a shockingly simple algorithm; especially when paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data:
+<figure>
+  <img src="./assets/images/made-for-a-party.jpg" width="600" style="margin: 0 auto; display: block">
+  <figcaption><center><small>Hannah Höch, Für ein Fest gemacht (Made for a Party), 1936
+Collage</small></center></figcaption>
+</figure>
+
+When paired with component-based framework tools and HTML's unordered lists. Since the rendering is done by the framework, we simply need to progressively stack render calls as we traverse the data. Such brutalist Dada.
 
 ```javascript
 function List({ items }) {
@@ -157,8 +191,6 @@ function List({ items }) {
   ))
 }
 ```
-
-Now that the initial wash of imposter syndrome and shame is subsiding I'm positive recursion in a UI context will stick well. Ror reasons a behavioral or psychological expert might better understan, my recall tends to impprove drastically for ideas I work through during a traumatic experience.
 
 # A Recursive Validation Function with User-Defined Exceptions
 
@@ -181,13 +213,13 @@ In my particular case I needed to validate a recursive data structure representi
 
 Breaking out from a recursive function is not quite as straightforward as you'd think. Also, historically I was used to seeing recursive code employed for tasks that wanted the call stack to build up all the way through the data.
 
-Like, flattening an array:
+Like, (deep) flattening an array:
 
 ```javascript
-function flatten(nestedArray, result = []) {
+function deepFlatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      flatten(element, result)
+      deepFlatten(element, result);
     } else {
       result.push(element)
     }
@@ -314,43 +346,23 @@ Even more, the elegance of this design with an outer try/catch allows for separa
 Tags: _javascript, interviews_  
 6/16/20
 
-Lydia Hallie's list of JS interview questions are extensive and probably one of the better resources out there -- the questions are asked in a systematic order that builds knowledge progressively, so it appears some modicum of pedagogy is involved; therefore avoiding that vacancy of substance of the typical listicle.
+Lydia Hallie's list of JS interview questions are extensive and probably one of the most comprehensive resources out there. The laundry list of questions runs the gamut from basic to esoteric language features, each of which progress you though various themes in what seem like meaningful sequences. It appears some modicum of pedagogy is involved, which therefore avoids that oft vacancy of substance typical of a listicle.
 
-Yesterday I was running through a chunk with an ex-colleague and started thinking about how the explanations might better serve less-experienced JS developers -- even more experienced devs who might need review. Ugh, I don't know if I'm not understanding it right. Perhaps the design of JS Objects is just a bit wack-a-doodle.
+Yesterday I was running through a block of questions with an ex-colleague and we noticed that some of the answers were a bit inchoate. It's so easy for meaning to drift when talking about language features especially when it comes to JS. Consider navigating the following taxonomy -- related to creating objects in JS -- for readers of all skill levels without specious reasoning (the kind of short-hand _you get the point_ or _close-enough_ superstitious explanation we sometimes use; which, by the way, I think greatly hindered my early career development): object, constructor, function, class, prototype, instance, static, method, `new`, `this`. It's quite hard but really worth being as correct as interpreting ECMAScript affords us.
 
-I decided to open up some discussion on Question 12 which tests your knowledge of the differntiated effects of using the `new` operator before a function call:
+I decided to open up some discussion on Question 12 which tests one's knowledge of the differntiated effects of using the `new` operator before a function call:
 
 [https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140](https://github.com/lydiahallie/javascript-questions/issues/82#issuecomment-645022140)
 
-Definitely called for a little trip over to YDKJS!
+Definitely called for a little revisit of YDKJS, no doubt.
 
 I also feel like I need some clarifcation on Question 14. What do we call the very root object in JS that all objects delegate to?
 
 [https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195](https://github.com/lydiahallie/javascript-questions/issues/26#issuecomment-645058195)
 
-Coming up with examples is hard. I think Question 11 could probably use a bit of rework too because there is a `this` scope issue that kind of overloads the focus of the problem. Here I go again:
+Coming up with examples is hard. I think Question 11 could use a bit of rework too because there is a `this` scope issue that somewhat overloads the focus of the problem. Here I go again:
 
 [https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354](https://github.com/lydiahallie/javascript-questions/issues/355#issuecomment-645066354)
-
-# Musings about Leetcode
-
-Tags: _leetcode, interviews_  
-6/16/2020
-
-For the past couple weeks I've been diving back into algorithm and data structure fundamentals. Back on that bullshit. This time around I'm paying the Leetcode gods to try and level up again quickly for the barage of upcoming timed standardized tests. _All the trauma of standardized testing in my childhood comes flooding back._ Sigh, unfortunately, I work in an industry that 1) doesn't trust your actual work experience, and 2) confuses (overemphasizes) one dimension of computer science -- algorithms and data structures -- with other (often more important) foundational web development knowledge.
-
-And though Leetcode is a piece of a new cottage industry that monetizes the legacy and supremacy of cold-war era interview practice (down through Gayle McDowell), it's what many companies still are reluctantly resigned to; I guess. I had a pretty sad conversation with an interlocutor the other day who bemoaned the use of these types of tests -- especially for JavaScript client engineers -- but had convinced himself they were a best of evils. 😢
-
-All that said, there is stuff to learn. And I have some minor realizations to share. Namely that learning how to actually get what you want out of Leetcode effectively is, itself, a thing.
-
-I learn best by waiting to master one type of problem set before moving on to the next -- like super gradual. Unfortunately, Leetcode's problem bucketing and taxonomy is tough to navigate if you're like me and kinda starting from the beginning each interview season. Trying to tackle Top Interview Questions at the jump was not ideal, in retrospect. Because, what you'll discover, is that the Array/Strings/Linked List/Trees buckets into which these questions are placed somewhat hide the techniques you should be studying: eg, Hash Table, Two Pointers, Binary Search, Divid and Conquer, Dynamic Programming, Backtracking. You can filter by these terms in the Tag list.
-
-But damn, how wild to expect the same level of competence in all these techniques for a commercial developer who uses a minimal amount day-to-day. Interviewing often feels like a crapshoot.
-
-Other things to consider.
-
-- Looking at the Solution tab -- aka "cheating" -- is totally fine and desirable. There's no magic to this. Despite my resistance to it, I believe a certain amount of memorization is just necessary. At first I confused why "Easy" problems seemed so hard; why they didn't just _come to me_. I'm no longer wasting my time trying to cultivate an innate _sense_ for this type of problem. I will not be Dijkstra's genius.
-- I've switched to working on problems in VSCode with live breakpoint debugging. There is simply no other way to write loops and keep your sanity.
 
 # Debugging TS in VSCode and Russel Ackhoff's Problem Treatments
 
@@ -583,6 +595,8 @@ Overall this design provides increased confidence that this display component, o
 Tags: _Semilattice, trees, coherence costs, critical theory, Christopher Alexander, Kojin Karatani_  
 **3/12/2020**
 
+<img src="/assets/images/semilattice.png" width="600" style="margin: 0 auto; display: block" />
+
 Lately I've been thinking about productivity and it's evolutionary rhythm with scale. Like, how easy the cadence ebbs. My lived experience is often multiplied slowdown. For example, we have split teams to tackle different product areas in parallel. Usually this means working separately in our "owned" codebases. But software is never neat. So when the team in Mendoza needs review on a changeset that touches our code area, we're talking timezone crossing to achieve a merge.
 
 It's late afternoon in Argentina wine country when I'm just digging my heals into a morning Philz roast.
@@ -601,35 +615,35 @@ And
 >
 > <footer><small><cite>Positions</cite></small>
 
-Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. But apparently that's what men in the industry used to think.
+Holy complicatedness, richness, depth! No wonder you can't just throw more devs at the problem. Though apparently that's what men in the industry used to think.
 
-Not too long into my first software gig my team of 5 engineers organized a book club and tackled _The Mythical Man Month_. That's when I really learned how dev teams became reduced to fungible "resources." (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?" So I apparently it's a quite current theme.) It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains.
+_---_
 
-Oh startup learnings. Entering an industry is a crash course y'all!
+Not too long into my first software gig my team of 5 engineers organized a book club and tackled _The Mythical Man Month_. That's when I really learned how dev teams became reduced to fungible "resources." (It wasn't long before I was at a happy hour and our head of sales was asking me, "Why can't we just ship the work you do to India?" So I apparently it's a historically recurrent theme.) It was also my first introduction to the idea that you can't just throw more people at software problems to achieve speed gains.
 
 > Adding manpower to a late software project makes it later.
 >
 > <footer><small><cite>The Mythical Man-Month</cite></small></footer>
 
-If we believe Jessica Kerr and the Jessica Kerrian systems theorists of our ilk, and on this point I do -- software is a symmathesy: _a learning system of learning parts_. Brooks must have believed something similar I just don't remember his words or if he had a systems-thinking bent.
+If we believe Jessica Kerr and the other cyberneticians of our ilk, and on this point I might -- software is a symmathesy: _a learning system of learning parts_. Brooks must have believed something similar I just don't remember his exact words.
 
-Brooks' insights feel situated as early symmathecist thinking. Software is so highly sophisticated, so highly _complicated_!, that command and control thinking can't intervene to establish order:
+Nonetheless, I interpolate. Brooks' insights feel situated as early symmathecist thinking. Software is so highly sophisticated, so highly _complicated_!, that command and control thinking can't intervene to establish order:
 
 > As time passes, the system becomes less and less well-ordered. Sooner or later the fixing cease to gain any ground. Each forward step is matched by a backward one.
 >
 > <footer><small><cite>Ibid.</cite></small></footer>
 
-So why does this happen? Like, despite Brooks' spacious, ethereal characterization of our work as _only slightly removed from pure thought-stuff_ where we build _castles in the air_ (words I do remember wonderingly)...we definitely live through a tangible stickiness, a slog, frustrations, indeterminate waiting, blockedness; especially mid-to-late in the build cycle. I swear there's something metallic about a build failure.
+So why does this happen? Like, despite Brooks' spacious, ethereal characterization of our work as _only slightly removed from pure thought-stuff_ where we build _castles in the air_ (words I do remember wonderingly)...we definitely live through a tangible stickiness, queues, waiting rooms; especially mid-to-late in the build cycle. Things get really hard. I swear there's something even metallic about a build failure.
 
-Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project gets harder because design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if the component handlers should call to the reducer, why are you calling `setState()` directly in the handler? Because...the rush to the finish line produces anxiety that strains communication. You shift from pensive philosopher to tactician; code breaker. Code review quality suffers; if only for the obvious reason that you need to dig in on constructing your own code for more hours in the day, decreasing mental reserves for context switching to someone else's. All that great senior leadership out the door. There's just less talking; less Slack ping pong. No matter how high-performing the team, I'm convinced there will be some communication degradation in the twilight hours.
-
-Here's another way to cut that slog from Jessica Kerr in her seminal reveal of software/symmathesy. Slog derived from complex semilatices:
-
-> In order to change our system, we need a mental model of it. Each developer has a mental model of the software we work on. Each developer’s mental model is necessarily incomplete and out of date. And, they’re each different from everyone else’s. (this is called Woods’ Law, if I recall correctly.) We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
+> In order to change our system, we need a mental model of it. Each developer has a mental model of the software we work on. Each developer’s mental model is necessarily incomplete and out of date. And, they’re each different from everyone else’s. (This is called Woods’ Law, if I recall correctly.) We spend time reconciling our mental models enough to communicate with each other; this is a coherence penalty.
 >
 > <footer><small><cite><a href="https://medium.com/@old_sound/code-is-a-palimpsest-c4fd0ebcd90c">the Origins of Opera and the Future of Programming</a></cite></small></footer>
 
-When I read Coda Hale's recent piece _Work Is Work_ all of this pain was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism that adds a seductive element for the modern mind struggling in their unwieldy symmathesies. What Karatani would call our "will to architecture". This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so similar to Brooks, but for orgs, Hale says:
+Well, we all know the drill and can recall with pretty sharp clarity what tends to happen. Making code changes later in a project becomes increasingly difficult because previous design decisions have constrained possibilities. More consistency is demanded; maybe not total, but if the component handlers should call to the reducer, why are you calling `setState()` directly in the handler? Because...the rush to the finish line produces anxiety that strains communication (within the already polynomial channeling). You shift from pensive philosopher to tactician; code breaker. Code review quality suffers; if only for the obvious reason that you need to double down on crafting and glueing code for more hours in the day. This, in turn, decreasing mental reserves for context switching to someone else's code. All that great senior leadership out the door. There's simply less consensus building. Public Slack channels are quieter. Regardless how high-performing the team, I'm convinced there will be some communication degradation in the twilight hours.
+
+_---_
+
+When I read Coda Hale's recent piece _Work Is Work_ all of this ugh was loaded into view again; and I really appreciate his analysis of how we end up in slog mode; and the antidote. Maybe the industry hadn't received a really concise reflection in a while. Maybe it's the mathematical proofing and formalism that adds a seductive element for the modern SWE struggling in their unwieldy symmathesies; what Karatani would call our "will to architecture". This piece was going around the Greater than Code sphere for sure. For my philosopher/poet brain for sure. Ok, so similar to Brooks, but for orgs, Hale says:
 
 > At some point in time, every organization realizes that it’s slowing down.
 >
@@ -742,15 +756,21 @@ About 11 years ago at Google I/O two dudes, Brian Fitzpatrick and Ben Collins-Su
 
 > Women are a very recent invention.
 >
-> <footer><small>Ursula K. Le Guinn</small></footer>
+> <footer><small>Ursula K. Le Guinn, <em>The Wave in the Mind</em></small></footer>
+
+Or, rather, *re*invented since they had been denied participation in Western STEM since at least the middle 1700s:
+
+> Women lost their security clearances very early in the stories of leading-edge science.
+>
+> <footer><small>Donna Haraway, <em>Modest Witness</em></small></footer>
 
 Despite the missed opporunity to cite the origins of congressive world-making in non-human-men being experience, indigenous practice, cooperative economics, anarchism, feminism, liberation theologies, etc...the talk is a pretty good orientation for ingressive types to think congressively about working with other people.
 
-👆🏻That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
+That's my subtext as I watch. I just wish men were erudite enough to understand they're re-invention. Non-mens have to keep rewinding it back. For example:
 
 > The men who wrote the [Agile] manifesto are unclear on whether they invited any women. Even so, the thing I notice from both the manifesto, the accompanying principles, and the fact that these 17 men call themselves ‘organizational anarchists’ is that what they came up with is inherently subversive, anti-authoritarian, and feminist. There is an emphasis on self-organising, collaboration, experimentation, welcoming change, and building high-trust and supportive relationships.
 >
-> <footer><small><cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite>, Hanna Thomas</small><footer>
+> <footer><small>Hanna Thomas, <cite><a href="https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba">Why Don’t We Just Call Agile What It Is: Feminist</a></cite></small><footer>
 
 Tech, like other industries, continues to produce the worst of/from man because its manifest teleology of _Progress_ (what Donna Haraway calls "Euclidean tales...of tragic detumescence", the "prick tale." ) -- sieved through history from the industrial revolution -- is wrong for the precarity of the Anthropocene and a damaged earth. For richness of our symmathesies. We all suffer for it.
 
@@ -796,6 +816,8 @@ Hillel Wayne turns a similar gaze navel-y and spotlights the peril of "charisma-
 
 Tags: _large applications, large teams, duplication_  
 **1/20/2020**
+
+<img src="/assets/images/doublemint.jpg" width="600" style="margin: 0 auto; display: block" />
 
 At the office I've sprinkled some in-between-project-work labor on a piece of documentation that attempts a heuristics for avoiding code duplication _across_ client and api layers. I kept seeing this type of repetition occur and it was creating too much maintenance risk in the code.
 
@@ -1474,7 +1496,7 @@ When we looked closer we noticed that at the moment of click an unwanted blur ev
 
 One hack we considered was changing the `onClick` handler of the sidebar button to `onMouseUp` -- the newly rendered button could receive that event (browsers are weird). But my colleague couldn't let it slide so we decided to troubleshoot the real issue: the sidebar getting rendered every time there was a field blur when it's props weren't changing.
 
-After [binary searching](#two-tales-of-binary-search) the code code up and down `<Page />`, deleting chunk by chunk until the re-renders stopped, we discovered the fix to be fairly straight forward. Just move the invocation of `connectSidebar` and `connectMain` outside of the `Template` function context into the module context. Fixing the
+After [binary searching](#two-tales-of-binary-search) the code code up and down `<Page />`, deleting chunk by chunk until the re-renders stopped, we discovered the fix to be fairly straight forward. Just move the invocation of `connectSidebar` and `connectMain` outside of the `Template` function context into the module context.
 
 ```javascript
 // Template.js
@@ -1487,7 +1509,7 @@ export default (...props) => {
 }
 ```
 
-Now, when `<Layout />` is rendered, the child component passed as the prop `sidebar` won't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function and calling it anew each time.
+Now, when `<Layout />` was rendered, the child component passed as the prop `sidebar` wouldn't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function in memory and executing it fresh every time.
 
 Sigh. We likely ended up in this place by not being careful with nested connectors and their subscription boundaries. Sometimes you forget that it's just functions all the way down. Like, declaring and assigning a component constructor inside another component constructor would not be how you'd typically compose your functions. I will humbly accept this not uncommon (read: forgivable) symptom of "bottom-up" programming. (See David Kourshid's [talk](https://www.youtube.com/watch?v=RqTxtOXcv8Y) about finite state machines and the sad stories of "bottom-up").
 
