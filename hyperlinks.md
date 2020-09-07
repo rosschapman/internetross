@@ -61,3 +61,9 @@
   > ["The more your tests resemble the way your software is used, the more confidence they can give you."](https://twitter.com/kentcdodds/status/977018512689455106)
 
   Developing this instinct really takes time. But this article from Kent is an erudite praxis to help you wrangle your test code to focus on the end user experience. It's also effectively an advertisement for principles that drove the design of React Testing Library, and how it saves you from the kind of gunfooting allowed by Enzyme. A great companion piece to [Avoid the Test User](https://kentcdodds.com/blog/avoid-the-test-user).
+
+### Typing
+
+- [Types as axioms, or: playing god with static types](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types/)
+
+This is a good one for TypeScript developers who normally think about typing as a way of applying _constraints_. As King notes, TS influences this since the language intends for you to apply annotations alongside dynamically typed JS. But what if we thought about types another way: not as constraints, but as _axiom schemas_. King invites us to shift from a predictive to a constructive approach. Considering a [similar post](https://www.hillelwayne.com/post/constructive/) from Hillel Wayne, this post feels squarely located in the software scholarship domain that cheers the data modeling as a skill to be cultivated.
