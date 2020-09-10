@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [](#)
 - [The loss of logical purity primacy](#the-loss-of-logical-purity-primacy)
 - [The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4](#the-awkwardsness-of-downloading-concurrent-asynchronous-academic-threads-around-20034)
 - [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
@@ -76,6 +77,64 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# Mathemathics and programming
+Tags: _decision-making, Gary Klein, >Code, recognition primed decision_  
+9/7/20
+
+
+
+Like many commercial software developers, math plays a sporadic role in my day-to-day work. That said, I wouldn't blithely relegate *knowing math* below knowing other techs like programming languages, web frameworks, and principles of software design/architecture. Math's core proposition is to abstract and reduce real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars. We should consider math a friendly dynamo for our thought stuff which can help us achieve faithful verisimilitudes all that hard business logic.
+
+My italicization of *knowing math* is an intentional problematizing. Let's promote *knowing math* in our industry as an ontological relationship with mathematical formalism, rather than the technological/technical prowess of calculation or proofing. As I've argued before, specificity is key for industry axioms which are built on falsehoods and create anxiety for less initiated developers or marginalized folks. 
+
+In this case, it's too much to ask that a software engineer's knowing of math means training in *doing* the math. Rather, we might consider math another collaborator, like a teammate; let's *think with* the math. We should know general applicabilities of math's realms in the same way you'd want a senior engineer to be wide enough with their knowledge to not mistake the trunk for the tree; that platform of the T-shape. In the same way I'd want a more senior React developer to understand component architectures as graphs, and the implications and limitations of hierarchical data pipelining. (And bonus points for being a student of Christopher Alexanders' semilattices.) 
+
+I'd say it would be really great if a software engineer could recognize when the applications of graph theory or combinatorics can assist in modeling product complexities. Because we can easily offload the fastidious implementation details when it comes time to write the code which will be a few lines copied or recreated from existing libraries or proofs.
+
+Some business problems map pretty well to higher-order math realms. Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low  cost order fulfillment. Affine cost structures -- resulting from, say, variable/variadic shipping concerns -- will increase complexity as your company scales, so you're talking about quite a bit of real-world complexity to model and adapt to. 
+
+What about creating an algorithm to satisfice a version of this problem where you have these rough requirements: 
+1. Orders must be completely fulfilled
+2. There will be variant shipping costs per supplier
+3. Orders can be *fully splittable* by supplier
+
+This kind of thing will break your brain once you start to grasp for a notional boundary around the requirements and inputs: supplier availability, supplier inventory availability, etc... 
+
+I was presented with a challenge like this recently and it took me a couple hours just to understand what this problem domain was; like, find my way to DOM through off-by-one google searches; a true StumbleUpon revival. Within minutes I practically broke out in a sweat after discovering multiple long-winded computer science papers written on the topic. It seemed a fantasy that I'd be capable of solving something like this within a reasonable amount of time. Nonetheless, after some patient browsing, I began to inculcate to this world and realize any solve was going to be an approximation of some sort; and that the nature of this whole class of optimization maximations for fulfillment problems takes a certain academic rigor yet still allows for [Good Enough™️](https://en.wikipedia.org/wiki/Principle_of_good_enough). And, a bit surprisingly for someone not used to needing math everyday, I found myself deep probability mathematics. 
+
+It also started to become clear that this wasn't a quick reach for the closest brute force linear assignment or dynamic programming algorithm. My inputs couldn't be structured into a cost matrix amenable to path finding, traversal, or Cartesian production. Which meant I could rule out potentials like Kuhn's Hungarian algorithm -- which I stumbled across, not mentioning for any particular reason. Ultimately the scope was something more akin to a *set cover* or networking problem. It was about imagining *all* probabilities between order items and suppliers, and then reducing these matches against cost constraints. "All probabilities" was a strong clue.
+
+By this point in my research I'm starting to cobble together a heuristic approach to the challenge agains a branch of mathematics called Combinatorics from where it seems I can pluck techs like combinations and permutations to make some educated guesses. The general step-rules of algorithm start to accrete into something like the following: 
+
+1. Generate all possible combinations of order items
+   - Order items are unique, therefore we are working with a Set. We can therefore use  a mathematical definition of a Powerset and create a function which outputs a set of all subsets of any set *S*: 
+   ```javascript
+   powerset([A, B, C]) === [[A],[B],[A,B],[C],[A,C],[B,C],[A,B,C]]
+   ```
+2. Generate all possible combinations of combinations order items that are less than or equal to the number of suppliers
+   - Effectively take the result of the Step 1 as the input Set for another powerset that only returns combinations of order item splits that can be fulfilled by available suppliers. For two suppliers:  
+   ```javascript
+   powersetBySize(powerset([A, B, C]), 2) === [[["A"]],[["B"]],[["A"],["B"]],[["A","B"]],[["A"],["A","B"]],[["B"],["A","B"]],[["C"]],[["A"],["C"]],[["B"],["C"]],[["A","B"],["C"]],[["A","C"]],[["A"],["A","C"]],[["B"],["A","C"]],[["A","B"],["A","C"]],[["C"],["A","C"]],[["B","C"]],[["A"],["B","C"]],[["B"],["B","C"]],[["A","B"],["B","C"]],[["C"],["B","C"]],[["A","C"],["B","C"]],[["A","B","C"]],[["A"],["A","B","C"]],[["B"],["A","B","C"]],[["A","B"],["A","B","C"]],[["C"],["A","B","C"]],[["A","C"],["A","B","C"]],[["B","C"],["A","B","C"]]]
+   ```
+3. Generate all permutations of suppliers
+4. Generate all viable *routes* by matching between the sized combinations of order items (result of Step 2) to supplier permutations (result of Step 3)
+   - Basically a fancy zipping computation
+5. Filter potential routes against constraints like supplier availability or available inventory
+6. Find the lowest cost route!
+
+Combinatoric applications for this algorithm are quite expensive: you can see the data set grows pretty fast above and my example above is for only 3 order items and 2 suppliers. If those numbers increase by any measure CPU will be tremendously exercised. (I believe the runtimes of these functions may be polynomial?) I can see why optimization becomes really important and a ripe problem space for academicians. Quickly glossing, I can imagine optimizing the looping functions to break when satsificing within a range of acceptance criteria rather than seeking a true minimum from all valid routes; or structring the data with Iterators or piping through transducers to minimize space complexity with lazy or eager techniques. 
+
+By the way, JavaScript has pretty underwhelming options for combinatorics. I found one [library](https://github.com/dankogai/js-combinatorics) that I found a bit awkward to use and ended up ditching in favor of a few standalone implementations of `powerset` and `permutations` so I could ensure the code would comply with how I was trying to express the above heuristic. Unsurprisingly, Python's `itertools` has combinatoric functions built in and even provides recipes for common tooling you can build on primitives like `permutations()` and `combinations()`. For example, `powerset()`.
+
+```python
+def powerset(iterable):
+    "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
+    s = list(iterable)
+    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+```
+Or simply import the blessed `more-itertools` library. Of course, this is expected for Python which is heavily developed for the data science world.
+
 
 # The loss of logical purity primacy
 
@@ -1463,12 +1522,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|  a  |  b  | a XOR b |
-| :-: | :-: | :-----: |
-|  0  |  0  |    0    |
-|  0  |  1  |    1    |
-|  1  |  0  |    1    |
-|  1  |  1  |    0    |
+|   a   |   b   | a XOR b |
+| :---: | :---: | :-----: |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
