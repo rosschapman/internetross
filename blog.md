@@ -43,7 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
-- [](#)
+- [Not so byzantine algorithm studies: Using math to deliver your medication](#not-so-byzantine-algorithm-studies-using-math-to-deliver-your-medication)
 - [The loss of logical purity primacy](#the-loss-of-logical-purity-primacy)
 - [The awkwardsness of downloading concurrent, asynchronous academic threads around 2003/4](#the-awkwardsness-of-downloading-concurrent-asynchronous-academic-threads-around-20034)
 - [Byzantine algorithm studies: Using math to reverse an integer](#byzantine-algorithm-studies-using-math-to-reverse-an-integer)
@@ -77,10 +77,10 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+# Not so byzantine algorithm studies: Using math to deliver your medication
 
-# Mathemathics and programming
-Tags: _decision-making, Gary Klein, >Code, recognition primed decision_  
-9/7/20
+Tags: _math, programming, probability, combinatorics_  
+9/9/20
 
 
 
@@ -90,18 +90,20 @@ My italicization of *knowing math* is an intentional problematizing. Let's promo
 
 In this case, it's too much to ask that a software engineer's knowing of math means training in *doing* the math. Rather, we might consider math another collaborator, like a teammate; let's *think with* the math. We should know general applicabilities of math's realms in the same way you'd want a senior engineer to be wide enough with their knowledge to not mistake the trunk for the tree; that platform of the T-shape. In the same way I'd want a more senior React developer to understand component architectures as graphs, and the implications and limitations of hierarchical data pipelining. (And bonus points for being a student of Christopher Alexanders' semilattices.) 
 
-I'd say it would be really great if a software engineer could recognize when the applications of graph theory or combinatorics can assist in modeling product complexities. Because we can easily offload the fastidious implementation details when it comes time to write the code which will be a few lines copied or recreated from existing libraries or proofs.
+I'd say it would be really great if a software engineer could recognize when the applications of graph theory, set theory, or probability can assist in modeling business complexities. Because we can easily offload the fastidious implementation details when it comes time to write the code which will be a few lines copied or recreated from existing libraries or proofs.
 
-Some business problems map pretty well to higher-order math realms. Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low  cost order fulfillment. Affine cost structures -- resulting from, say, variable/variadic shipping concerns -- will increase complexity as your company scales, so you're talking about quite a bit of real-world complexity to model and adapt to. 
+Some business problems map pretty well to higher-order math realms. Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low  cost order fulfillment. Affine cost structures -- resulting from, say, variable/variadic shipping concerns -- will increase complexity as your company scales, so you're talking about quite a bit of real-world complexity to model and adapt to.
 
 What about creating an algorithm to satisfice a version of this problem where you have these rough requirements: 
 1. Orders must be completely fulfilled
 2. There will be variant shipping costs per supplier
-3. Orders can be *fully splittable* by supplier
+3. Orders can be *fully splittable* by a supplier
 
 This kind of thing will break your brain once you start to grasp for a notional boundary around the requirements and inputs: supplier availability, supplier inventory availability, etc... 
 
-I was presented with a challenge like this recently and it took me a couple hours just to understand what this problem domain was; like, find my way to DOM through off-by-one google searches; a true StumbleUpon revival. Within minutes I practically broke out in a sweat after discovering multiple long-winded computer science papers written on the topic. It seemed a fantasy that I'd be capable of solving something like this within a reasonable amount of time. Nonetheless, after some patient browsing, I began to inculcate to this world and realize any solve was going to be an approximation of some sort; and that the nature of this whole class of optimization maximations for fulfillment problems takes a certain academic rigor yet still allows for [Good Enough™️](https://en.wikipedia.org/wiki/Principle_of_good_enough). And, a bit surprisingly for someone not used to needing math everyday, I found myself deep probability mathematics. 
+I was presented with a challenge like this recently and it took me a couple hours just to understand what this problem domain was; like, find my way to DOM through off-by-one google searches; a true StumbleUpon revival. Within minutes I practically broke out in a sweat after discovering multiple long-winded computer science papers written on the topic. Then more OMGs as I head into Cantor's theorem and Set Theory. 
+
+More and more it seemed a fantasy that I'd be capable of solving something like this within a reasonable amount of time. Nonetheless, after some deep breaths and patience recoup, I began to inculcate to this world and realize any solve was going to be an approximation of some sort; there was no silver bullet. The nature of this whole class of optimization maximations for fulfillment problems takes a certain academic rigor yet still allows for [Good Enough™️](https://en.wikipedia.org/wiki/Principle_of_good_enough). And, a bit surprisingly for someone not used to needing math everyday, I found myself soon deep in probability mathematics. 
 
 It also started to become clear that this wasn't a quick reach for the closest brute force linear assignment or dynamic programming algorithm. My inputs couldn't be structured into a cost matrix amenable to path finding, traversal, or Cartesian production. Which meant I could rule out potentials like Kuhn's Hungarian algorithm -- which I stumbled across, not mentioning for any particular reason. Ultimately the scope was something more akin to a *set cover* or networking problem. It was about imagining *all* probabilities between order items and suppliers, and then reducing these matches against cost constraints. "All probabilities" was a strong clue.
 
@@ -119,13 +121,14 @@ By this point in my research I'm starting to cobble together a heuristic approac
    ```
 3. Generate all permutations of suppliers
 4. Generate all viable *routes* by matching between the sized combinations of order items (result of Step 2) to supplier permutations (result of Step 3)
+   
    - Basically a fancy zipping computation
-5. Filter potential routes against constraints like supplier availability or available inventory
-6. Find the lowest cost route!
+5. Filter viable routes against both superficial and business constraints like like duplicated suppliers and  supplier availability and/or inventory
+6. Compute the lowest cost route!
 
-Combinatoric applications for this algorithm are quite expensive: you can see the data set grows pretty fast above and my example above is for only 3 order items and 2 suppliers. If those numbers increase by any measure CPU will be tremendously exercised. (I believe the runtimes of these functions may be polynomial?) I can see why optimization becomes really important and a ripe problem space for academicians. Quickly glossing, I can imagine optimizing the looping functions to break when satsificing within a range of acceptance criteria rather than seeking a true minimum from all valid routes; or structring the data with Iterators or piping through transducers to minimize space complexity with lazy or eager techniques. 
+Combinatoric applications for this algorithm are quite expensive: you can see how the cardinality flourishes pretty fast above, and my example is for a modest 3 order items and 2 suppliers. If those numbers increase by any measure CPU will be tremendously exercised. (I believe the runtimes of these functions may be polynomial?) I can see why optimization becomes an attractively ripe apple for academicians. Quickly glossing, I can imagine optimizing the looping functions to break before completion when satsificing within a range of acceptance criteria; or structuring the data as Iterators and/or piping through transducers to minimize space complexity with lazy or eager techniques.
 
-By the way, JavaScript has pretty underwhelming options for combinatorics. I found one [library](https://github.com/dankogai/js-combinatorics) that I found a bit awkward to use and ended up ditching in favor of a few standalone implementations of `powerset` and `permutations` so I could ensure the code would comply with how I was trying to express the above heuristic. Unsurprisingly, Python's `itertools` has combinatoric functions built in and even provides recipes for common tooling you can build on primitives like `permutations()` and `combinations()`. For example, `powerset()`.
+By the way, JS has pretty underwhelming options for combinatorics. I found one [library](https://github.com/dankogai/js-combinatorics) that I found a bit awkward to use and ended up ditching in favor of a few standalone implementations of `powerset` and `permutations` so I could ensure the code would comply with how I was trying to express the above heuristic. Unsurprisingly, Python's `itertools` has combinatoric functions built in and even provides recipes for common tooling you can build on primitives like `permutations()` and `combinations()`. For example, `powerset()`.
 
 ```python
 def powerset(iterable):
