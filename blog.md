@@ -88,11 +88,11 @@ Like many commercial software developers, math plays a more sporadic role in my 
 
 Btw, my italicization of *knowing math* is an intentional problematizing because I want to mess with the idea that *knowing math* is synonymous with demonstrating technical prowess for calculation or proofing. Instead, we should be talking about knowing *enough* math: like having an ontological relationship with mathematical formalism and general principles. Math The Good Parts. Otherwise, I fear we're risking an axiomatic blur that will gate keep devs for lack of fitness without a stronger STEM background. 
 
-I became *Meursault* from learning math in school alienated from material reality -- it was the medieval era of the late 80s and 90s when we had to choose between arts and math. But since partaking in commercial software life, I've rediscovered an appreciation for the higher-order applicabilities of math to business products; which functions in a very similar same way to the oft-desired need for senior engineers to go wide with their knowledge of the stack (regardless of specialization) so they can bear expertise on architecture and design. For example, why don't we desire for senior React developers to understand just enough graph theory to *see* component architectures as graphs and the implications of data pipelining and message passing in a graph (bonus points for being a student of Christopher Alexanders' semilattices); or just enough category theory to understand the legacy of composability of first class functions.  
+After years of pounding out calculation in school alienated from material reality, I became *Meursault* -- perhaps why I don't feel the need to champion for proofs. But since partaking in commercial software life, I've rediscovered an appreciation for the higher-order applicabilities of math to business products. This appreciation functions in a very similar same way to our oft-desired need for senior engineers to go T-shaped with their knowledge of the stack (regardless of specialization) so they can bear expertise on architecture and design. Math extends this way too. We can desire for senior React developers to understand just enough graph theory to *see* component architectures as graphs and the implications of data pipelining and message passing in a graph (bonus points for being a student of Christopher Alexanders' semilattices); or just enough category theory to understand the legacy of composability of first class functions.  
 
-I mean, once we sit down to write code, we can easily offload the fastidious implementation details; the few lines we'll copy/paste from existing math libraries.
+The thing is, it's not a tall order. We should be encouraging math this way! Some business problems map really well to higher-order maths. I mean, once we sit down to write code, we can easily offload the fastidious implementation details; the few lines we'll copy/paste from existing math libraries.
 
-Thing is, some business problems only map to higher-order math realms. Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Modern omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low-cost order fulfillment. Affine cost structures -- resulting from variable/variadic shipping dynamics -- will increase complexity as an ecommerce company scales. We're talking about quite a bit of real-world complexity to model and adapt to.
+Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Modern omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low-cost order fulfillment. Affine cost structures -- resulting from variable/variadic shipping dynamics -- will increase complexity as an ecommerce company scales. We're talking about quite a bit of real-world complexity to model and adapt to.
 
 What, then, when we're tasked to create an algorithm to satisfice a version of this problem where you have these rough requirements: 
 1. Orders must be completely fulfilled
@@ -137,7 +137,6 @@ def powerset(iterable):
     return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
 ```
 Or simply import the blessed `more-itertools` library. Of course, this is expected for Python which is heavily developed for the data science world.
-
 
 # The loss of logical purity primacy
 
