@@ -135,7 +135,7 @@ The general step-rules of algorithm gradually accreted into something resembling
 
 Now there's a well-suited mathy modeling!
 
-Some other thoughts...
+**Some other thoughts**
 
 Combinatoric applications for this algorithm are quite expensive: you can see how the cardinality flourishes pretty fast above, and my example is for a modest 3 order items and 2 suppliers. If those numbers increase by any measure CPU will be tremendously exercised. (I believe the runtimes of these functions may be polynomial?) I can see why optimization becomes an attractively ripe apple for academicians. Quickly glossing, I can imagine optimizing the looping functions to break before completion when satsificing within a range of acceptance criteria; or structuring the data as Iterators and/or piping through transducers to minimize space complexity with lazy or eager techniques.
 
