@@ -107,7 +107,10 @@ More and more it seemed a fantasy that I'd be capable of solving Amazon within a
 
 So, a bit surprisingly for someone not used to needing math everyday -- and certainly not trying to fuck with this: 
 
+<figure>
 <img src="./assets/images/fully_splittable.png" width="600" style="margin: 0 auto; display: block">
+<figcaption><center><small>Eq. (5a) ensures every order is fulfilled, and (5b) limits service provided by a store.</small></center></figcaption>
+</figure>
 
 I soon found myself drifting at a comfortable altitude through Probability and Combinatorics with the help of other cow path pavers -- we are community-taught developers, after all! -- crafting a studied, yet heuristic, approach from where I could thread my inputs through techs like combinations and permutations to make some educated guesses.
 
