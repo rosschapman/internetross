@@ -128,6 +128,10 @@ The general step-rules of algorithm start to accrete into something like the fol
 5. Filter viable routes against both superficial and business constraints like like duplicated suppliers and  supplier availability and/or inventory
 6. Compute the lowest cost route!
 
+Now there's a well-suited mathy modeling!
+
+Some other thoughts...
+
 Combinatoric applications for this algorithm are quite expensive: you can see how the cardinality flourishes pretty fast above, and my example is for a modest 3 order items and 2 suppliers. If those numbers increase by any measure CPU will be tremendously exercised. (I believe the runtimes of these functions may be polynomial?) I can see why optimization becomes an attractively ripe apple for academicians. Quickly glossing, I can imagine optimizing the looping functions to break before completion when satsificing within a range of acceptance criteria; or structuring the data as Iterators and/or piping through transducers to minimize space complexity with lazy or eager techniques.
 
 By the way, JS has pretty underwhelming options for combinatorics. I found one [library](https://github.com/dankogai/js-combinatorics) that I found a bit awkward to use and ended up ditching in favor of a few standalone implementations of `powerset` and `permutations` so I could ensure the code would comply with how I was trying to express the above heuristic. Unsurprisingly, Python's `itertools` has combinatoric functions built in and even provides recipes for common tooling you can build on primitives like `permutations()` and `combinations()`. For example, `powerset()`.
