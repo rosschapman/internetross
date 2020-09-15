@@ -82,30 +82,33 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _math, programming, probability, combinatorics_  
 9/9/20
 
+Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, I certainly wouldn't blithely demote _knowing math_ below other techs like programming languages, web frameworks, and principles of software design/architecture; which already sets up a false dichotomy, anyway.
 
+Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars -- math can be the friendly dynamo we need for achieving levels of faithful verisimilitude for real world complexities.
 
-Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, it doesn't mean we should blithely relegate *knowing math* below knowing other techs like programming languages, web frameworks, and principles of software design/architecture. The beautiful thing about math's core proposition is that it can become a friendly dynamo for achieving faithful verisimilitudes for the richness of product concerns. Math abstracts and reduces real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars.
+Italicizing _knowing math_ is an intentional problematization to to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. For software engineers, we can safely talk about knowing _enough_ math and having an ontological relationship with mathematical formalism and general principles. _Math The Good Parts_. _Good Enough Math_.
 
-Btw, my italicization of *knowing math* is an intentional problematizing because I really want to mess with the idea that *knowing math* is synonymous with demonstrating technical prowess for calculation or proofing. Instead, we should be talking about knowing *enough* math: like having an ontological relationship with mathematical formalism and general principles. Math The Good Parts. Otherwise, I fear we're risking an axiomatic blur that will gate keep devs for lack of fitness without a stronger STEM background. 
+Otherwise the bravado risks an axiomatic blur that will gate keep devs without a stronger STEM background for lack of fitness. Keep those gates open, please!
 
-After years of pounding out calculation in school, alienated from material reality, I became *Meursault* -- perhaps why I don't feel the need to champion for proofs. But since partaking in commercial software life, I've rediscovered an appreciation for the dynamo and how it's helps us build for capital. This appreciation performs in a very similar same way to our oft-desired will for Senior Engineers™ to go T-shaped with their knowledge of the stack so they can press more heavily on architecture and design. *Knowing math* should extend just this way too. For example, we can desire for senior React developers to understand just enough graph theory to *see* component architectures as graphs and the implications of data pipelining and message passing in a graph (bonus points for being a student of Christopher Alexanders' semilattices); or just enough category theory to understand the heritage and benefits of composability of first-class functions -- is JS even fun without a bit of FP?
+I also think the focus on calculation in early schooling, alienated from material reality, made me _Meursault_ for it -- perhaps why I don't feel the need to champion for proofs. It has been entering commercial software life where I've seen how the dynamo helps us first-hand that has triggered a newfound delight and appreciation. An appreciation that performs similarly to our oft-desired will for Senior Engineers™ to be T-shaped with their knowledge of the stack (in order that they can press more heavily on architecture and design).
 
-The thing is, it's not a tall order. We should be encouraging math this way because some  business problems map really well to higher-order maths and devs should be prepared for it, at least through the design phase. I mean, once we sit down to write code, we can easily offload the fastidious implementation details; the few lines we'll copy/paste from existing math libraries.
+We can coopt _knowing math_ like this. For example, we can desire for senior React developers to understand just enough graph theory to _see_ component architectures as graphs; the implications of data pipelining and message passing in a graph (bonus points for being a student of Christopher Alexanders' semilattices); or just enough category theory to understand the heritage and benefits of composability of first-class functions -- is JS even fun without a bit of FP? Some business problems map really well to higher-order maths and devs should be prepared for it, at least through the design phase. I mean, once we sit down to write code, we can easily offload the fastidious implementation details; the few lines we'll copy/paste from existing math libraries.
 
 Take, for example, a common e-commerce retail problem like Distributed Order Management (DOM). Modern omnichannel selling combined with cloud computing open a broad field of possibilities to achieve low-cost order fulfillment. Affine cost structures -- resulting from variable/variadic shipping dynamics -- will increase complexity as an ecommerce company scales. We're talking about quite a bit of real-world complexity to model and adapt to.
 
-What, then, when we're tasked to create an algorithm to satisfice a version of this problem where you have these rough requirements: 
+What, then, when we're tasked to create an algorithm to satisfice a version of this problem where you have these rough requirements:
+
 1. Orders must be completely fulfilled
 2. There will be variant shipping costs per supplier
-3. Orders can be *fully splittable* by a supplier
+3. Orders can be _fully splittable_ by a supplier
 
-This kind of thing will break your brain once you start to grasp for a rational boundary to contain the argument ramifications: supplier availability, supplier inventory availability, etc... 
+This kind of thing will break your brain once you start to grasp for a rational boundary to contain the argument ramifications: supplier availability, supplier inventory availability, etc...
 
-I was presented with a challenge like this recently and it took me a couple hours just to understand what this problem domain was; like, find my way to DOM through off-by-one google searches; a true StumbleUpon revival. Because I didn't know the math well-enough yet. Google is pretty fast though, and within minutes I practically broke out in a sweat after discovering multiple long-winded computer science papers written on the topic filled with intimidating mathy notations. Then more OMGs as I careened sharply into Cantor's theorem and Set Theory. Wait, am I doing math? 
+I was presented with a challenge like this recently and it took me a couple hours just to understand what this problem domain was; like, find my way to DOM through off-by-one google searches; a true StumbleUpon revival. Because I didn't know the math well-enough yet. Google is pretty fast though, and within minutes I practically broke out in a sweat after discovering multiple long-winded computer science papers written on the topic filled with intimidating mathy notations. Then more OMGs as I careened sharply into Cantor's theorem and Set Theory. Wait, am I doing math?
 
-More and more it seemed a fantasy that I'd be capable of solving Amazon within a reasonable amount of time because this gestalt was increasing aggressively. Nonetheless, after some deep breaths and patience recoup and having worked with enough devs without math experience, I began to inculcate to this world and realize any solve was going to be an approximation of some sort and probably wouldn't require me to crack open a text book; there was no silver bullet or excavation of secret proofs. Rather, this whole class of optimization maximations applied to fulfillment problems is a rigorous academic field, but when it meets the metal it softens and warms for [Good Enough™️](https://en.wikipedia.org/wiki/Principle_of_good_enough) programming. Each potential brute force linear assignment or dynamic programming algorithm was discarded. My inputs couldn't be structured into a decision table or cost matrix amenable to path finding, traversal, or Cartesian production. Which meant I could rule out potentials like Kuhn's Hungarian algorithm. In fact, the scope was something more akin to a *set cover* or networking problem -- still a brave new world, but less and less unbounded the more I scoured the web. Ulimately, my task was gonna be something toward imagining *all* probabilities between order items and suppliers, and then reducing these matches against cost constraints. "All probabilities" was a strong clue.
+More and more it seemed a fantasy that I'd be capable of solving Amazon within a reasonable amount of time because this gestalt was increasing aggressively. Nonetheless, after some deep breaths and patience recoup and having worked with enough devs without math experience, I began to inculcate to this world and realize any solve was going to be an approximation of some sort and probably wouldn't require me to crack open a text book; there was no silver bullet or excavation of secret proofs. Rather, this whole class of optimization maximations applied to fulfillment problems is a rigorous academic field, but when it meets the metal it softens and warms for [Good Enough™️](https://en.wikipedia.org/wiki/Principle_of_good_enough) programming. Each potential brute force linear assignment or dynamic programming algorithm was discarded. My inputs couldn't be structured into a decision table or cost matrix amenable to path finding, traversal, or Cartesian production. Which meant I could rule out potentials like Kuhn's Hungarian algorithm. In fact, the scope was something more akin to a _set cover_ or networking problem -- still a brave new world, but less and less unbounded the more I scoured the web. Ulimately, my task was gonna be something toward imagining _all_ probabilities between order items and suppliers, and then reducing these matches against cost constraints. "All probabilities" was a strong clue.
 
-So, a bit surprisingly for someone not used to needing math everyday -- and certainly not trying to fuck with this: 
+So, a bit surprisingly for someone not used to needing math everyday -- and certainly not trying to fuck with this:
 
 <figure>
 <img src="./assets/images/fully_splittable.png" width="600" style="margin: 0 auto; display: block">
@@ -114,23 +117,72 @@ So, a bit surprisingly for someone not used to needing math everyday -- and cert
 
 I soon found myself drifting at a comfortable altitude through Probability and Combinatorics with the help of other cow path pavers -- we are community-taught developers, after all! -- crafting a studied, yet heuristic, approach from where I could thread my inputs through techs like combinations and permutations to make some educated guesses.
 
-The general step-rules of algorithm gradually accreted into something resembling following: 
+The general step-rules of algorithm gradually accreted into something resembling following:
 
 1. Generate all possible combinations of order items
-   - Order items are unique, therefore we are working with a Set. We can therefore use  a mathematical definition of a Powerset and create a function which outputs a set of all subsets of any set *S*: 
+   - Order items are unique, therefore we are working with a Set. We can therefore use a mathematical definition of a Powerset and create a function which outputs a set of all subsets of any set _S_:
    ```javascript
-   powerset([A, B, C]) === [[A],[B],[A,B],[C],[A,C],[B,C],[A,B,C]]
+   powerset([A, B, C]) === [[A], [B], [A, B], [C], [A, C], [B, C], [A, B, C]];
    ```
 2. Generate all possible combinations of combinations order items that are less than or equal to the number of suppliers
-   - Effectively take the result of the Step 1 as the input Set for another powerset that only returns combinations of order item splits that can be fulfilled by available suppliers. For two suppliers:  
+   - Effectively take the result of the Step 1 as the input Set for another powerset that only returns combinations of order item splits that can be fulfilled by available suppliers. For two suppliers:
    ```javascript
-   powersetBySize(powerset([A, B, C]), 2) === [[["A"]],[["B"]],[["A"],["B"]],[["A","B"]],[["A"],["A","B"]],[["B"],["A","B"]],[["C"]],[["A"],["C"]],[["B"],["C"]],[["A","B"],["C"]],[["A","C"]],[["A"],["A","C"]],[["B"],["A","C"]],[["A","B"],["A","C"]],[["C"],["A","C"]],[["B","C"]],[["A"],["B","C"]],[["B"],["B","C"]],[["A","B"],["B","C"]],[["C"],["B","C"]],[["A","C"],["B","C"]],[["A","B","C"]],[["A"],["A","B","C"]],[["B"],["A","B","C"]],[["A","B"],["A","B","C"]],[["C"],["A","B","C"]],[["A","C"],["A","B","C"]],[["B","C"],["A","B","C"]]]
+   powersetBySize(powerset([A, B, C]), 2) ===
+     [
+       [["A"]],
+       [["B"]],
+       [["A"], ["B"]],
+       [["A", "B"]],
+       [["A"], ["A", "B"]],
+       [["B"], ["A", "B"]],
+       [["C"]],
+       [["A"], ["C"]],
+       [["B"], ["C"]],
+       [["A", "B"], ["C"]],
+       [["A", "C"]],
+       [["A"], ["A", "C"]],
+       [["B"], ["A", "C"]],
+       [
+         ["A", "B"],
+         ["A", "C"],
+       ],
+       [["C"], ["A", "C"]],
+       [["B", "C"]],
+       [["A"], ["B", "C"]],
+       [["B"], ["B", "C"]],
+       [
+         ["A", "B"],
+         ["B", "C"],
+       ],
+       [["C"], ["B", "C"]],
+       [
+         ["A", "C"],
+         ["B", "C"],
+       ],
+       [["A", "B", "C"]],
+       [["A"], ["A", "B", "C"]],
+       [["B"], ["A", "B", "C"]],
+       [
+         ["A", "B"],
+         ["A", "B", "C"],
+       ],
+       [["C"], ["A", "B", "C"]],
+       [
+         ["A", "C"],
+         ["A", "B", "C"],
+       ],
+       [
+         ["B", "C"],
+         ["A", "B", "C"],
+       ],
+     ];
    ```
 3. Generate all permutations of suppliers
-4. Generate all viable *routes* by matching between the sized combinations of order items (result of Step 2) to supplier permutations (result of Step 3)
-   
+4. Generate all viable _routes_ by matching between the sized combinations of order items (result of Step 2) to supplier permutations (result of Step 3)
+
    - Basically a fancy zipping computation
-5. Filter viable routes against both superficial and business constraints like like duplicated suppliers and  supplier availability and/or inventory
+
+5. Filter viable routes against both superficial and business constraints like like duplicated suppliers and supplier availability and/or inventory
 6. Compute the lowest cost route!
 
 Now there's a well-suited mathy modeling!
@@ -147,6 +199,7 @@ def powerset(iterable):
     s = list(iterable)
     return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
 ```
+
 Or simply import the blessed `more-itertools` library. Of course, this is expected for Python which is heavily developed for the data science world.
 
 # The loss of logical purity primacy
@@ -243,7 +296,7 @@ Making code do something requires exactness but that doesn't necessarily mean pr
 ```js
 function reverseInt(int) {
   // STEP 1 - morph
-  let intAsArrayOfStrings = int.toString().split('')
+  let intAsArrayOfStrings = int.toString().split("");
 }
 ```
 
@@ -254,7 +307,7 @@ function reverseInt(int) {
   // let intAsArrayOfChars = int.toString().split('')
 
   // STEP 2 - traverse, recombine
-  let reversedIntString = intAsArrayOfStrings.reverse().join('')
+  let reversedIntString = intAsArrayOfStrings.reverse().join("");
 }
 ```
 
@@ -266,7 +319,7 @@ function reverseInt(int) {
   // let reversedIntString = intAsArrayOfChars.reverse().join('')
 
   // STEP 3 - Sign
-  let result = Number(reversedIntString) * Math.sign(num)
+  let result = Number(reversedIntString) * Math.sign(num);
 }
 ```
 
@@ -274,15 +327,15 @@ But it has come to my attention that a mathy person prefers preservation, whereb
 
 ```js
 function reverseInt(int) {
-  let remainder = 0
-  let result = 0
+  let remainder = 0;
+  let result = 0;
 
   while (int) {
-    remainder = int % 10
-    result = result * 10 + remainder
-    int = parseInt(int / 10)
+    remainder = int % 10;
+    result = result * 10 + remainder;
+    int = parseInt(int / 10);
   }
-  return result
+  return result;
 }
 ```
 
@@ -291,11 +344,11 @@ But there's no translation from integer to array. No shift. Grammar school level
 Also, been thinking about `slice` a lot today. Never stop dreaming:
 
 ```js
-let intAsStr = int.toString()
+let intAsStr = int.toString();
 new Array(intAsStr.length)
   .fill(null)
   .map((_, idx) => intAsStr.slice(-(idx + 1))[0])
-  .join('')
+  .join("");
 ```
 
 # What's a bug?
@@ -330,7 +383,7 @@ function List({ items }) {
       <li>{item.name}</li>
       {item.children && <List expanded={expanded} items={item.children} />}
     </ul>
-  ))
+  ));
 }
 ```
 
@@ -361,13 +414,13 @@ Like, (deep) flattening an array:
 function deepFlatten(nestedArray, result = []) {
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      deepFlatten(element, result)
+      deepFlatten(element, result);
     } else {
-      result.push(element)
+      result.push(element);
     }
   }
 
-  return result
+  return result;
 }
 ```
 
@@ -375,16 +428,16 @@ Or, fetching a complete set of data from a remote source in chunks:
 
 ```javascript
 async function fetchAll(params, all = []) {
-  let chunk = await fetch(params)
-  let nextPage = chunk.nextPage
-  all = all.concat(chunk.data)
+  let chunk = await fetch(params);
+  let nextPage = chunk.nextPage;
+  all = all.concat(chunk.data);
 
   if (nextPage) {
-    let nextParams = { ...params, page: nextPage }
-    return await fetchAll(nextParams, all)
+    let nextParams = { ...params, page: nextPage };
+    return await fetchAll(nextParams, all);
   }
 
-  return all
+  return all;
 }
 ```
 
@@ -395,19 +448,19 @@ What I quickly discovered is that just trying to capture and emit an error from 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
-      if (required && !field) return false
+      if (required && !field) return false;
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema)
+        validate(field, schema);
       }
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -419,21 +472,21 @@ Your only recourse in a recursive function is relying on outer calls -- since th
 function validate(data, schema, errors = []) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
       if (required && !field) {
-        errors.push(error)
+        errors.push(error);
       }
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema, errors)
+        validate(field, schema, errors);
       }
     }
   }
 
-  return errors
+  return errors;
 }
 ```
 
@@ -445,21 +498,21 @@ In order to stop processing the org chart and return an _invalid_ result early, 
 function validate(data, schema) {
   for (let item of data) {
     for (let rule of schema) {
-      let field = item[rule.name]
-      let required = rule.required
+      let field = item[rule.name];
+      let required = rule.required;
 
       // It's even one less character to write! 🤣
       // Also now we have total control over the exception content
-      if (required && !field) throw new MissingFieldError(item, rule)
+      if (required && !field) throw new MissingFieldError(item, rule);
 
       // Recurse
       if (Array.isArray(field)) {
-        validate(field, schema)
+        validate(field, schema);
       }
     }
   }
 
-  return true
+  return true;
 }
 ```
 
@@ -472,12 +525,12 @@ Therefore we can rename and wrap our recursive function that throws, and put it 
 ```javascript
 function validate(data, schema) {
   try {
-    validateInner(data, schema)
+    validateInner(data, schema);
   } catch (error) {
     // returns new MissingFieldError()!
-    return error
+    return error;
   }
-  return true
+  return true;
 }
 ```
 
@@ -1177,13 +1230,13 @@ While maybes represent one or no value, Just or Nothing, Either implementations 
 Take Elliot's example of a small abstraction that hides `null` checking away in a kind of promisified ternary (which I've slightly modified):
 
 ```javascript
-const exists = (x) => x !== null
+const exists = (x) => x !== null;
 const ifExists = (value) =>
   exists(value)
     ? Promise.resolve(value)
-    : Promise.reject(`Invalid prop: ${value}`)
+    : Promise.reject(`Invalid prop: ${value}`);
 
-ifExists(prop.name).then(renderName).catch(log)
+ifExists(prop.name).then(renderName).catch(log);
 ```
 
 Here basic null checking and \*primitive" if/else binaries are replaced with a more expressive, semantically rich statement for the logical disjunction: proceed this way if success, or that way.
@@ -1535,12 +1588,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
@@ -1642,13 +1695,13 @@ After [binary searching](#two-tales-of-binary-search) the code code up and down 
 
 ```javascript
 // Template.js
-const Sidebar = connectSidebar(Sidebar)
-const Main = connectMain(Main)
+const Sidebar = connectSidebar(Sidebar);
+const Main = connectMain(Main);
 
 export default (...props) => {
   // ...
-  return <Layout sidebar={Sidebar} main={Main} />
-}
+  return <Layout sidebar={Sidebar} main={Main} />;
+};
 ```
 
 Now, when `<Layout />` was rendered, the child component passed as the prop `sidebar` wouldn't be invoked -- it's already been invoked and the return value of the component has been assigned. In other words, we are not creating a new function in memory and executing it fresh every time.
@@ -1762,7 +1815,7 @@ There are too many imports in this file. I'm staring down like 50 lines of impor
 And as am I'm looking at this statement inside a `render()` block:
 
 ```javascript
-const isSoldOut = this.props.statusType == SOLD_OUT
+const isSoldOut = this.props.statusType == SOLD_OUT;
 ```
 
 I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago:
@@ -1772,14 +1825,14 @@ I'm suddenly reminded of what Kyle Simpson told me on twitter a couple weeks ago
 That's it, that's my out. We can refactor this down to a data utility.
 
 ```javascript
-const isSoldOut = ({ status }) => status === SOLD_OUT
+const isSoldOut = ({ status }) => status === SOLD_OUT;
 ```
 
 Or we might even abstract this into a general utility if it makes sense:
 
 ```javascript
 const getTicketStatusType = (ticketProps) =>
-  STATUS_TYPES_MAP[get(ticketProps, 'status')]
+  STATUS_TYPES_MAP[get(ticketProps, "status")];
 ```
 
 While these functions are not decreasing the number of imports, I'm perhaps doing a few other useful things:
