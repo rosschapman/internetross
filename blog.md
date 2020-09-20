@@ -82,7 +82,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 Tags: _math, programming, probability, combinatorics_  
 9/9/20
 
-Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, I certainly wouldn't blithely demote _knowing math_ below other techs like programming languages, web frameworks, and principles of software design/architecture; which already sets up a false dichotomy, anyway.
+Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, I certainly wouldn't blithely demote _knowing math_ below other techs like programming languages, web frameworks, and principles of software design/architecture; which already sets up a false dichotomy, anyway. At least not anymore.
 
 Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars -- math can be the friendly dynamo we need for achieving levels of faithful verisimilitude for real world complexities.
 
