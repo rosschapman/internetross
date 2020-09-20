@@ -86,9 +86,9 @@ Like many commercial software developers, math plays a more sporadic role in my 
 
 Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars -- math can be the friendly dynamo we need for achieving levels of faithful verisimilitude for real world complexities.
 
-Italicizing _knowing math_ is an intentional problematization to to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. For software engineers, we can safely talk about knowing _enough_ math and having an ontological relationship with mathematical formalism and general principles. _Math The Good Parts_. Otherwise the bravado risks an axiomatic blur that will gate keep devs without a stronger STEM background for lack of fitness. Keep those gates open, please!
+Italicizing _knowing math_ is totally an intentional problematization to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. I think software engineers can, and should,  consider a relationship with math as knowing _enough_ math; like, an ontological relationship with math's formalism and general principles. _Math The Good Parts_, so to speak. Otherwise the bravado of equating math and problem solving or math as "hard" (dick) science of some kind is doomed to engender an axiomatic blur that will gate keep devs who are not deemed fit for lack of educational background or interest in fiddling with greek letters. Keep these gates wide open, por favor!
 
-(I also think the focus on calculation in early schooling, alienated from material reality, made me _Meursault_ for it -- perhaps why I don't feel the need to champion for proofs. It took entering commercial software life as an adult to see how the dynamo helps us first-hand.)
+(I also think the focus on calculation in my early schooling, alienated from material reality, made me quite _Meursault_ for it -- perhaps why I don't feel the need to champion for being mathy. It took entering commercial software life much later in life to see how the dynamo helps us first-hand and therefore able to consider embracing math (and being embraced by math) again.)
 
 We can coopt _knowing math_ to ramify like our desire for Senior Engineers™ to be T-shaped with their knowledge of the stack (in order that they can press more heavily on architecture and design). For example, we can desire for React developers to understand just enough graph theory to _see_ component architectures as graphs; the implications of data pipelining and message passing in a graph (bonus points for being a student of Christopher Alexanders' semilattices); or just enough category theory to understand the heritage and benefits of composability of first-class functions -- is JS even fun without a bit of FP? What else?
 
@@ -1588,12 +1588,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|  a  |  b  | a XOR b |
-| :-: | :-: | :-----: |
-|  0  |  0  |    0    |
-|  0  |  1  |    1    |
-|  1  |  0  |    1    |
-|  1  |  1  |    0    |
+|   a   |   b   | a XOR b |
+| :---: | :---: | :-----: |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
