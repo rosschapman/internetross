@@ -1,10 +1,12 @@
 <h3>Categories</h3>
 
 [What is Software](#what-is-software) |
+[Error Handling](#error-handling) |
 [State Machines](#state-machines) |
 [Functional Programming](#functional-programming) |
 [React](#react) |
 [Testing](#testing)
+[Typing](#typing)
 
 <hr>
 
@@ -13,6 +15,10 @@
 - [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 
   No Clojure experience actually required for this deep dive into what software "simplicity" really means and the hazardous semantic mistakes we constantly make with terms like "simple," "easy," "complex," "hard," when discussing our software preferences.
+
+- [Surving the Framework Hype Cycle - Brandon Hays](https://www.youtube.com/watch?time_continue=1464&v=9zc4DSTRGeM&feature=emb_logo)
+
+  How to win. How to lose.
 
 - [From complicated to complex](https://blog.jessitron.com/2019/09/26/from-complicated-to-complex/)
 
@@ -45,7 +51,7 @@
   The classic OO/Java burn. OO vs functional is never the right debate, but I swear it can be instructional to consider the manner in which these two paradigms map (simplistically) to the grammatical opposition of Noun vs Verb. I don't think software will ever escape linguistic and textual comparisons (ie _software is writing_). It's a kind of writing, and I bet your (more functional-style) transaction sequences in JavaScript are very verb-y:
 
   ```js
-  arr.transform.select.flatten.doAnotherThing
+  arr.transform.select.flatten.doAnotherThing;
   ```
 
 ### React
@@ -66,4 +72,4 @@
 
 - [Types as axioms, or: playing god with static types](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types/)
 
-This is a good one for TypeScript developers who normally think about typing as a way of applying _constraints_. As King notes, TS influences this since the language intends for you to apply annotations alongside dynamically typed JS. But what if we thought about types another way: not as constraints, but as _axiom schemas_. King invites us to shift from a predictive to a constructive approach. Considering a [similar post](https://www.hillelwayne.com/post/constructive/) from Hillel Wayne, this post feels squarely located in the software scholarship domain that cheers the data modeling as a skill to be cultivated.
+  This is a good one for TypeScript developers who normally think about typing as a way of applying _constraints_. As King notes, TS influences this since the language intends for you to apply annotations alongside dynamically typed JS. But what if we thought about types another way: not as constraints, but as _axiom schemas_. King invites us to shift from a predictive to a constructive approach. Considering a [similar post](https://www.hillelwayne.com/post/constructive/) from Hillel Wayne, this post feels squarely located in the software scholarship domain that cheers the data modeling as a skill to be cultivated.
