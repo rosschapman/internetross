@@ -86,7 +86,7 @@ Like many commercial software developers, math plays a more sporadic role in my 
 
 Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars -- math can be the companion dynamo we need for achieving levels of faithful verisimilitude for real world complexities (Keep It Savvy Stupid).
 
-Italicizing _knowing math_ is totally an intentional problematization to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. I think software engineers can, and should,  consider a relationship with math as knowing _enough_ math; like, an ontological relationship with math's formalism and general principles. _Math The Good Parts_, so to speak. Otherwise the bravado of equating math and problem solving or math as "hard" (dick) science of some kind is doomed to engender an axiomatic blur that will gate keep devs who are not deemed fit for lack of educational background or interest in fiddling with greek letters. Keep these gates wide open, por favor!
+Italicizing _knowing math_ is totally an intentional problematization to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. I think software engineers can, and should, consider a relationship with math as knowing _enough_ math; like, an ontological relationship with math's formalism and general principles. _Math The Good Parts_, so to speak. Otherwise the bravado of equating math and problem solving or math as "hard" (dick) science of some kind is doomed to engender an axiomatic blur that will gate keep devs who are not deemed fit for lack of educational background or interest in fiddling with greek letters. Keep these gates wide open, por favor!
 
 (I also think the focus on calculation in my early schooling, alienated from material reality, made me quite _Meursault_ for it -- perhaps why I don't feel the need to champion for being mathy. It took entering commercial software life much later in life to see how the dynamo helps us first-hand and therefore able to consider embracing math (and being embraced by math) again.)
 
@@ -213,25 +213,27 @@ Tags: _decision-making, Gary Klein, >Code, recognition primed decision_
 <figcaption><center><small>Femi Ogunbanjo & Hanne Klintoe, 1999, <em>The Loss of Sexual Innocence</em></small></center></figcaption>
 </figure>
 
-Back in February, my entire notion of _expertise_ and who experts make decisions was shifted after listening to episode 169 of the _Greater than Code_ podcast. If interrogated about experts and decisions I would have previously hazarded a guess that experts -- how/whom-ever defined -- bring a deeply refined and studied analysis to bear. Like, after 20 years of programming, a person can query their extensive psycho-somatic memory database using a rigor only gained through extensive tutelage, study, and practice.
+Back in February, my entire notion of _expertise_ and how experts make decisions was cracked after listening to episode 169 of the _Greater than Code_ podcast. While the podcast is rolling I'm discovering my socialized construction of _expert_ as some kind of uber-human with muscled query powers against a psycho-somatic access store, combined with a reined analytical rigor only gained through extensive tutelage, study, and practice.
 
-After finishing that sentence I'm struck by how cyberpunk-capitalist fantasy that sounds: the false equation of the brain with a persistent data store; the privileging of a narrative that expertise is tied to accumulation. The time-value of memory, perhaps!
+After writing the above sentence I'm struck by how neo-classical cyberpunk-capitalist fantasy that sounds: a techno-positivist realization of brain as database; the privileging expertise as accumulation. The time-value of memory perhaps.
 
-It's kind of wild: wondering about what sort of instinct decision-making _is_ in concrete terms. Especially for yours truly who has no real erudition of the inner-workings of the brain or human beings on a psychological or physiologiccal level.
+It's kind of wild: wondering about what sort of instinct decision-making really _is_; in concrete terms. (Especially for yours truly who has no real erudition of the inner-workings of the brain or human beings on a psychological or physiologiccal level.)
 
-Thankfully we have the >Code crew to help us amateurs consider Decision Theory from the saftey of our own home. In contrast to my dreamscape, episode 169 >Code panelists offered a different notion of expertise -- particularly when it's exercised in time pressure situations like our corporate business environs -- attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. To paraphrase Rein's paraphrasing of Gary Klein:
+Thankfully we have the >Code crew to help us navigate Decision Theory from the saftey of our own home. The podcast panelists offered a different notion of expertise attributed to Gary Klein's work _Sources of Power: How People Make Decisions_. Rein's paraphrasing of Gary Klein:
 
 > Expertise is an act of rapid mental simulation without formal analysis based on previous experience. It's more akin to "instinct" than a cartesian scientific methodology.
 
-Informed, not overly formal; certainly not grooved to Western patriarchal maths; but not totally informaled! Gary Klein calls this model for quick decision making the "recognition primed decision." _RPD_.
+Informed, not overly formal; certainly not grooved to Western patriarchal maths; but not totally informaled! Gary Klein calls this model for quick decision under time pressure situations in our business environs as doing "recognition primed decision." _RPD_.
 
-I find RPD comforting as a way to rethink my role as an expert despite fewer than a decade practicing my trade -- a trifling "mid-level" software engineer! While RPD does reveal the distinctions between less experienced and more experienced people -- notably the former's alacrity to arrive at a first course of action -- the fact that decision-making is more like pattern matching, identifying the least risky choice, or mentally modeling/imagining outcomes (see [Variations](https://en.wikipedia.org/wiki/Recognition_primed_decision#Variations)) -- the way I see it, RPD ramifies a permission for folks with less years of experience to face spontaneously emerging decision-making moments in the workplace without comprimising existential angst. That is, if we have an idea, we should trust our gut. RPD also beseeches us to expel myths like (quickly riffing): _Principal and Staff technologists have reached their eminent station by putting in the time to refine their powers of inspection, analysis, interpretation, evaluation; they've amassed all the good frameworks, methodologies, and systems into their memory bank; and decisions they make are conclusive (foreclosing, narrowly, the scope of possibilty) because of this special toolkit which is wielded with reason._
+I find RPD comforting as a way to rethink my role as an expert despite fewer than a decade practicing my trade: a trifling "mid-level" software engineer. While RPD reveals the distinctions between less experienced and more experienced people -- notably the former's alacrity to arrive at a first course of action -- RPD is more like pattern matching, identifying the least risky choice, or mentally modeling/imagining outcomes (see [Variations](https://en.wikipedia.org/wiki/Recognition_primed_decision#Variations))
 
-Reason and logic might factor into the mental simulation that occurs, but there's a primacy of imagination and _knowing deep down_; maybe strength of will, even?
+_Effectivement_, RPD ramifies a permission for folks with less years of experience to face spontaneously emerging decision-making moments in the workplace without comprimising existential angst. That is, if we have an idea, we should trust our gut. RPD also beseeches us to expel myths like (quickly riffing): _Principal and Staff technologists have reached their eminent station by putting in the time to refine their powers of inspection, analysis, interpretation, evaluation; they've amassed all the good frameworks, methodologies, and systems into their memory bank; and decisions they make are conclusive (foreclosing, narrowly, the scope of possibilty) because of this special toolkit which is wielded with reason._
+
+Reason and logic might factor into RPD mental simulation, but there's a primacy of imagination and _knowing deep down_. Strength of will even?
 
 I am enough. My powers to decide can be totally excellent.
 
-Of course, that doesn't mean my first guess won't be totally wrong. But hopefully I'm not asked to fix something urgent that far exceeds my bounded rationality of this domain; which could ramify harm on real people if the mark is missed.
+Of course, that doesn't mean my first guess won't be totally wrong. But hopefully I'm not asked to fix something urgent that far exceeds my bounded rationality of this domain; which might ramify harm on real people if the mark is missed.
 
 I did some additional reflection with the >Code community in their Slack on why I was feeling relieved by Klein's ideas (Jessica Kerr hearted this so I'm feeling proud to share!):
 
@@ -1588,12 +1590,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
