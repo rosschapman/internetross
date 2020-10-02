@@ -79,20 +79,23 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <hr>
 
-# Mixtape 9/30    
-Tags: _mixtape_    
+# Mixtape 9/30
+
+Tags: _mixtape_  
 9/30/20
 
-Not a day goes by when I don't witness the over/mis-signifying of "meeting" which basically damages possibilities for elevated communication. 
+Not a day goes by when I don't witness the over/mis-signifying of "meeting" which basically damages possibilities for elevated communication.
 
-> Calling the coordinated exchange of messages or moderated access to shared material (like a blackboard) a *conference* or *meeting* seems to neglect a factor that is rather important in meetings. Often the explicit exchange of messages is relatively unimportant compared with the development of social relations in the group of participants that happens simply by the fact that they are close to each other as humans for a while. 
-><footer><small><cite>Perspectives and Metaphors for Human-Computer Interaction</cite>, Susanne Maaß  and Horst Oberquelle</small></footer>
+> Calling the coordinated exchange of messages or moderated access to shared material (like a blackboard) a _conference_ or _meeting_ seems to neglect a factor that is rather important in meetings. Often the explicit exchange of messages is relatively unimportant compared with the development of social relations in the group of participants that happens simply by the fact that they are close to each other as humans for a while.
+>
+> <footer><small><cite>Perspectives and Metaphors for Human-Computer Interaction</cite>, Susanne Maaß  and Horst Oberquelle</small></footer>
 
 Thus, Zoom doomed, perhaps.
 
 👩🏻‍💻
 
 Penny per day in Clojure:
+
 ```clj
 (defn pennyPerDay [numDays]
   (reduce + (range 1 (+ numDays 1)))
@@ -102,21 +105,23 @@ Penny per day in Clojure:
 ```
 
 Penny per day in JS:
+
 ```js
 function pennyPerDay(numDays) {
   return Array(30)
     .fill(0)
-    .reduce((sum, _, i) => sum + i,  0)
+    .reduce((sum, _, i) => sum + i, 0);
 }
 
 pennyPerDay(30);
 ```
 
 Thread me a river. Most frequent terms in a list with Clojure:
+
 ```clj
 ; eg terms: {term1 5 term2 27  term3 9 term4 0 etc...}
 
-(defn most-freq-terms [terms] 
+(defn most-freq-terms [terms]
   (->> terms
        frequencies
        (sort-by val)
@@ -129,19 +134,23 @@ Thread me a river. Most frequent terms in a list with Clojure:
 👩🏻‍💻
 
 > How to truly love our age, and also how to somehow live and die well here, with each other?
+>
 > <footer><small><cite>Manifestly Haraway</cite>, Donna Haraway</small></footer>
 
 > The term [Anthropocene] appeals to a false universal of homogeneous “Man,” which was created with a white, Christian, heterosexual male person as the basis for the universal.
-> <footer><small><cite>Reflections on the Plantationocene: A Conversation with Donna Haraway and Anna Tsing/cite></small></footer>
+>
+> <footer><small><cite>Reflections on the Plantationocene: A Conversation with Donna Haraway and Anna Tsing</cite></small></footer>
 
-> The excess of modesty in feminist agendas of recent decades is not proportionate to the monstrous complexity of our reality, a reality crosshatched with fibre-optic cables, radio and microwaves, oil and gas pipelines, aerial and shipping routes, and the unrelenting, simultaneous execution of millions of communication protocols with every passing millisecond.    
-> 
-> ...    
-> 
+> The excess of modesty in feminist agendas of recent decades is not proportionate to the monstrous complexity of our reality, a reality crosshatched with fibre-optic cables, radio and microwaves, oil and gas pipelines, aerial and shipping routes, and the unrelenting, simultaneous execution of millions of communication protocols with every passing millisecond.
+>
+> ...
+>
 > Ours is a transformation of seeping, directed subsumption rather than rapid overthrow; it is a transformation of deliberate construction, seeking to submerge the white-supremacist capitalist patriarchy in a sea of procedures that soften its shell and dismantle its defenses, so as to build a new world from the scraps.
+>
 > <footer><small><cite>Xenofeminist Manifesto</cite></small></footer>
 
 > SILICON Valley’s most powerful monopoly may be how we perceive technology.
+>
 > <footer><small><cite>Particular Universals</cite>, Francis Tseng</small></footer>
 
 > Tsing positions capitalist exchange as first and foremost a way of making relations. The relations made by exchange in post-industrial settings are evident as, among other things, space- and time-making supply chains. For Tsing, the supply chain is not an inevitable solution to a predetermined need to facilitate the flow of capital and raw materials necessary for industrial production. It is a thoroughly social achievement of bureaucratic actors that circulates prestige and kinship along with wealth and exploitation. It is the disjunctures between sites, the differing aims of actors, the mismatched logics and practices of investors that makes it possible to exchange one thing for another and gain a remainder of value. Supply chains bring people and motivations and objects together, aligning patches of activity in ways that produce meaningfully valuable frictions. The translational function of supply chains – how they make things move even though the interests of the parties involved are imperfectly aligned – is what makes it possible to make profits through accumulation, salvage, and trade. This is the very spirit of capitalism for Tsing in this book: ‘translations across sites of difference are capitalism: they make it possible for investors to accumulate wealth’.
@@ -149,19 +158,21 @@ Thread me a river. Most frequent terms in a list with Clojure:
 > ...
 >
 > In a manner reminiscent of J.K. Gibson-Graham, they are concerned with identifying spaces in which life can be made bearable through fine-grained analysis of specific, situated practices. This may be deeply unsatisfying to readers who want a bold proposal for fixing the problems produced by modern capitalism, including the acceleration of climate change. There are no calls for revolution in these books.
+>
 > <footer><small><cite>Feminists write the Anthropocene: three tales of possibility in Late Capitalism</cite>, Danya Glabau</small></footer>
 
 > This claim to intersectionality as the dominant feminist method can be produced with such insistence that an interest in exploring other frames, for example assemblage, gets rendered as problematic and even produces WOC feminists invested in other genealogies as "race-traitors."
+>
 > <footer><small><cite>“I would rather be a cyborg than a goddess”: Becoming-Intersectional in Assemblage Theory</cite>, Jasbir Puar</small></footer>
 
-
 # Not so byzantine algorithm studies: Using math to deliver your medication
+
 Tags: _math, programming, probability, combinatorics_  
 9/9/20
 
-Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, I certainly wouldn't blithely demote _knowing math_ below other techs like programming languages, web frameworks, and principles of software design/architecture; which already sets up a false dichotomy, anyway. At least not anymore.
+Like many commercial software developers, math plays a more sporadic role in my day-to-day work. That said, I certainly wouldn't blithely demote _knowing math_ below other techs like programming languages, web frameworks, and principles of software design/architecture; which already sets up a false dichotomy, anyway.
 
-Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can almost always leverage easily into our favorite coding grammars -- math can be the companion dynamo we need for achieving levels of faithful verisimilitude for real world complexities (Keep It Savvy Stupid).
+Math presents a beautiful core proposition to software developers. Through its powers of abstracting and reducing real-world dynamics into expressable, repeatable, sequential logic -- which we can be lifted easily into our favorite coding grammars -- math can be the companion dynamo we need for achieving levels of faithful verisimilitude for real world complexities (Keep It Savvy Stupid).
 
 Italicizing _knowing math_ is totally an intentional problematization to mess with the idea that _knowing math_ is narrowly scoped to demonstrating technical prowess of calculation or proofing. I think software engineers can, and should, consider a relationship with math as knowing _enough_ math; like, an ontological relationship with math's formalism and general principles. _Math The Good Parts_, so to speak. Otherwise the bravado of equating math and problem solving or math as "hard" (dick) science of some kind is doomed to engender an axiomatic blur that will gate keep devs who are not deemed fit for lack of educational background or interest in fiddling with greek letters. Keep these gates wide open, por favor!
 
@@ -1667,12 +1678,12 @@ I'm generally against using overly clever code in codebases that are worked on b
 
 The docs will also introduce you to the algorithmic decision table for the XOR logic, which is another useful tool to expose new developers to.
 
-|   a   |   b   | a XOR b |
-| :---: | :---: | :-----: |
-|   0   |   0   |    0    |
-|   0   |   1   |    1    |
-|   1   |   0   |    1    |
-|   1   |   1   |    0    |
+|  a  |  b  | a XOR b |
+| :-: | :-: | :-----: |
+|  0  |  0  |    0    |
+|  0  |  1  |    1    |
+|  1  |  0  |    1    |
+|  1  |  1  |    0    |
 
 What always makes this sort of exposé interesting is that the early-web understanding of UI still colors our perception of UI work; like, UI is just a sprinkle of scripting and layout and browser wrangling that gently rests on top of the real software where the computer science happens. Or maybe it's changing. But I feel like there's still too much emotional labor educating the web dev community about complexity throughout all layers of this mushy cake stack. "Mushy" as in blended, bleeding, fluid, transitional. Not as in gross, unfit, unstable.
 
