@@ -99,7 +99,7 @@ _Motherland: Fort Salem_ and _Cobra Kai_ kinda fucks with all this too. Prick ta
 >
 > <footer><small><cite>Holobiont by Birth</cite>, Scott F. Gilbert</small></footer>
 
-Delighting in teen fiction is not a trifle. "It matters what worlds world worlds," reminds Haraway. And of course, a most important reminder from Le Guin, lest we believe the prick tales (which could cause major issues like exponential inequality, and/or loss of ecological balance): “People who deny the existence of dragons are often eaten by dragons. From within.”
+Delighting in teen fiction is not a trifle. "It matters what worlds world worlds," reminds Haraway. And of course, a most important reminder from Le Guin, lest we believe the prick tales (which, if they are not careful, could cause major issues like exponential inequality, and/or loss of ecological balance): “People who deny the existence of dragons are often eaten by dragons. From within.”
 
 # Mixtape 9/30
 
