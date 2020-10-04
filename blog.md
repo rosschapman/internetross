@@ -97,7 +97,7 @@ _Motherland: Fort Salem_ and _Cobra Kai_ kinda fucks with all this too. Prick ta
 
 > The immune system, rather than being imagined as a force of protective soldiers made by the host, can be thought of as a group of passport control agents and bouncers. They know who to let in and who to keep out--and they have learned this through millions of years of evolution.
 >
-> <footer><small><cite>Holobiont by Birth</cite>, Scott F. Gilbert</small></footer>
+> <footer><small><cite>Holobiont by Birth: Multilineage Individuals as the Concretion of Cooperative Processes</cite>, Scott F. Gilbert</small></footer>
 
 Delighting in teen fiction is not a trifle. "It matters what worlds world worlds," reminds Haraway. And of course, a most important reminder from Le Guin, lest we believe the prick tales (which, if they are not careful, could cause major issues like exponential inequality, and/or loss of ecological balance): “People who deny the existence of dragons are often eaten by dragons. From within.”
 
