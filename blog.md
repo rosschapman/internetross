@@ -43,6 +43,7 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 
 <h2>Table of Contents</h2>
 
+- [Reading my streaming fancies with Le Guin's Carrier Bag of Fiction](#reading-my-streaming-fancies-with-le-guins-carrier-bag-of-fiction)
 - [Mixtape 9/30](#mixtape-930)
 - [Not so byzantine algorithm studies: Using math to deliver your medication](#not-so-byzantine-algorithm-studies-using-math-to-deliver-your-medication)
 - [The loss of logical purity primacy](#the-loss-of-logical-purity-primacy)
@@ -78,6 +79,23 @@ Just over a year ago I started this journal as an outlet to brain dump about tha
 - [Starting a new blog and jumping right into an article I read about dependency injection using function parameters](#starting-a-new-blog-and-jumping-right-into-an-article-i-read-about-dependency-injection-using-function-parameters)
 
 <hr>
+
+# Reading my streaming fancies with Le Guin's Carrier Bag of Fiction
+
+Tags: _Ursula K. Le Guin, tv, teens, xenofeminism_
+10/4/2020
+
+Why do I have such a big attraction to teen fictions (like _Never Have I Ever_)? For a while I've been thinking it was the force of a stream, a soak, a wash of saudade made lighter by revisiting that time from a better place; a chance to relive with empathy for myself, to reclaim that time from the incapacitating fear of being vulnerable, navigating _coolness_ in the 80s/90s (a now more mainstreamed cultural topic since all storytellers are approaching their strength ~40). The journeys of these post-modern (mostly young women) protoganists through insecurity, heartbreak, the web of complex material and digital norms and hegemonies; the care they find for themselves and other people, with other people, emerging whole-enough with their collective--family/friend/mentor nexus; learning to survive the patriachal-colonial system, becoming disloyal, anti-heroes. It's all a differing sort of story from the "prick tale", where the Man-hero takes up arms against foe, real or imagined, creates the world in his vision; fealty to a cause which is only ever his own desire; pehaps the desire of the original Man he has inherited through gruff, nearly painful handshakes through time.
+
+It seems these stories might map well to The Carrier Bag Theory of Fiction, if I am allowed a primitive literary-criticism gloss. What is picked up along the way: the misinformation and guidance from elders (both useful to (re)combining a new narrative of self), the wrought learnings from misfired expressions of need (for "boys", peer acceptance, spiritual stability), the new kinds of love from parents and friends that evolve from changing circumstances. It seems especially apparent in the serials. Each episode there's a satisfying build, a paced _emergence_ that's lovely because the wins are not blood-soaked triumphs. Transitions, evolutions, forks, back-tracks, shifting winds, climbs, descents; it's a kind of Sunday hike through the woods with the Fellowship of the Ring in peacetime. Not the "linear, progressive, Time's-(killing)-arrow mode of the Techno-Heroic" (Even the fantastical dragon time appropriations of _Percy Jackson_ still fit the prick), but story that describes "what is in fact going on, what people actually do and feel, how people relate to everthing else in this vast sack, this belly of the universe, this womb of things to be and tomb of things that were, this unending story." Unending...but not _Neverending_. (Though perhaps a re-reading of Bastian's adventures is due now that I'm starting to finally put things into this sack (of a blog).)
+
+_Motherland: Fort Salem_ and _Cobra Kai_ kinda fucks with all this too. Prick tales recast and modulated are problematic. They can be awesome and interesting because they don't totally abandon tete-a-tete action (which, when crafted through martial arts is personally gripping (especially for an amateur artist of the martial myself)); and yet, these imaginative alternate worlds and thoughtful respun contemporaries can still carry out seditious ploys. Maybe we can think about Motherland and Cobra Kai straddling prick tale and carrier bags as tactics and technologies of xenofeminist adaptations, calibrations, speculations that transform through "seeping, directed subsumption," since there is no pure refuge from patriarchy anyway. Liminal bacteria waved through by situated materialist praxis. I couldn't reject _Cobra Kai_ whole cloth despite much of the character development of the teens is wrought through pugilisms (everyone literally joins a dojo); it's softenings and care for men feels valuable when toxic masculinity runs rampant in the culture. Also, I wonder about the dojo. The dojo is not entirely a violent space, but a deeply embodied, material space. Being punched in the face could be a technology of transformation when there are limited options for situated emergence in the hyperreal deserts of early 21st century SoCal.
+
+> The immune system, rather than being imagined as a force of protective soldiers made by the host, can be thought of as a group of passport control agents and bouncers. They know who to let in and who to keep out--and they have learned this through millions of years of evolution.
+>
+> <footer><small><cite>Holobiont by Birth</cite>, Scott F. Gilbert</small></footer>
+
+Delighting in teen fiction is not a trifle. "It matters what worlds world worlds," reminds Haraway. And of course, a most important reminder from Le Guin, lest we believe the prick tales (which could cause major issues like exponential inequality, and/or loss of ecological balance): “People who deny the existence of dragons are often eaten by dragons. From within.”
 
 # Mixtape 9/30
 
