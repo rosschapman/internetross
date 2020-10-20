@@ -28,7 +28,7 @@
     color: inherit;
 }
 .markdown-body h1, h2 {
-    border-bottom: none;
+    border-style: none;
     padding-bottom: 0;
 }
 video { 
