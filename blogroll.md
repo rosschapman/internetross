@@ -1,3 +1,8 @@
+<style>
+  .markdown-body h1, .markdown-body h2 {
+    border-style: none;
+  }
+</style>
 # Blogroll
 <ul>
   <li>
