@@ -1,3 +1,7 @@
+<style>
+  .markdown-body h1, .markdown-body h2 { border-style: none; padding-bottom: 0; }
+</style>
+
 <h3>Categories</h3>
 
 [What is Software](#what-is-software) |
